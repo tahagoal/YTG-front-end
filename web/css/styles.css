@@ -7323,8 +7323,7 @@
     padding: 15px; }
     @media (min-width: 768px) {
       .ftco-section-2 .section-2-blocks-wrapper .text {
-        padding: 10% 7%;
-        background: rgba(0, 0, 0, 0.02); } }
+        padding: 7%; } }
     .ftco-section-2 .section-2-blocks-wrapper .text h3 {
       margin-bottom: 50px; }
   
@@ -8019,4 +8018,19 @@
 .center{
     margin: 0 auto;
     display: table;
+}
+
+.title-section{
+    margin-top: 50px;
+}
+
+.underline_black::after{
+    content: "";
+    position: absolute;
+    height: 10px;
+    top: 50px;
+    border-radius: 10px;
+    width: 50px;
+    left: 47.5%;
+    background-color: black;
 }
