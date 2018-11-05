@@ -206,3 +206,24 @@ function hideVideo(div,video_id) {
   document.getElementById(video_id).src = cleaned;
   document.getElementById(div).style.display = 'none';
 }
+
+
+var a = 0;
+$(window).scroll(function() {
+
+  var oTop = $('#counter').offset().top - window.innerHeight;
+  if (a == 0 && $(window).scrollTop() > oTop) {
+      a = 1;
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 2500,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+    }
+})

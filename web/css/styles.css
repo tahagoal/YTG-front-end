@@ -4007,7 +4007,7 @@
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Quicksand', sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -4091,8 +4091,8 @@
     left: 0;
     z-index: 1060;
     display: block;
-    max-width: 276px;
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    max-width: 276px;    
+    font-family: 'Quicksand', sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6769,7 +6769,7 @@
       border: 1px solid #dee2e6 !important; } }
   
   body {
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Quicksand', sans-serif;
     background: #fff;
     font-size: 16px;
     line-height: 1.8;
@@ -6938,7 +6938,8 @@
       line-height: 1.7;
       color: rgba(255, 255, 255, 0.7);
       font-weight: 300;
-      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+        font-family: 'Quicksand', sans-serif;
+    }      
     @media (max-width: 991.98px) {
       .ftco-cover .btn {
         width: 100% !important; } }
@@ -6947,14 +6948,14 @@
       color: #fff; }
     .ftco-cover.overlay {
       position: relative; }
-      .ftco-cover.overlay:before {
+      /* .ftco-cover.overlay:before {
         content: "";
         background: rgba(0, 0, 0, 0.3);
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
-        right: 0; }
+        right: 0; } */
     .ftco-cover .ftco-vh-100 {
       min-height: 700px !important; }
   
@@ -7094,7 +7095,10 @@
     padding: 12em 0; }
   
   .ftco-section {
-    padding: 30px 0;
+    padding: 50px 0px 100px 0px;
+}
+.ftco-section-2 {
+    padding: 50px 0px 100px 0px;
 }
   
   .ftco-bg-dark {
@@ -7104,7 +7108,8 @@
     font-size: 16px;
     background: #23232f;
     border-top: 1px solid #eeeeee;
-    padding: 5em 0; }
+    padding: 20px 0px 0px 0px; 
+}
     .ftco-footer .ftco-footer-logo {
       text-transform: uppercase;
       letter-spacing: .1em; }
@@ -7500,7 +7505,7 @@
         color: white; 
     }
     .block-6 .media-body p {
-      font-size: 22px; 
+      font-size: 18px; 
         font-weight: bold;
     }
   
@@ -8025,19 +8030,19 @@
 }
 
 .btn-2g:hover {
-	box-shadow: 0 4px #0ead55;
+	/* box-shadow: 0 4px #0ead55; */
 	top: 2px;
 }
 
 .btn-2g:active {
-	box-shadow: 0 0 #0ead55;
+	/* box-shadow: 0 0 #0ead55; */
 	top: 6px;
 }
 
 .btn-2 {
     background: #0ed467;
     color: #fff;
-    box-shadow: 0 6px #0ead55;
+    /* box-shadow: 0 6px #0ead55; */
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;
@@ -8084,7 +8089,7 @@
 
 .card_section .block-10{
     margin: 20px;
-    box-shadow: 1px 1px 12px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.1);
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
@@ -8104,9 +8109,9 @@
 }
 
 .my-float-partner{
-    font-size: 50px !important;
-    margin-top: 25px;
-    margin-left: 30px;
+    font-size: 40px !important;
+    margin-top: 23px;
+    margin-left: 25px;
 }
 
 .my-float {
@@ -8116,14 +8121,14 @@
 
 .float_partner{
     display: -webkit-inline-box;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     right: 40%;
     background-color: #0ed467;
     color: #FFF;
     border-radius: 100%;
     text-align: center;
-    box-shadow: 2px 2px 3px #999;
+    /* box-shadow: 2px 2px 3px #999; */
 }
 
 .float {
@@ -8136,7 +8141,7 @@
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    box-shadow: 2px 2px 3px #999;
+    /* box-shadow: 2px 2px 3px #999; */
 }
 
 .partners_section img{
