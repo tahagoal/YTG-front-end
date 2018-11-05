@@ -23,6 +23,7 @@
 
     <link rel="stylesheet" href="../css/aos.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="">
@@ -57,21 +58,26 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Careers</a>
                     </li>
+
+                    <li class="btn-li-nav">
+                        <a href="#" class="btn-nav">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="ftco-cover overlay" style="background-image: url(images/bg_1.jpg);" id="section-home" data-aos="fade" data-stellar-background-ratio="0.5">
+    <section class="ftco-cover overlay" style="background-image: url(../assets/imgs/slider_1.jpg);" id="section-home" data-aos="fade"
+        data-stellar-background-ratio="0.5">
         <div class="container">
-            <div class="row align-items-center justify-content-center ftco-vh-100">
-                <div class="col-md-8 text-center">
-                    <h1 class="ftco-heading mb-4" data-aos="fade-up" data-aos-delay="500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h1>
-                    <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up" data-aos-delay="600">
+            <div class="row align-items-center ftco-vh-100">
+                <div class="col-md-4">
+                    <h1 class="ftco-heading mb-4 underline_white" data-aos="fade-up" data-aos-delay="500">Your Slogan Goes here</h1>
+                    <!-- <h2 class="h5 ftco-subheading mb-5" data-aos="fade-up" data-aos-delay="600">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                         <p data-aos="fade-up" data-aos-delay="700">
                             <a href="https://free-template.co/" target="_blank" class="btn btn-outline-white px-4 py-3">Lorem ipsum</a>
-                        </p>
+                        </p> -->
                 </div>
             </div>
         </div>
@@ -79,7 +85,7 @@
 
     <section class="ftco-section-2">
         <div class="container-fluid">
-            <div class="row title-section">
+            <div class="title-section">
                 <div class="col-sm-12">
                     <h3 class="center underline_black">
                         youthinkgreen
@@ -87,92 +93,295 @@
                 </div>
             </div>
             <div class="section-2-blocks-wrapper row no-gutters">
-                <div class="img col-sm-12 col-md-6" style="background-image: url('images/image_4.jpg');" data-aos="fade-right">
+                <div class="img col-sm-12 col-md-6" data-aos="fade-right">
+                    <center class="video_img">
+                        <div id="playme" onclick="revealVideo('video','youtube')">
+                            <img src="../assets/imgs/play-button.png" style="width: 15%;filter: brightness(0) invert(1);">
+                        </div>
+                    </center>
+                </div>
+
+                <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
+                    <div class="lightbox-container">
+                        <div class="lightbox-content">
+
+                            <button onclick="hideVideo('video','youtube')" class="lightbox-close">
+                                Close | ✕
+                            </button>
+                            <div class="video-container">
+                                <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/WsptdUFthWI?showinfo=0" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="text col-md-6">
                     <div class="text-inner align-self-start" data-aos="fade-up">
+                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+                            massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 
-                        <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa..</p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+                            massa..
+                        </p>
                     </div>
                     <div class="col-md-12" data-aos="fade-up">
-                            <button class="btn btn-2 btn-2g center">Button</button>
+                        <button class="btn btn-2 btn-2g center">More</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+
+    <section class="ftco-section-2 bg-light">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">About theOrder</h2>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#" class="py-2 d-block">About Us</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Lawyers</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Blog</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="title-section">
+                <div class="col-sm-12">
+                    <h3 class="center underline_black">
+                        Programs & Services
+                    </h3>
                 </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Communities</h2>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#" class="py-2 d-block">Support</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Practice Areas</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Won Cases</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Privacy</a>
-                            </li>
-                        </ul>
+            </div>
+            <div class="section-2-blocks-wrapper row no-gutters">
+                <div class="row" style="margin: 35px 0px;">
+                    <div class="col-sm-6 col-md-4 card_section" data-aos="fade-right">
+                        <div class="block-10">
+                            <div class="won-img" style="background-image: url(../assets/imgs/card1.jpeg);"></div>
+                            <div class="person-info">
+                                <span class="name-2 mb-3">Program 1</span>
+                                <p>A life changing experience that nurtures youth capacity with modern innovative sustainability
+                                    practices and Entrepreneurship skills ...</p>
+                                <span class="result">
+                                    <a href="#" class="float">
+                                        <i class="fa fa-plus my-float"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Contact Information</h2>
-                        <ul class="list-unstyled">
-                            
-                        </ul>
+                    <div class="col-sm-6 col-md-4 card_section" data-aos="fade-up">
+                        <div class="block-10">
+                            <div class="won-img" style="background-image: url(../assets/imgs/card2.jpeg);"></div>
+                            <div class="person-info">
+                                <span class="name-2 mb-3">Program 2</span>
+                                <p>GTC, A National movement to turn university campuses into green environmental-friendly campuses
+                                    as role models societal development ...</p>
+                                <span class="result">
+                                    <a href="#" class="float">
+                                        <i class="fa fa-plus my-float"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Opening Hours</h2>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#" class="py-2 d-block">Mon - Thu: 9:00 - 21 00</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Fri 8:00 - 21 00</a>
-                            </li>
-                            <li>
-                                <a href="#" class="py-2 d-block">Sat 9:30 - 15: 00</a>
-                            </li>
-                        </ul>
+                    <div class="col-sm-6 col-md-4 card_section" data-aos="fade-left">
+                        <div class="block-10">
+                            <div class="won-img" style="background-image: url(../assets/imgs/card1.jpeg);"></div>
+                            <div class="person-info">
+                                <span class="name-2 mb-3">Program 3</span>
+                                <p>Building the next generation of sustainability leaders through SFL for juniors. A new educational
+                                    approach executed among a couple ...</p>
+                                <span class="result">
+                                    <a href="#" class="float">
+                                        <i class="fa fa-plus my-float"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <div class="ftco-section green_section">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-3 col-sm-6" data-aos="fade-up">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon mb-4">
+                            <img src="../assets/imgs/education.png">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">+1000</h3>
+                            <p>Hours training & capacity building</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon mb-4">
+                            <img src="../assets/imgs/group.png">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">30</h3>
+                            <p>Strategic partnership</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon mb-4">
+                            <img src="../assets/imgs/cap.png">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">250</h3>
+                            <p>Graduated nascent enterpreneurs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon mb-4">
+                            <img src="../assets/imgs/startup.png">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">+25</h3>
+                            <p>Start-up ideas</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ftco-section partners_section">
+        <div class="container">
+            <div class="title-section">
+                <div class="col-sm-12">
+                    <h3 class="center underline_black">
+                        Our Partners
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6" data-aos="fade-up">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/partner1.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/PARTNER2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/PARTNER3.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <a href="#" class="float_partner">
+                                <i class="fa fa-plus my-float-partner"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-center">Be the next</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ftco-section bg-light partners_section">
+        <div class="container">
+            <div class="title-section">
+                <div class="col-sm-12">
+                    <h3 class="center underline_black">
+                        Youthinkgreen in media
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6" data-aos="fade-up">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/forbes-01.png" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/media 2.png" style="width: 70%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/Vector Smart Object.png" style="width: 90%; margin-top: 15px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon">
+                            <img src="../assets/imgs/media 4.png" style="width: 90%;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">youthinkgreen</h2>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <!-- <h2 class="ftco-heading-2">Communities</h2> -->
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="py-2 d-block">Know - Engage - Benefit</a>
+                            </li>
+                            <li>
+                                <a href="#" class="py-2 d-block">Support - Join</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
+                            <li style="padding: 0px 15px;">
+                                <img src="../assets/imgs/facebook.png">
+                            </li>
+
+                            <li style="padding: 0px 15px;">
+                                <img src="../assets/imgs/twitter.png">
+                            </li>
+
+                            <li style="padding: 0px 15px;">
+                                <img src="../assets/imgs/instagram.png">
+                            </li>
+                        </ul>
+                        <div>
+                                <button class="btn btn-2 btn-2g">Subscribe</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

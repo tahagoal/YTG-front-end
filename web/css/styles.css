@@ -144,9 +144,6 @@
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects; }
-    a:hover {
-      color: #f90b1a;
-      text-decoration: underline; }
   
   a:not([href]):not([tabindex]) {
     color: inherit;
@@ -6776,17 +6773,15 @@
     background: #fff;
     font-size: 16px;
     line-height: 1.8;
-    font-weight: 300; }
+    font-weight: 300; 
+    overflow-x: hidden;
+}
   
   a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
     color: #0ed467; }
-    a:hover {
-      text-decoration: none;
-      color: #0ed467; }
-  
   h1, h2, h3, h4, h5,
   .h1, .h2, .h3, .h4, .h5 {
     line-height: 1.5;
@@ -6805,7 +6800,7 @@
     top: 10px; }
     @media (max-width: 991.98px) {
       .ftco-navbar-light {
-        background: #000 !important;
+        background: white !important;
         top: 0;
         position: relative; } }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
@@ -6823,7 +6818,17 @@
           padding-top: 10px;
           padding-bottom: 10px;
           padding-left: 0px;
-          padding-right: 0px; } }
+          padding-right: 0px;
+            color:black;
+        } 
+        .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+            color: #0ed467 !important;
+        }
+
+        .btn-li-nav {
+            margin-top: 6px !important;
+        }
+    }
     .ftco-navbar-light .navbar-nav > .nav-item.ftco-seperator {
       position: relative;
       margin-left: 20px;
@@ -6857,7 +6862,7 @@
       color: rgba(255, 255, 255, 0.5); }
     .ftco-navbar-light .navbar-toggler {
       border: none;
-      color: rgba(255, 255, 255, 0.5) !important;
+      color: rgba(0,0,0, 0.5) !important;
       cursor: pointer;
       padding-right: 0;
       text-transform: uppercase;
@@ -6911,11 +6916,6 @@
         transition: .3s all ease-out; }
       .ftco-navbar-light.scrolled .navbar-brand {
         color: #000; }
-        .ftco-navbar-light.scrolled .navbar-brand span {
-          font-size: 28px; }
-  
-  .navbar-brand span {
-    font-size: 28px; }
   
   .bg-image, .ftco-cover {
     background-size: cover;
@@ -7094,25 +7094,26 @@
     padding: 12em 0; }
   
   .ftco-section {
-    padding: 7em 0; }
+    padding: 30px 0;
+}
   
   .ftco-bg-dark {
     background: #3c312e; }
   
   .ftco-footer {
     font-size: 16px;
-    background: #fff;
+    background: #23232f;
     border-top: 1px solid #eeeeee;
-    padding: 8em 0; }
+    padding: 5em 0; }
     .ftco-footer .ftco-footer-logo {
       text-transform: uppercase;
       letter-spacing: .1em; }
     .ftco-footer .ftco-footer-widget h2 {
       font-weight: normal; }
     .ftco-footer p {
-      color: rgba(0, 0, 0, 0.3); }
+        color: #d0d0d0; }
     .ftco-footer a {
-      color: rgba(0, 0, 0, 0.3); }
+        color: #d0d0d0; }
       .ftco-footer a:hover {
         color: #0ed467; }
     .ftco-footer .ftco-heading {
@@ -7120,7 +7121,7 @@
     .ftco-footer .ftco-heading-2 {
       font-size: 18px;
       font-weight: bold;
-      color: #000; }
+      color: white; }
   
   .ftco-pricing-popular {
     position: relative; }
@@ -7396,7 +7397,7 @@
       font-size: 12px; }
   
   .won-img {
-    height: 300px;
+    height: 200px;    
     display: block; }
   
   .image-popup {
@@ -7490,13 +7491,18 @@
         color: #4d4d4d; }
   
   .block-6 {
-    margin-bottom: 40px; }
+    margin-bottom: 20px; }
     .block-6 .icon span:before {
       font-size: 50px; }
     .block-6 .media-body .heading {
-      font-size: 20px; }
+        font-size: 40px;
+        font-weight: bold;
+        color: white; 
+    }
     .block-6 .media-body p {
-      font-size: 16px; }
+      font-size: 22px; 
+        font-weight: bold;
+    }
   
   .block-18 .icon > span {
     font-size: 40px; }
@@ -7510,7 +7516,9 @@
   .block-10 {
     margin-bottom: 30px; }
     .block-10 .person-info span, .block-10 .person-info p {
-      display: block; }
+      display: block; 
+      line-height: 1.8;
+    }
     .block-10 .person-info .name, .block-10 .person-info .name-2 {
       font-size: 20px; }
     .block-10 .person-info .position {
@@ -7518,7 +7526,9 @@
     .block-10 .person-info .name-2 {
       font-weight: bold; }
     .block-10 .person-info .result {
-      font-weight: bold; }
+      font-weight: bold; 
+      height: 50px;
+    }
   
   .block-27 ul {
     padding: 0;
@@ -7969,7 +7979,25 @@
       stroke-dashoffset: -136px; } }
 
 .flaticon-gavel img{
-    width: 16%;
+    width: 25%;
+}
+
+.btn-nav{
+    border-radius: 20px;
+    padding: 7px 19px !important;
+    background: #0ed467 !important;
+    font-size: 13px !important;
+    font-weight: 100 !important;
+    position: relative;
+    color: white !important;
+}
+
+.btn-li-nav{
+    margin-top: 30px;
+}
+
+.ftco-navbar-light.scrolled .btn-li-nav{
+    margin-top: 15px;
 }
 
 .btn {
@@ -7979,7 +8007,7 @@
     color: inherit;
     background: none;
     cursor: pointer;
-    padding: 17px 60px;
+    padding: 12px 50px;
     display: inline-block;
     margin: 15px 30px;
     text-transform: uppercase;
@@ -8021,7 +8049,7 @@
 }
 
 .title-section{
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .underline_black::after{
@@ -8034,3 +8062,164 @@
     left: 47.5%;
     background-color: black;
 }
+
+.underline_white::after{
+    content: "";
+    position: absolute;
+    height: 13px;
+    top: 150px;
+    border-radius: 10px;
+    width: 80px;
+    left: 0%;
+    background-color: white;
+}
+
+.icon.mb-4 img {
+    width:100px;
+}
+
+.green_section{
+    background-color: #0ed467;
+}
+
+.card_section .block-10{
+    margin: 20px;
+    box-shadow: 1px 1px 12px 2px rgba(0,0,0,0.2);
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.person-info {
+    padding: 20px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.my-float-partner{
+    font-size: 50px !important;
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+.my-float {
+    margin-top: 19px;
+    font-size: 25px !important;
+}
+
+.float_partner{
+    display: -webkit-inline-box;
+    width: 100px;
+    height: 100px;
+    right: 40%;
+    background-color: #0ed467;
+    color: #FFF;
+    border-radius: 100%;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.float {
+    position:absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 55px;
+    background-color: #0ed467;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.partners_section img{
+    filter: grayscale(100%);
+}
+
+.partners_section .row{
+    margin-top: 40px;
+}
+
+.lightbox {
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: scroll;
+    position: fixed;
+    display: none;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+  .lightbox-container {
+    position: relative;
+    max-width: 960px;
+    margin: 7% auto;
+    display: block;
+    padding: 0 3%;
+    height: auto;
+    z-index: 10;
+  }
+  @media screen and (max-width: 768px) {
+    .lightbox-container {
+      margin-top: 10%;
+    }
+  }
+  @media screen and (max-width: 414px) {
+    .lightbox-container {
+      margin-top: 13%;
+    }
+  }
+  .lightbox-content {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  }
+  .lightbox-close {
+    text-transform: uppercase;
+    background: transparent;
+    position: absolute;
+    font-weight: 300;
+    font-size: 12px;
+    display: block;
+    border: none;
+    color: white;
+    top: -22px;
+    right: 3%;
+  }
+  .video-container {
+    padding-bottom: 56.25%;
+    position: relative;
+    padding-top: 30px;
+    overflow: hidden;
+    height: 0;
+  }
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  #playme{
+    padding-top: 150px;
+  }
+
+  .video_img {
+    background:linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+      ), url(../assets/imgs/card1.jpeg);
+    margin-top: 50px;
+    height: 325px;
+    margin: 50px 100px;
+    background-size: cover;
+  }
