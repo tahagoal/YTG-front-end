@@ -8438,7 +8438,6 @@ h4.new_spacing{
 .p_bottom_left{
   background-color: #feaf1a;
   height: 100%;
-  z-index: 1;
 }
 
 .image_section{
@@ -8478,14 +8477,14 @@ h4.new_spacing{
 }
 
 .start_animation2 #XMLID_545_{
-  animation: smile 2s ease-in-out;
+  animation: smile 1s ease-in-out;
   animation-delay: 1s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
 
 .start_animation2 #XMLID_53_{
-  animation: smile 2s ease-in-out;
+  animation: smile 1s ease-in-out;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   opacity: 0;
@@ -8534,7 +8533,7 @@ h4.new_spacing{
 }
 
 .p_bottom_right:hover {
-  transform: rotate(5deg) scale(1.5);
+  transform: rotate(0deg) scale(1.5);
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/imgs/programs3.jpeg);
   background-size: cover;
 }
@@ -8611,6 +8610,22 @@ h4.new_spacing{
   #logo_loading #Layer_1 {
     width:30%;
     margin-left:-60px;
+  }
+
+  footer .ftco-heading-2{
+    text-align:center;
+  }
+
+  .list-unstyled {
+    text-align: center;
+  }
+
+  footer .ftco-footer-widget{
+    text-align:center;
+  }
+
+  footer .list-unstyled img{
+    width: 70%;
   }
   
 }

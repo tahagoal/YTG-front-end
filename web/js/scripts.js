@@ -6,6 +6,12 @@ AOS.init({
 
 $(document).ready(function ($) {
 
+	// $('.p_bottom_right').hover(function(){
+	// 	$('.p_bottom_left').css('z-index','1');
+	// },function(){
+	// 	$('.p_bottom_left').css('z-index','0');
+	// })
+
 	setTimeout(function () {
 		$('#XMLID_20_').fadeIn();		
 		$('#logo_loading').addClass('logo_start');
