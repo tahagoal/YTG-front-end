@@ -252,9 +252,10 @@ $(window).scroll(function () {
 	if (b == 0 && $(window).scrollTop() > oTop2) {
 
 		// animation
-		$('.counter2_1').addClass('start_animation2');
-		$('.counter2_2').addClass('start_animation2');	
-		
+		setTimeout(function () {
+			$('.counter2_1').addClass('start_animation2');
+			$('.counter2_2').addClass('start_animation2');	
+		}, 2000);
 		// end animation
 		b = 1;
 

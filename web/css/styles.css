@@ -8471,7 +8471,7 @@ h4.new_spacing{
 
 
 .start_animation .path1, .start_animation .path2, .start_animation .path3, .start_animation .path4, .start_animation .path5, .start_animation .path6, .start_animation .path7, .start_animation .path8, .start_animation .path9, .start_animation .path10, .start_animation .path11, .start_animation .path12, .start_animation .path13, .start_animation .path14, .start_animation .path15, .start_animation .path16, .start_animation .path17{
-  animation: smile 3.5s linear;
+  animation: smile 2s linear;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
   opacity: 0;
