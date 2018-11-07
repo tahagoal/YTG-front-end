@@ -8545,6 +8545,10 @@ h4.new_spacing{
   background-size: cover;
 }
 
+.counter2_1, .counter2_2{
+  display:none;
+}
+
 @media (max-width:950px) and (min-width:768px){
   .programs_row {
     height: 600px;
