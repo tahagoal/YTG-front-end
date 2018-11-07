@@ -7,9 +7,15 @@ AOS.init({
 $(document).ready(function ($) {
 
 	setTimeout(function () {
+		$('#XMLID_20_').fadeIn();		
+		$('#logo_loading').addClass('logo_start');
+	},
+	2500)
+
+	setTimeout(function () {
 		$('#body').removeClass('no_scroll');
 		$('#logo_loading').fadeOut();
-	}, 3000);
+	}, 5000);
 
 	"use strict";
 

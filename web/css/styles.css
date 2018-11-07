@@ -8275,7 +8275,11 @@
   }
 
 
-  #XMLID_30_ {
+  #XMLID_20_{
+    display:none;
+  }
+
+  .logo_start #XMLID_30_ {
 	  animation: smile 2s linear;
 	  animation-delay: 0.5s;
 	  opacity: 0;
@@ -8296,7 +8300,7 @@
 	  }
 	}
 
-	#XMLID_29_{
+	.logo_start #XMLID_29_{
 		animation: bigsmile 0.7s linear;
 	  	animation-delay: 0.2s;
 	  	opacity: 0;
@@ -8316,7 +8320,7 @@
 	  }
 	}
 
-	#XMLID_23_ , #XMLID_24_, #XMLID_25_, #XMLID_26_, #XMLID_27_, #XMLID_28_{
+	.logo_start #XMLID_23_ , .logo_start #XMLID_24_, .logo_start #XMLID_25_, .logo_start #XMLID_26_, .logo_start #XMLID_27_, .logo_start #XMLID_28_{
 		animation: smile 3s linear;
 		animation-delay: 1s;
 		animation-fill-mode: forwards;
@@ -8324,7 +8328,7 @@
 	}
 
 
-	#XMLID_22_{
+	.logo_start #XMLID_22_{
 		animation: point 0.5s linear;
 	}
 
