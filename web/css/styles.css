@@ -8467,13 +8467,27 @@ h4.new_spacing{
 
 
 .start_animation .path1, .start_animation .path2, .start_animation .path3, .start_animation .path4, .start_animation .path5, .start_animation .path6, .start_animation .path7, .start_animation .path8, .start_animation .path9, .start_animation .path10, .start_animation .path11, .start_animation .path12, .start_animation .path13, .start_animation .path14, .start_animation .path15, .start_animation .path16, .start_animation .path17{
-  animation: smile 8s linear;
+  animation: smile 3.5s linear;
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
-    opacity: 0;
+  opacity: 0;
 }
 
-.start_animation #XMLID_54_{
+.start_animation2 #XMLID_545_{
+  animation: smile 2s ease-in-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.start_animation2 #XMLID_53_{
+  animation: smile 2s ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.start_animation2 #XMLID_70_2, .start_animation2 #XMLID_70_1{
   animation: point 0.5s linear;
 }
 
@@ -8542,6 +8556,14 @@ h4.new_spacing{
     text-align: center;
   }
 
+  .programs_section{
+    overflow:hidden;
+  }
+
+  .programs_right .row{
+    margin: 0px;
+  }
+
   .programs_row{
     margin-right:-15px !important;
     margin-left:-15px !important;
@@ -8552,7 +8574,7 @@ h4.new_spacing{
   }
 
   .programs_row {
-    height: 1200px;
+    height: 1600px;
   }
 
   .p_left_right, .p_left_left, .p_top_left, .p_top_right, .p_bottom_left, .p_bottom_right {

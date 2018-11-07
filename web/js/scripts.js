@@ -214,6 +214,7 @@ function hideVideo(div, video_id) {
 
 
 var a = 0;
+var b = 0;
 $(window).scroll(function () {
 
 	var oTop = $('#counter').offset().top - window.innerHeight;
@@ -224,6 +225,7 @@ $(window).scroll(function () {
 		$('.counter2').addClass('start_animation');
 		$('.counter3').addClass('start_animation');
 		$('.counter4').addClass('start_animation');
+		
 		// end animation
 
 		a = 1;
@@ -231,7 +233,7 @@ $(window).scroll(function () {
 			$(this).prop('Counter', 0).animate({
 				Counter: $(this).text()
 			}, {
-					duration: 2500,
+					duration: 3500,
 					easing: 'swing',
 					step: function (now) {
 						$(this).text(Math.ceil(now));
@@ -239,4 +241,17 @@ $(window).scroll(function () {
 				});
 		});
 	}
+
+	var oTop2 = $('.news_section').offset().top - window.innerHeight;
+	if (b == 0 && $(window).scrollTop() > oTop2) {
+
+		// animation
+		$('.counter2_1').addClass('start_animation2');
+		$('.counter2_2').addClass('start_animation2');	
+		
+		// end animation
+		b = 1;
+
+	}
+	
 })
