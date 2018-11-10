@@ -8112,6 +8112,18 @@
     padding: 20px;
 }
 
+.partners_img{
+  background: url(../assets/imgs/partners_sec.jpeg);
+  margin-top: 30px;
+  height: 300px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.partner_input img {
+  filter: grayscale(100%);
+}
+
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -8581,7 +8593,7 @@ h4.new_spacing{
   margin-top:100px;
 }
 
-.first_section_program{
+.first_section_program, .first_section_partner{
   margin-top: 120px;  
   padding-bottom: 50px;
 }
@@ -8605,11 +8617,11 @@ h4.new_spacing{
   border-bottom: 2px solid #0ed467;  
 }
 
-.form_login{
+.form_login, .partner_login{
   width: 80%;
 }
 
-.form_login .form-group input{
+.form_login .form-group input, .partner_login .form-group input{
   border: none;
   width: 90%;
 }
@@ -8619,12 +8631,24 @@ h4.new_spacing{
   margin-bottom: 20px;
 }
 
-.form_login .form-group-check{
+.partner_login .form-group{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.text-area-partner .form-control{
+  border: none;
+  background-color: #eaeaea !important;
+  border-radius: 40px;
+  padding: 20px;
+}
+
+.form_login .form-group-check, .partner_login .form-group-check{
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.form_login .form-group{
+.form_login .form-group, .partner_login .form-group{
   border-bottom: 2px solid #0ed467;
 }
 
@@ -8655,7 +8679,7 @@ h4.new_spacing{
   top: -12px;
 }
 
-.form_login .btn-2g{
+.form_login .btn-2g, .partner_login .btn-2g{
   margin-top:40px;
   margin-bottom: 20px;
   background: #0ed467;
