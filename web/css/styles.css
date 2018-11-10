@@ -1710,13 +1710,16 @@
   
   .form-check-input {
     position: absolute;
-    margin-top: 0.3rem;
-    margin-left: -1.25rem; }
+    margin-top: 7px;
+    margin-left: 8px;
+      }    
     .form-check-input:disabled ~ .form-check-label {
-      color: #6c757d; }
+    color: #6c757d; }
   
   .form-check-label {
-    margin-bottom: 0; }
+    margin-bottom: 0; 
+    margin-left: 30px;
+  }
   
   .form-check-inline {
     display: -webkit-inline-box;
@@ -8095,10 +8098,14 @@
 
 .card_section .block-10{
     margin: 20px;
-    box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.1);
+    /* box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.1); */
     background-color: white;
-    border-radius: 20px;
+    border-radius: 0px 80px 0px 80px;
     overflow: hidden;
+}
+
+.card_section .block-10-flip{
+  border-radius: 80px 0px 80px 0px;  
 }
 
 .person-info {
@@ -8167,6 +8174,22 @@
     border-radius: 50px;
     text-align: center;
     /* box-shadow: 2px 2px 3px #999; */
+}
+
+.float_program_card{
+  width: 50px;
+  height: 50px;
+  right: 50%;
+  color: #ff5a60;
+  border-radius: 100%;
+  border: solid 2px #ff5a60;
+  text-align: center;
+}
+
+.my-float-card{
+  font-size: 25px !important;
+    margin-top: 12px;
+    margin-left: 0px;
 }
 
 .partners_section img{
@@ -8546,6 +8569,98 @@ h4.new_spacing{
 
 .counter2_1, .counter2_2{
   display:none;
+}
+
+.login_bg{
+  background-image: url('../assets/imgs/login_bg.jpeg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.first_section_login{
+  margin-top:100px;
+}
+
+.first_section_program{
+  margin-top: 120px;  
+  padding-bottom: 50px;
+}
+
+.btn-social{
+  color: white !important;
+  width: 80%;
+  text-transform: none !important;
+  margin-left: 0px;
+}
+
+.btn-social>:first-child {
+  padding-right: 10px;  
+}
+
+.login_nav .nav-link, .login_nav .nav-link:hover{
+  color: gray !important;
+}
+
+.login_nav{
+  border-bottom: 2px solid #0ed467;  
+}
+
+.form_login{
+  width: 80%;
+}
+
+.form_login .form-group input{
+  border: none;
+  width: 90%;
+}
+
+.form_login .form-group{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form_login .form-group-check{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form_login .form-group{
+  border-bottom: 2px solid #0ed467;
+}
+
+.form_login .forget_password{
+  margin-bottom: 50px;
+}
+
+.dont_have div {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.dont_have a {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.dont_have .sign_up{
+  font-weight: bold;
+  color: #0ed467 !important;
+  font-size: 18px;
+}
+
+.line_between{
+  border-bottom: 1px solid gray;
+  width: 50%;
+  position: relative;
+  top: -12px;
+}
+
+.form_login .btn-2g{
+  margin-top:40px;
+  margin-bottom: 20px;
+  background: #0ed467;
+  color: white;
+  font-size: 12px;
 }
 
 @media (max-width:950px) and (min-width:768px){
