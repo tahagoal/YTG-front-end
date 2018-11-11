@@ -8393,7 +8393,7 @@ h4.new_spacing{
   }
 
 .programs_row{
-  height: 400px;
+  height: 500px;
 }
 
 .p_left_left{
@@ -8402,11 +8402,11 @@ h4.new_spacing{
   background-position: center center;
   height: 100%;
   background-size: cover;
-  transition:all 1s ease-in-out;
-  -webkit-transition:all 1s ease-in-out;
-  -moz-transition:all 1s ease-in-out;
-  -ms-transition:all 1s ease-in-out;
-  -o-transition:all 1s ease-in-out;
+  transition:all 0.5s ease-in-out;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -ms-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
 }
 
 .p_left_right{
@@ -8561,7 +8561,19 @@ h4.new_spacing{
   overflow:hidden;
 }
 
-.programs_left:hover .p_left_left{
+.p_left_left:hover{
+  opacity: 0.7;
+}
+
+.p_bottom_right:hover {
+  opacity: 0.7;
+}
+
+.p_top_left:hover{
+  opacity: 0.7;
+}
+
+/* .programs_left:hover .p_left_left{
   transform: rotate(5deg) scale(1.5);
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/imgs/programs1.jpeg);
   background-size: cover;
@@ -8577,7 +8589,7 @@ h4.new_spacing{
   transform: rotate(5deg) scale(1.5);
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/imgs/programs2.jpeg);
   background-size: cover;
-}
+} */
 
 .counter2_1, .counter2_2{
   display:none;
@@ -8586,7 +8598,15 @@ h4.new_spacing{
 .login_bg{
   background-image: url('../assets/imgs/login_bg.jpeg');
   background-size: cover;
+  background-position: center -85px;
+  background-repeat: no-repeat;
+}
+
+.signup_bg{
+  background-image: url('../assets/imgs/signup.jpeg');
+  background-size: cover;
   background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .first_section_login{
@@ -8617,6 +8637,11 @@ h4.new_spacing{
   border-bottom: 2px solid #0ed467;  
 }
 
+.form_login input::placeholder, .partner_login input::placeholder { 
+  color: #c6c8ca;
+  opacity: 0.8; 
+}
+
 .form_login, .partner_login{
   width: 80%;
 }
@@ -8627,7 +8652,7 @@ h4.new_spacing{
 }
 
 .form_login .form-group{
-  margin-top: 20px;
+  margin-top: 40px;  
   margin-bottom: 20px;
 }
 
@@ -8644,12 +8669,23 @@ h4.new_spacing{
 }
 
 .form_login .form-group-check, .partner_login .form-group-check{
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
-.form_login .form-group, .partner_login .form-group{
+/* .form_login .form-group, .partner_login .form-group{
   border-bottom: 2px solid #0ed467;
+} */
+
+.form_login .form-group:after{
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  background: #0ed467;
+  height: 6px;
+  border-radius: 50px;
 }
 
 .form_login .forget_password{
@@ -8680,7 +8716,7 @@ h4.new_spacing{
 }
 
 .form_login .btn-2g, .partner_login .btn-2g{
-  margin-top:40px;
+  margin-top:50px;
   margin-bottom: 20px;
   background: #0ed467;
   color: white;
@@ -8704,6 +8740,9 @@ h4.new_spacing{
     letter-spacing: 15px;
   }
   
+  .form_login .login_bg, .form_login .signup_bg{
+    display:none;
+  }
 
   .navbar-dark .navbar-brand {
   width:50%;
