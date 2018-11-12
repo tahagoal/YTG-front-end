@@ -3994,7 +3994,7 @@
   
   @media (min-width: 576px) {
     .modal-dialog {
-      max-width: 500px;
+      max-width: 1000px;      
       margin: 1.75rem auto; }
     .modal-dialog-centered {
       min-height: calc(100% - (1.75rem * 2)); }
@@ -8393,7 +8393,7 @@ h4.new_spacing{
   }
 
 .programs_row{
-  height: 500px;
+  height: 600px;
 }
 
 .p_left_left{
@@ -8596,10 +8596,11 @@ h4.new_spacing{
 }
 
 .login_bg{
-  background-image: url('../assets/imgs/login_bg.jpeg');
-  background-size: cover;
-  background-position: center -85px;
+  background-image: url(../assets/imgs/login_bg.jpeg);
+  background-position: center;
   background-repeat: no-repeat;
+  border-radius: 20px;
+  background-size: cover;
 }
 
 .signup_bg{
@@ -8607,6 +8608,7 @@ h4.new_spacing{
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  border-radius: 20px;
 }
 
 .first_section_login{
@@ -8618,15 +8620,27 @@ h4.new_spacing{
   padding-bottom: 50px;
 }
 
+.first_section_partner{
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/partners_bg.png);
+  height: 500px;  
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;  
+}
+
 .btn-social{
   color: white !important;
-  width: 80%;
+  width: 70%;
   text-transform: none !important;
   margin-left: 0px;
+  text-align: center !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 40px;
 }
 
 .btn-social>:first-child {
-  padding-right: 10px;  
+  padding-right: 30px;
 }
 
 .login_nav .nav-link, .login_nav .nav-link:hover{
@@ -8643,7 +8657,7 @@ h4.new_spacing{
 }
 
 .form_login, .partner_login{
-  width: 80%;
+  width: 70%;
 }
 
 .form_login .form-group input, .partner_login .form-group input{
@@ -8663,7 +8677,7 @@ h4.new_spacing{
 
 .text-area-partner .form-control{
   border: none;
-  background-color: #eaeaea !important;
+  background-color: #f9f9f9 !important;
   border-radius: 40px;
   padding: 20px;
 }
@@ -8677,7 +8691,7 @@ h4.new_spacing{
   border-bottom: 2px solid #0ed467;
 } */
 
-.form_login .form-group:after{
+.form_login .form-group:after, .partner_login .form-group:after{
   content: '';
   position: absolute;
   bottom: -5px;
@@ -8723,6 +8737,19 @@ h4.new_spacing{
   font-size: 12px;
 }
 
+.forget_bg{
+  background-image: url('../assets/imgs/forget_bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius:20px;
+  transform: scaleX(-1);
+}
+
+footer .list-unstyled img {
+  width: 80%;
+}
+
 @media (max-width:950px) and (min-width:768px){
   .programs_row {
     height: 600px;
@@ -8731,7 +8758,7 @@ h4.new_spacing{
 
 @media (max-width: 1025px) {
   .programs_row {
-    height: 500px;
+    height: 600px;
   }
 }
 
@@ -8740,7 +8767,7 @@ h4.new_spacing{
     letter-spacing: 15px;
   }
   
-  .form_login .login_bg, .form_login .signup_bg{
+  .form_login .login_bg, .form_login .signup_bg, .forget_bg{
     display:none;
   }
 
@@ -8804,6 +8831,18 @@ h4.new_spacing{
 
   footer .list-unstyled img{
     width: 70%;
+  }
+
+  .btn-social{
+    width:100%;
+  }
+
+  .form_login, .partner_login{
+    width:100%;
+  }
+
+  .first_section_login, .first_section_partner{
+    margin-top:0px;
   }
   
 }
