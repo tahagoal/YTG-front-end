@@ -8894,6 +8894,9 @@ footer .list-unstyled img {
   .programs_row {
     height: 600px;
   }
+  .personne, .personne-add{
+    margin-left: 50px;
+  }
 }
 
 @media (max-width: 1025px) {
