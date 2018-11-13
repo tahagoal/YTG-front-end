@@ -8902,6 +8902,9 @@ footer .list-unstyled img {
 }
 
 @media (max-width: 768px) {
+  .btn-social{
+    padding-left: 0px;
+  }
   .line_between {
     width: 10px;
   }
