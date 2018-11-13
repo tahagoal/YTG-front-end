@@ -190,3 +190,21 @@ $(document).ready(function ($) {
 	OnePageNav();
 
 });
+
+var a = 0;
+$(window).scroll(function () {
+
+	var oTop = $('#counter').offset().top - window.innerHeight;
+	if (a == 0 && $(window).scrollTop() > oTop) {
+
+		// animation
+		$('.counter1').addClass('start_animation');
+		$('.counter2').addClass('start_animation');
+		$('.counter3').addClass('start_animation');
+		$('.counter4').addClass('start_animation');
+		// end animation
+		a = 1;
+
+	}
+	
+})
