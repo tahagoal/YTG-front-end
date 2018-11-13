@@ -8769,8 +8769,8 @@ footer .list-unstyled img {
 .personne{
   display:inline-block;
   position:relative;
-  width:200px;
-  height:200px;
+  width:300px;
+  height:300px;
   margin:0 10px;
   cursor:pointer;
   vertical-align:top;
@@ -8779,8 +8779,8 @@ footer .list-unstyled img {
 .personne-add{
   display:inline-block;
   position:relative;
-  width:200px;
-  height:200px;
+  width:300px;
+  height:300px;
   margin:0 10px;
   cursor:pointer;
   vertical-align:top;
@@ -8838,7 +8838,7 @@ footer .list-unstyled img {
   background:rgba(14,212,103,0.9);
   position:absolute;
   z-index:0;
-  top:130px;
+  bottom:20px;
   left:0px;
   padding: 5px 20px 5px 40px;
   color:#FFF;
@@ -8871,6 +8871,10 @@ footer .list-unstyled img {
   font-size: 30px !important;
 }
 
+.about_team .col-md-4{
+  margin-top: 120px;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
@@ -8898,11 +8902,15 @@ footer .list-unstyled img {
 }
 
 @media (max-width: 768px) {
+  .line_between {
+    width: 10px;
+  }
+
   .new_spacing {
     letter-spacing: 15px;
   }
   
-  .form_login .login_bg, .form_login .signup_bg, .forget_bg{
+  .login_bg, .signup_bg, .forget_bg{
     display:none;
   }
 
