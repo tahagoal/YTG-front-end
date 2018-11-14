@@ -1,10 +1,82 @@
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var news,programs;
+
 AOS.init({
 	duration: 800,
 	easing: 'slide'
 });
 
+get_apis = function () {
+	get_news();
+	get_programs();
+}
+
+news_append = function(news) {
+	$('#news1 h4')[0].append(news[0].title);
+	$('#news1 p')[0].append(news[0].description);
+}
+
+get_news = function(){
+	var url = backend_url;
+	$.get(url + 'news', 
+	function (data) {
+		news = data.news;
+		news_append(news);
+	});
+}
+
+program_one_append = function (programs){
+	$('#program1 h2')[0].append(programs[0].name);
+	$('#program1 p')[0].append(programs[0].description);
+	$('#program1 .p_left_left').css('background-image', 'url(' + programs[0].description + ')');
+}
+
+
+get_programs = function(){
+	var url = backend_url;
+	$.get(url + 'programs', 
+	function (data) {
+		programs = data.programs;
+		program_one_append(programs);
+	});
+}
+
+check_ath = function (){
+	var token = localStorage.getItem('token');
+
+	if(token != null){
+		$('.login_navbar').css('display', 'none');
+		$('.logout_navbar').css('display', 'block');
+	}
+
+	else{
+		$('.login_navbar').css('display', 'block');
+		$('.logout_navbar').css('display', 'none');
+	}
+}
+
+$('.logout_navbar').click(function(e){
+	e.preventDefault();
+	var url = backend_url + 'logout';
+	// $.post(url, function (result) {
+		localStorage.removeItem('token');
+		window.location.replace('home.html');
+	// })
+	// .done(function () {
+	// 	console.log("second success");
+	// })
+	// .fail(function () {
+	// 	console.log("error");
+	// })
+	// .always(function () {
+	// 	console.log("finished");
+	// });
+})
+
 
 $(document).ready(function ($) {
+
+	get_apis();
 
 	// $('.p_bottom_right').hover(function(){
 	// 	$('.p_bottom_left').css('z-index','1');
@@ -12,11 +84,13 @@ $(document).ready(function ($) {
 	// 	$('.p_bottom_left').css('z-index','0');
 	// })
 
+	check_ath();
+
 	setTimeout(function () {
-		$('#XMLID_20_').fadeIn();		
+		$('#XMLID_20_').fadeIn();
 		$('#logo_loading').addClass('logo_start');
 	},
-	2500)
+		2500)
 
 	setTimeout(function () {
 		$('#body').removeClass('no_scroll');
@@ -237,7 +311,7 @@ $(window).scroll(function () {
 		$('.counter2').addClass('start_animation');
 		$('.counter3').addClass('start_animation');
 		$('.counter4').addClass('start_animation');
-		
+
 		// end animation
 
 		a = 1;
@@ -263,11 +337,11 @@ $(window).scroll(function () {
 			$('.counter2_1').fadeIn();
 			$('.counter2_2').fadeIn();
 			$('.counter2_1').addClass('start_animation2');
-			$('.counter2_2').addClass('start_animation2');	
+			$('.counter2_2').addClass('start_animation2');
 		}, 2000);
 		// end animation
 		b = 1;
 
 	}
-	
+
 })

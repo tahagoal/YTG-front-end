@@ -7123,9 +7123,9 @@
     .ftco-footer p {
         color: #d0d0d0; }
     .ftco-footer a {
-        color: #d0d0d0; }
+        color: #d0d0d0 !important; }
       .ftco-footer a:hover {
-        color: #0ed467; }
+        color: #0ed467 !important; }
     .ftco-footer .ftco-heading {
       font-size: 24px; }
     .ftco-footer .ftco-heading-2 {

@@ -1,12 +1,26 @@
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+
 AOS.init({
 	duration: 800,
 	easing: 'slide'
 });
 
+middle_auth = function(){
+	url = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+	if(url == 'login.html' || url == 'signup.html'){
+		window.location.replace('home.html');
+	}
+}
+
 
 $(document).ready(function ($) {
 
 	"use strict";
+
+	var token = localStorage.getItem('token');
+	if(token != null){
+		middle_auth();
+	}
 
 
 	// loader
@@ -206,5 +220,101 @@ $(window).scroll(function () {
 		a = 1;
 
 	}
-	
+
+})
+
+$('#login_submit').click(function (e) {
+	e.preventDefault();
+	var username = $('#login_user').val();
+	var password = $('#login_password').val();
+	var url = backend_url + 'login';
+	var data = {
+		'username': username,
+		'password': password,
+		'type': 'employee'
+	}
+	$.post(url, data, function (result) {
+		console.log("success");
+		localStorage.setItem('token',result.token);
+		window.location.replace('home.html');
+	})
+	.done(function () {
+		console.log("second success");
+	})
+	.fail(function (error) {
+		swal(error.responseJSON.message,"", "error", {
+			button: "Try again!",
+		});
+	})
+	.always(function () {
+		console.log("finished");
+	});
+})
+
+$('.reset_password').click(function (e) {
+	e.preventDefault();
+	var username = $('#reset_email').val();
+	var url = backend_url + 'forgot_password';
+	var data = {
+		'username': username,
+		'type': 'employee'
+	}
+	$.post(url, data, function (result) {
+		console.log("success");
+		localStorage.removeItem('token');
+		swal("Good job!", "Check your e-mail", "success", {
+			button: "Got it!",
+		}).then((value) => {
+			window.location.replace('home.html');
+		});
+	})
+	.done(function () {
+		console.log("second success");
+	})
+	.fail(function (error) {
+		swal(error.responseJSON.message,"", "error", {
+			button: "Try again!",
+		});
+	})
+	.always(function () {
+		console.log("finished");
+	});
+})
+
+$('.register_submit').click(function (e) {
+	e.preventDefault();
+	var firstname = $('#register_first').val();
+	var lastname = $('#register_last').val();
+	var mobile = $('#register_mobile').val();
+	var email = $('#register_mail').val();
+	var password = $('#register_password').val();
+	var url = backend_url + 'register';
+	var data = {
+		'first_name': firstname,
+		'last_name': lastname,
+		'mobile': mobile,
+		'password': password,
+		'email': email,
+	}
+	$.post(url, data, function (result) {
+		console.log("success");
+		localStorage.setItem('token',result.token);
+		window.location.replace('home.html');
+		swal("Good job!", "User Account created successfully", "success", {
+			button: "Got it!",
+		}).then((value) => {
+			window.location.replace('home.html');
+		});
+	})
+	.done(function () {
+		console.log("second success");
+	})
+	.fail(function (error) {
+		swal(error.responseJSON.message,"", "error", {
+			button: "Try again!",
+		});
+	})
+	.always(function () {
+		console.log("finished");
+	});
 })
