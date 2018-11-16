@@ -695,12 +695,12 @@
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
                         <ul class="list-unstyled">
                             <li>
-                                <a href="aboutus.html">About us - </a> 
+                                <a href="aboutus.html">About us - </a>
                                 <a href="news.html">News - </a>
                                 <a href="program.html">programs</a>
                             </li>
                             <li>
-                                <a href="partners.html">partner - </a> 
+                                <a href="partners.html">partner - </a>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -733,5 +733,26 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
+
+<script>
+
+    var a = 0;
+    $(window).scroll(function () {
+
+        var oTop = $('#counter').offset().top - window.innerHeight;
+        if (a == 0 && $(window).scrollTop() > oTop) {
+
+            // animation
+            $('.counter1').addClass('start_animation');
+            $('.counter2').addClass('start_animation');
+            $('.counter3').addClass('start_animation');
+            $('.counter4').addClass('start_animation');
+            // end animation
+            a = 1;
+
+        }
+
+    })
+</script>
 
 </html>
