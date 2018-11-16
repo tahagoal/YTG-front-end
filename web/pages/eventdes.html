@@ -31,7 +31,7 @@
 <body id="body">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light login_nav" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="home.html">
+            <a class="navbar-brand" href="index.html">
                 <span class="flaticon-gavel">
                     <img src="../assets/imgs/logo.png"> </span>
             </a>
@@ -46,7 +46,7 @@
                         <a href="home.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About</a>
+                        <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">News & events</a>
@@ -57,8 +57,8 @@
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Careers</a>
+                    <li class="nav-item active">
+                        <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
                     <li class="btn-li-nav">
@@ -69,60 +69,35 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_login">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-7">
-                    <h2 class="new_spacing" style="letter-spacing: 20px; font-weight: bold;">
-                        Create
-                    </h2>
-                    <h4 class="new_spacing" style="letter-spacing: 7px;margin-bottom: 40px;">
-                        a new account
-                    </h4>
-                    <form action="#" class="form_login">
-                        <div class="row" style="margin:0px;margin-bottom: -20px;">
-                            <div class="form-group col-sm-5" data-aos="fade-up">
-                                *<input type="text" id="register_first" class="form-control" placeholder="First name">
-                            </div>
-                            <div class="col-sm-2">
-
-                            </div>
-                            <div class="form-group col-sm-5" data-aos="fade-up">
-                                *<input type="text" id="register_last" class="form-control" placeholder="Family name">
-                            </div>
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *<input type="number" id="register_mobile" class="form-control" placeholder="Mobile number">
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *<input type="email" id="register_mail" class="form-control" placeholder="Your e-mail">
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *<input type="Password" id="register_password" class="form-control" placeholder="Your Password">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input style="width:100%;" id="register_date" type="text" onfocus="(this.type='date')" class="form-control" placeholder="Date of birth">
-                        </div>
+    <section class="ftco-section-2 first_section_careers">
+        <div class="container-fluid">
+            <div class="section-2-blocks-wrapper row no-gutters">
+                <div class="col-md-1"></div>
+                <div class="text col-md-4" style="margin-top: 100px;">
+                    <h2 class="new_spacing event_title" style="color: white;">
                         
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_address" class="form-control" placeholder="Residence address">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_grad" class="form-control" placeholder="Graduation status">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_orgn" class="form-control" placeholder="Institute/organization">
-                        </div>
-
-                        <input type="submit" value="Register" class="register_submit center btn btn-2 btn-2g" data-aos="fade-up">
-
-                    </form>
+                    </h2>
                 </div>
-                <div class="col-md-4 col-lg-5 signup_bg" data-aos="fade-left">
+            </div>
+        </div>
+    </section>   
 
+    <section class="ftco-section-2">
+        <div class="container-fluid">
+            <div class="section-2-blocks-wrapper row no-gutters">
+                <div class="col-md-1"></div>
+
+                <div class="text col-md-4">
+                    <h2 style="font-weight: bold;">
+                        event description:
+                    </h2>
+                    <div class="text-inner align-self-start" data-aos="fade-up">
+                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
+                        <p class="event_descrip"></p>
+                        <h3>Location</h3>
+                        <div class="event_location">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,12 +121,12 @@
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
                         <ul class="list-unstyled">
                             <li>
-                                <a href="aboutus.html">About us - </a> 
+                                <a href="aboutus.html">About us - </a>
                                 <a href="news.html">News - </a>
                                 <a href="program.html">programs</a>
                             </li>
                             <li>
-                                <a href="partners.html">partner - </a> 
+                                <a href="partners.html">partner - </a>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -184,5 +159,43 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
+
+<script>
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+
+$(document).ready(function ($) {
+    get_event();
+})
+
+get_event = function(){
+    var url = backend_url;
+    var event_id = get_param('event_id');
+	$.get(url + 'events/'+ event_id, 
+	function (data) {
+        event = data;
+        event_append(event);
+	});
+}
+
+event_append = function(program){
+    $('.event_title').append(event.title);
+    $('.event_descrip').append(event.description);
+    $('.event_location').append(event.location);
+}
+
+get_param = function(param){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == param) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
+</script>
 
 </html>

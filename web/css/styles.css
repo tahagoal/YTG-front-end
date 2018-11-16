@@ -8279,6 +8279,55 @@
     padding-top: 135px;
   }
 
+  .video_img_careers{
+    background:linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ), url(../assets/imgs/careers_sec.jpeg);
+    margin-top: 30px;
+    height: 370px;
+    background-size: cover;
+  }
+
+  .video_img_careers2{
+    background:linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ), url(../assets/imgs/careers_sec2.jpeg);
+    margin-top: 30px;
+    height: 370px;
+    background-size: cover;
+  }
+
+  .ul_colored{
+    list-style: none;
+  }
+
+  .ul_colored li:before{
+    content: "•";
+    color: #0ed467;
+    display: inline-block;
+    width: 20px;
+    margin-left: -20px;
+  }
+
+  .ul_colored{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .job_row{
+    border: 2px solid #0ed467; 
+    border-radius: 50px; 
+    padding: 20px;
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+
+  .job_button{
+    margin-top:5%;
+  }
+
   .video_img {
     background:linear-gradient(
         rgba(0, 0, 0, 0.7), 
@@ -8624,9 +8673,17 @@ h4.new_spacing{
   margin-top:100px;
 }
 
-.first_section_program, .first_section_partner, .first_section_about{
+.first_section_program, .first_section_partner, .first_section_about , .first_section_careers, .first_section_profile{
   margin-top: 120px;  
   padding-bottom: 50px;
+}
+
+.first_section_careers{
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers_bg.jpeg);
+  height: 500px;  
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;  
 }
 
 .first_section_partner{
@@ -8668,6 +8725,11 @@ h4.new_spacing{
   border-bottom: 2px solid #0ed467;  
 }
 
+.form_edit input::placeholder{
+  color: #c6c8ca;
+  opacity: 0.8;
+}
+
 .form_login input::placeholder, .partner_login input::placeholder { 
   color: #c6c8ca;
   opacity: 0.8; 
@@ -8677,12 +8739,16 @@ h4.new_spacing{
   width: 70%;
 }
 
+.form_edit .form-group input{
+  border:none;
+}
+
 .form_login .form-group input, .partner_login .form-group input{
   border: none;
   width: 90%;
 }
 
-.form_login .form-group{
+.form_login .form-group, .form_edit .form-group{
   margin-top: 40px;  
   margin-bottom: 20px;
 }
@@ -8708,7 +8774,11 @@ h4.new_spacing{
   border-bottom: 2px solid #0ed467;
 } */
 
-.form_login .form-group:after, .partner_login .form-group:after{
+.form_edit{
+  margin-bottom: 50px;
+}
+
+.form_login .form-group:after, .partner_login .form-group:after, .form_edit .form-group:after{
   content: '';
   position: absolute;
   bottom: -5px;
@@ -8876,6 +8946,138 @@ footer .list-unstyled img {
   margin-top: 120px;
 }
 
+.edit_row img{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.user_data_col img {
+  width: 200px;
+  height: 200px;
+  margin-top:50px;
+  margin-bottom:50px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.md-stepper-horizontal {
+	display:table;
+	width:100%;
+	margin:0 auto;
+	background-color:#FFFFFF;
+}
+.md-stepper-horizontal .md-step {
+	display:table-cell;
+	position:relative;
+	padding:24px;
+}
+/* .md-stepper-horizontal .md-step:hover,
+.md-stepper-horizontal .md-step:active {
+	background-color:rgba(0,0,0,0.04);
+} */
+.md-stepper-horizontal .md-step:active {
+	border-radius: 15% / 75%;
+}
+.md-stepper-horizontal .md-step:first-child:active {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.md-stepper-horizontal .md-step:last-child:active {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.md-stepper-horizontal .md-step:hover .md-step-circle {
+	background-color:#757575;
+}
+.md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+.md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+	display:none;
+}
+.md-stepper-horizontal .md-step .md-step-circle {
+  width: 80px;
+  height: 80px;
+	margin:0 auto;
+	background-color:#999999;
+	border-radius: 50%;
+	text-align: center;
+  line-height: 75px;
+  font-size: 50px;
+	font-weight: 600;
+	color:#FFFFFF;
+}
+.md-stepper-horizontal.green .md-step.active .md-step-circle {
+	background-color:#00AE4D;
+}
+.md-stepper-horizontal.orange .md-step.active .md-step-circle {
+	background-color:#0ed467;
+}
+.md-stepper-horizontal .md-step.active .md-step-circle {
+	background-color: rgb(33,150,243);
+}
+.md-stepper-horizontal .md-step.done .md-step-circle:before {
+	font-family:'FontAwesome';
+	font-weight:100;
+	content: "\f00c";
+}
+.md-stepper-horizontal .md-step.done .md-step-circle *,
+.md-stepper-horizontal .md-step.editable .md-step-circle * {
+	display:none;
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle:before {
+	font-family:'FontAwesome';
+	font-weight:100;
+	content: "\f040";
+}
+.md-stepper-horizontal .md-step .md-step-title {
+	margin-top:16px;
+	font-size:16px;
+	font-weight:600;
+}
+.md-stepper-horizontal .md-step .md-step-title,
+.md-stepper-horizontal .md-step .md-step-optional {
+	text-align: center;
+	color:rgba(0,0,0,.26);
+}
+.md-stepper-horizontal .md-step.active .md-step-title {
+	font-weight: 600;
+	color:rgba(0,0,0,.87);
+}
+.md-stepper-horizontal .md-step.active.done .md-step-title,
+.md-stepper-horizontal .md-step.active.editable .md-step-title {
+	font-weight:600;
+}
+.md-stepper-horizontal .md-step .md-step-optional {
+	font-size:12px;
+}
+.md-stepper-horizontal .md-step.active .md-step-optional {
+	color:rgba(0,0,0,.54);
+}
+.md-stepper-horizontal .md-step .md-step-bar-left,
+.md-stepper-horizontal .md-step .md-step-bar-right {
+  position: absolute;
+  top: 63px;
+  height: 1px;
+  border-top: 5px solid #0ed467;
+}
+.md-stepper-horizontal .md-step .md-step-bar-right {
+  right: 0px;
+  left: 58%;
+  margin-left: 20px;
+}
+.md-stepper-horizontal .md-step .md-step-bar-left {
+	left:0;
+	right: 58%;
+	margin-right:20px;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
@@ -8906,6 +9108,10 @@ footer .list-unstyled img {
 }
 
 @media (max-width: 768px) {
+
+  .job_button{
+    margin-top:0%;
+  }
 
   .ftco-section-2{
     padding: 25px 25px 50px 25px;
@@ -8991,11 +9197,11 @@ footer .list-unstyled img {
     width:100%;
   }
 
-  .form_login, .partner_login{
+  .form_login, .partner_login, .form_edit{
     width:100%;
   }
 
-  .first_section_login, .first_section_partner, .first_section_about{
+  .first_section_login, .first_section_partner, .first_section_about, .first_section_careers, .first_section_profile{
     margin-top:0px;
   }
   

@@ -231,11 +231,12 @@ $('#login_submit').click(function (e) {
 	var data = {
 		'username': username,
 		'password': password,
-		'type': 'employee'
+		'type': 'user'
 	}
 	$.post(url, data, function (result) {
 		console.log("success");
 		localStorage.setItem('token',result.token);
+		localStorage.setItem('user_id',result._id);
 		window.location.replace('home.html');
 	})
 	.done(function () {
@@ -285,7 +286,7 @@ $('.register_submit').click(function (e) {
 	e.preventDefault();
 	var firstname = $('#register_first').val();
 	var lastname = $('#register_last').val();
-	var mobile = $('#register_mobile').val();
+	var mobile = '+00' + $('#register_mobile').val();
 	var email = $('#register_mail').val();
 	var password = $('#register_password').val();
 	var url = backend_url + 'register';
@@ -294,7 +295,7 @@ $('.register_submit').click(function (e) {
 		'last_name': lastname,
 		'mobile': mobile,
 		'password': password,
-		'email': email,
+		'email': email
 	}
 	$.post(url, data, function (result) {
 		console.log("success");

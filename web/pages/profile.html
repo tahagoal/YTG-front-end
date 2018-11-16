@@ -31,7 +31,7 @@
 <body id="body">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light login_nav" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="home.html">
+            <a class="navbar-brand" href="index.html">
                 <span class="flaticon-gavel">
                     <img src="../assets/imgs/logo.png"> </span>
             </a>
@@ -46,7 +46,7 @@
                         <a href="home.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About</a>
+                        <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">News & events</a>
@@ -57,8 +57,8 @@
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Careers</a>
+                    <li class="nav-item active">
+                        <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
                     <li class="btn-li-nav">
@@ -69,60 +69,46 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_login">
+    <section class="ftco-section-2 first_section_profile" style="padding-top: 0px; padding-bottom: 0px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-7">
-                    <h2 class="new_spacing" style="letter-spacing: 20px; font-weight: bold;">
-                        Create
-                    </h2>
-                    <h4 class="new_spacing" style="letter-spacing: 7px;margin-bottom: 40px;">
-                        a new account
-                    </h4>
-                    <form action="#" class="form_login">
-                        <div class="row" style="margin:0px;margin-bottom: -20px;">
-                            <div class="form-group col-sm-5" data-aos="fade-up">
-                                *<input type="text" id="register_first" class="form-control" placeholder="First name">
-                            </div>
-                            <div class="col-sm-2">
-
-                            </div>
-                            <div class="form-group col-sm-5" data-aos="fade-up">
-                                *<input type="text" id="register_last" class="form-control" placeholder="Family name">
-                            </div>
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *<input type="number" id="register_mobile" class="form-control" placeholder="Mobile number">
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *<input type="email" id="register_mail" class="form-control" placeholder="Your e-mail">
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *<input type="Password" id="register_password" class="form-control" placeholder="Your Password">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input style="width:100%;" id="register_date" type="text" onfocus="(this.type='date')" class="form-control" placeholder="Date of birth">
-                        </div>
-                        
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_address" class="form-control" placeholder="Residence address">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_grad" class="form-control" placeholder="Graduation status">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_orgn" class="form-control" placeholder="Institute/organization">
-                        </div>
-
-                        <input type="submit" value="Register" class="register_submit center btn btn-2 btn-2g" data-aos="fade-up">
-
-                    </form>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3 bg-light user_data_col" style="padding-bottom: 50px;">
+                    <img class="center" src="../assets/imgs/profile.jpeg">
+                    <h2 class="center" style="font-weight: bold;">Sarah Ahmed</h2>
+                    <p class="center">Art director</p>
+                    <p class="center">24 years</p>
                 </div>
-                <div class="col-md-4 col-lg-5 signup_bg" data-aos="fade-left">
-
+                <div class="col-sm-8" style="margin-top: 50px;">
+                    <h2 class="center" style="font-weight: bold;">Program name</h2>
+                    <p class="center">Application status</p>
+                    <div class="md-stepper-horizontal orange">
+                        <div class="md-step active done">
+                            <div class="md-step-circle">
+                                <span>1</span>
+                            </div>
+                            <div class="md-step-title">Recieved</div>
+                            <div class="md-step-bar-left"></div>
+                            <div class="md-step-bar-right"></div>
+                        </div>
+                        <div class="md-step active done">
+                            <div class="md-step-circle">
+                                <span>2</span>
+                            </div>
+                            <div class="md-step-title">Reviewed</div>
+                            <!-- <div class="md-step-optional">Optional</div> -->
+                            <div class="md-step-bar-left"></div>
+                            <div class="md-step-bar-right"></div>
+                        </div>
+                        <div class="md-step editable">
+                            <div class="md-step-circle">
+                                <span>4</span>
+                            </div>
+                            <div class="md-step-title">Accepted</div>
+                            <div class="md-step-bar-left"></div>
+                            <div class="md-step-bar-right"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,12 +132,12 @@
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
                         <ul class="list-unstyled">
                             <li>
-                                <a href="aboutus.html">About us - </a> 
+                                <a href="aboutus.html">About us - </a>
                                 <a href="news.html">News - </a>
                                 <a href="program.html">programs</a>
                             </li>
                             <li>
-                                <a href="partners.html">partner - </a> 
+                                <a href="partners.html">partner - </a>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
