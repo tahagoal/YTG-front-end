@@ -261,6 +261,7 @@ function onSignIn(googleUser) {
 			$.post(url, data, function (result) {
 				console.log("success");
 				localStorage.setItem('token', result.token);
+				localStorage.setItem('user_id', result._id);
 				window.location.replace('home.html');
 				swal("Good job!", "User Account created successfully", "success", {
 					button: "Got it!",
