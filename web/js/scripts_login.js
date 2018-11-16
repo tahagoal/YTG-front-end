@@ -5,9 +5,9 @@ AOS.init({
 	easing: 'slide'
 });
 
-middle_auth = function(){
+middle_auth = function () {
 	url = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
-	if(url == 'login.html' || url == 'signup.html'){
+	if (url == 'login.html' || url == 'signup.html') {
 		window.location.replace('home.html');
 	}
 }
@@ -18,7 +18,7 @@ $(document).ready(function ($) {
 	"use strict";
 
 	var token = localStorage.getItem('token');
-	if(token != null){
+	if (token != null) {
 		middle_auth();
 	}
 
@@ -223,6 +223,69 @@ $(window).scroll(function () {
 
 })
 
+function onSignIn(googleUser) {
+	var profile = googleUser.getBasicProfile();
+	var id = profile.getId();
+	var fname = profile.getGivenName();
+	var lname = profile.getGivenName();
+	var image = profile.getImageUrl();
+	var email = profile.getEmail();
+
+	var url = backend_url + 'login';
+	var data = {
+		'username': email,
+		'password': id,
+		'type': 'user'
+	}
+	$.post(url, data, function (result) {
+		console.log("success");
+		localStorage.setItem('token', result.token);
+		localStorage.setItem('user_id', result._id);
+		window.location.replace('home.html');
+	})
+		.done(function () {
+			console.log("second success");
+		})
+		.fail(function (error) {
+			//Register now if user not exsist
+			var data = {
+				'first_name': fname,
+				'last_name': lname,
+				'image' : image,
+				'password': id,
+				'email': email
+			}
+			$.post(url, data, function (result) {
+				console.log("success");
+				localStorage.setItem('token', result.token);
+				window.location.replace('home.html');
+				swal("Good job!", "User Account created successfully", "success", {
+					button: "Got it!",
+				}).then((value) => {
+					window.location.replace('home.html');
+				});
+			})
+				.done(function () {
+					console.log("second success");
+				})
+				.fail(function (error) {
+					swal(error.responseJSON.message, "", "error", {
+						button: "Try again!",
+					});
+				})
+				.always(function () {
+					console.log("finished");
+				});
+		})
+		.always(function () {
+			console.log("finished");
+		});
+	// console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	// console.log('Name: ' + profile.getName());
+	// console.log('Image URL: ' + profile.getImageUrl());
+	// console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
 $('#login_submit').click(function (e) {
 	e.preventDefault();
 	var username = $('#login_user').val();
@@ -235,21 +298,21 @@ $('#login_submit').click(function (e) {
 	}
 	$.post(url, data, function (result) {
 		console.log("success");
-		localStorage.setItem('token',result.token);
-		localStorage.setItem('user_id',result._id);
+		localStorage.setItem('token', result.token);
+		localStorage.setItem('user_id', result._id);
 		window.location.replace('home.html');
 	})
-	.done(function () {
-		console.log("second success");
-	})
-	.fail(function (error) {
-		swal(error.responseJSON.message,"", "error", {
-			button: "Try again!",
+		.done(function () {
+			console.log("second success");
+		})
+		.fail(function (error) {
+			swal(error.responseJSON.message, "", "error", {
+				button: "Try again!",
+			});
+		})
+		.always(function () {
+			console.log("finished");
 		});
-	})
-	.always(function () {
-		console.log("finished");
-	});
 })
 
 $('.reset_password').click(function (e) {
@@ -269,17 +332,17 @@ $('.reset_password').click(function (e) {
 			window.location.replace('home.html');
 		});
 	})
-	.done(function () {
-		console.log("second success");
-	})
-	.fail(function (error) {
-		swal(error.responseJSON.message,"", "error", {
-			button: "Try again!",
+		.done(function () {
+			console.log("second success");
+		})
+		.fail(function (error) {
+			swal(error.responseJSON.message, "", "error", {
+				button: "Try again!",
+			});
+		})
+		.always(function () {
+			console.log("finished");
 		});
-	})
-	.always(function () {
-		console.log("finished");
-	});
 })
 
 $('.register_submit').click(function (e) {
@@ -299,7 +362,7 @@ $('.register_submit').click(function (e) {
 	}
 	$.post(url, data, function (result) {
 		console.log("success");
-		localStorage.setItem('token',result.token);
+		localStorage.setItem('token', result.token);
 		window.location.replace('home.html');
 		swal("Good job!", "User Account created successfully", "success", {
 			button: "Got it!",
@@ -307,15 +370,15 @@ $('.register_submit').click(function (e) {
 			window.location.replace('home.html');
 		});
 	})
-	.done(function () {
-		console.log("second success");
-	})
-	.fail(function (error) {
-		swal(error.responseJSON.message,"", "error", {
-			button: "Try again!",
+		.done(function () {
+			console.log("second success");
+		})
+		.fail(function (error) {
+			swal(error.responseJSON.message, "", "error", {
+				button: "Try again!",
+			});
+		})
+		.always(function () {
+			console.log("finished");
 		});
-	})
-	.always(function () {
-		console.log("finished");
-	});
 })

@@ -1,5 +1,5 @@
 var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
-var news,programs;
+var news, programs;
 
 AOS.init({
 	duration: 800,
@@ -11,56 +11,56 @@ get_apis = function () {
 	get_programs();
 }
 
-news_append = function(news) {
+news_append = function (news) {
 	$('#news1 h4')[0].append(news[0].title);
 	$('#news1 p')[0].append(news[0].description);
 }
 
-get_news = function(){
+get_news = function () {
 	var url = backend_url;
-	$.get(url + 'news', 
-	function (data) {
-		news = data.news;
-		news_append(news);
-	});
+	$.get(url + 'news',
+		function (data) {
+			news = data.news;
+			news_append(news);
+		});
 }
 
-program_one_append = function (programs){
+program_one_append = function (programs) {
 	$('#program1 h2')[0].append(programs[0].name);
 	$('#program1 p')[0].append(programs[0].description);
 	$('#program1 .p_left_left').css('background-image', 'url(' + programs[0].description + ')');
 }
 
 
-get_programs = function(){
+get_programs = function () {
 	var url = backend_url;
-	$.get(url + 'programs', 
-	function (data) {
-		programs = data.programs;
-		program_one_append(programs);
-	});
+	$.get(url + 'programs',
+		function (data) {
+			programs = data.programs;
+			program_one_append(programs);
+		});
 }
 
-check_ath = function (){
+check_ath = function () {
 	var token = localStorage.getItem('token');
 
-	if(token != null){
+	if (token != null) {
 		$('.login_navbar').css('display', 'none');
 		$('.logout_navbar').css('display', 'block');
 	}
 
-	else{
+	else {
 		$('.login_navbar').css('display', 'block');
 		$('.logout_navbar').css('display', 'none');
 	}
 }
 
-$('.logout_navbar').click(function(e){
+$('.logout_navbar').click(function (e) {
 	e.preventDefault();
 	var url = backend_url + 'logout';
 	// $.post(url, function (result) {
-		localStorage.removeItem('token');
-		window.location.replace('home.html');
+	localStorage.removeItem('token');
+	window.location.replace('home.html');
 	// })
 	// .done(function () {
 	// 	console.log("second success");
