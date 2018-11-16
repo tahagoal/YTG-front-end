@@ -248,6 +248,8 @@ function onSignIn(googleUser) {
 		})
 		.fail(function (error) {
 			//Register now if user not exsist
+
+			url = backend_url + 'register'
 			var data = {
 				'first_name': fname,
 				'last_name': lname,
