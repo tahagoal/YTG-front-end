@@ -192,8 +192,9 @@ get_events = function(){
 	var url = backend_url;
 	$.get(url + 'events', 
 	function (data) {
-		events = data.events;
-		events_append(events);
+        events = data.events;
+        var active_events = check_activity(events);
+		events_append(active_events);
 	});
 }
 
@@ -214,10 +215,22 @@ get_news = function(){
 	var url = backend_url;
 	$.get(url + 'news', 
 	function (data) {
-		news = data.news;
-		news_append(news);
+        news = data.news;
+        var active_news = check_activity(news);
+		news_append(active_news);
 	});
 }
+
+check_activity = function (old_data){
+	new_data = [];
+	for(var i = 0; i< old_data.length; i++){
+		if(old_data[i].is_active){
+			new_data.push(old_data[i]);
+		}
+	}
+	return new_data;
+}
+
 </script>
 
 </html>

@@ -100,6 +100,7 @@
                     </div>
                 </div>
             </div>
+            <button class="go_form">Go Form</button>
         </div>
     </section>
 
@@ -162,6 +163,7 @@
 
 <script>
 var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var program_id;
 
 $(document).ready(function ($) {
     get_program();
@@ -169,7 +171,7 @@ $(document).ready(function ($) {
 
 get_program = function(){
     var url = backend_url;
-    var program_id = get_param('program_id');
+    program_id = get_param('program_id');
 	$.get(url + 'programs/'+ program_id, 
 	function (data) {
         program = data;
@@ -202,6 +204,10 @@ get_param = function(param){
         }
     }
 }
+
+$('.go_form').click(function(){
+    window.location.replace('programform.html?program_id=' + program_id);
+})
 
 </script>
 

@@ -204,9 +204,9 @@
     get_user = function () {
         var options = {
             method: 'GET',
-            url: backend_url+ 'users/' + user_id,
+            url: backend_url+ 'users/' + user_id + '/profile',
             headers: {
-                'Authorization': 'Bearer '+ token
+                'Authorization': token
             }
         };
         $.get(options,

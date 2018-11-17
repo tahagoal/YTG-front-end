@@ -47,8 +47,19 @@ get_news = function () {
 	$.get(url + 'news',
 		function (data) {
 			news = data.news;
-			news_append(news);
+			var news_active = check_activity(news);
+			news_append(news_active);
 		});
+}
+
+check_activity = function (old_data){
+	new_data = [];
+	for(var i = 0; i< old_data.length; i++){
+		if(old_data[i].is_active){
+			new_data.push(old_data[i]);
+		}
+	}
+	return new_data;
 }
 
 program_one_append = function (programs) {
@@ -81,12 +92,12 @@ check_ath = function () {
 	}
 }
 
-$('.logout_navbar').click(function (e) {
+$('.logout_button').click(function (e) {
 	e.preventDefault();
 	var url = backend_url + 'logout';
 	// $.post(url, function (result) {
 	localStorage.removeItem('token');
-	window.location.replace('home.html');
+	window.location.href = 'home.html';
 	// })
 	// .done(function () {
 	// 	console.log("second success");
