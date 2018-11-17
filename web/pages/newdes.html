@@ -74,40 +74,30 @@
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
-                    <h2 class="new_spacing" style="color: white;">
-                        News & Events
+                    <h2 class="new_spacing new_title" style="color: white;">
+                        
                     </h2>
                 </div>
             </div>
         </div>
-    </section>
+    </section>   
 
     <section class="ftco-section-2">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4">
-                    <h2 style="font-weight: bold;">
-                        Events
-                    </h2>
-                    <div class="text-inner align-self-start" data-aos="fade-up">
-                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
-                        <ul class="ul_colored events_container">
-                        </ul>
-                    </div>
-                </div>
 
                 <div class="text col-md-4">
                     <h2 style="font-weight: bold;">
-                        News
+                        News description:
                     </h2>
                     <div class="text-inner align-self-start" data-aos="fade-up">
                         <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
-                        <ul class="ul_colored news_container">
-                        </ul>
+                        <div class="new_date">
+                            <h3>Date: </h3>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -168,56 +158,42 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
+
 <script>
-    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
 
 $(document).ready(function ($) {
-    get_events();
-    get_news();
+    get_newsingle();
 })
 
-events_append = function(events){
-    for(var i = 0 ; i<events.length; i++){
-        $('.events_container').append('<li onclick = goevent("'+
-                events[i]._id +
-            '")>' + events[i].title +'</li>');
-    }
-}
-
-goevent = function(event_id){
-    window.location.href = 'eventdes.html?event_id=' + event_id;     
-}
-
-get_events = function(){
-	var url = backend_url;
-	$.get(url + 'events', 
+get_newsingle = function(){
+    var url = backend_url;
+    var newsingle_id = get_param('new_id');
+	$.get(url + 'news/'+ newsingle_id, 
 	function (data) {
-		events = data.events;
-		events_append(events);
+        newsingle = data;
+        newsingle_append(newsingle);
 	});
 }
 
+newsingle_append = function(new_single){
+    $('.new_title').append(new_single.title);
+    $('.new_date').append(new_single.dueDate);
+}
 
-news_append = function(news){
-    for(var i = 0 ; i<news.length; i++){
-        $('.news_container').append('<li onclick = gonews("'+
-                news[i]._id +
-            '")>' + news[i].title +'</li>');
+get_param = function(param){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == param) 
+        {
+            return sParameterName[1];
+        }
     }
 }
 
-gonews = function(new_id){
-    window.location.href = 'newdes.html?new_id=' + new_id; 
-}
-
-get_news = function(){
-	var url = backend_url;
-	$.get(url + 'news', 
-	function (data) {
-		news = data.news;
-		news_append(news);
-	});
-}
 </script>
 
 </html>
