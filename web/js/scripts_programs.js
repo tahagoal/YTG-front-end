@@ -21,17 +21,17 @@ $('#program3').click(function(){
 
 program_one_append = function (programs){
 	$('#program1 h2')[0].append(programs[0].name);
-	$('#program1 p')[0].append(programs[0].description);
+	$('#program1 .program_descrip').append(programs[0].description);
 	$('#program1 .p_left_left').css('background-image', 'url(' + programs[0].description + ')');
 	$('#program1 .p_left_right').css('background-color', programs[0].segment);
 
 	$('#program2 h2')[0].append(programs[1].name);
-	$('#program2 p')[0].append(programs[1].description);
+	$('#program2 .program_descrip').append(programs[1].description);
 	$('#program2 .p_left_left').css('background-image', 'url(' + programs[1].description + ')');
 	$('#program1 .p_top_right').css('background-color', programs[1].segment);
 
 	$('#program3 h2')[0].append(programs[2].name);
-	$('#program3 p')[0].append(programs[2].description);
+	$('#program3 .program_descrip').append(programs[2].description);
 	$('#program3 .p_left_left').css('background-image', 'url(' + programs[2].description + ')');
 	$('#program1 .p_bottom_left').css('background-color', programs[2].segment);
 }

@@ -92,7 +92,7 @@
                         News description:
                     </h2>
                     <div class="text-inner align-self-start" data-aos="fade-up">
-                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
+                        <p class="new_descrip"></p>
                         <div class="new_date">
                             <h3>Date: </h3>
                         </div>
@@ -183,6 +183,7 @@ newsingle_append = function(new_single){
     $('.new_title').append(new_single.title);
     $('.new_date').append(new_single.dueDate);
     $('.new_title').css('color', new_single.segment);
+    $('.new_descrip').append(new_single.description);
 
     var tags = new_single.tags.split(',');
 
