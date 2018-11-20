@@ -1,4 +1,4 @@
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
 AOS.init({
 	duration: 800,

@@ -97,6 +97,9 @@
                         <h3>Location</h3>
                         <div class="event_location">
                         </div>
+                        <div class="event_tags">
+                            <h3>Tags: </h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,7 +164,7 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
 $(document).ready(function ($) {
     get_event();
@@ -181,6 +184,13 @@ event_append = function(program){
     $('.event_title').append(event.title);
     $('.event_descrip').append(event.description);
     $('.event_location').append(event.location);
+    $('.event_title').css('color', event.segment);
+
+    var tags = new_single.tags.split(',');
+
+    for(var i =0; i< tags.length; i++){
+        $('.event_tags').append('<li> ---'+ tags[i]+ '</li>');
+    }
 }
 
 get_param = function(param){

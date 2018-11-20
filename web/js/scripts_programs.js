@@ -1,4 +1,4 @@
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 var programs;
 var active_programs =[];
 
@@ -15,9 +15,9 @@ $('#program2').click(function(){
 	window.location.href = 'programdes.html?program_id=' + active_programs[1]._id;
 })
 
-$('#program3').onclick = function(){
+$('#program3').click(function(){
 	window.location.href = 'programdes.html?program_id=' + active_programs[2]._id;
-}
+})
 
 program_one_append = function (programs){
 	$('#program1 h2')[0].append(programs[0].name);

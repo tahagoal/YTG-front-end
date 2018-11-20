@@ -250,7 +250,7 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
 $(document).ready(function ($) {
     get_jobs();
@@ -258,10 +258,11 @@ $(document).ready(function ($) {
 
 jobs_append = function(jobs){
     for(var i = 0 ; i<jobs.length; i++){
-        $('.jobs_container').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row"><div class="col-sm-8"><h2>'+
+        $('.jobs_container').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" '+
+        'style="border: 2px solid '+ jobs[i].segment +'"><div class="col-sm-8"><h2>'+
             jobs[i].title +
             '</h2><p>' +
-            jobs[i].description +  
+            jobs[i].description + 
             '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("'+
                 jobs[i]._id +
             '")>View job</button></div></div></div>');
