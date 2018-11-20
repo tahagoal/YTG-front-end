@@ -95,12 +95,13 @@
                         <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
                         <p class="program_descrip"></p>
                         <div class="program_questions">
-                            <h3>Questions: </h3>
+                            <h3>Tags: </h3>
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="go_form">Go Form</button>
+            <input type="submit" value="Go Form" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
+            
         </div>
     </section>
 
@@ -181,14 +182,13 @@ get_program = function(){
 
 program_append = function(program){
     $('.program_title').append(program.name);
+    $('.program_title').css('color', program.segment);
     $('.program_descrip').append(program.description);
 
-    for(var i =0; i< program.questions.length; i++){
-        $('.program_questions').append('<h3> ---'+ program.questions[i].question + '</h3>');
-        $('.program_questions').append('<p>Answers</p>');
-        for(var j = 0 ; j <program.questions[i].answers.length; j ++){
-            $('.program_questions').append('<p>'+ program.questions[i].answers[j] + '</p>');        
-        }
+    var tags = program.tags.split(',');
+
+    for(var i =0; i< tags.length; i++){
+        $('.program_questions').append('<li> ---'+ tags[i]+ '</li>');
     }
 }
 
