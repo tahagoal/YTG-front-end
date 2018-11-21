@@ -97,6 +97,7 @@ $('.logout_button').click(function (e) {
 	var url = backend_url + 'logout';
 	// $.post(url, function (result) {
 	localStorage.removeItem('token');
+	localStorage.removeItem('user_id');
 	window.location.href = 'home.html';
 	// })
 	// .done(function () {
