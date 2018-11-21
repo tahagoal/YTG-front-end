@@ -86,26 +86,74 @@
     <section class="ftco-section-2">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
-            <form class="center" id="form_created" style="width:70%;">
-                <div class="dynamic_form">
-                    
-                </div>
-                <input type="submit" value="Submit" class="submit_form center btn btn-2 btn-2g" data-aos="fade-up">                
-            </form>
+                <form class="center" id="form_created" style="width:70%;">
+                    <div class="dynamic_form">
 
-        </div>
+                    </div>
+                    <input type="submit" value="Submit" class="submit_form center btn btn-2 btn-2g" data-aos="fade-up">
+                </form>
+
+            </div>
     </section>
 </body>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
     var program_id;
+    var questions_global;
 
     $(document).ready(function ($) {
         get_program();
+    })
+
+    $('.submit_form').click(function (e) {
+        e.preventDefault();
+        var query_string = $('form :input').serialize();
+        var query_object = JSON.parse('{"' + query_string.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
+            function (key, value) {
+                return key === "" ? value : decodeURIComponent(value)
+            })
+
+        var post_request = [];
+    	var user_id = localStorage.getItem('user_id');
+    
+        for (var i = 0; i < questions_global.length; i++) {
+            var object = {
+                '_id': questions_global[i]._id,
+                'answer': query_object[questions_global[i]._id],
+                'user':user_id
+            }
+            post_request.push(object);
+        }
+
+        var url = backend_url + 'programs/'+program_id+'/questions';
+        var data = {
+            'questions' : post_request
+        }
+        
+        $.post(url, data, function (result) {
+           
+            swal("Good job!", "Form submitted successfully", "success", {
+                button: "Got it!",
+            }).then((value) => {
+                window.location.replace('program.html');
+            });
+        })
+            .done(function () {
+                console.log("second success");
+            })
+            .fail(function (error) {
+                swal(error.responseJSON.message, "", "error", {
+                    button: "Try again!",
+                });
+            })
+            .always(function () {
+                console.log("finished");
+            });
     })
 
     get_program = function () {
@@ -114,8 +162,9 @@ var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
         $.get(url + 'programs/' + program_id + '/questions',
             function (data) {
                 questions = data;
-                for(var i = 0; i < questions.length; i++){
-                    $('.dynamic_form').append('<div id="'+ questions[i]._id  +'" class="row mt-4 mb-5" data-aos="fade-up"></div>')
+                questions_global = questions;
+                for (var i = 0; i < questions.length; i++) {
+                    $('.dynamic_form').append('<div id="' + questions[i]._id + '" class="row mt-4 mb-5" data-aos="fade-up"></div>')
                 }
                 append_form(questions);
             });
@@ -124,27 +173,27 @@ var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
     append_form = function (questions) {
         for (var i = 0; i < questions.length; i++) {
             if (questions[i].type == 'Checkbox') {
-                $('#'+questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
+                $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
-                    $('#'+questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">'+
-                        '<input type="checkbox" class="form-check-input" name="'+ questions[i]._id + '">'+
-                        '<label class="form-check-label">' +questions[i].answers[j] + '</label>');
+                    $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">' +
+                        '<input type="checkbox" class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '">' +
+                        '<label class="form-check-label">' + questions[i].answers[j] + '</label>');
                 }
             }
 
             else if (questions[i].type == 'RadioButton') {
-                $('#'+questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
+                $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
-                    $('#'+questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">'+
-                        '<input type="radio" class="form-check-input" name="'+ questions[i]._id + '">'+
-                        '<label class="form-check-label">' +questions[i].answers[j] + '</label>');
+                    $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">' +
+                        '<input type="radio" class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '">' +
+                        '<label class="form-check-label">' + questions[i].answers[j] + '</label>');
                 }
             }
 
             else if (questions[i].type == 'Paragraph') {
-                $('#'+questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
-                $('#'+questions[i]._id).append('<textarea class="form-control" name="'+ questions[i]._id + 
-                '"rows="5" cols="30"></textarea>');
+                $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
+                $('#' + questions[i]._id).append('<textarea class="form-control" name="' + questions[i]._id +
+                    '"rows="5" cols="30"></textarea>');
             }
         }
     }

@@ -163,7 +163,7 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
 var program_id;
 
 $(document).ready(function ($) {
@@ -171,7 +171,7 @@ $(document).ready(function ($) {
 })
 
 get_program = function(){
-    var url = backend_url;
+    var url = backend_url+ 'api/';
     program_id = get_param('program_id');
 	$.get(url + 'programs/'+ program_id, 
 	function (data) {
@@ -184,6 +184,7 @@ program_append = function(program){
     $('.program_title').append(program.name);
     $('.program_title').css('color', program.segment);
     $('.program_descrip').append(program.description);
+    $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0]+ ')');
 
     var tags = program.tags.split(',');
 
