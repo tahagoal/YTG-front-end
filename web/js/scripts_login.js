@@ -307,7 +307,7 @@ $('.reset_password').click(function (e) {
 	var url = backend_url + 'forgot_password';
 	var data = {
 		'username': username,
-		'type': 'employee'
+		'type': 'user'
 	}
 	$.post(url, data, function (result) {
 		console.log("success");
