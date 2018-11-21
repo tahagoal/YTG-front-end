@@ -209,7 +209,8 @@
         document.getElementById("register_mail").value = user.email;
     }
 
-    $('.edit_submit').click(function () {
+    $('.edit_submit').click(function (e) {
+        e.preventDefault();
         var fname = $('#register_first').val();
         var lname = $('#register_last').val();
         var mobile = '+0' + $('#register_mobile').val();
