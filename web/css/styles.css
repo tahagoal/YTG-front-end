@@ -8291,6 +8291,7 @@
     margin-top: 30px;
     height: 370px;
     background-size: cover;
+    border-radius: 20px;
   }
 
   .video_img_careers2{
@@ -8301,6 +8302,7 @@
     margin-top: 30px;
     height: 370px;
     background-size: cover;
+    border-radius: 20px;
   }
 
   .ul_colored{
@@ -8340,6 +8342,7 @@
     margin-top: 30px;
     height: 370px;
     background-size: cover;
+    border-radius: 20px;
   }
 
   #logo_loading{
@@ -9199,6 +9202,8 @@ footer .list-unstyled img {
 .card_career_1, .card_career_2{
   background-color: #f8f9fa;
   padding: 0px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .card_career_1 .won-img{
