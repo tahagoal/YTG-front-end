@@ -6997,15 +6997,29 @@
         margin-bottom: 5px; }
   
   .form-control {
-    height: 52px !important;
-    background: #fff !important;
-    color: #000 !important;
-    font-size: 18px;
-    border-radius: 0px;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important; }
-    .form-control:focus, .form-control:active {
-      border-color: #000; }
+
+  display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+}
+    .form-control:focus, .form-control:active {   
+      color: #495057;
+      background-color: #fff;
+      border-color: #3ef1c6;
+      outline: 0;
+      -webkit-box-shadow: 0 0 0 0.2rem rgba(36, 140, 55, 0.25);
+      box-shadow: 0 0 0 0.2rem rgba(36, 140, 55, 0.25);
+  }
   
   textarea.form-control {
     height: inherit !important; }
@@ -9214,6 +9228,10 @@ footer .list-unstyled img {
 .card_career_2 .won-img{
   border-bottom: 4px solid #04adc7;
   height: 350px;
+}
+
+.cursor_pointer{
+  cursor: pointer
 }
 
 @media (min-width: 1024px){

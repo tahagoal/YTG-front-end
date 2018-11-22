@@ -195,6 +195,29 @@
                 $('#' + questions[i]._id).append('<textarea class="form-control" name="' + questions[i]._id +
                     '"rows="5" cols="30"></textarea>');
             }
+
+            else if (questions[i].type == 'Short Answer') {
+                $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
+                $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-12">' +
+                    '<input type="text" class="form-control" name="' + questions[i]._id + '">' +
+                    '<label class="form-check-label"></label>');
+            }
+
+            else if (questions[i].type == 'Dropdown Menu') {
+                var question_html = ''
+                question_html += ('<h3>' + questions[i].question + '</h3>');
+                for (var j = 0; j < questions[i].answers.length; j++) {
+                    if(j == 0){
+                        question_html += ('<div class="col-sm-1"></div><select class="custom-select">');
+                    }
+                    else if(j-1 == questions[i].answers.length){
+                        question_html += ('</select>');
+                    }
+                    question_html += (
+                        '<option value="' + j +'">' + questions[i].answers[j] + '</option>');
+                }
+                $('#' + questions[i]._id).append(question_html);
+            }
         }
     }
 

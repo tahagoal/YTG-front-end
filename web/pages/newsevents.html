@@ -178,7 +178,7 @@ $(document).ready(function ($) {
 
 events_append = function(events){
     for(var i = 0 ; i<events.length; i++){
-        $('.events_container').append('<li onclick = goevent("'+
+        $('.events_container').append('<li class="cursor_pointer" onclick = goevent("'+
                 events[i]._id +
             '")>' + events[i].title +'</li>');
     }
@@ -201,7 +201,7 @@ get_events = function(){
 
 news_append = function(news){
     for(var i = 0 ; i<news.length; i++){
-        $('.news_container').append('<li onclick = gonews("'+
+        $('.news_container').append('<li class="cursor_pointer" onclick = gonews("'+
                 news[i]._id +
             '")>' + news[i].title +'</li>');
     }

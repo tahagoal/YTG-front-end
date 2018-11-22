@@ -22,18 +22,25 @@ $('#program3').click(function(){
 program_one_append = function (programs){
 	$('#program1 h2')[0].append(programs[0].name);
 	$('#program1 .program_descrip').append(programs[0].description);
-	$('#program1 .p_left_left').css('background-image', 'url(' + programs[0].description + ')');
+	var img_url = backend_url + programs[0].images[0];
+	img_url = img_url.replace(/ /g, '%20');
+	$('#program1 .p_left_left').css('background-image', 'url(' +img_url+ ')');
 	$('#program1 .p_left_right').css('background-color', programs[0].segment);
 
-	$('#program2 h2')[0].append(programs[1].name);
-	$('#program2 .program_descrip').append(programs[1].description);
-	$('#program2 .p_left_left').css('background-image', 'url(' + programs[1].description + ')');
-	$('#program1 .p_top_right').css('background-color', programs[1].segment);
-
-	$('#program3 h2')[0].append(programs[2].name);
-	$('#program3 .program_descrip').append(programs[2].description);
-	$('#program3 .p_left_left').css('background-image', 'url(' + programs[2].description + ')');
-	$('#program1 .p_bottom_left').css('background-color', programs[2].segment);
+	if(programs.length > 1){
+		$('#program2 h2')[0].append(programs[1].name);
+		$('#program2 .program_descrip').append(programs[1].description);
+		$('#program2 .p_left_left').css('background-image', 'url(' + programs[1].description + ')');
+		$('#program1 .p_top_right').css('background-color', programs[1].segment);
+	}
+	
+	if(programs.length > 2){
+		$('#program3 h2')[0].append(programs[2].name);
+		$('#program3 .program_descrip').append(programs[2].description);
+		$('#program3 .p_left_left').css('background-image', 'url(' + programs[2].description + ')');
+		$('#program1 .p_bottom_left').css('background-color', programs[2].segment);
+	}
+	
 }
 
 

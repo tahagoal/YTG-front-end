@@ -21,7 +21,7 @@ news_append = function (news) {
 			$('.new_divs').append('<div class="col-md-4 mb-4"><div><svg style="float: left;" class="counter2_1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ' +
 				'width="18px" height="300px" viewBox="0 0 18 377.942" enable-background="new 0 0 18 377.942" xml:space="preserve"><g id="XMLID_97_"> ' +
 				'<line id="XMLID_53_" fill="none" stroke="#09D364" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9" y1="42.859" x2="9" y2="368.942" />' +
-				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" onclick = gonew("'+
+				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" class="cursor_pointer" onclick = gonew("'+
                 news[i]._id + '")>'+
 				news[i].title + '</h4><p data-aos="fade-up" data-aos-delay="200"><small>' + news[i].dueDate + '</small></p><p data-aos="fade-up" data-aos-delay="200" class="body_news">' +
 				news[i].description + '</p></div>' + '</div></div><div class="col-md-2"></div>')
@@ -31,7 +31,7 @@ news_append = function (news) {
 			$('.new_divs').append('<div class="col-md-4 mb-4"><div><svg style="float: left;" class="counter2_1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ' +
 				'width="18px" height="300px" viewBox="0 0 18 377.942" enable-background="new 0 0 18 377.942" xml:space="preserve"><g id="XMLID_97_"> ' +
 				'<line id="XMLID_53_" fill="none" stroke="#09D364" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9" y1="42.859" x2="9" y2="368.942" />' +
-				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" onclick = gonew("'+
+				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" class="cursor_pointer" onclick = gonew("'+
                 news[i]._id + '")>'+
 				news[i].title + '</h4><p data-aos="fade-up" data-aos-delay="200"><small>' + news[i].dueDate + '</small></p><p data-aos="fade-up" data-aos-delay="200" class="body_news">' +
 				news[i].description + '</p></div>' + '</div></div><div class="col-md-1"></div><div class="col-md-1"></div>')
