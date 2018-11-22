@@ -208,7 +208,7 @@
                 question_html += ('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     if(j == 0){
-                        question_html += ('<div class="col-sm-1"></div><select class="custom-select">');
+                        question_html += ('<div class="col-sm-1"></div><select name="' + questions[i]._id+ '" class="custom-select">');
                     }
                     else if(j-1 == questions[i].answers.length){
                         question_html += ('</select>');
@@ -223,7 +223,7 @@
                 var question_html = ''
                 question_html += ('<h3>' + questions[i].question + '</h3>');
                 question_html += ('<div class="col-sm-1"></div><div class="custom-file">');
-                question_html += ('<input type="file" class="custom-file-input" id="customFile">');
+                question_html += ('<input type="file" name="' + questions[i]._id+ '" class="custom-file-input" id="customFile">');
                 question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
                 question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
                   

@@ -1,10 +1,12 @@
 var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
 var programs;
 var active_programs =[];
+var active_services =[];
 
 
 get_apis = function () {
 	get_programs();
+	get_services();
 }
 
 $('#program1').click(function(){
@@ -55,6 +57,31 @@ get_programs = function(){
 			}
 		}
 		program_one_append(active_programs);
+	});
+}
+
+service_append = function(active_services){
+	$('#service1 .name-2')[0].append(active_services[0].name);
+	$('#service2 .name-2')[0].append(active_services[1].name);
+	$('#service3 .name-2')[0].append(active_services[2].name);
+	
+	$('#service1 p')[0].append(active_services[2].description);
+	$('#service2 p')[0].append(active_services[2].description);
+	$('#service3 p')[0].append(active_services[2].description);
+}
+
+get_services = function(){
+	var url = backend_url;
+	$.get(url + 'api/services', 
+	function (data) {
+		services = data.services;
+
+		for(var i = 0; i< services.length; i++){
+			if(services[i].is_active){
+				active_services.push(services[i]);
+			}
+		}
+		service_append(active_services);
 	});
 }
 
