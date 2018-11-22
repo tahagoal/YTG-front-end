@@ -218,6 +218,18 @@
                 }
                 $('#' + questions[i]._id).append(question_html);
             }
+
+            else if (questions[i].type == 'File Upload') {
+                var question_html = ''
+                question_html += ('<h3>' + questions[i].question + '</h3>');
+                question_html += ('<div class="col-sm-1"></div><div class="custom-file">');
+                question_html += ('<input type="file" class="custom-file-input" id="customFile">');
+                question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
+                question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
+                  
+                $('#' + questions[i]._id).append(question_html);
+            }
+
         }
     }
 

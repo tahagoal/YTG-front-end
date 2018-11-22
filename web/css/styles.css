@@ -1575,10 +1575,10 @@
     .form-control:focus {
       color: #495057;
       background-color: #fff;
-      border-color: #fed3d5;
+      border-color: #09d364;
       outline: 0;
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(251, 86, 96, 0.25);
-      box-shadow: 0 0 0 0.2rem rgba(251, 86, 96, 0.25); }
+      -webkit-box-shadow: 0 0 0 0.2rem rgb(9, 211, 100);
+      box-shadow: 0 0 0 0.2rem rgb(9, 211, 100); }
     .form-control::-webkit-input-placeholder {
       color: #6c757d;
       opacity: 1; }
