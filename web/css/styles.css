@@ -7541,6 +7541,10 @@
   .block-10 {
     margin-bottom: 30px; }
     .block-10 .person-info span, .block-10 .person-info p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
       display: block; 
       line-height: 1.8;
     }
@@ -8486,6 +8490,10 @@ h4.new_spacing{
 }
 
 .programs_row .text{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
   padding-top: 50px;
   padding-right: 10px;
   padding-left: 10px;

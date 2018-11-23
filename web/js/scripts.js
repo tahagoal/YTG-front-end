@@ -1,4 +1,4 @@
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+var backend_url = 'http://209.97.176.62:3000/';
 var news, programs;
 
 AOS.init({
@@ -9,10 +9,12 @@ AOS.init({
 get_apis = function () {
 	get_news();
 	get_programs();
+	get_sliders();
+	get_logo();
 }
 
-gonew = function(new_id){
-	window.location.href = 'newdes.html?new_id=' + new_id ;
+gonew = function (new_id) {
+	window.location.href = 'newdes.html?new_id=' + new_id;
 }
 
 news_append = function (news) {
@@ -21,8 +23,8 @@ news_append = function (news) {
 			$('.new_divs').append('<div class="col-md-4 mb-4"><div><svg style="float: left;" class="counter2_1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ' +
 				'width="18px" height="300px" viewBox="0 0 18 377.942" enable-background="new 0 0 18 377.942" xml:space="preserve"><g id="XMLID_97_"> ' +
 				'<line id="XMLID_53_" fill="none" stroke="#09D364" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9" y1="42.859" x2="9" y2="368.942" />' +
-				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" class="cursor_pointer" onclick = gonew("'+
-                news[i]._id + '")>'+
+				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" class="cursor_pointer" onclick = gonew("' +
+				news[i]._id + '")>' +
 				news[i].title + '</h4><p data-aos="fade-up" data-aos-delay="200"><small>' + news[i].dueDate + '</small></p><p data-aos="fade-up" data-aos-delay="200" class="body_news">' +
 				news[i].description + '</p></div>' + '</div></div><div class="col-md-2"></div>')
 
@@ -31,8 +33,8 @@ news_append = function (news) {
 			$('.new_divs').append('<div class="col-md-4 mb-4"><div><svg style="float: left;" class="counter2_1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" ' +
 				'width="18px" height="300px" viewBox="0 0 18 377.942" enable-background="new 0 0 18 377.942" xml:space="preserve"><g id="XMLID_97_"> ' +
 				'<line id="XMLID_53_" fill="none" stroke="#09D364" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="9" y1="42.859" x2="9" y2="368.942" />' +
-				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" class="cursor_pointer" onclick = gonew("'+
-                news[i]._id + '")>'+
+				'<circle id="XMLID_70_1" fill="#8B199B" cx="9" cy="8.989" r="8.989" /></g></svg><div style="padding-left: 40px;" id="news1"><h4 data-aos="fade-up" class="cursor_pointer" onclick = gonew("' +
+				news[i]._id + '")>' +
 				news[i].title + '</h4><p data-aos="fade-up" data-aos-delay="200"><small>' + news[i].dueDate + '</small></p><p data-aos="fade-up" data-aos-delay="200" class="body_news">' +
 				news[i].description + '</p></div>' + '</div></div><div class="col-md-1"></div><div class="col-md-1"></div>')
 
@@ -43,7 +45,7 @@ news_append = function (news) {
 }
 
 get_news = function () {
-	var url = backend_url;
+	var url = backend_url + 'api/';
 	$.get(url + 'news',
 		function (data) {
 			news = data.news;
@@ -52,10 +54,44 @@ get_news = function () {
 		});
 }
 
-check_activity = function (old_data){
+get_sliders = function () {
+	var url = backend_url + 'api/';
+	$.get(url + 'upload/slider',
+		function (data) {
+			slider = data.contents;
+			append_slider(slider[3]);
+		});
+}
+
+append_slider = function (slider) {
+	var html = '';
+	// for(var i = 0 ; i < slider.images.length ; i++){
+		var img_url = backend_url + slider.images[0];
+		html += '<div class="slItem" style="background-image: url('+ img_url +');">';
+		html += '<div class="slText underline_white">'+ slider.comment +'</div>';
+		html += '</div>';
+
+		// var img_url = backend_url + slider.images[1];
+		// html += '<div class="slItem" style="background-image: url("'+ img_url +'");">';
+		// html += '<div class="slText">'+ slider.comment +'</div>';
+		// html += '</div>';
+	// }
+	$('#slider').append(html);
+
+	$(function () {
+        $('#slider').rbtSlider({
+            height: '100vh',
+            'dots': true,
+            'arrows': true,
+            'auto': 3
+        });
+    });
+}
+
+check_activity = function (old_data) {
 	new_data = [];
-	for(var i = 0; i< old_data.length; i++){
-		if(old_data[i].is_active){
+	for (var i = 0; i < old_data.length; i++) {
+		if (old_data[i].is_active) {
 			new_data.push(old_data[i]);
 		}
 	}
@@ -70,12 +106,37 @@ program_one_append = function (programs) {
 
 
 get_programs = function () {
-	var url = backend_url;
+	var url = backend_url + 'api/';
 	$.get(url + 'programs',
 		function (data) {
 			programs = data.programs;
-			program_one_append(programs);
+			// program_one_append(programs);
 		});
+}
+
+get_logo = function(){
+	var url = backend_url + 'api/upload/';
+	$.get(url + 'logos',
+		function (data) {
+			logos = data;
+			logo_append(logos);
+		});
+}
+
+logo_append = function (logos){
+	var html = '';
+	for(var i = 0 ; i < logos.length; i++){
+		html += '<div class="col-md-3 col-sm-6" data-aos="fade-up"><div class="media block-6 d-block text-center">'
+		html += '<div class="icon">'
+		var img_url = backend_url + logos[i];
+		html +=	'<img src="'+ img_url +'" style="width: 60%;">';
+		html +=	'</div></div></div>';		
+	}
+	html += '<div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">';
+	html += '<div class="media block-6 d-block text-center"><div class="icon">';
+	html += '<a href="#" class="float_partner"><i class="fa fa-plus my-float-partner"></i></a>';
+	html += '</div></div><h6 class="text-center">Be the next</h6></div>';
+	$('#partner_logos').append(html);
 }
 
 check_ath = function () {
