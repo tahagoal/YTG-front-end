@@ -454,8 +454,8 @@
                     </form>
 
                 </div>
-                <div class="col-md-4 col-lg-6 row" data-aos="fade-left">
-                    <div class="col-sm-6">
+                <div class="col-md-4 col-lg-6 row" id="partner_logos" data-aos="fade-left">
+                    <!-- <div class="col-sm-6">
                         <div class="icon">
                             <img src="../assets/imgs/partner1.png" style="width: 70%;">
                         </div>
@@ -484,7 +484,7 @@
                         <div class="icon">
                             <img src="../assets/imgs/PARTNER3.png" style="width: 70%;">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -548,7 +548,7 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'http://209.97.176.62:3000/';
 
     $('.partner_submit').click(function (e) {
         e.preventDefault();
@@ -560,7 +560,7 @@
         var interested = $('#interested input').val();
         var message = $('#message textarea').val();
 
-        var url = backend_url + 'partner';
+        var url = backend_url + 'api/partner';
         var data = {
             'name': name,
             'profession': profession,
@@ -606,6 +606,29 @@
         }
 
     })
+
+get_logo = function(){
+	var url = backend_url + 'api/upload/';
+	$.get(url + 'logos',
+		function (data) {
+			logos = data;
+			logo_append(logos);
+		});
+}
+
+logo_append = function (logos){
+	var html = '';
+	for(var i = 0 ; i < logos.length; i++){
+        html += '<div class="col-sm-6"><div class="icon">';
+		var img_url = backend_url + logos[i];
+		html +=	'<img src="'+ img_url +'" style="width: 70%;">';
+		html +=	'</div></div>';		
+	}
+	$('#partner_logos').append(html);
+}
+
+
+get_logo();
 </script>
 
 </html>
