@@ -113,6 +113,9 @@
                     <div class="job_tags">
                         <h3>Tags: </h3>
                     </div>
+                    <div class="job_dead">
+                        <h3>Deadline: </h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,7 +185,27 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'http://209.97.176.62:3000/';
+
+    function formatDate(date) {
+	var monthNames = [
+	  "January", "February", "March",
+	  "April", "May", "June", "July",
+	  "August", "September", "October",
+	  "November", "December"
+	];
+  
+	var day = date.getDate();
+	var monthIndex = date.getMonth();
+	var year = date.getFullYear();
+  
+	return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+
+  function parseISOString(s) {
+	var b = s.split(/\D+/);
+	return formatDate (new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6])));
+  }
 
     $(document).ready(function ($) {
         get_job();
@@ -191,7 +214,7 @@
     get_job = function () {
         var url = backend_url;
         var job_id = get_param('job_id');
-        $.get(url + 'jobs/' + job_id,
+        $.get(url + 'api/jobs/' + job_id,
             function (data) {
                 job = data;
                 job_append(job);
@@ -203,6 +226,10 @@
         $('.job_descrip').append(job.description);
         $('.job_salary span').append(job.salary);
         $('.job_title').css('color', job.segment);
+
+        var due_date = parseISOString(job.deadline);
+        $('.job_dead').append(due_date);
+
 
         var tags = job.tags.split(',');
 
