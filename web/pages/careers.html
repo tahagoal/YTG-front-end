@@ -49,7 +49,7 @@
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
                     <li class="nav-item">
                         <a href="program.html" class="nav-link">Programs & services</a>
@@ -61,16 +61,27 @@
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_careers" data-aos="fade"
-        data-stellar-background-ratio="0.5">
+    <section class="ftco-section-2 first_section_careers" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
@@ -92,16 +103,16 @@
                             <div class="won-img img_1" style="background-image: url(../assets/imgs/programs1.jpeg);"></div>
                             <div class="won-img img_2" style="background-image: url(../assets/imgs/partners_bg.png);"></div>
                             <div class="person-info">
-                                <h2 style="font-weight: bold;" class="mb-3 center">Team</h2> 
+                                <h2 style="font-weight: bold;" class="mb-3 center">Team</h2>
                                 <p>A life changing experience that nurtures youth capacity with modern innovative sustainability
                                     practices and Entrepreneurship skills ...</p>
-                                    <ul class="ul_colored news_container">
-                                        <li>Transportation allowance</li>
-                                        <li>Shares and stock options</li>
-                                        <li>Catering service</li>
-                                        <li>Medical insurance</li>
-                                    </ul>
-                                    <button class="btn btn-nav center">Grow</button>
+                                <ul class="ul_colored news_container">
+                                    <li>Transportation allowance</li>
+                                    <li>Shares and stock options</li>
+                                    <li>Catering service</li>
+                                    <li>Medical insurance</li>
+                                </ul>
+                                <button class="btn btn-nav center">Grow</button>
                             </div>
                         </div>
                     </div>
@@ -169,15 +180,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -201,23 +218,23 @@
     })
 
 
-    $('.card_career_1').click(function(){
+    $('.card_career_1').click(function () {
         $('.card_career_2').removeClass('selected');
-        if($('.card_career_1').hasClass('selected')){
+        if ($('.card_career_1').hasClass('selected')) {
             $('.card_career_1').removeClass('selected');
         }
-        else{
-            $('.card_career_1').addClass('selected');        
+        else {
+            $('.card_career_1').addClass('selected');
         }
     })
 
-    $('.card_career_2').click(function(){
-        $('.card_career_1').removeClass('selected');        
-        if($('.card_career_2').hasClass('selected')){
+    $('.card_career_2').click(function () {
+        $('.card_career_1').removeClass('selected');
+        if ($('.card_career_2').hasClass('selected')) {
             $('.card_career_2').removeClass('selected');
         }
-        else{
-            $('.card_career_2').addClass('selected');        
+        else {
+            $('.card_career_2').addClass('selected');
         }
     })
 
@@ -229,7 +246,7 @@
                 '</h2><p>' +
                 jobs[i].description +
                 '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
-                jobs[i]._id + '") style="background: '+ jobs[i].segment +' !important;">View job</button></div></div></div>');
+                jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
         }
     }
 

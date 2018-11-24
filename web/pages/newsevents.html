@@ -48,8 +48,8 @@
                     <li class="nav-item">
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                    <li class="nav-item active">
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
                     <li class="nav-item">
                         <a href="program.html" class="nav-link">Programs & services</a>
@@ -57,13 +57,25 @@
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -145,15 +157,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -169,67 +187,67 @@
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
-$(document).ready(function ($) {
-    get_events();
-    get_news();
-})
+    $(document).ready(function ($) {
+        get_events();
+        get_news();
+    })
 
-events_append = function(events){
-    for(var i = 0 ; i<events.length; i++){
-        $('.events_container').append('<li class="cursor_pointer" onclick = goevent("'+
+    events_append = function (events) {
+        for (var i = 0; i < events.length; i++) {
+            $('.events_container').append('<li class="cursor_pointer" onclick = goevent("' +
                 events[i]._id +
-            '")>' + events[i].title +'</li>');
+                '")>' + events[i].title + '</li>');
+        }
     }
-}
 
-goevent = function(event_id){
-    window.location.href = 'eventdes.html?event_id=' + event_id;     
-}
+    goevent = function (event_id) {
+        window.location.href = 'eventdes.html?event_id=' + event_id;
+    }
 
-get_events = function(){
-	var url = backend_url;
-	$.get(url + 'events', 
-	function (data) {
-        events = data.events;
-        var active_events = check_activity(events);
-		events_append(active_events);
-	});
-}
+    get_events = function () {
+        var url = backend_url;
+        $.get(url + 'events',
+            function (data) {
+                events = data.events;
+                var active_events = check_activity(events);
+                events_append(active_events);
+            });
+    }
 
 
-news_append = function(news){
-    for(var i = 0 ; i<news.length; i++){
-        $('.news_container').append('<li class="cursor_pointer" onclick = gonews("'+
+    news_append = function (news) {
+        for (var i = 0; i < news.length; i++) {
+            $('.news_container').append('<li class="cursor_pointer" onclick = gonews("' +
                 news[i]._id +
-            '")>' + news[i].title +'</li>');
+                '")>' + news[i].title + '</li>');
+        }
     }
-}
 
-gonews = function(new_id){
-    window.location.href = 'newdes.html?new_id=' + new_id; 
-}
+    gonews = function (new_id) {
+        window.location.href = 'newdes.html?new_id=' + new_id;
+    }
 
-get_news = function(){
-	var url = backend_url;
-	$.get(url + 'news', 
-	function (data) {
-        news = data.news;
-        var active_news = check_activity(news);
-		news_append(active_news);
-	});
-}
+    get_news = function () {
+        var url = backend_url;
+        $.get(url + 'news',
+            function (data) {
+                news = data.news;
+                var active_news = check_activity(news);
+                news_append(active_news);
+            });
+    }
 
-check_activity = function (old_data){
-	new_data = [];
-	for(var i = 0; i< old_data.length; i++){
-		if(old_data[i].is_active){
-			new_data.push(old_data[i]);
-		}
-	}
-	return new_data;
-}
+    check_activity = function (old_data) {
+        new_data = [];
+        for (var i = 0; i < old_data.length; i++) {
+            if (old_data[i].is_active) {
+                new_data.push(old_data[i]);
+            }
+        }
+        return new_data;
+    }
 
 </script>
 

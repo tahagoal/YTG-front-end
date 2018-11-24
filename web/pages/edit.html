@@ -49,7 +49,7 @@
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">News & user</a>
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
                     <li class="nav-item">
                         <a href="program.html" class="nav-link">Programs & services</a>
@@ -57,13 +57,25 @@
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -91,21 +103,26 @@
                     <form action="#" class="form_edit">
                         <div class="row" style="margin:0px;margin-bottom: -20px;">
                             <div class="form-group col-sm-5" data-aos="fade-up">
-                                <input type="text" id="register_first" class="form-control" placeholder="First name">
+                                <input type="text" id="register_first" class="form-control" placeholder="First name" readonly>
                             </div>
                             <div class="col-sm-2">
 
                             </div>
                             <div class="form-group col-sm-5" data-aos="fade-up">
-                                <input type="text" id="register_last" class="form-control" placeholder="Family name">
+                                <input type="text" id="register_last" class="form-control" placeholder="Family name" readonly>
                             </div>
                         </div>
                         <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_mobile" class="form-control" placeholder="Mobile number">
+                            <input type="text" id="register_mobile" class="form-control" placeholder="Mobile number" readonly>
                         </div>
                         <div class="form-group" data-aos="fade-up">
-                            <input type="email" id="register_mail" class="form-control" placeholder="Your e-mail">
+                            <input type="email" id="register_mail" class="form-control" placeholder="Your e-mail" readonly>
                         </div>
+
+                        <div class="form-group" data-aos="fade-up">
+                            <input type="Password" id="current_password" class="form-control" placeholder="Your Current Password">
+                        </div>
+
                         <div class="form-group" data-aos="fade-up">
                             <input type="Password" id="register_password" class="form-control" placeholder="Your New Password">
                         </div>
@@ -168,15 +185,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -215,42 +238,44 @@
         var lname = $('#register_last').val();
         var mobile = '+0' + $('#register_mobile').val();
         var password = $('#register_password').val();
+        var current_password = $('#current_password').val();
         var mail = $('#register_mail').val();
 
-        if(password == ""){
+        if (password == "") {
             var data = {
-				'first_name': fname,
-				'last_name': lname,
-				'email': mail,
-				'mobile': mobile
+                'first_name': fname,
+                'last_name': lname,
+                'email': mail,
+                'mobile': mobile
             }
         }
 
-        else{
+        else {
             var data = {
-				'first_name': fname,
-				'last_name': lname,
-				'password': password,
-				'email': mail,
-				'mobile': mobile
+                'first_name': fname,
+                'last_name': lname,
+                'password': password,
+                'current_password': current_password,
+                'email': mail,
+                'mobile': mobile
             }
         }
-        
-            
+
+
         var url = backend_url + 'api/users/' + user_id;
 
         $.ajax({
             url: url,
             type: 'PUT',
             data: data,
-            success: function(result) {
+            success: function (result) {
                 swal("Good job!", "User Account updated successfully", "success", {
                     button: "Got it!",
                 }).then((value) => {
                     window.location.reload();
                 });
             },
-            error: function(error){
+            error: function (error) {
                 swal(error.responseJSON.message, "", "error", {
                     button: "Try again!",
                 });

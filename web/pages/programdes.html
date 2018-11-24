@@ -49,21 +49,33 @@
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="program.html" class="nav-link">Programs & services</a>
                     </li>
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -75,12 +87,12 @@
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
                     <h2 class="new_spacing program_title" style="color: white;">
-                        
+
                     </h2>
                 </div>
             </div>
         </div>
-    </section>   
+    </section>
 
     <section class="ftco-section-2">
         <div class="container-fluid">
@@ -101,7 +113,7 @@
                 </div>
             </div>
             <input type="submit" value="Go Form" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
-            
+
         </div>
     </section>
 
@@ -112,7 +124,7 @@
                     Extra sections
                 </h2>
             </div>
-            
+
         </div>
     </section>
 
@@ -149,15 +161,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -174,66 +192,64 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'http://209.97.176.62:3000/';
-var program_id;
+    var backend_url = 'http://209.97.176.62:3000/';
+    var program_id;
 
-$(document).ready(function ($) {
-    get_program();
-})
+    $(document).ready(function ($) {
+        get_program();
+    })
 
-get_program = function(){
-    var url = backend_url+ 'api/';
-    program_id = get_param('program_id');
-	$.get(url + 'programs/'+ program_id, 
-	function (data) {
-        program = data;
-        program_append(program);
-	});
-}
-
-program_append = function(program){
-    $('.program_title').append(program.name);
-    $('.program_title').css('color', program.segment);
-    $('.program_descrip').append(program.description);
-    $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0]+ ')');
-    $('.first_section_careers').css('background-size', 'cover');
-    $('.first_section_careers').css('background-position', 'center');
-    $('.first_section_careers').css('background-repeat', 'no-repeat');
-
-    // var tags = program.tags.split(',');
-
-    // for(var i =0; i< tags.length; i++){
-    //     $('.program_questions').append('<li> ---'+ tags[i]+ '</li>');
-    // }
-
-    var html = '';
-    for(var i=0 ;i<program.extraSections.length ;i++){
-        html += '<div class="section-2-blocks-wrapper row no-gutters"><div class="col-md-1"></div>';
-        html += '<div class="img col-sm-12 col-md-6 aos-init aos-animate" data-aos="fade-right">';
-        var img_url = backend_url + program.extraSections[i].images[0];
-        html += '<center class="extra bg_img" style="background: url('+ img_url +');">';
-        html += '</center></div><div class="text col-md-4"><div class="text-inner align-self-start aos-init aos-animate" data-aos="fade-up">';
-        html += '<p>'+ program.extraSections[i].description +'</p></div></div></div>';
+    get_program = function () {
+        var url = backend_url + 'api/';
+        program_id = get_param('program_id');
+        $.get(url + 'programs/' + program_id,
+            function (data) {
+                program = data;
+                program_append(program);
+            });
     }
-    $('#extra_sections').append(html);
-}
 
-get_param = function(param){
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == param) 
-        {
-            return sParameterName[1];
+    program_append = function (program) {
+        $('.program_title').append(program.name);
+        $('.program_title').css('color', program.segment);
+        $('.program_descrip').append(program.description);
+        $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0] + ')');
+        $('.first_section_careers').css('background-size', 'cover');
+        $('.first_section_careers').css('background-position', 'center');
+        $('.first_section_careers').css('background-repeat', 'no-repeat');
+
+        // var tags = program.tags.split(',');
+
+        // for(var i =0; i< tags.length; i++){
+        //     $('.program_questions').append('<li> ---'+ tags[i]+ '</li>');
+        // }
+
+        var html = '';
+        for (var i = 0; i < program.extraSections.length; i++) {
+            html += '<div class="section-2-blocks-wrapper row no-gutters"><div class="col-md-1"></div>';
+            html += '<div class="img col-sm-12 col-md-6 aos-init aos-animate" data-aos="fade-right">';
+            var img_url = backend_url + program.extraSections[i].images[0];
+            html += '<center class="extra bg_img" style="background: url(' + img_url + ');">';
+            html += '</center></div><div class="text col-md-4"><div class="text-inner align-self-start aos-init aos-animate" data-aos="fade-up">';
+            html += '<p>' + program.extraSections[i].description + '</p></div></div></div>';
+        }
+        $('#extra_sections').append(html);
+    }
+
+    get_param = function (param) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == param) {
+                return sParameterName[1];
+            }
         }
     }
-}
 
-$('.go_form').click(function(){
-    window.location.replace('programform.html?program_id=' + program_id);
-})
+    $('.go_form').click(function () {
+        window.location.replace('programform.html?program_id=' + program_id);
+    })
 
 </script>
 

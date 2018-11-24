@@ -49,7 +49,7 @@
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
                     <li class="nav-item">
                         <a href="program.html" class="nav-link">Programs & services</a>
@@ -61,9 +61,21 @@
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -75,12 +87,12 @@
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
                     <h2 class="new_spacing job_title" style="color: white;">
-                        
+
                     </h2>
                 </div>
             </div>
         </div>
-    </section>   
+    </section>
 
     <section class="ftco-section-2">
         <div class="container-fluid">
@@ -94,7 +106,9 @@
                     <div class="text-inner align-self-start" data-aos="fade-up">
                         <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
                         <p class="job_descrip"></p>
-                        <h3 class="job_salary">Salary: <span></span></h3>
+                        <h3 class="job_salary">Salary:
+                            <span></span>
+                        </h3>
                     </div>
                     <div class="job_tags">
                         <h3>Tags: </h3>
@@ -137,15 +151,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -162,47 +182,45 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
-$(document).ready(function ($) {
-    get_job();
-})
+    $(document).ready(function ($) {
+        get_job();
+    })
 
-get_job = function(){
-    var url = backend_url;
-    var job_id = get_param('job_id');
-	$.get(url + 'jobs/'+ job_id, 
-	function (data) {
-        job = data;
-        job_append(job);
-	});
-}
-
-job_append = function(job){
-    $('.job_title').append(job.title);
-    $('.job_descrip').append(job.description);
-    $('.job_salary span').append(job.salary);
-    $('.job_title').css('color', job.segment);
-
-    var tags = job.tags.split(',');
-
-    for(var i =0; i< tags.length; i++){
-        $('.job_tags').append('<li> ---'+ tags[i]+ '</li>');
+    get_job = function () {
+        var url = backend_url;
+        var job_id = get_param('job_id');
+        $.get(url + 'jobs/' + job_id,
+            function (data) {
+                job = data;
+                job_append(job);
+            });
     }
-}
 
-get_param = function(param){
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == param) 
-        {
-            return sParameterName[1];
+    job_append = function (job) {
+        $('.job_title').append(job.title);
+        $('.job_descrip').append(job.description);
+        $('.job_salary span').append(job.salary);
+        $('.job_title').css('color', job.segment);
+
+        var tags = job.tags.split(',');
+
+        for (var i = 0; i < tags.length; i++) {
+            $('.job_tags').append('<li> ---' + tags[i] + '</li>');
         }
     }
-}
+
+    get_param = function (param) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == param) {
+                return sParameterName[1];
+            }
+        }
+    }
 
 </script>
 

@@ -48,8 +48,8 @@
                     <li class="nav-item">
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                    <li class="nav-item active">
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
                     <li class="nav-item">
                         <a href="program.html" class="nav-link">Programs & services</a>
@@ -57,13 +57,25 @@
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -75,12 +87,12 @@
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
                     <h2 class="new_spacing new_title" style="color: white;">
-                        
+
                     </h2>
                 </div>
             </div>
         </div>
-    </section>   
+    </section>
 
     <section class="ftco-section-2">
         <div class="container-fluid">
@@ -138,15 +150,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -163,47 +181,66 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
-$(document).ready(function ($) {
-    get_newsingle();
-})
+    $(document).ready(function ($) {
+        get_newsingle();
+    })
 
-get_newsingle = function(){
-    var url = backend_url;
-    var newsingle_id = get_param('new_id');
-	$.get(url + 'news/'+ newsingle_id, 
-	function (data) {
-        newsingle = data;
-        newsingle_append(newsingle);
-	});
-}
+    function formatDate(date) {
+        var monthNames = [
+            "January", "February", "March",
+            "April", "May", "June", "July",
+            "August", "September", "October",
+            "November", "December"
+        ];
 
-newsingle_append = function(new_single){
-    $('.new_title').append(new_single.title);
-    $('.new_date').append(new_single.dueDate);
-    $('.new_title').css('color', new_single.segment);
-    $('.new_descrip').append(new_single.description);
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
 
-    var tags = new_single.tags.split(',');
-
-    for(var i =0; i< tags.length; i++){
-        $('.new_tags').append('<li> ---'+ tags[i]+ '</li>');
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
     }
-}
 
-get_param = function(param){
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == param) 
-        {
-            return sParameterName[1];
+    function parseISOString(s) {
+        var b = s.split(/\D+/);
+        return formatDate(new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6])));
+    }
+
+    get_newsingle = function () {
+        var url = backend_url;
+        var newsingle_id = get_param('new_id');
+        $.get(url + 'news/' + newsingle_id,
+            function (data) {
+                newsingle = data;
+                newsingle_append(newsingle);
+            });
+    }
+
+    newsingle_append = function (new_single) {
+        $('.new_title').append(new_single.title);
+        var due_date = parseISOString(new_single.dueDate);
+        $('.new_date').append(due_date);
+        $('.new_title').css('color', new_single.segment);
+        $('.new_descrip').append(new_single.description);
+
+        var tags = new_single.tags.split(',');
+
+        for (var i = 0; i < tags.length; i++) {
+            $('.new_tags').append('<li> ---' + tags[i] + '</li>');
         }
     }
-}
+
+    get_param = function (param) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == param) {
+                return sParameterName[1];
+            }
+        }
+    }
 
 </script>
 

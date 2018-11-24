@@ -62,22 +62,39 @@ get_programs = function(){
 
 service_append = function(active_services){
 	$('#service1 .name-2')[0].append(active_services[0].name);
-	$('#service2 .name-2')[0].append(active_services[1].name);
-	$('#service3 .name-2')[0].append(active_services[2].name);
-	
-	$('#service1 p')[0].append(active_services[2].description);
-	$('#service2 p')[0].append(active_services[2].description);
-	$('#service3 p')[0].append(active_services[2].description);
-
+	$('#service1 p')[0].append(active_services[0].description);
 	var img_url = backend_url + active_services[0].images[0];
 	$('#service1 .won-img').css('background-image', 'url(' +img_url+ ')');
 
-	var img_url = backend_url + active_services[1].images[0];
-	$('#service2 .won-img').css('background-image', 'url(' +img_url+ ')');
+	if(active_services.length > 1){
+		$('#service2 .name-2')[0].append(active_services[1].name);
+		$('#service2 p')[0].append(active_services[1].description);
+		var img_url = backend_url + active_services[1].images[0];
+		$('#service2 .won-img').css('background-image', 'url(' +img_url+ ')');
+	}
 
-	var img_url = backend_url + active_services[2].images[0];
-	$('#service3 .won-img').css('background-image', 'url(' +img_url+ ')');
+	if(active_programs.length > 2){
+		$('#service3 .name-2')[0].append(active_services[2].name);
+		$('#service3 p')[0].append(active_services[2].description);	
+		var img_url = backend_url + active_services[2].images[0];
+		$('#service3 .won-img').css('background-image', 'url(' +img_url+ ')');
+
+	}
+
 }
+
+
+$('#service1').click(function(){
+	window.location.href = 'servicedes.html?service_id=' + active_services[0]._id;
+})
+
+$('#service2').click(function(){
+	window.location.href = 'servicedes.html?service_id=' + active_services[1]._id;
+})
+
+$('#service3').click(function(){
+	window.location.href = 'servicedes.html?service_id=' + active_services[2]._id;
+})
 
 get_services = function(){
 	var url = backend_url;

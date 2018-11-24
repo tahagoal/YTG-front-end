@@ -48,8 +48,8 @@
                     <li class="nav-item">
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                    <li class="nav-item active">
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
                     <li class="nav-item">
                         <a href="program.html" class="nav-link">Programs & services</a>
@@ -57,13 +57,25 @@
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -75,12 +87,12 @@
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
                     <h2 class="new_spacing event_title" style="color: white;">
-                        
+
                     </h2>
                 </div>
             </div>
         </div>
-    </section>   
+    </section>
 
     <section class="ftco-section-2">
         <div class="container-fluid">
@@ -139,15 +151,21 @@
                     <div class="ftco-footer-widget mb-4">
                         <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/facebook.png">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/twitter.png">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
                             </li>
 
                             <li style="padding: 0px 15px;">
-                                <img src="../assets/imgs/instagram.png">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
                             </li>
                         </ul>
                         <div>
@@ -164,47 +182,45 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
 
-$(document).ready(function ($) {
-    get_event();
-})
+    $(document).ready(function ($) {
+        get_event();
+    })
 
-get_event = function(){
-    var url = backend_url;
-    var event_id = get_param('event_id');
-	$.get(url + 'events/'+ event_id, 
-	function (data) {
-        event = data;
-        event_append(event);
-	});
-}
-
-event_append = function(program){
-    $('.event_title').append(event.title);
-    $('.event_descrip').append(event.description);
-    $('.event_location').append(event.location);
-    $('.event_title').css('color', event.segment);
-
-    var tags = new_single.tags.split(',');
-
-    for(var i =0; i< tags.length; i++){
-        $('.event_tags').append('<li> ---'+ tags[i]+ '</li>');
+    get_event = function () {
+        var url = backend_url;
+        var event_id = get_param('event_id');
+        $.get(url + 'events/' + event_id,
+            function (data) {
+                event = data;
+                event_append(event);
+            });
     }
-}
 
-get_param = function(param){
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == param) 
-        {
-            return sParameterName[1];
+    event_append = function (program) {
+        $('.event_title').append(event.title);
+        $('.event_descrip').append(event.description);
+        $('.event_location').append(event.location);
+        $('.event_title').css('color', event.segment);
+
+        var tags = new_single.tags.split(',');
+
+        for (var i = 0; i < tags.length; i++) {
+            $('.event_tags').append('<li> ---' + tags[i] + '</li>');
         }
     }
-}
+
+    get_param = function (param) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == param) {
+                return sParameterName[1];
+            }
+        }
+    }
 
 </script>
 

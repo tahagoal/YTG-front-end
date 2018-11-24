@@ -50,21 +50,33 @@
                         <a href="aboutus.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">News & events</a>
+                        <a href="newsevents.html" class="nav-link">News & events</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="program.html" class="nav-link">Programs & services</a>
                     </li>
                     <li class="nav-item">
                         <a href="partners.html" class="nav-link">Partners</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="careers.html" class="nav-link">Careers</a>
                     </li>
 
-                    <li class="btn-li-nav">
+                    <li class="btn-li-nav login_navbar">
                         <a href="login.html" class="btn-nav">Login</a>
                     </li>
+
+                    <div class="dropdown">
+                        <li class="btn-li-nav logout_navbar dropbtn">
+                            <a href="" class="btn-nav"></a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="profile.html">My Profile</a>
+                            <a href="edit.html">Edit Profile</a>
+                            <a href="" class="logout_button">Logout</a>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -95,6 +107,65 @@
 
             </div>
     </section>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">youthinkgreen</h2>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <!-- <h2 class="ftco-heading-2">Communities</h2> -->
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="aboutus.html">About us - </a>
+                                <a href="news.html">News - </a>
+                                <a href="program.html">programs</a>
+                            </li>
+                            <li>
+                                <a href="partners.html">partner - </a>
+                                <a href="careers.html">careers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <ul class="list-unstyled mb-4" style="display: -webkit-inline-box;">
+                            <li style="padding: 0px 15px;">
+                                <a target="_blank" href="https://www.facebook.com/YouthinkgreenEgypt">
+                                    <img src="../assets/imgs/facebook.png">
+                                </a>
+                            </li>
+
+                            <li style="padding: 0px 15px;">
+                                <a href="https://twitter.com/YouthinkgreenCU">
+                                    <img src="../assets/imgs/twitter.png">
+                                </a>
+                            </li>
+
+                            <li style="padding: 0px 15px;">
+                                <a href="https://www.instagram.com/youthinkgreeneg/">
+                                    <img src="../assets/imgs/instagram.png">
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
+                            <button class="btn btn-sub">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
@@ -119,24 +190,24 @@
             })
 
         var post_request = [];
-    	var user_id = localStorage.getItem('user_id');
-    
+        var user_id = localStorage.getItem('user_id');
+
         for (var i = 0; i < questions_global.length; i++) {
             var object = {
                 '_id': questions_global[i]._id,
                 'answer': query_object[questions_global[i]._id],
-                'user':user_id
+                'user': user_id
             }
             post_request.push(object);
         }
 
-        var url = backend_url + 'programs/'+program_id+'/questions';
+        var url = backend_url + 'programs/' + program_id + '/questions';
         var data = {
-            'questions' : post_request
+            'questions': post_request
         }
-        
+
         $.post(url, data, function (result) {
-           
+
             swal("Good job!", "Form submitted successfully", "success", {
                 button: "Got it!",
             }).then((value) => {
@@ -207,14 +278,14 @@
                 var question_html = ''
                 question_html += ('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
-                    if(j == 0){
-                        question_html += ('<div class="col-sm-1"></div><select name="' + questions[i]._id+ '" class="custom-select">');
+                    if (j == 0) {
+                        question_html += ('<div class="col-sm-1"></div><select name="' + questions[i]._id + '" class="custom-select">');
                     }
-                    else if(j-1 == questions[i].answers.length){
+                    else if (j - 1 == questions[i].answers.length) {
                         question_html += ('</select>');
                     }
                     question_html += (
-                        '<option value="' + j +'">' + questions[i].answers[j] + '</option>');
+                        '<option value="' + j + '">' + questions[i].answers[j] + '</option>');
                 }
                 $('#' + questions[i]._id).append(question_html);
             }
@@ -223,10 +294,10 @@
                 var question_html = ''
                 question_html += ('<h3>' + questions[i].question + '</h3>');
                 question_html += ('<div class="col-sm-1"></div><div class="custom-file">');
-                question_html += ('<input type="file" name="' + questions[i]._id+ '" class="custom-file-input" id="customFile">');
+                question_html += ('<input type="file" name="' + questions[i]._id + '" class="custom-file-input" id="customFile">');
                 question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
                 question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
-                  
+
                 $('#' + questions[i]._id).append(question_html);
             }
 
