@@ -645,8 +645,22 @@
         $('#partner_logos').append(html);
     }
 
+    check_ath = function () {
+        var token = localStorage.getItem('token');
+
+        if (token != null) {
+            $('.login_navbar').css('display', 'none');
+            $('.logout_navbar').css('display', 'block');
+        }
+
+        else {
+            $('.login_navbar').css('display', 'block');
+            $('.logout_navbar').css('display', 'none');
+        }
+    }
 
     get_logo();
+    check_ath();
 </script>
 
 </html>

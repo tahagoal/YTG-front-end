@@ -12,6 +12,27 @@ middle_auth = function () {
 	}
 }
 
+check_ath = function () {
+	var token = localStorage.getItem('token');
+
+	if (token != null) {
+		$('.login_navbar').css('display', 'none');
+		$('.logout_navbar').css('display', 'block');
+	}
+
+	else {
+		$('.login_navbar').css('display', 'block');
+		$('.logout_navbar').css('display', 'none');
+	}
+}
+
+$('.logout_button').click(function (e) {
+	e.preventDefault();
+	localStorage.removeItem('token');
+	localStorage.removeItem('user_id');
+	window.location.href = 'home.html';
+})
+
 
 $(document).ready(function ($) {
 
@@ -21,6 +42,8 @@ $(document).ready(function ($) {
 	if (token != null) {
 		middle_auth();
 	}
+
+	check_ath();
 
 
 	// loader

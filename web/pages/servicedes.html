@@ -195,8 +195,23 @@
     var backend_url = 'http://209.97.176.62:3000/';
     var program_id;
 
+    check_ath = function () {
+        var token = localStorage.getItem('token');
+
+        if (token != null) {
+            $('.login_navbar').css('display', 'none');
+            $('.logout_navbar').css('display', 'block');
+        }
+
+        else {
+            $('.login_navbar').css('display', 'block');
+            $('.logout_navbar').css('display', 'none');
+        }
+    }
+
     $(document).ready(function ($) {
         get_service();
+        check_ath();
     })
 
     get_service = function () {

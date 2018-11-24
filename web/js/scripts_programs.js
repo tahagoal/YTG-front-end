@@ -7,6 +7,7 @@ var active_services =[];
 get_apis = function () {
 	get_programs();
 	get_services();
+	check_ath();
 }
 
 $('#program1').click(function(){
@@ -20,6 +21,20 @@ $('#program2').click(function(){
 $('#program3').click(function(){
 	window.location.href = 'programdes.html?program_id=' + active_programs[2]._id;
 })
+
+check_ath = function () {
+	var token = localStorage.getItem('token');
+
+	if (token != null) {
+		$('.login_navbar').css('display', 'none');
+		$('.logout_navbar').css('display', 'block');
+	}
+
+	else {
+		$('.login_navbar').css('display', 'block');
+		$('.logout_navbar').css('display', 'none');
+	}
+}
 
 program_one_append = function (programs){
 	$('#program1 h2')[0].append(programs[0].name);
