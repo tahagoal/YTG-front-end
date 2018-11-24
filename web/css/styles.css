@@ -8352,6 +8352,14 @@
     margin-top:5%;
   }
 
+  .bg_img{
+    margin-top: 30px;
+    height: 370px;
+    background-size: cover;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+  }
+
   .video_img {
     background:linear-gradient(
         rgba(0, 0, 0, 0.7), 
