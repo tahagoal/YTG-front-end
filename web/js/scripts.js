@@ -130,16 +130,16 @@ program_one_append = function (programs) {
 		$('#program2 h2')[0].append(programs[1].name);
 		$('#program2 p')[0].append(programs[1].description);
 		var img_url = backend_url + programs[1].images[0];
-		$('#program2 .p_left_left').css('background-image', 'url(' + img_url + ')');
-		$('#program1 .p_top_right').css('background-color', programs[1].segment);
+		$('#program2 .p_top_left').css('background-image', 'url(' + img_url + ')');
+		$('#program2 .p_top_right').css('background-color', programs[1].segment);
 	}
 
 	if(programs.length > 2){
-		$('#program2 h2')[0].append(programs[2].name);
-		$('#program2 p')[0].append(programs[2].description);
+		$('#program3 h2')[0].append(programs[2].name);
+		$('#program3 p')[0].append(programs[2].description);
 		var img_url = backend_url + programs[2].images[0];
-		$('#program2 .p_left_left').css('background-image', 'url(' + img_url + ')');
-		$('#program1 .p_bottom_left').css('background-color', programs[2].segment);
+		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
+		$('#program3 .p_bottom_left').css('background-color', programs[2].segment);
 	}
 }
 

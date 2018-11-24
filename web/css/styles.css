@@ -7542,10 +7542,9 @@
     margin-bottom: 30px; }
     .block-10 .person-info span, .block-10 .person-info p {
       overflow: hidden;
-      display: -webkit-box;
+      display: -webkit-box !important;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
-      display: block; 
       line-height: 1.8;
     }
     .block-10 .person-info .name, .block-10 .person-info .name-2 {
@@ -8497,15 +8496,25 @@ h4.new_spacing{
   height: 100%;
 }
 
-.programs_row .text{
+.programs_row .text h2{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+
+.programs_row .text{
   padding-top: 50px;
   padding-right: 10px;
   padding-left: 10px;
   color:white;
+}
+
+.programs_row .text p{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .programs_row .text p, .programs_row .text h2{
