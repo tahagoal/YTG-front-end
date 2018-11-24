@@ -546,6 +546,7 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     var backend_url = 'http://209.97.176.62:3000/';
@@ -560,7 +561,7 @@
         var interested = $('#interested input').val();
         var message = $('#message textarea').val();
 
-        var url = backend_url + 'api/partner';
+        var url = backend_url + 'api/partners/submitForm';
         var data = {
             'name': name,
             'profession': profession,
@@ -571,7 +572,6 @@
             'message': message,
         }
 
-        console.log(data)
         $.post(url, data, function (result) {
             console.log("success");
         })

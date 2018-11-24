@@ -194,7 +194,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'http://209.97.176.62:3000/';
     var token, user_id;
     $(document).ready(function ($) {
         token = localStorage.getItem('token');
@@ -237,7 +237,7 @@
         }
         
             
-        var url = backend_url + 'users/' + user_id;
+        var url = backend_url + 'api/users/' + user_id;
 
         $.ajax({
             url: url,
@@ -261,7 +261,7 @@
     get_user = function () {
         var options = {
             method: 'GET',
-            url: backend_url + 'users/' + user_id + '/profile',
+            url: backend_url + 'api/users/' + user_id + '/profile',
         };
         $.get(options,
             function (data) {
