@@ -8234,6 +8234,18 @@
     margin-top: 40px;
 }
 
+.news_title{
+  font-weight: bold;
+}
+
+.body_news{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
 .lightbox {
     background-color: rgba(0, 0, 0, 0.8);
     overflow: hidden;
