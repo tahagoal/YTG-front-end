@@ -1,11 +1,6 @@
 var backend_url = 'http://209.97.176.62:3000/';
 var news, programs;
 
-AOS.init({
-	duration: 800,
-	easing: 'slide'
-});
-
 get_apis = function () {
 	get_news();
 	get_programs();
@@ -91,8 +86,14 @@ get_sliders = function () {
 
 append_slider = function (slider) {
 	var html = '';
-	// for(var i = 0 ; i < slider.images.length ; i++){
-		var img_url = backend_url + slider.images[0];
+	if(slider.images.length < 5){
+		var loop = slider.images.length;
+	}
+	else{
+		var loop = 5
+	}
+	for(var i = 0 ; i < loop ; i++){
+		var img_url = backend_url + slider.images[i];
 		html += '<div class="slItem" style="background-image: url('+ img_url +');">';
 		html += '<div class="slText underline_white">'+ slider.comment +'</div>';
 		html += '</div>';
@@ -101,7 +102,7 @@ append_slider = function (slider) {
 		// html += '<div class="slItem" style="background-image: url("'+ img_url +'");">';
 		// html += '<div class="slText">'+ slider.comment +'</div>';
 		// html += '</div>';
-	// }
+	}
 	$('#slider').append(html);
 
 	$(function () {
@@ -109,7 +110,7 @@ append_slider = function (slider) {
             height: '100vh',
             'dots': true,
             'arrows': true,
-            'auto': 3
+            'auto': 4
         });
     });
 }
@@ -253,6 +254,10 @@ $(document).ready(function ($) {
 	setTimeout(function () {
 		$('#body').removeClass('no_scroll');
 		$('#logo_loading').fadeOut();
+		AOS.init({
+			duration: 800,
+			easing: 'slide'
+		});
 	}, 5000);
 
 	"use strict";
