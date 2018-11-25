@@ -1572,7 +1572,7 @@
     .form-control::-ms-expand {
       background-color: transparent;
       border: 0; }
-    .form-control:focus {
+    #form_created .form-control:focus {
       color: #495057;
       background-color: #fff;
       border-color: #09d364;
@@ -2507,7 +2507,7 @@
   
   .custom-select {
     display: inline-block;
-    width: 100%;
+    width: 70%;
     height: calc(2.25rem + 2px);
     padding: 0.375rem 1.75rem 0.375rem 0.75rem;
     line-height: 1.5;
@@ -2553,7 +2553,7 @@
   .custom-file {
     position: relative;
     display: inline-block;
-    width: 100%;
+    width: 70%;
     height: calc(2.25rem + 2px);
     margin-bottom: 0; }
   
@@ -8132,6 +8132,7 @@
 
 .person-info {
     padding: 20px;
+    min-height: 220px;
 }
 
 .partners_img{
@@ -8228,6 +8229,11 @@
 
 .partners_section img{
     filter: grayscale(100%);
+    transition: all 0.5s ease-in-out
+}
+
+.partners_section img:hover{
+  filter: grayscale(0);
 }
 
 .partners_section .row{
@@ -8357,6 +8363,18 @@
     padding: 20px;
     margin: 0px;
     margin-bottom: 20px;
+  }
+
+  .job_row p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+  }
+
+  .jobs_container{
+    display: none;
   }
 
   .job_button{
@@ -8673,6 +8691,10 @@ h4.new_spacing{
   color: white;
 }
 
+.btn-sub:hover{
+  background-color: #09d364;
+}
+
 .programs_left{
   overflow:hidden;
 }
@@ -8736,6 +8758,11 @@ h4.new_spacing{
   padding-bottom: 50px;
 }
 
+.first_section_privacy{
+  margin-top: 180px;
+  padding-bottom: 50px;
+}
+
 .first_section_careers{
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers_bg.jpeg);
   height: 500px;  
@@ -8758,6 +8785,39 @@ h4.new_spacing{
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;  
+}
+
+.profile_profile{
+  transition: all 0.5s ease-in-out;
+}
+
+.profile_profile:hover{
+  opacity: 0.5;
+}
+
+.profile_profile:hover + .goto_edit{
+  opacity: 1;
+}
+
+.goto_edit:hover{
+  opacity: 1;
+}
+
+.goto_edit:hover + .profile_profile{
+  opacity: 0.5;
+}
+
+.goto_edit{
+  position: absolute;
+  top: 27%;
+  left: 25%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  color: white;
+  border: 2px solid #09d364;
+  border-radius: 20px;
+  padding: 3px;
+  background-color: rgba(0,0,0,0.5);
 }
 
 .btn-social{
@@ -8849,6 +8909,7 @@ h4.new_spacing{
 
 .form_login .forget_password{
   margin-bottom: 50px;
+  display: block;
 }
 
 .dont_have div {
@@ -8893,6 +8954,11 @@ h4.new_spacing{
 
 footer .list-unstyled img {
   width: 80%;
+  transition: all 0.5s ease-in-out;
+}
+
+footer .list-unstyled img:hover{
+  opacity: 0.5;
 }
 
 .personne{
@@ -9202,24 +9268,33 @@ footer .list-unstyled img {
   display: block;
 }
 
+.card_career_1 .won-img, .card_career_2 .won-img{
+  transition: all 0.5s ease-in-out;
+}
+
 .card_career_1{
-  margin-left: 15%;
+  margin-left: 13%;
 }
 
 .card_career_1 .img_1{
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .card_career_1 .img_2{
-  display: none;
+  opacity: 0;
+  z-index: 0;
+  margin-top: -350px;
 }
 
 .card_career_1.selected .img_1{
-  display: none;
+  opacity: 0;
+  z-index: 0;
 }
 
 .card_career_1.selected .img_2{
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .card_career_1.selected{
@@ -9227,23 +9302,28 @@ footer .list-unstyled img {
 }
 
 .card_career_2{
-  margin-left: 2%;
+  margin-left: 7%;
 }
 
 .card_career_2 .img_1{
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .card_career_2 .img_2{
-  display: none;
+  opacity: 0;
+  z-index: 0;
+  margin-top: -350px;
 }
 
 .card_career_2.selected .img_1{
-  display: none;
+  opacity: 0;
+  z-index: 0;
 }
 
 .card_career_2.selected .img_2{
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .card_career_2.selected{
@@ -9269,6 +9349,102 @@ footer .list-unstyled img {
 
 .cursor_pointer{
   cursor: pointer
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+    opacity: 0.5;
+}
+
+.checkbox {
+  display: block;
+  height: 1.5em;
+  width: 1.5em;
+  margin-right: 0.5rem;
+  border: none;
+  -webkit-transform: translateY(-0.11em);
+          transform: translateY(-0.11em);
+}
+.checkbox__rect,
+.checkbox__line {
+  fill: none;
+}
+.checkbox__rect {
+  stroke: #09d364;
+  border-radius: 3px;
+  transition: stroke 0.5s;
+  stroke-width: 2;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.checkbox__line {
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+.checkbox__flag:checked + .checkbox__trigger .checkbox__rect {
+  stroke: #09d364;
+  stroke-dashoffset: -8px;
+  -webkit-animation: open 0.5s ease forwards;
+          animation: open 0.5s ease forwards;
+}
+.checkbox__flag:checked + .checkbox__trigger .checkbox__line {
+  stroke: #09d364;
+  -webkit-animation: checked 0.8s 0.2s ease forwards;
+          animation: checked 0.8s 0.2s ease forwards;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+}
+.checkbox__flag {
+  display: none;
+}
+.checkbox__trigger {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+.checkbox__caption {
+  display: block;
+}
+@-webkit-keyframes checked {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes checked {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes open {
+  to {
+    stroke-dasharray: 57;
+  }
+}
+@keyframes open {
+  to {
+    stroke-dasharray: 57;
+  }
+}
+
+#form_created label {
+    float: none !important;
+}
+
+#form_created label.error{
+  position: absolute;
+  margin-top: 24px;
+  font-size: 11px;
+  color: red;
+}
+
+#partner_logos{
+  margin-top: 120px;
+}
+
+.pages_list{
+  letter-spacing: 3px;
 }
 
 @media (min-width: 1024px){
@@ -9397,7 +9573,7 @@ footer .list-unstyled img {
     width:100%;
   }
 
-  .first_section_login, .first_section_partner, .first_section_about, .first_section_careers, .first_section_profile{
+  .first_section_login, .first_section_partner, .first_section_about, .first_section_careers, .first_section_profile, .first_section_privacy{
     margin-top:0px;
   }
   

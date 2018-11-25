@@ -1,4 +1,4 @@
-var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/';
+var backend_url = 'http://209.97.176.62:3000/';
 
 AOS.init({
 	duration: 800,
@@ -355,39 +355,40 @@ $('.reset_password').click(function (e) {
 })
 
 $('.register_submit').click(function (e) {
-	e.preventDefault();
-	var firstname = $('#register_first').val();
-	var lastname = $('#register_last').val();
-	var mobile = '+00' + $('#register_mobile').val();
-	var email = $('#register_mail').val();
-	var password = $('#register_password').val();
-	var url = backend_url + 'register';
-	var data = {
-		'first_name': firstname,
-		'last_name': lastname,
-		'mobile': mobile,
-		'password': password,
-		'email': email
-	}
-	$.post(url, data, function (result) {
-		console.log("success");
-		localStorage.setItem('token', result.token);
-		window.location.replace('home.html');
-		swal("Good job!", "User Account created successfully", "success", {
-			button: "Got it!",
-		}).then((value) => {
+	if($(".form_login").valid()){
+		var firstname = $('#register_first').val();
+		var lastname = $('#register_last').val();
+		var mobile = '+00' + $('#register_mobile').val();
+		var email = $('#register_mail').val();
+		var password = $('#register_password').val();
+		var url = backend_url + 'register';
+		var data = {
+			'first_name': firstname,
+			'last_name': lastname,
+			'mobile': mobile,
+			'password': password,
+			'email': email
+		}
+		$.post(url, data, function (result) {
+			console.log("success");
+			localStorage.setItem('token', result.token);
 			window.location.replace('home.html');
-		});
-	})
-		.done(function () {
-			console.log("second success");
-		})
-		.fail(function (error) {
-			swal(error.responseJSON.message, "", "error", {
-				button: "Try again!",
+			swal("Good job!", "User Account created successfully", "success", {
+				button: "Got it!",
+			}).then((value) => {
+				window.location.replace('home.html');
 			});
 		})
-		.always(function () {
-			console.log("finished");
-		});
+			.done(function () {
+				console.log("second success");
+			})
+			.fail(function (error) {
+				swal(error.responseJSON.message, "", "error", {
+					button: "Try again!",
+				});
+			})
+			.always(function () {
+				console.log("finished");
+			});
+	}
 })

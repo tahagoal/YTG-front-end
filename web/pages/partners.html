@@ -81,37 +81,21 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_partner">
+    <section class="ftco-section-2 first_section_partner" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
-                    <h2 class="new_spacing" style="color: white;">
+                    <h2 class="new_spacing" style="color: white;" data-aos="fade-up">
                         Our
                     </h2>
-                    <h4 class="new_spacing" style="color: white;">
-                        Partner.
+                    <h4 class="new_spacing" style="color: white;" data-aos="fade-up">
+                        Partners.
                     </h4>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- <section class="ftco-section-2" style="padding-top: 100px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-8">
-                    <div class="text-inner align-self-start" data-aos="fade-up">
-                        <p>We have been active since 2013 focusing on fostering Sustainability &amp; Entrepreneurship among
-                            the youth sector via our educational programs and events, pushing hundreds of entrepreneurs on
-                            the innovation road to create clean solutions to challenges in renewable energy, energy management,
-                            Energy Food Water Nexus, Water sustainability and waste management.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <div class="ftco-section bg-light">
         <div class="container" id="counter">
@@ -502,30 +486,30 @@
         </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row mt-5" style="padding-bottom: 60px;">
+                <div class="col-md-3">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">youthinkgreen</h2>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mt-3">
                             <li>
-                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                                <a href="#" class="py-2 d-block">Think Global, Act Local</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="ftco-footer-widget mb-4">
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="aboutus.html">About us - </a>
-                                <a href="news.html">News - </a>
+                        <ul class="list-unstyled pages_list">
+                            <li class="center">
+                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
-                            <li>
-                                <a href="partners.html">partner - </a>
+                            <li class="center">
+                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -637,7 +621,12 @@
     logo_append = function (logos) {
         var html = '';
         for (var i = 0; i < logos.length; i++) {
-            html += '<div class="col-sm-6"><div class="icon">';
+            if(i%2 == 0){
+                html += '<div class="col-sm-6"><div class="icon" align="center">';
+            }
+            else{
+                html += '<div class="col-sm-6"><div class="icon" align="left">';
+            }
             var img_url = backend_url + logos[i];
             html += '<img src="' + img_url + '" style="width: 70%;">';
             html += '</div></div>';

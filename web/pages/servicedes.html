@@ -85,10 +85,20 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4" style="margin-top: 100px;">
-                    <h2 class="new_spacing service_title" style="color: white;">
+                <div class="text col-md-4 hero_sec" style="margin-top: 100px;">
+                    <h1 class="new_spacing service_title" style="font-weight: bold">
 
-                    </h2>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section-2 second_service">
+        <div class="container-fluid">
+            <div class="section-2-blocks-wrapper row no-gutters">
+                <div class="col-md-1"></div>
+                <div class="text col-md-4">
                 </div>
             </div>
         </div>
@@ -101,14 +111,14 @@
 
                 <div class="text col-md-4">
                     <h2 style="font-weight: bold;">
-                        service description:
+                        Service description:
                     </h2>
                     <div class="text-inner align-self-start" data-aos="fade-up">
                         <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
                         <p class="service_descrip"></p>
-                        <div class="service_questions">
+                        <!-- <div class="service_questions">
                             <h3>Tags: </h3>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -117,41 +127,36 @@
         </div>
     </section>
 
-    <section class="ftco-section-2">
+     <section class="ftco-section-2">
         <div class="container-fluid" id="extra_sections">
-            <div class="text col-md-4" style="margin-top: 100px;">
-                <h2>
-                    Extra sections
-                </h2>
-            </div>
 
         </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row mt-5" style="padding-bottom: 60px;">
+                <div class="col-md-3">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">youthinkgreen</h2>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mt-3">
                             <li>
-                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                                <a href="#" class="py-2 d-block">Think Global, Act Local</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="ftco-footer-widget mb-4">
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="aboutus.html">About us - </a>
-                                <a href="news.html">News - </a>
+                        <ul class="list-unstyled pages_list">
+                            <li class="center">
+                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
-                            <li>
-                                <a href="partners.html">partner - </a>
+                            <li class="center">
+                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -233,22 +238,27 @@
         $('.first_section_careers').css('background-position', 'center');
         $('.first_section_careers').css('background-repeat', 'no-repeat');
 
-        var tags = service.tags.split(',');
+        $('.second_service').css('background', service.segment);
 
-        for (var i = 0; i < tags.length; i++) {
-            $('.service_questions').append('<li> ---' + tags[i] + '</li>');
-        }
+        // var tags = service.tags.split(',');
 
-        // var html = '';
-        // for(var i=0 ;i<program.extraSections.length ;i++){
-        //     html += '<div class="section-2-blocks-wrapper row no-gutters"><div class="col-md-1"></div>';
-        //     html += '<div class="img col-sm-12 col-md-6 aos-init aos-animate" data-aos="fade-right">';
-        //     var img_url = backend_url + program.extraSections[i].images[0];
-        //     html += '<center class="extra bg_img" style="background: url('+ img_url +');">';
-        //     html += '</center></div><div class="text col-md-4"><div class="text-inner align-self-start aos-init aos-animate" data-aos="fade-up">';
-        //     html += '<p>'+ program.extraSections[i].description +'</p></div></div></div>';
+        // for (var i = 0; i < tags.length; i++) {
+        //     $('.service_questions').append('<li> ---' + tags[i] + '</li>');
         // }
-        // $('#extra_sections').append(html);
+
+        $('.hero_sec').append('<p>'+ service.tags +'</p>');
+        $('.hero_sec p').css('color', service.segment);
+
+        var html = '';
+        for(var i=0 ;i<service.extraSections.length ;i++){
+            html += '<div class="section-2-blocks-wrapper row no-gutters"><div class="col-md-1"></div>';
+            html += '<div class="img col-sm-12 col-md-6 aos-init aos-animate" data-aos="fade-right">';
+            var img_url = backend_url + service.extraSections[i].images[0];
+            html += '<center class="extra bg_img" style="background: url('+ img_url +');">';
+            html += '</center></div><div class="text col-md-4"><div class="text-inner align-self-start aos-init aos-animate" data-aos="fade-up">';
+            html += '<p>'+ service.extraSections[i].description +'</p></div></div></div>';
+        }
+        $('#extra_sections').append(html);
     }
 
     get_param = function (param) {

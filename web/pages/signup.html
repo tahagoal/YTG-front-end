@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/bootstrap-social.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
 </head>
 
 <body id="body">
@@ -95,43 +96,43 @@
                         <div class="row" style="margin:0px;margin-bottom: -20px;">
                             <div class="form-group col-sm-5" data-aos="fade-up">
                                 *
-                                <input type="text" id="register_first" class="form-control" placeholder="First name">
+                                <input type="text" required id="register_first" class="form-control" placeholder="First name" name="fname">
                             </div>
                             <div class="col-sm-2">
 
                             </div>
                             <div class="form-group col-sm-5" data-aos="fade-up">
                                 *
-                                <input type="text" id="register_last" class="form-control" placeholder="Family name">
+                                <input type="text" required id="register_last" class="form-control" placeholder="Family name" name="lname">
                             </div>
                         </div>
                         <div class="form-group" data-aos="fade-up">
                             *
-                            <input type="number" id="register_mobile" class="form-control" placeholder="Mobile number">
+                            <input type="number" required id="register_mobile" class="form-control" placeholder="Mobile number"  name="mnumber">
                         </div>
                         <div class="form-group" data-aos="fade-up">
                             *
-                            <input type="email" id="register_mail" class="form-control" placeholder="Your e-mail">
+                            <input type="email" required id="register_mail" class="form-control" placeholder="Your e-mail"  name="mail">
                         </div>
                         <div class="form-group" data-aos="fade-up">
                             *
-                            <input type="Password" id="register_password" class="form-control" placeholder="Your Password">
+                            <input type="Password" required id="register_password" class="form-control" placeholder="Your Password"  name="password">
                         </div>
 
                         <div class="form-group" data-aos="fade-up">
-                            <input style="width:100%;" id="register_date" type="text" onfocus="(this.type='date')" class="form-control" placeholder="Date of birth">
+                            <input style="width:100%;" id="register_date" type="text" onfocus="(this.type='date')" class="form-control" placeholder="Date of birth" name="date">
                         </div>
 
                         <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_address" class="form-control" placeholder="Residence address">
+                            <input type="text" id="register_address" class="form-control" placeholder="Residence address" name="address">
                         </div>
 
                         <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_grad" class="form-control" placeholder="Graduation status">
+                            <input type="text" id="register_grad" class="form-control" placeholder="Graduation status" name="grad">
                         </div>
 
                         <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_orgn" class="form-control" placeholder="Institute/organization">
+                            <input type="text" id="register_orgn" class="form-control" placeholder="Institute/organization" name="organ">
                         </div>
 
                         <input type="submit" value="Register" class="register_submit center btn btn-2 btn-2g" data-aos="fade-up">
@@ -145,30 +146,30 @@
         </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row mt-5" style="padding-bottom: 60px;">
+                <div class="col-md-3">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">youthinkgreen</h2>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mt-3">
                             <li>
-                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                                <a href="#" class="py-2 d-block">Think Global, Act Local</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="ftco-footer-widget mb-4">
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="aboutus.html">About us - </a>
-                                <a href="news.html">News - </a>
+                        <ul class="list-unstyled pages_list">
+                            <li class="center">
+                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
-                            <li>
-                                <a href="partners.html">partner - </a>
+                            <li class="center">
+                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -204,8 +205,19 @@
         </div>
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+    jQuery.validator.setDefaults({
+      debug: true,
+      success: "valid"
+    });
+</script>
+
 
 </html>

@@ -85,11 +85,27 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4" style="margin-top: 100px;">
-                    <h2 class="new_spacing event_title" style="color: white;">
+                <div class="text col-md-4 hero_sec" style="margin-top: 100px;">
+                    <h1 class="new_spacing event_title" style="font-weight: bold">
 
-                    </h2>
+                    </h1>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section-2">
+        <div class="container-fluid">
+            <div class="section-2-blocks-wrapper row no-gutters">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 event_location">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </div> 
+
+                <div class="col-sm-5 event_date">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </div> 
+
             </div>
         </div>
     </section>
@@ -104,44 +120,49 @@
                         event description:
                     </h2>
                     <div class="text-inner align-self-start" data-aos="fade-up">
-                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
                         <p class="event_descrip"></p>
-                        <h3>Location</h3>
+                        <!-- <h3>Location</h3>
                         <div class="event_location">
                         </div>
                         <div class="event_tags">
                             <h3>Tags: </h3>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <section class="ftco-section-2">
+        <div class="container-fluid" id="extra_sections">
+
+        </div>
+    </section>
+
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row mt-5" style="padding-bottom: 60px;">
+                <div class="col-md-3">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">youthinkgreen</h2>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mt-3">
                             <li>
-                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                                <a href="#" class="py-2 d-block">Think Global, Act Local</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="ftco-footer-widget mb-4">
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="aboutus.html">About us - </a>
-                                <a href="news.html">News - </a>
+                        <ul class="list-unstyled pages_list">
+                            <li class="center">
+                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
-                            <li>
-                                <a href="partners.html">partner - </a>
+                            <li class="center">
+                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -182,14 +203,14 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'http://209.97.176.62:3000/';
 
     $(document).ready(function ($) {
         get_event();
     })
 
     get_event = function () {
-        var url = backend_url;
+        var url = backend_url+'api/';
         var event_id = get_param('event_id');
         $.get(url + 'events/' + event_id,
             function (data) {
@@ -198,17 +219,62 @@
             });
     }
 
-    event_append = function (program) {
+    function formatDate(date) {
+        var monthNames = [
+          "January", "February", "March",
+          "April", "May", "June", "July",
+          "August", "September", "October",
+          "November", "December"
+        ];
+      
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+      
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+    function parseISOString(s) {
+        var b = s.split(/\D+/);
+        return formatDate (new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6])));
+    }
+
+    event_append = function (event) {
         $('.event_title').append(event.title);
         $('.event_descrip').append(event.description);
-        $('.event_location').append(event.location);
         $('.event_title').css('color', event.segment);
-
-        var tags = new_single.tags.split(',');
-
-        for (var i = 0; i < tags.length; i++) {
-            $('.event_tags').append('<li> ---' + tags[i] + '</li>');
+        $('.event_location').append(event.location);
+        if(event.dueDate != null){
+            var dueDate = parseISOString(event.dueDate);
+            $('.event_date').append(dueDate);
         }
+        
+        // var tags = event.tags.split(',');
+
+        // for (var i = 0; i < tags.length; i++) {
+        //     $('.event_tags').append('<li> ---' + tags[i] + '</li>');
+        // }
+
+        $('.hero_sec').append('<p>'+ event.tags +'</p>');
+        $('.hero_sec p').css('color', 'white');
+        $('.hero_sec p').css('color', event.segment);
+
+
+
+        var html = '';
+        for (var i = 0; i < event.extraSections.length; i++) {
+            html += '<div class="section-2-blocks-wrapper row no-gutters"><div class="col-md-1"></div>';
+            html += '<div class="img col-sm-5 offset-3 aos-init aos-animate" data-aos="fade-right">';
+            var img_url = backend_url + event.extraSections[i].images[0];
+            html += '<center class="extra bg_img" style="background: url(' + img_url + ');">';
+            html += '</center></div><div class="text col-sm-6 offset-2"><div class="text-inner align-self-start aos-init aos-animate" data-aos="fade-up">';
+            html += '<p>' + event.extraSections[i].description + '</p></div></div></div>';
+        }
+        $('#extra_sections').append(html);
+        $('.bg_img').css('background-size', 'cover');
+        $('.bg_img').css('background-repeat', 'no-repeat');
+        $('.bg_img').css('background-position', 'center center');
+
     }
 
     get_param = function (param) {

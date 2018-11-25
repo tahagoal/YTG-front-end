@@ -107,12 +107,20 @@
                         </div>
 
                         <div class="form-group-check" data-aos="fade-up">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
+                            <input type="checkbox" id="field" class="checkbox__flag">
+                            <label for="field" class="checkbox__trigger">
+                                <svg class="checkbox" viewbox="0 0 24 24">
+                                    <rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20" />
+                                    <polyline class="checkbox__line" points="9 11 12 14 23 3"/>
+                                </svg>
+                                <span class="checkbox__caption">
+                                Keep me logged in
+                                </span>
+                            </label>
                         </div>
 
                         <input type="submit" id="login_submit" value="Login" class="center btn btn-2 btn-2g" data-aos="fade-up">
-                        <a class="center forget_password" href="" style="color: gray;" data-toggle="modal" data-target="#forgetModal" data-aos="fade-up">Forget your password?</a>
+                        <a class="forget_password" href="" style="color: gray;" data-toggle="modal" data-target="#forgetModal" data-aos="fade-up">Forget your password?</a>
                     </form>
                     <div class="dont_have" style="display: -webkit-inline-box;" data-aos="fade-up">
                         <a>Don't have an account</a>
@@ -127,30 +135,30 @@
         </div>
     </section>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row mt-5" style="padding-bottom: 60px;">
+                <div class="col-md-3">
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">youthinkgreen</h2>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled mt-3">
                             <li>
-                                <a href="#" class="py-2 d-block">Think global, Act global</a>
+                                <a href="#" class="py-2 d-block">Think Global, Act Local</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="ftco-footer-widget mb-4">
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="aboutus.html">About us - </a>
-                                <a href="news.html">News - </a>
+                        <ul class="list-unstyled pages_list">
+                            <li class="center">
+                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
-                            <li>
-                                <a href="partners.html">partner - </a>
+                            <li class="center">
+                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
