@@ -119,27 +119,29 @@ check_activity = function (old_data) {
 	return new_data;
 }
 
-program_one_append = function (programs) {
-	$('#program1 h2')[0].append(programs[0].name);
-	$('#program1 p')[0].append(programs[0].description);
-	var img_url = backend_url + programs[0].images[0];
-	$('#program1 .p_left_left').css('background-image', 'url(' + img_url + ')');
-	$('#program1 .p_left_right').css('background-color', programs[0].segment);
+program_one_append = function (active_progs) {
+	var leng = active_progs.length;
 
-	if(programs.length > 1){
-		$('#program2 h2')[0].append(programs[1].name);
-		$('#program2 p')[0].append(programs[1].description);
-		var img_url = backend_url + programs[1].images[0];
+	$('#program1 h2')[0].append(active_progs[leng - 3].name);
+	$('#program1 p')[0].append(active_progs[leng - 3].description);
+	var img_url = backend_url + active_progs[leng - 3].images[0];
+	$('#program1 .p_left_left').css('background-image', 'url(' + img_url + ')');
+	$('#program1 .p_left_right').css('background-color', active_progs[leng - 3].segment);
+
+	if(active_progs.length > 1){
+		$('#program2 h2')[0].append(active_progs[leng - 2].name);
+		$('#program2 p')[0].append(active_progs[leng - 2].description);
+		var img_url = backend_url + active_progs[leng - 2].images[0];
 		$('#program2 .p_top_left').css('background-image', 'url(' + img_url + ')');
-		$('#program2 .p_top_right').css('background-color', programs[1].segment);
+		$('#program2 .p_top_right').css('background-color', active_progs[leng - 2].segment);
 	}
 
-	if(programs.length > 2){
-		$('#program3 h2')[0].append(programs[2].name);
-		$('#program3 p')[0].append(programs[2].description);
-		var img_url = backend_url + programs[2].images[0];
+	if(active_progs.length > 2){
+		$('#program3 h2')[0].append(active_progs[leng - 1].name);
+		$('#program3 p')[0].append(active_progs[leng - 1].description);
+		var img_url = backend_url + active_progs[leng - 1].images[0];
 		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
-		$('#program3 .p_bottom_left').css('background-color', programs[2].segment);
+		$('#program3 .p_bottom_left').css('background-color', active_progs[leng - 1].segment);
 	}
 }
 
@@ -149,7 +151,12 @@ get_programs = function () {
 	$.get(url + 'programs',
 		function (data) {
 			programs = data.programs;
-			program_one_append(programs);
+			var active_progs =[];
+			for(var i= 0; i<programs.length; i++){
+				if(programs[i].pinned && programs[i].is_active )
+					active_progs.push(programs[i]);
+			}
+			program_one_append(active_progs);
 		});
 }
 
@@ -191,6 +198,10 @@ check_ath = function () {
 		$('.logout_navbar').css('display', 'none');
 	}
 }
+
+$('.about_us_red').click(function() {
+	window.location.href = 'aboutus.html';
+})
 
 $('.logout_button').click(function (e) {
 	e.preventDefault();
@@ -476,7 +487,7 @@ $(window).scroll(function () {
 			$('.counter2_2').fadeIn();
 			$('.counter2_1').addClass('start_animation2');
 			$('.counter2_2').addClass('start_animation2');
-		}, 2000);
+		}, 500);
 		// end animation
 		b = 1;
 
