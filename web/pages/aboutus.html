@@ -546,146 +546,38 @@
         </div>
     </section>
 
-    <section class="ftco-section-2 about_team">
-        <div class="container">
-            <div class="row mb-4" style="margin-left: 20px;">
-                <div class="col-sm-5">
-                    <h2 class="new_spacing">
-                        Our
-                    </h2>
-                    <h4 class="new_spacing">
-                        Team
+    <section class="ftco-section-2 about_team" style="padding-left:0px; padding-right: 0px;">
+        <div class="row mb-4" style="margin-left: 20px;">
+            <div class="col-sm-5">
+                <h2 class="new_spacing">
+                    Our
+                </h2>
+                <h4 class="new_spacing">
+                    Team
+                </h4>
+            </div>
+        </div>
+        <div class="row mb-5" id="team_members">
+            <!-- <div class="col-lg-20" style="padding-right: 0px; padding-left: 0px;">
+                <div class="personne larg" data-id="26">
+                    <img src="../assets/imgs/team1.jpeg">
+                    <h3 align="center" style="font-weight: bold; color:#09d364">Name1&nbsp
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    </h3>
+                    <h4 align="center" style="margin-top: 5px;">Title
                     </h4>
-                </div>
-            </div>
-            <div class="row mb-5">
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team1.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name1
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
 
-                    </div>
                 </div>
+            </div> -->
 
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team2.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name2
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
+            <!-- <div class="col-md-4 col-sm-6">
+                <div class="personne-add larg" data-id="26">
+                    <div>
+                        <i class="fa fa-plus join-team-i"></i>
                     </div>
+                    <h3 align="center">Join our team</h3>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team3.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name3
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team4.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name4
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team1.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name 5
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team1.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name1
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team2.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name2
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team3.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name3
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="personne larg" data-id="26">
-                        <div>
-                            <img src="../assets/imgs/team4.jpeg">
-                            <span>Title</span>
-                        </div>
-                        <h3 align="center">Name4
-                            <br>
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </h3>
-                    </div>
-                </div>
-
-                <!-- <div class="col-md-4 col-sm-6">
-                    <div class="personne-add larg" data-id="26">
-                        <div>
-                            <i class="fa fa-plus join-team-i"></i>
-                        </div>
-                        <h3 align="center">Join our team</h3>
-                    </div>
-                </div> -->
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -753,6 +645,57 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
+
+    var backend_url = 'http://209.97.176.62:3000/';
+
+    check_ath = function () {
+        var token = localStorage.getItem('token');
+
+        if (token != null) {
+            $('.login_navbar').css('display', 'none');
+            $('.logout_navbar').css('display', 'block');
+        }
+
+        else {
+            $('.login_navbar').css('display', 'block');
+            $('.logout_navbar').css('display', 'none');
+        }
+    }
+
+
+    team_append = function (members) {
+        var html = '';
+        for (var i = 0; i < members.length; i++) {
+            html += '<div class="col-lg-20" style="padding-right: 0px; padding-left: 0px;">';
+            html += '<div class="personne larg" data-id="26">';
+            var img_url = backend_url + members[i].images;
+            html += '<img src="' + img_url +'">';
+            html += '<h3 align="center" style="font-weight: bold; color:#09d364">' + members[i].name + '&nbsp';
+            html += '<i class="fa fa-linkedin-square" aria-hidden="true" href="'+ members[i].linkedinUrl +'"></i>';
+            html += '</h3><h4 align="center" style="margin-top: 5px;">'+ members[i].title +'</h4></div></div>';
+        }
+
+        html += '<div class="col-lg-20" style="padding-right: 0px; padding-left: 0px;">';
+        html += '<div class="personne-add larg" data-id="26"><div><i class="fa fa-plus join-team-i"></i>';
+        html += '<h3 align="center" style="color: white;">Join our team</h3></div></div></div>';
+
+        $('#team_members').append(html);
+    }
+
+    get_team = function () {
+        var url = backend_url + 'api/';
+        $.get(url + 'team-member',
+            function (data) {
+                members = data;
+                team_append(members.teammembers);
+            });
+    }
+
+    $(document).ready(function ($) {
+        get_team();
+        check_ath();
+    })
+
 
     var a = 0;
     $(window).scroll(function () {

@@ -575,7 +575,11 @@
         }
 
         $.post(url, data, function (result) {
-            console.log("success");
+            swal("Thank you!", "", "success", {
+                button: "Done!",
+            }).then((value) => {
+                window.location.replace('home.html');
+            });
         })
             .done(function () {
                 console.log("second success");
