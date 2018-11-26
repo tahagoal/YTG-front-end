@@ -9229,6 +9229,10 @@ footer .list-unstyled img:hover{
 	margin-right:20px;
 }
 
+.text-inner{
+  word-break: break-all;
+}
+
 /* The dropdown container */
 .dropdown {
   float: left;
