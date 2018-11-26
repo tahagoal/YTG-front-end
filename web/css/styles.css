@@ -9492,7 +9492,7 @@ footer .list-unstyled img:hover{
   font-weight: bold;
 }
 
-#extra_sections strong{
+#extra_sections strong, #extra_sections b{
   font-weight: bold;
 }
 

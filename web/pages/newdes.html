@@ -279,12 +279,14 @@
 
         var html = '';
         for (var i = 0; i < newsingle.extraSections.length; i++) {
-            html += '<div class="section-2-blocks-wrapper row no-gutters"><div class="col-md-1"></div>';
-            html += '<div class="img col-sm-5 offset-3 aos-init aos-animate" data-aos="fade-right">';
-            var img_url = backend_url + newsingle.extraSections[i].images[0];
-            html += '<center class="extra bg_img" style="background: url(' + img_url + ');">';
-            html += '</center></div><div class="text col-sm-6 offset-2"><div class="text-inner align-self-start aos-init aos-animate" data-aos="fade-up">';
-            html += '<p>' + newsingle.extraSections[i].description + '</p></div></div></div>';
+            html += '<div class="section-2-blocks-wrapper row no-gutters">';
+            if(newsingle.extraSections[i].images[0] != undefined){
+                var img_url = backend_url + newsingle.extraSections[i].images[0];
+                html += '<div class="col-md-1"></div><div class="img col-sm-6 offset-2 aos-init aos-animate" data-aos="fade-right">';
+                html += '<center class="extra bg_img" style="background: url(' + img_url + ');"></center></div>';
+            }
+            html += '<div class="text col-sm-10 offset-1">';
+            html += newsingle.extraSections[i].description + '</div></div>';
         }
         $('#extra_sections').append(html);
         $('.bg_img').css('background-size', 'cover');
