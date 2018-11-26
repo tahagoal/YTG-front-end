@@ -563,14 +563,14 @@
         var interested = $('#interested input').val();
         var message = $('#message textarea').val();
 
-        var url = backend_url + 'api/partners/submitForm';
+        var url = backend_url + 'api/partners';
         var data = {
             'name': name,
             'profession': profession,
             'entity': entity,
             'email': email,
-            'phone': phone,
-            'interested': interested,
+            'mobile': phone,
+            'interestedIn': interested,
             'message': message,
         }
 
