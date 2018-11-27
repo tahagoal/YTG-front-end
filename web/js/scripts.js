@@ -80,7 +80,7 @@ get_sliders = function () {
 	$.get(url + 'upload/slider',
 		function (data) {
 			slider = data.contents;
-			append_slider(slider[3]);
+			append_slider(slider[2]);
 		});
 }
 

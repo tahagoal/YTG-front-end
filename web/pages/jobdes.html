@@ -85,12 +85,18 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4 hero_sec" style="margin-top: 100px;">
+                <div class="text col-sm-6 hero_sec" style="margin-top: 100px;">
                     <h1 class="new_spacing job_title" style="font-weight: bold">
 
                     </h1>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="colored_sec" style="height: 100px;">
+
         </div>
     </section>
 
@@ -105,8 +111,8 @@
         </div>
     </section>
 
-    <section class="ftco-section-2">
-        <div class="container-fluid" id="extra_sections">
+    <section class="mt-5">
+        <div class="container" id="extra_sections">
 
         </div>
     </section>
@@ -221,14 +227,16 @@
         $('.job_title').append(job.title);
         // $('.job_descrip').append(job.description);
         $('.job_salary').append(job.salary);
-        $('.job_title').css('color', job.segment);
+        // $('.job_title').css('color', job.segment);
+        $('.colored_sec').css('background', job.segment);
+        
 
         if(job.deadline != null){
               var due_date = parseISOString(job.deadline);
             // $('.job_dead').append(due_date);
 
             $('.hero_sec').append('<p>'+ due_date +'</p>');
-            $('.hero_sec p').css('color', job.segment);
+            // $('.hero_sec p').css('color', job.segment);
         }
 
       

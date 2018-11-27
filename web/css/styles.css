@@ -8392,8 +8392,8 @@
   }
 
   .bg_img{
-    margin-top: 30px;
-    height: 370px;
+    height: 400px;
+    margin-bottom: 20px;
     background-size: cover;
     border-radius: 20px;
     background-repeat: no-repeat;
@@ -8511,7 +8511,7 @@ h4.new_spacing{
   font-weight: 600;
 }
   .new_spacing{
-    letter-spacing: 30px;
+    letter-spacing: 15px;
   }
 
 .programs_row{
@@ -9464,6 +9464,13 @@ footer .list-unstyled img:hover{
 .event_card{
   height: 400px;
   margin-top: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.news_cards .block-10{
+  border-radius: 20px !important;
 }
 
 .left_event_card{
@@ -9494,6 +9501,22 @@ footer .list-unstyled img:hover{
 
 #extra_sections strong, #extra_sections b{
   font-weight: bold;
+}
+
+.event_location i, .event_date i, .job_salary i, .new_date i{
+  font-size: 35px;
+} 
+
+.event_title, .program_title, .job_title, .new_title, .service_title{
+  color: white;
+}
+
+#extra_sections .section-2-blocks-wrapper{
+  word-break: break-all;
+}
+
+#team_members .col-lg-20{
+  margin-bottom: 120px;
 }
 
 @media (min-width: 1024px){

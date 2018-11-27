@@ -85,7 +85,7 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4 hero_sec" style="margin-top: 100px;">
+                <div class="text col-sm-6 hero_sec" style="margin-top: 100px;">
                     <h1 class="new_spacing new_title" style="font-weight: bold">
 
                     </h1>
@@ -94,13 +94,16 @@
         </div>
     </section>
 
+    <section>
+        <div class="colored_sec" style="height: 100px;">
+
+        </div>
+    </section>
+
     <section class="ftco-section-2" style="padding-bottom: 30px;">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-sm-1"></div>
-                <!-- <div class="col-sm-5 new_location">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                </div>  -->
 
                 <div class="col-sm-5 new_date">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -110,16 +113,8 @@
         </div>
     </section>
 
-    <section class="ftco-section-2" style="padding-top: 30px; padding-bottom: 30px;">
-        <div class="container-fluid">
-            <div class="section-2-blocks-wrapper row no-gutters">
-                <div class="col-md-1"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ftco-section-2">
-        <div class="container-fluid" id="extra_sections">
+    <section class="mt-5">
+        <div class="container" id="extra_sections">
 
         </div>
     </section>
@@ -246,7 +241,8 @@
         // $('.new_descrip').append(new_single.description);
 
         $('.hero_sec').append('<p>'+ newsingle.tags +'</p>');
-        $('.hero_sec p').css('color', newsingle.segment);
+        // $('.hero_sec p').css('color', newsingle.segment);
+        $('.colored_sec').css('background', newsingle.segment);
 
          // $('.new_location').append(new_single.location);
         if(new_single.dueDate != null){

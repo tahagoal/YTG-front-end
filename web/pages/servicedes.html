@@ -85,7 +85,7 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4 hero_sec" style="margin-top: 100px;">
+                <div class="text col-sm-6 hero_sec" style="margin-top: 100px;">
                     <h1 class="new_spacing service_title" style="font-weight: bold">
 
                     </h1>
@@ -94,29 +94,15 @@
         </div>
     </section>
 
-    <section class="ftco-section-2 second_service">
-        <div class="container-fluid">
-            <div class="section-2-blocks-wrapper row no-gutters">
-                <div class="col-md-1"></div>
-                <div class="text col-md-4">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ftco-section-2">
-        <div class="container-fluid">
-            <div class="section-2-blocks-wrapper row no-gutters">
-                <div class="col-md-1"></div>
-
-            </div>
-            <!-- <input type="submit" value="Go Form" class="go_form center btn btn-2 btn-2g" data-aos="fade-up"> -->
+    <section>
+        <div class="colored_sec" style="height: 100px;">
 
         </div>
     </section>
 
-     <section class="ftco-section-2">
-        <div class="container-fluid" id="extra_sections">
+
+    <section class="mt-5">
+        <div class="container" id="extra_sections">
 
         </div>
     </section>
@@ -219,14 +205,17 @@
 
     service_append = function (service) {
         $('.service_title').append(service.name);
-        $('.service_title').css('color', service.segment);
+        // $('.service_title').css('color', service.segment);
         // $('.service_descrip').append(service.description);
         $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + service.images[0] + ')');
         $('.first_section_careers').css('background-size', 'cover');
         $('.first_section_careers').css('background-position', 'center');
         $('.first_section_careers').css('background-repeat', 'no-repeat');
 
-        $('.second_service').css('background', service.segment);
+        $('.colored_sec').css('background', service.segment);
+
+
+        // $('.second_service').css('background', service.segment);
 
         // var tags = service.tags.split(',');
 
@@ -235,7 +224,7 @@
         // }
 
         $('.hero_sec').append('<p>'+ service.tags +'</p>');
-        $('.hero_sec p').css('color', service.segment);
+        // $('.hero_sec p').css('color', service.segment);
 
         var html = '';
         for (var i = 0; i < service.extraSections.length; i++) {

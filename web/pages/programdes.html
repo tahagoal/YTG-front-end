@@ -85,7 +85,7 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-                <div class="text col-md-4 hero_sec" style="margin-top: 100px;">
+                <div class="text col-sm-6 hero_sec" style="margin-top: 100px;">
                     <h1 class="new_spacing program_title" style="font-weight: bold">
 
                     </h1>
@@ -94,7 +94,13 @@
         </div>
     </section>
 
-    <section class="">
+    <section>
+        <div class="colored_sec" style="height: 100px;">
+
+        </div>
+    </section>
+
+    <section class="mt-5">
         <div class="container" id="extra_sections">
 
         </div>
@@ -204,7 +210,7 @@
 
     program_append = function (program) {
         $('.program_title').append(program.name);
-        $('.program_title').css('color', program.segment);
+        // $('.program_title').css('color', program.segment);
         // $('.program_descrip').append(program.description);
         $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0] + ')');
         $('.first_section_careers').css('background-size', 'cover');
@@ -212,7 +218,9 @@
         $('.first_section_careers').css('background-repeat', 'no-repeat');
 
         $('.hero_sec').append('<p>'+ program.tags +'</p>');
-        $('.hero_sec p').css('color', program.segment);
+        $('.colored_sec').css('background', program.segment);
+
+        // $('.hero_sec p').css('color', program.segment);
 
         // var tags = program.tags.split(',');
 
