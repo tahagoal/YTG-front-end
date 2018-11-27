@@ -176,7 +176,7 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <script>
-    var backend_url = 'https://shrouded-ridge-65941.herokuapp.com/api/';
+    var backend_url = 'http://209.97.176.62:3000/';
     var program_id;
     var questions_global;
 
@@ -218,17 +218,20 @@
 
             for (var i = 0; i < questions_global.length; i++) {
                 var object = {
-                    '_id': questions_global[i]._id,
+                    'question': questions_global[i],
                     'answer': query_object[questions_global[i]._id],
                     'user': user_id
                 }
                 post_request.push(object);
             }
 
-            var url = backend_url + 'programs/' + program_id + '/questions';
+
+            var url = backend_url + 'api/programs/' + program_id + '/questions';
             var data = {
                 'questions': post_request
             }
+
+            console.log(data);
 
             $.post(url, data, function (result) {
 
@@ -256,7 +259,7 @@
     get_program = function () {
         var url = backend_url;
         program_id = get_param('program_id');
-        $.get(url + 'programs/' + program_id + '/questions',
+        $.get(url + 'api/programs/' + program_id + '/questions',
             function (data) {
                 questions = data;
                 questions_global = questions;

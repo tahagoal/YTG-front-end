@@ -114,21 +114,6 @@
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
-
-                <div class="text col-md-4">
-                    <h2 style="font-weight: bold;">
-                        event description:
-                    </h2>
-                    <div class="text-inner align-self-start" data-aos="fade-up">
-                        <p class="event_descrip"></p>
-                        <!-- <h3>Location</h3>
-                        <div class="event_location">
-                        </div>
-                        <div class="event_tags">
-                            <h3>Tags: </h3>
-                        </div> -->
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -138,6 +123,13 @@
 
         </div>
     </section>
+
+    <section class="ftco-section-2" style="padding-top: 50px;">
+        <div class="container-fluid">
+            <input type="submit" value="Register Now" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
+        </div>
+    </section>
+
 
         <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
@@ -241,7 +233,7 @@
 
     event_append = function (event) {
         $('.event_title').append(event.title);
-        $('.event_descrip').append(event.description);
+        // $('.event_descrip').append(event.description);
         $('.event_title').css('color', event.segment);
         $('.event_location').append(event.location);
         if(event.dueDate != null){
@@ -273,7 +265,7 @@
             html += event.extraSections[i].description + '</div></div>';
         }
         $('#extra_sections').append(html);
-        $('.bg_img').css('background-size', 'cover');
+        $('.bg_img').css('background-size', 'contain');
         $('.bg_img').css('background-repeat', 'no-repeat');
         $('.bg_img').css('background-position', 'center center');
 
@@ -289,6 +281,10 @@
             }
         }
     }
+
+    $('.go_form').click(function () {
+        window.location.replace('eventform.html?event_id=' + event_id);
+    })
 
 </script>
 

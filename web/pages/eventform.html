@@ -177,7 +177,7 @@
 
 <script>
     var backend_url = 'http://209.97.176.62:3000/';
-    var job_id;
+    var event_id;
     var questions_global;
 
     jQuery.validator.setDefaults({
@@ -200,12 +200,12 @@
     }
 
     $(document).ready(function ($) {
-        get_job();
+        get_event();
         check_ath();
     })
 
     $('.submit_form').click(function (e) {
-        // e.prjobDefault();
+        // e.preventDefault();
         if($("#form_created").valid()){
             var query_string = $('form :input').serialize();
             var query_object = JSON.parse('{"' + query_string.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
@@ -225,7 +225,7 @@
                 post_request.push(object);
             }
 
-            var url = backend_url + 'jobs/' + job_id + '/questions';
+            var url = backend_url + 'events/' + event_id + '/questions';
             var data = {
                 'questions': post_request
             }
@@ -235,7 +235,7 @@
                 swal("Good job!", "Form submitted successfully", "success", {
                     button: "Got it!",
                 }).then((value) => {
-                    window.location.replace('careers.html');
+                    window.location.replace('newsevents.html');
                 });
             })
             .done(function () {
@@ -253,10 +253,10 @@
         
     })
 
-    get_job = function () {
+    get_event = function () {
         var url = backend_url;
-        job_id = get_param('job_id');
-        $.get(url + 'jobs/' + job_id + '/questions',
+        event_id = get_param('event_id');
+        $.get(url + 'events/' + event_id + '/questions',
             function (data) {
                 questions = data;
                 questions_global = questions;

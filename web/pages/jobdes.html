@@ -105,38 +105,15 @@
         </div>
     </section>
 
-
     <section class="ftco-section-2">
-        <div class="container-fluid">
-            <div class="section-2-blocks-wrapper row no-gutters">
-                <div class="col-md-1"></div>
+        <div class="container-fluid" id="extra_sections">
 
-                <div class="text col-md-4">
-                    <h2 style="font-weight: bold;">
-                        Job description:
-                    </h2>
-                    <div class="text-inner align-self-start" data-aos="fade-up">
-                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
-                        <p class="job_descrip"></p>
-                        <!-- <h3 class="job_salary">Salary:
-                            <span></span>
-                        </h3> -->
-                    </div>
-                    <!-- <div class="job_tags">
-                        <h3>Tags: </h3>
-                    </div>
-                    <div class="job_dead">
-                        <h3>Deadline: </h3>
-                    </div> -->
-                </div>
-            </div>
-            <input type="submit" value="Register Now" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
         </div>
     </section>
 
     <section class="ftco-section-2">
-        <div class="container-fluid" id="extra_sections">
-
+        <div class="container-fluid">
+            <input type="submit" value="Register Now" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
         </div>
     </section>
 
@@ -242,7 +219,7 @@
 
     job_append = function (job) {
         $('.job_title').append(job.title);
-        $('.job_descrip').append(job.description);
+        // $('.job_descrip').append(job.description);
         $('.job_salary').append(job.salary);
         $('.job_title').css('color', job.segment);
 
@@ -278,7 +255,7 @@
             html += job.extraSections[i].description + '</div></div>';
         }
         $('#extra_sections').append(html);
-        $('.bg_img').css('background-size', 'cover');
+        $('.bg_img').css('background-size', 'contain');
         $('.bg_img').css('background-repeat', 'no-repeat');
         $('.bg_img').css('background-position', 'center center');
 

@@ -109,18 +109,6 @@
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
 
-                <div class="text col-md-4">
-                    <h2 style="font-weight: bold;">
-                        Service description:
-                    </h2>
-                    <div class="text-inner align-self-start" data-aos="fade-up">
-                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
-                        <p class="service_descrip"></p>
-                        <!-- <div class="service_questions">
-                            <h3>Tags: </h3>
-                        </div> -->
-                    </div>
-                </div>
             </div>
             <!-- <input type="submit" value="Go Form" class="go_form center btn btn-2 btn-2g" data-aos="fade-up"> -->
 
@@ -232,7 +220,7 @@
     service_append = function (service) {
         $('.service_title').append(service.name);
         $('.service_title').css('color', service.segment);
-        $('.service_descrip').append(service.description);
+        // $('.service_descrip').append(service.description);
         $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + service.images[0] + ')');
         $('.first_section_careers').css('background-size', 'cover');
         $('.first_section_careers').css('background-position', 'center');
@@ -261,7 +249,7 @@
             html += service.extraSections[i].description + '</div></div>';
         }
         $('#extra_sections').append(html);
-        $('.bg_img').css('background-size', 'cover');
+        $('.bg_img').css('background-size', 'contain');
         $('.bg_img').css('background-repeat', 'no-repeat');
         $('.bg_img').css('background-position', 'center center');
     }
