@@ -93,7 +93,8 @@ append_slider = function (slider) {
 		var loop = 5
 	}
 	for(var i = 0 ; i < loop ; i++){
-		var img_url = backend_url + slider.images[i];
+		// var img_url = backend_url + slider.images[i];
+		var img_url = '../assets/imgs/bright-bulb-close-up-1108572.jpg';
 		html += '<div class="slItem" style="background-image: url('+ img_url +');">';
 		html += '<div class="slText underline_white">'+ slider.comment +'</div>';
 		html += '</div>';

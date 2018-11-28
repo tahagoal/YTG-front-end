@@ -58,6 +58,42 @@ program_one_append = function (programs){
 		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
 		$('#program3 .p_bottom_left').css('background-color', programs[2].segment);
 	}
+
+	if(programs.length > 3){
+		var html = '<div class="row">';
+		var loop = programs.length;
+		for(var i = 3; i < programs.length ; i ++){
+
+			if (loop % 4 == 3 && i%3 == 0){
+				html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+			}
+			else if(loop % 4 == 2 && i%3 == 0){
+				html += '<div class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+			}
+			else if(loop % 4 == 1 && i%3 == 0){
+				html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+			}
+			else{
+				html += '<div class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+			}
+			if( programs[i].images[0] != undefined){
+				var img_url = backend_url + programs[i].images[0];
+		    	html += '<div class="won-img" style="background: url(' + img_url + ');"></div>';
+		    }
+		    else{
+		    	var img_url = backend_url + programs[i].images[0];
+		    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: contain; background-position: center center;"></div>';
+		    }
+
+		    html += '<div class="person-info"><span class="name-2 mb-3">'+ programs[i].name +'</span>';
+		    html += '<p>'+ programs[i].name +'</p>';
+		    html += '<span class="result"><a href="#" class="float_program_card center">';
+		    html += '<i class="fa fa-plus my-float-card"></i></a></span></div></div></div></div>';
+
+		}
+
+	$('.programs_section').append(html);
+	}
 	
 }
 
@@ -78,25 +114,41 @@ get_programs = function(){
 }
 
 service_append = function(active_services){
-	$('#service1 .name-2')[0].append(active_services[0].name);
-	$('#service1 p')[0].append(active_services[0].description);
-	var img_url = backend_url + active_services[0].images[0];
-	$('#service1 .won-img').css('background-image', 'url(' +img_url+ ')');
 
-	if(active_services.length > 1){
-		$('#service2 .name-2')[0].append(active_services[1].name);
-		$('#service2 p')[0].append(active_services[1].description);
-		var img_url = backend_url + active_services[1].images[0];
-		$('#service2 .won-img').css('background-image', 'url(' +img_url+ ')');
+    var html = '';
+    var loop = active_services.length;
+                                        
+	for (var i = 0; i < active_services.length; i++) {
+
+		if (loop % 4 == 3 && i%3 == 0){
+			html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+		}
+		else if(loop % 4 == 2 && i%3 == 0){
+			html += '<div class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+		}
+		else if(loop % 4 == 1 && i%3 == 0){
+			html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+		}
+		else{
+			html += '<div class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+		}
+		if( active_services[i].images[0] != undefined){
+			var img_url = backend_url + active_services[i].images[0];
+	    	html += '<div class="won-img" style="background: url(' + img_url + ');"></div>';
+	    }
+	    else{
+	    	var img_url = backend_url + active_services[i].images[0];
+	    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: contain; background-position: center center;"></div>';
+	    }
+
+	    html += '<div class="person-info"><span class="name-2 mb-3">'+ active_services[i].name +'</span>';
+	    html += '<p>'+ active_services[i].name +'</p>';
+	    html += '<span class="result"><a href="#" class="float_program_card center">';
+	    html += '<i class="fa fa-plus my-float-card"></i></a></span></div></div></div>';
+
 	}
 
-	if(active_programs.length > 2){
-		$('#service3 .name-2')[0].append(active_services[2].name);
-		$('#service3 p')[0].append(active_services[2].description);	
-		var img_url = backend_url + active_services[2].images[0];
-		$('#service3 .won-img').css('background-image', 'url(' +img_url+ ')');
-
-	}
+	$('#service_container .row').append(html);
 
 }
 

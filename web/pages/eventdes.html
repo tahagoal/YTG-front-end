@@ -231,8 +231,10 @@
 
     event_append = function (event) {
         $('.event_title').append(event.title);
-        // $('.event_descrip').append(event.description);
-        // $('.event_title').css('color', event.segment);
+        $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + event.images[0] + ')');
+        $('.first_section_careers').css('background-size', 'cover');
+        $('.first_section_careers').css('background-position', 'center');
+        $('.first_section_careers').css('background-repeat', 'no-repeat');
         $('.event_location').append(event.location);
         if(event.dueDate != null){
             var dueDate = parseISOString(event.dueDate);

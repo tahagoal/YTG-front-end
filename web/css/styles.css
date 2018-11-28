@@ -8511,7 +8511,7 @@ h4.new_spacing{
   font-weight: 600;
 }
   .new_spacing{
-    letter-spacing: 15px;
+    letter-spacing: 5px;
   }
 
 .programs_row{
@@ -8550,10 +8550,17 @@ h4.new_spacing{
   color:white;
 }
 
-.programs_row .text p{
+.programs_row .p_left_right .text p{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+.programs_row .programs_right .text p{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -8744,7 +8751,7 @@ h4.new_spacing{
 }
 
 .login_bg{
-  background-image: url(../assets/imgs/login_bg.jpeg);
+  background-image: url(../assets/imgs/action-adult-adventure-1122868.jpg);
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
@@ -8774,7 +8781,7 @@ h4.new_spacing{
 }
 
 .first_section_careers{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers_bg.jpeg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/boss-business-businessman-12628.jpg);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -8782,7 +8789,7 @@ h4.new_spacing{
 }
 
 .first_section_partner{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/partners_bg.png);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/cheerful-collaboration-colleagues-1374366.jpg);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -8790,7 +8797,7 @@ h4.new_spacing{
 }
 
 .first_section_about{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/about_bg.jpg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/agenda-analysis-business-990818.jpg);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -9473,9 +9480,9 @@ footer .list-unstyled img:hover{
   padding: 0px;
 }
 
-.news_cards .block-10{
+/*.news_cards .block-10{
   border-radius: 20px !important;
-}
+}*/
 
 .left_event_card{
   background-color: #09d364;
@@ -9489,7 +9496,7 @@ footer .list-unstyled img:hover{
 .left_event_card p{
     overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   word-break: break-word;
 }
@@ -9509,6 +9516,7 @@ footer .list-unstyled img:hover{
 
 .event_location i, .event_date i, .job_salary i, .new_date i{
   font-size: 35px;
+  color:#09d364;
 } 
 
 .event_title, .program_title, .job_title, .new_title, .service_title{
@@ -9521,6 +9529,11 @@ footer .list-unstyled img:hover{
 
 #team_members .col-lg-20{
   margin-bottom: 120px;
+}
+
+#service_container .card_section .block-10, .programs_section .card_section .block-10{
+  margin: 0px !important;
+  margin-bottom: 20px !important;
 }
 
 @media (min-width: 1024px){
@@ -9553,6 +9566,10 @@ footer .list-unstyled img:hover{
 }
 
 @media (max-width: 768px) {
+
+  .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6{
+    margin-left: 0px;
+  }
 
   .event_card {
     height: 600px;

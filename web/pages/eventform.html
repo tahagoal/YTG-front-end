@@ -261,7 +261,7 @@
                 questions = data;
                 questions_global = questions;
                 for (var i = 0; i < questions.length; i++) {
-                    $('.dynamic_form').append('<div id="' + questions[i]._id + '" class="row mt-4 mb-5" data-aos="fade-up"></div>')
+                    $('.dynamic_form').append('<div id="' + questions[i]._id + '" class="row mt-4 mb-5"></div>')
                 }
                 append_form(questions);
             });
@@ -273,17 +273,17 @@
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">' +
-                        '<input type="checkbox" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '">' +
-                        '<label class="form-check-label">' + questions[i].answers[j] + '</label>');
+                        '<input type="checkbox" required class="form-check-input checkbox__flag" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="'+questions[i]._id+'">' +
+                        '<label for="'+questions[i]._id+'" class="form-check-label checkbox__trigger"><svg class="checkbox" viewBox="0 0 24 24"><rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20"></rect><polyline class="checkbox__line" points="9 11 12 14 23 3"></polyline></svg><span class="checkbox__caption">'+ questions[i].answers[j] +'</span></label>');
                 }
             }
 
             else if (questions[i].type == 'RadioButton') {
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
-                    $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">' +
-                        '<input type="radio" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '">' +
-                        '<label class="form-check-label">' + questions[i].answers[j] + '</label>');
+                    $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group radio col-sm-5">' +
+                        '<input type="radio" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="'+questions[i]._id+'">' +
+                        '<label for="'+questions[i]._id+'" class="form-check-label radio-label">' + questions[i].answers[j] + '</label>');
                 }
             }
 
