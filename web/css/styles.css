@@ -9442,6 +9442,10 @@ footer .list-unstyled img:hover{
   }
 }
 
+.colored_sec{
+  height:8px !important;
+}
+
 #form_created label {
     float: none !important;
 }
@@ -9573,7 +9577,7 @@ footer .list-unstyled img:hover{
   }
 
   .new_spacing {
-    letter-spacing: 15px;
+    letter-spacing: 5px;
   }
   
   .login_bg, .signup_bg, .forget_bg{
