@@ -176,7 +176,7 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <script>
-    var backend_url = 'http://209.97.176.62:3000/';
+    var backend_url = 'http://209.97.139.199:3000/';
     var program_id;
     var questions_global;
 
@@ -203,6 +203,7 @@
         get_program();
         check_ath();
     })
+    
 
     $('.submit_form').click(function (e) {
         // e.preventDefault();
@@ -217,13 +218,24 @@
             var user_id = localStorage.getItem('user_id');
 
             for (var i = 0; i < questions_global.length; i++) {
-                var object = {
-                    'question': questions_global[i],
-                    'answer': query_object[questions_global[i]._id],
-                    'user': user_id
+                if(questions_global[i].type != 'File Upload'){
+                    var object = {
+                        'question': questions_global[i].question,
+                        'answer': query_object[questions_global[i]._id],
+                        'user': user_id
+                    }
                 }
+                // else{
+                //     var object = {
+                //         'question': questions_global[i].question,
+                //         'answer': $('#form_created input[name='+questions_global[i]._id+']')[0].files[0],
+                //         'user': user_id
+                //     }
+                // }
                 post_request.push(object);
             }
+
+            // var files_upload_len = $('#form_created input:file').length
 
 
             var url = backend_url + 'api/programs/' + program_id + '/questions';
@@ -275,8 +287,8 @@
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">' +
-                        '<input type="checkbox" required class="form-check-input checkbox__flag" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="'+questions[i]._id+'">' +
-                        '<label for="'+questions[i]._id+'" class="form-check-label checkbox__trigger"><svg class="checkbox" viewBox="0 0 24 24"><rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20"></rect><polyline class="checkbox__line" points="9 11 12 14 23 3"></polyline></svg><span class="checkbox__caption">'+ questions[i].answers[j] +'</span></label>');
+                        '<input type="checkbox" required class="form-check-input checkbox__flag" value="' + questions[i].answers[j] +'" name="' + questions[i]._id + '" id ="q'+questions[i]._id+j+'">' +
+                        '<label for="q'+questions[i]._id+j+'" class="form-check-label checkbox__trigger"><svg class="checkbox" viewBox="0 0 24 24"><rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20"></rect><polyline class="checkbox__line" points="9 11 12 14 23 3"></polyline></svg><span class="checkbox__caption">'+ questions[i].answers[j] +'</span></label>');
                 }
             }
 
@@ -284,20 +296,20 @@
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group radio col-sm-5">' +
-                        '<input type="radio" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="'+questions[i]._id+'">' +
-                        '<label for="'+questions[i]._id+'" class="form-check-label radio-label">' + questions[i].answers[j] + '</label>');
+                        '<input type="radio" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="q'+questions[i]._id+j+'">' +
+                        '<label for="q'+questions[i]._id+j+'" class="form-check-label radio-label">' + questions[i].answers[j] + '</label>');
                 }
             }
 
             else if (questions[i].type == 'Paragraph') {
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
-                $('#' + questions[i]._id).append('<textarea required class="form-control" name="' + questions[i]._id +
+                $('#' + questions[i]._id).append('<div class="col-sm-1"></div><textarea required class="form-control" style="width:70%;" name="' + questions[i]._id +
                     '"rows="5" cols="30"></textarea>');
             }
 
             else if (questions[i].type == 'Short Answer') {
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
-                $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-12">' +
+                $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group" style="width:70%;">' +
                     '<input type="text" required class="form-control" name="' + questions[i]._id + '">' +
                     '<label class="form-check-label"></label>');
             }
@@ -321,10 +333,10 @@
             else if (questions[i].type == 'File Upload') {
                 var question_html = ''
                 question_html += ('<h3>' + questions[i].question + '</h3>');
-                question_html += ('<div class="col-sm-1"></div><div class="custom-file">');
-                question_html += ('<input type="file" name="' + questions[i]._id + '" class="custom-file-input" id="customFile">');
-                question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
-                question_html += ('<label class="custom-file-label" for="customFile">Choose file</label>');
+                
+                question_html += ('<div class="col-sm-1"></div><div class="form-group">');
+                question_html += ('<label for="exampleFormControlFile1">Choose file</label>');
+                question_html += ('<input type="file" name="' + questions[i]._id + '" class="form-control-file" id="exampleFormControlFile1"> </div>');
 
                 $('#' + questions[i]._id).append(question_html);
             }

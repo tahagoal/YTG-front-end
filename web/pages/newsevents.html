@@ -180,7 +180,7 @@
 <script src="../js/aos.js" type="text/javascript"></script>
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 <script>
-    var backend_url = 'http://209.97.176.62:3000/';
+    var backend_url = 'http://209.97.139.199:3000/';
 
     check_ath = function () {
         var token = localStorage.getItem('token');
@@ -212,7 +212,7 @@
         for (var i = loop - 1; i >= 0; i--) {
             html += '<div class="col-sm-10 offset-1 event_card row cursor_pointer" onclick = goevent("' +
                 events[i]._id + '") >';
-            html += '<div class="col-sm-5 left_event_card"><h3 style="font-weight: bold">'+ events[i].title +'</h3>';
+            html += '<div class="col-sm-5 left_event_card" style="background-color: '+ events[i].segment +'"><h3 style="font-weight: bold;">'+ events[i].title +'</h3>';
             html += '<p>'+ events[i].description+ '</p>';
             html += '<span class="result"><a href="#" class="float_event_card center"><i class="fa fa-plus my-float-card"></i></a></span></div>';
             var img_url = backend_url + events[i].images[0];

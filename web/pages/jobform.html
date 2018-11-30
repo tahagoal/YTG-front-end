@@ -176,7 +176,7 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <script>
-    var backend_url = 'http://209.97.176.62:3000/';
+    var backend_url = 'http://209.97.139.199:3000/';
     var job_id;
     var questions_global;
 
@@ -218,7 +218,7 @@
 
             for (var i = 0; i < questions_global.length; i++) {
                 var object = {
-                    'question': questions_global[i],
+                    'question': questions_global[i].question,
                     'answer': query_object[questions_global[i]._id],
                     'user': user_id
                 }

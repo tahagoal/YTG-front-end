@@ -1,4 +1,4 @@
-var backend_url = 'http://209.97.176.62:3000/';
+var backend_url = 'http://209.97.139.199:3000/';
 
 AOS.init({
 	duration: 800,

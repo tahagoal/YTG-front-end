@@ -113,7 +113,7 @@
                                     <li>Career development</li>
                                     <li>Creative space</li>
                                 </ul>
-                                <button class="btn btn-nav center">Grow</button>
+                                <button class="btn btn-nav btn-blue2 center">Grow</button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                                     <li>Positive community impact</li>
                                     <li>Hands-on learning</li>
                                 </ul>
-                                <button class="btn btn-nav btn-blue2 center">Build</button>
+                                <button class="btn btn-nav btn_vol center">Build</button>
                             </div>
                         </div>
                     </div>
@@ -142,7 +142,13 @@
     </section>
 
     <section class="ftco-section-2 bg-light">
-        <div class="container jobs_container">
+        <div class="container jobs_container_team">
+            <div class="row">
+                <h3 class="center" style="margin-bottom:20px;">Join us ──</h2>
+            </div>
+        </div>
+
+        <div class="container jobs_container_volunteer">
             <div class="row">
                 <h3 class="center" style="margin-bottom:20px;">Join us ──</h2>
             </div>
@@ -213,7 +219,7 @@
 <script src="../js/scripts_login.js" type="text/javascript"></script>
 
 <script>
-    var backend_url = 'http://209.97.176.62:3000/';
+    var backend_url = 'http://209.97.139.199:3000/';
 
     $(document).ready(function ($) {
         get_jobs();
@@ -222,25 +228,27 @@
 
     $('.card_career_1').click(function () {
         $('.card_career_2').removeClass('selected');
+        $('.jobs_container_volunteer').css('display', 'none');
         if ($('.card_career_1').hasClass('selected')) {
             $('.card_career_1').removeClass('selected');
-            $('.jobs_container').css('display', 'none');
+            $('.jobs_container_team').css('display', 'none');
         }
         else {
             $('.card_career_1').addClass('selected');
-            $('.jobs_container').css('display', 'block');
+            $('.jobs_container_team').css('display', 'block');
         }
     })
 
     $('.card_career_2').click(function () {
+        $('.jobs_container_team').css('display', 'none');
         $('.card_career_1').removeClass('selected');
         if ($('.card_career_2').hasClass('selected')) {
             $('.card_career_2').removeClass('selected');
-            $('.jobs_container').css('display', 'none');
+            $('.jobs_container_volunteer').css('display', 'none');
         }
         else {
             $('.card_career_2').addClass('selected');
-            $('.jobs_container').css('display', 'block');
+            $('.jobs_container_volunteer').css('display', 'block');
         }
     })
 
@@ -252,13 +260,26 @@
             var loop = 5;
         }
         for (var i = 0; i < loop; i++) {
-            $('.jobs_container').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
+
+            if(jobs[i].segment == '#04adc7'){
+            $('.jobs_container_team').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
                 'style="border: 2px solid ' + jobs[i].segment + '"><div class="col-sm-8"><h2>' +
                 jobs[i].title +
                 '</h2><p>' +
                 jobs[i].description +
                 '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
                 jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
+            }
+            else{
+                $('.jobs_container_volunteer').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
+                'style="border: 2px solid ' + jobs[i].segment + '"><div class="col-sm-8"><h2>' +
+                jobs[i].title +
+                '</h2><p>' +
+                jobs[i].description +
+                '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
+                jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
+
+            }
         }
     }
 

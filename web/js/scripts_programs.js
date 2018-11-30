@@ -1,4 +1,4 @@
-var backend_url = 'http://209.97.176.62:3000/';
+var backend_url = 'http://209.97.139.199:3000/';
 var programs;
 var active_programs =[];
 var active_services =[];
@@ -65,16 +65,20 @@ program_one_append = function (programs){
 		for(var i = 3; i < programs.length ; i ++){
 
 			if (loop % 4 == 3 && i%3 == 0){
-				html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				html += '<div onclick = goprogram("' +
+				programs[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else if(loop % 4 == 2 && i%3 == 0){
-				html += '<div class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				html += '<div onclick = goprogram("' +
+				programs[i]._id + '") class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else if(loop % 4 == 1 && i%3 == 0){
-				html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				html += '<div onclick = goprogram("' +
+				programs[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else{
-				html += '<div class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				html += '<div onclick = goprogram("' +
+				programs[i]._id + '") class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			if( programs[i].images[0] != undefined){
 				var img_url = backend_url + programs[i].images[0];
@@ -121,16 +125,20 @@ service_append = function(active_services){
 	for (var i = 0; i < active_services.length; i++) {
 
 		if (loop % 4 == 3 && i%3 == 0){
-			html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			html += '<div onclick = goservice("' +
+			active_services[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		else if(loop % 4 == 2 && i%3 == 0){
-			html += '<div class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			html += '<div onclick = goservice("' +
+			active_services[i]._id + '") class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		else if(loop % 4 == 1 && i%3 == 0){
-			html += '<div class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			html += '<div onclick = goservice("' +
+			active_services[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		else{
-			html += '<div class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			html += '<div onclick = goservice("' +
+			active_services[i]._id + '") class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		if( active_services[i].images[0] != undefined){
 			var img_url = backend_url + active_services[i].images[0];

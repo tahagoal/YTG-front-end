@@ -7139,7 +7139,8 @@
     .ftco-footer a {
         color: #d0d0d0 !important; }
       .ftco-footer a:hover {
-        color: #09d364 !important; }
+        color: #09d364 !important; 
+        cursor: default;}
     .ftco-footer .ftco-heading {
       font-size: 24px; }
     .ftco-footer .ftco-heading-2 {
@@ -8028,6 +8029,10 @@
   background: #04adc7 !important;
 }
 
+.btn_vol{
+  background: #ff5a61 !important;
+}
+
 .btn-li-nav{
     margin-top: 30px;
 }
@@ -8383,7 +8388,7 @@
     word-break: break-word;
   }
 
-  .jobs_container{
+  .jobs_container_team, .jobs_container_volunteer{
     display: none;
   }
 
@@ -8852,8 +8857,12 @@ h4.new_spacing{
   padding-right: 30px;
 }
 
-.login_nav .nav-link, .login_nav .nav-link:hover{
+.login_nav .nav-link{
   color: gray !important;
+}
+
+.login_nav .nav-link:hover{
+  color: #09d364 !important;
 }
 
 .login_nav{
@@ -9358,12 +9367,12 @@ footer .list-unstyled img:hover{
   overflow: hidden;
 }
 
-.card_career_1 .won-img{
-  border-bottom: 4px solid #09d364;
+.card_career_2 .won-img{
+  border-bottom: 4px solid #ff5a61;
   height: 350px;
 }
 
-.card_career_2 .won-img{
+.card_career_1 .won-img{
   border-bottom: 4px solid #04adc7;
   height: 350px;
 }
@@ -9428,6 +9437,33 @@ footer .list-unstyled img:hover{
 .checkbox__caption {
   display: block;
 }
+
+.img_1_about, .img_2_about{
+  transition: all 0.5s ease-in-out;
+}
+
+.img_1_about{
+  opacity: 1;
+  z-index: 1;
+}
+
+.img_2_about{
+  position: absolute;
+  left: 0px;
+  opacity: 0;
+  z-index: 0;
+}
+
+.personne:hover .img_2_about{
+  opacity: 1;
+  z-index: 1;
+}
+
+.personne:hover .img_1_about{
+  opacity: 0;
+  z-index: 0;
+}
+
 @-webkit-keyframes checked {
   to {
     stroke-dashoffset: 0;
@@ -9536,6 +9572,43 @@ footer .list-unstyled img:hover{
   margin-bottom: 20px !important;
 }
 
+.radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.radio input[type="radio"] + .radio-label:before {
+  content: '';
+  background: #f4f4f4;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: -0.2em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease;
+}
+.radio input[type="radio"]:checked + .radio-label:before {
+  background-color: #09d364;
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.radio input[type="radio"]:focus + .radio-label:before {
+  outline: none;
+  border-color: #3197EE;
+}
+.radio input[type="radio"]:disabled + .radio-label:before {
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+  border-color: #b4b4b4;
+  background: #b4b4b4;
+}
+.radio input[type="radio"] + .radio-label:empty:before {
+  margin-right: 0;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
@@ -9566,6 +9639,18 @@ footer .list-unstyled img:hover{
 }
 
 @media (max-width: 768px) {
+
+  .card_career_2.selected, .card_career_1.selected {
+    height: auto;
+  }
+
+  .left_event_card{
+    height: 70%;
+  }
+
+  .right_event_card{
+    height: 30%;
+  }
 
   .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6{
     margin-left: 0px;
@@ -9679,7 +9764,7 @@ footer .list-unstyled img:hover{
 
 @media (max-width: 610px){
   .personne , .personne-add{
-    width: 93%;
-    height: 270px;
+    /* width: 93%; */
+    /* height: 270px; */
   }
 }
