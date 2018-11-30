@@ -18,6 +18,22 @@
     />
     <meta name="twitter:title" content="7 Essential HTML Tags that Separate SEO Pros from the Rookies" />
     <meta name="twitter:image" content="https://neilpatel.com/wp-content/uploads/2017/10/essential-html-tags.jpg" />
+    <link rel="shortcut icon" href="../assets/imgs/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/imgs/favicon.ico" type="image/x-icon">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130196602-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130196602-1', {
+            'page_title' : 'homepage',
+            'page_path': '/home'
+        });
+    </script>
+
 
     <script src="../js/jquery.min.js"></script>
 
@@ -115,9 +131,12 @@
                 </div>
                 <div class="img col-sm-8 offset-2" data-aos="fade-right">
                     <center class="video_img">
-                        <div id="playme" onclick="revealVideo('video','youtube')">
-                            <img src="../assets/imgs/play-button.png" class="cursor_pointer" style="width: 15%;filter: brightness(0) invert(1);">
-                        </div>
+                        <video id='video' controls="controls" preload='none'
+                            width="600" poster="http://media.w3.org/2010/05/sintel/poster.png">
+                            <source id='mp4' src="http://media.w3.org/2010/05/sintel/trailer.mp4" type='video/mp4'/>
+                            <source id='webm' src="http://media.w3.org/2010/05/sintel/trailer.webm" type='video/webm'/>
+                            <source id='ogv' src="http://media.w3.org/2010/05/sintel/trailer.ogv" type='video/ogg'/>
+                        </video>
                     </center>
                 </div>
             </div>
@@ -146,8 +165,8 @@
                 </div>
                 <div class="col-md-4 p_left_right cursor_pointer">
                     <div class="text">
-                        <h2 data-aos="fade-up">
-                        </h2>
+                        <h5 data-aos="fade-up">
+                        </h5>
                         <p data-aos="fade-up" data-aos-delay="100">
 
                         </p>
@@ -167,8 +186,8 @@
                     </div>
                     <div class="col-md-5 p_top_right">
                         <div class="text" style="padding-top: 30px;">
-                            <h2 data-aos="fade-up">
-                            </h2>
+                            <h5 data-aos="fade-up">
+                            </h5>
                             <p data-aos="fade-up" data-aos-delay="100">
 
                             </p>
@@ -183,8 +202,8 @@
                 <div class="row cursor_pointer" id="program3">
                     <div class="col-md-5 p_bottom_left">
                         <div class="text" style="padding-top: 30px;">
-                            <h2 data-aos="fade-up">
-                            </h2>
+                            <h5 data-aos="fade-up">
+                            </h5>
                             <p data-aos="fade-up" data-aos-delay="100">
 
                             </p>
@@ -736,6 +755,9 @@
 <script src="../js/slider.min.js" type="text/javascript"></script>
 
 <script>
+    gtag('event', 'home', {
+        'event_category': 'home_page_loaded'
+    });
 </script>
 
 </html>

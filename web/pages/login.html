@@ -16,10 +16,21 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="For many websites, a #1 ranking is the best thing that’s ever happened to them. Let me tell you a little story. A company built a website. It was just another website in the crowded online world. It was one of the millions of results crammed within these numbers. Sadly, that poor, lonely website wasn’t anything [&hellip;]"
     />
+    <link rel="shortcut icon" href="../assets/imgs/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/imgs/favicon.ico" type="image/x-icon">
     <meta name="twitter:title" content="7 Essential HTML Tags that Separate SEO Pros from the Rookies" />
     <meta name="twitter:image" content="https://neilpatel.com/wp-content/uploads/2017/10/essential-html-tags.jpg" />
 
     <meta name="google-signin-client_id" content="364459077088-8kght2lqtpd8niqb1co1duq3nmrpnjt4.apps.googleusercontent.com">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130196602-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130196602-1');
+    </script>
     <script src="../js/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -231,6 +242,10 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
+
+    gtag('event', 'login', {
+    'event_category': 'login_page_loaded'
+    });
 
     window.fbAsyncInit = function () {
         FB.init({

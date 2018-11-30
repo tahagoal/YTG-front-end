@@ -129,14 +129,14 @@ check_activity = function (old_data) {
 program_one_append = function (active_progs) {
 	var leng = active_progs.length;
 
-	$('#program1 h2')[0].append(active_progs[leng - 3].name);
+	$('#program1 h5')[0].append(active_progs[leng - 3].name);
 	$('#program1 p')[0].append(active_progs[leng - 3].description);
 	var img_url = backend_url + active_progs[leng - 3].images[0];
 	$('#program1 .p_left_left').css('background-image', 'url(' + img_url + ')');
 	$('#program1 .p_left_right').css('background-color', active_progs[leng - 3].segment);
 
 	if(active_progs.length > 1){
-		$('#program2 h2')[0].append(active_progs[leng - 2].name);
+		$('#program2 h5')[0].append(active_progs[leng - 2].name);
 		$('#program2 p')[0].append(active_progs[leng - 2].description);
 		var img_url = backend_url + active_progs[leng - 2].images[0];
 		$('#program2 .p_top_left').css('background-image', 'url(' + img_url + ')');
@@ -144,7 +144,7 @@ program_one_append = function (active_progs) {
 	}
 
 	if(active_progs.length > 2){
-		$('#program3 h2')[0].append(active_progs[leng - 1].name);
+		$('#program3 h5')[0].append(active_progs[leng - 1].name);
 		$('#program3 p')[0].append(active_progs[leng - 1].description);
 		var img_url = backend_url + active_progs[leng - 1].images[0];
 		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');

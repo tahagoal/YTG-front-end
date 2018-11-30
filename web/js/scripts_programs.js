@@ -37,14 +37,14 @@ check_ath = function () {
 }
 
 program_one_append = function (programs){
-	$('#program1 h2')[0].append(programs[0].name);
+	$('#program1 h5')[0].append(programs[0].name);
 	$('#program1 .program_descrip').append(programs[0].description);
 	var img_url = backend_url + programs[0].images[0];
 	$('#program1 .p_left_left').css('background-image', 'url(' +img_url+ ')');
 	$('#program1 .p_left_right').css('background-color', programs[0].segment);
 
 	if(programs.length > 1){
-		$('#program2 h2')[0].append(programs[1].name);
+		$('#program2 h5')[0].append(programs[1].name);
 		$('#program2 p')[0].append(programs[1].description);
 		var img_url = backend_url + programs[1].images[0];
 		$('#program2 .p_top_left').css('background-image', 'url(' + img_url + ')');
@@ -52,7 +52,7 @@ program_one_append = function (programs){
 	}
 
 	if(programs.length > 2){
-		$('#program3 h2')[0].append(programs[2].name);
+		$('#program3 h5')[0].append(programs[2].name);
 		$('#program3 p')[0].append(programs[2].description);
 		var img_url = backend_url + programs[2].images[0];
 		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
@@ -142,7 +142,7 @@ service_append = function(active_services){
 		}
 		if( active_services[i].images[0] != undefined){
 			var img_url = backend_url + active_services[i].images[0];
-	    	html += '<div class="won-img" style="background: url(' + img_url + ');"></div>';
+	    	html += '<div class="won-img" style="background: url(' + img_url + '); background-repeat:no-repeat; background-size: contain; background-position: center center;"></div>';
 	    }
 	    else{
 	    	var img_url = backend_url + active_services[i].images[0];
