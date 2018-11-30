@@ -207,13 +207,15 @@
 <script>
     var backend_url = 'http://209.97.139.199:3000/';
 
+    var event_id;
+
     $(document).ready(function ($) {
         get_event();
     })
 
     get_event = function () {
         var url = backend_url+'api/';
-        var event_id = get_param('event_id');
+        event_id = get_param('event_id');
         $.get(url + 'events/' + event_id,
             function (data) {
                 event = data;

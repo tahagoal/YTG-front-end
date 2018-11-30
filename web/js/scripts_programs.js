@@ -86,7 +86,7 @@ program_one_append = function (programs){
 		    }
 		    else{
 		    	var img_url = backend_url + programs[i].images[0];
-		    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: contain; background-position: center center;"></div>';
+		    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: cover; background-position: center center;"></div>';
 		    }
 
 		    html += '<div class="person-info"><span class="name-2 mb-3">'+ programs[i].name +'</span>';
@@ -142,11 +142,11 @@ service_append = function(active_services){
 		}
 		if( active_services[i].images[0] != undefined){
 			var img_url = backend_url + active_services[i].images[0];
-	    	html += '<div class="won-img" style="background: url(' + img_url + '); background-repeat:no-repeat; background-size: contain; background-position: center center;"></div>';
+	    	html += '<div class="won-img" style="background: url(' + img_url + '); background-repeat:no-repeat; background-size: cover; background-position: center center;"></div>';
 	    }
 	    else{
 	    	var img_url = backend_url + active_services[i].images[0];
-	    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: contain; background-position: center center;"></div>';
+	    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: cover; background-position: center center;"></div>';
 	    }
 
 	    html += '<div class="person-info"><span class="name-2 mb-3">'+ active_services[i].name +'</span>';

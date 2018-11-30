@@ -21,12 +21,12 @@
     <meta name="twitter:title" content="7 Essential HTML Tags that Separate SEO Pros from the Rookies" />
     <meta name="twitter:image" content="https://neilpatel.com/wp-content/uploads/2017/10/essential-html-tags.jpg" />
     <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-    
-            gtag('config', 'UA-130196602-1');
-        </script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130196602-1');
+    </script>
     <script src="../js/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -117,7 +117,7 @@
             </div>
     </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
             <div class="row mt-5" style="padding-bottom: 60px;">
                 <div class="col-md-3">
@@ -135,12 +135,15 @@
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
                         <ul class="list-unstyled pages_list">
                             <li class="center">
-                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
-                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="aboutus.html">About us </a>
+                                <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a>
+                                <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
                             <li class="center">
-                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="partners.html">partner </a>
+                                <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -189,8 +192,8 @@
     var questions_global;
 
     jQuery.validator.setDefaults({
-      debug: true,
-      success: "valid"
+        debug: true,
+        success: "valid"
     });
 
     check_ath = function () {
@@ -211,11 +214,21 @@
         get_program();
         check_ath();
     })
-    
+
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    var file_inp = [];
 
     $('.submit_form').click(function (e) {
         // e.preventDefault();
-        if($("#form_created").valid()){
+        if ($("#form_created").valid()) {
             var query_string = $('form :input').serialize();
             var query_object = JSON.parse('{"' + query_string.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
                 function (key, value) {
@@ -226,71 +239,65 @@
             var user_id = localStorage.getItem('user_id');
 
             for (var i = 0; i < questions_global.length; i++) {
-                if(questions_global[i].type != 'File Upload'){
+                if (questions_global[i].type != 'File Upload') {
                     var object = {
                         'question': questions_global[i].question,
                         'answer': query_object[questions_global[i]._id],
                         'user': user_id
                     }
+                    post_request.push(object);
                 }
-                else{
-                    var file_data = $('#form_created input[name='+questions_global[i]._id+']').prop("files")[0];   
-                    var object = {
-                        'question': questions_global[i].question,
-                        'answer': file_data,
-                        'user': user_id
-                    }
+                else {
+                    var file = $('#form_created input[name=' + questions_global[i]._id + ']')[0].files[0];
+
+                    getBase64(file).then(function (base_data) {
+                        file_inp.push(base_data);
+                    });
+
                 }
-                post_request.push(object);
             }
 
-            // var files_upload_len = $('#form_created input:file').length
-            
-
-            var form_data = new FormData();
-
-            for ( var key in post_request ) {
-                form_data.append(key, post_request[key]);
-            }
-            
-            console.log(form_data);
             var url = backend_url + 'api/programs/' + program_id + '/questions';
             var data = {
-                'questions': form_data
+                'questions': post_request
             }
 
-            $.ajax({
-                method: "POST",
-                dataType: 'json',
-                url: url,
-                processData: false,
-                data: data
-            })
-            .done(function( msg ) {
-                alert( "Data Saved: " + msg );
-            });
+            setTimeout(function () {
+                var j = 0;
+                for (var i = 0; i < questions_global.length; i++){
+                    if (questions_global[i].type == 'File Upload') {
+                        var object = {
+                                'question': questions_global[i].question,
+                                'answer': file_inp[j],
+                                'user': user_id
+                            }
+                        post_request.push(object);
+                        j++;
+                    }
+                }
+            
+                $.post(url, data, function (result) {
 
-            // $.post(url, data,{processData: false}, function (result) {
-
-            //     swal("Good job!", "Form submitted successfully", "success", {
-            //         button: "Got it!",
-            //     }).then((value) => {
-            //         window.location.replace('program.html');
-            //     });
-            // })
-            // .done(function () {
-            //     console.log("second success");
-            // })
-            // .fail(function (error) {
-            //     swal(error.responseJSON.message, "", "error", {
-            //         button: "Try again!",
-            //     });
-            // })
-            // .always(function () {
-            //     console.log("finished");
-            // });
+                    swal("Good job!", "Form submitted successfully", "success", {
+                        button: "Got it!",
+                    }).then((value) => {
+                        window.location.replace('program.html');
+                    });
+                })
+                    .done(function () {
+                        console.log("second success");
+                    })
+                    .fail(function (error) {
+                        swal(error.responseJSON.message, "", "error", {
+                            button: "Try again!",
+                        });
+                    })
+                    .always(function () {
+                        console.log("finished");
+                    });
+            }, 2000);
         }
-        
+
     })
 
     get_program = function () {
@@ -314,8 +321,8 @@
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group col-sm-5">' +
-                        '<input type="checkbox" required class="form-check-input checkbox__flag" value="' + questions[i].answers[j] +'" name="' + questions[i]._id + '" id ="q'+questions[i]._id+j+'">' +
-                        '<label for="q'+questions[i]._id+j+'" class="form-check-label checkbox__trigger"><svg class="checkbox" viewBox="0 0 24 24"><rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20"></rect><polyline class="checkbox__line" points="9 11 12 14 23 3"></polyline></svg><span class="checkbox__caption">'+ questions[i].answers[j] +'</span></label>');
+                        '<input type="checkbox" required class="form-check-input checkbox__flag" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="q' + questions[i]._id + j + '">' +
+                        '<label for="q' + questions[i]._id + j + '" class="form-check-label checkbox__trigger"><svg class="checkbox" viewBox="0 0 24 24"><rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20"></rect><polyline class="checkbox__line" points="9 11 12 14 23 3"></polyline></svg><span class="checkbox__caption">' + questions[i].answers[j] + '</span></label>');
                 }
             }
 
@@ -323,8 +330,8 @@
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     $('#' + questions[i]._id).append('<div class="col-sm-1"></div><div class="form-group radio col-sm-5">' +
-                        '<input type="radio" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="q'+questions[i]._id+j+'">' +
-                        '<label for="q'+questions[i]._id+j+'" class="form-check-label radio-label">' + questions[i].answers[j] + '</label>');
+                        '<input type="radio" required class="form-check-input" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="q' + questions[i]._id + j + '">' +
+                        '<label for="q' + questions[i]._id + j + '" class="form-check-label radio-label">' + questions[i].answers[j] + '</label>');
                 }
             }
 
@@ -360,7 +367,7 @@
             else if (questions[i].type == 'File Upload') {
                 var question_html = ''
                 question_html += ('<h3>' + questions[i].question + '</h3>');
-                
+
                 question_html += ('<div class="col-sm-1"></div><div class="form-group">');
                 question_html += ('<label for="exampleFormControlFile1">Choose file</label>');
                 question_html += ('<input type="file" name="' + questions[i]._id + '" class="form-control-file" id="exampleFormControlFile1"> </div>');

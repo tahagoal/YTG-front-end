@@ -224,10 +224,10 @@
     $(document).ready(function ($) {
         get_job();
     })
-
+    var job_id;
     get_job = function () {
         var url = backend_url;
-        var job_id = get_param('job_id');
+        job_id = get_param('job_id');
         $.get(url + 'api/jobs/' + job_id,
             function (data) {
                 job = data;
