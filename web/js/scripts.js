@@ -235,6 +235,9 @@ $('.logout_button').click(function (e) {
 
 
 $(document).ready(function ($) {
+	gtag('event', 'home', {
+        'event_category': 'home_page_loaded'
+    });
 
 	get_apis();
 

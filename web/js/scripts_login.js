@@ -38,6 +38,42 @@ $(document).ready(function ($) {
 
 	"use strict";
 
+
+	gtag('event', 'login', {
+		'event_category': 'login_page_loaded'
+	});
+
+	window.fbAsyncInit = function () {
+		FB.init({
+			appId: '470191943386802',
+			cookie: true,
+			xfbml: true,
+			version: 'v3.2'
+		});
+
+		FB.AppEvents.logPageView();
+
+	};
+
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) { return; }
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+	function checkLoginState() {
+		FB.getLoginStatus(function (response) {
+			statusChangeCallback(response);
+			console.log(response);
+		});
+	}
+
+	// FB.getLoginStatus(function (response) {
+	//     statusChangeCallback(response);
+	// });
+
 	var token = localStorage.getItem('token');
 	if (token != null) {
 		middle_auth();
@@ -258,7 +294,7 @@ function onSignIn(googleUser) {
 			var data = {
 				'first_name': fname,
 				'last_name': lname,
-				'image' : image,
+				'image': image,
 				'password': id,
 				'email': email,
 				'mobile': '+00123123'
@@ -355,7 +391,7 @@ $('.reset_password').click(function (e) {
 })
 
 $('.register_submit').click(function (e) {
-	if($(".form_login").valid()){
+	if ($(".form_login").valid()) {
 		var firstname = $('#register_first').val();
 		var lastname = $('#register_last').val();
 		var mobile = '+00' + $('#register_mobile').val();
