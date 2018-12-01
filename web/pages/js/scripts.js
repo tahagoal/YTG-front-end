@@ -1,4 +1,4 @@
-var backend_url = 'http://209.97.139.199:3000/';
+var backend_url = 'https://ytg.eco/';
 var news, programs;
 
 get_apis = function () {
