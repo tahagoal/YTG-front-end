@@ -43,6 +43,8 @@ $(document).ready(function ($) {
 		'event_category': 'login_page_loaded'
 	});
 
+	
+
 	window.fbAsyncInit = function () {
 		FB.init({
 			appId: '470191943386802',
@@ -63,12 +65,10 @@ $(document).ready(function ($) {
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 
-	function checkLoginState() {
-		FB.getLoginStatus(function (response) {
-			statusChangeCallback(response);
-			console.log(response);
-		});
-	}
+	FB.getLoginStatus(function (response) {
+		statusChangeCallback(response);
+		console.log(response);
+	});
 
 	// FB.getLoginStatus(function (response) {
 	//     statusChangeCallback(response);
