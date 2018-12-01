@@ -261,11 +261,11 @@ $(document).ready(function ($) {
 });
 
 function onSignFbIn(facebookUser){
-	var id = response.id;
-	var fname = response.first_name;
-	var lname = response.last_name;
-	var image = response.picture.data.url;
-	var email = response.email;
+	var id = facebookUser.id;
+	var fname = facebookUser.first_name;
+	var lname = facebookUser.last_name;
+	var image = facebookUser.picture.data.url;
+	var email = facebookUser.email;
 
 	var url = backend_url + 'api/login';
 	var data = {
