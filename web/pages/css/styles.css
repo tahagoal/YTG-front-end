@@ -6703,7 +6703,7 @@
 }
 
 .partners_img{
-  background: url(assets/imgs/partners_sec.jpeg);
+  background: url(../assets/imgs/partners_sec.jpeg);
   margin-top: 30px;
   height: 300px;
   background-position: center center;
@@ -6900,7 +6900,7 @@
     background:linear-gradient(
       rgba(0, 0, 0, 0.7), 
       rgba(0, 0, 0, 0.7)
-    ), url(assets/imgs/careers_sec.jpeg);
+    ), url(../assets/imgs/careers_sec.jpeg);
     margin-top: 30px;
     height: 370px;
     background-size: cover;
@@ -6911,7 +6911,7 @@
     background:linear-gradient(
       rgba(0, 0, 0, 0.7), 
       rgba(0, 0, 0, 0.7)
-    ), url(assets/imgs/careers_sec2.jpeg);
+    ), url(../assets/imgs/careers_sec2.jpeg);
     margin-top: 30px;
     height: 370px;
     background-size: cover;
@@ -6971,7 +6971,7 @@
     /* background:linear-gradient(
         rgba(0, 0, 0, 0.7), 
         rgba(0, 0, 0, 0.7)
-      ), url(assets/imgs/card1.jpeg); */
+      ), url(../assets/imgs/card1.jpeg); */
     margin-top: 30px;
     height: 370px;
     /* background-size: cover; */
@@ -7091,7 +7091,7 @@ h4.new_spacing{
 }
 
 .p_left_left{
-  background-image: url('assets/imgs/programs1.jpeg');
+  background-image: url('../assets/imgs/programs1.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
@@ -7162,7 +7162,7 @@ h4.new_spacing{
 }
 
 .p_top_left{
-  background-image: url('assets/imgs/logo.png');
+  background-image: url('../assets/imgs/logo.png');
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
@@ -7175,7 +7175,7 @@ h4.new_spacing{
 }
 
 .p_bottom_right{
-  background-image: url('assets/imgs/logo.png');
+  background-image: url('../assets/imgs/logo.png');
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
@@ -7199,7 +7199,7 @@ h4.new_spacing{
 
 .image_section{
   height: 300px;
-  background: linear-gradient( rgb(14, 212, 103, 0.8), rgb(14, 212, 103, 0.8) ), url(assets/imgs/photo_sec.jpeg);
+  background: linear-gradient( rgb(14, 212, 103, 0.8), rgb(14, 212, 103, 0.8) ), url(../assets/imgs/photo_sec.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -7319,19 +7319,19 @@ h4.new_spacing{
 }
 /* .programs_left:hover .p_left_left{
   transform: rotate(5deg) scale(1.5);
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(assets/imgs/programs1.jpeg);
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/imgs/programs1.jpeg);
   background-size: cover;
 }
 
 .p_bottom_right:hover {
   transform: rotate(0deg) scale(1.5);
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(assets/imgs/programs3.jpeg);
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/imgs/programs3.jpeg);
   background-size: cover;
 }
 
 .p_top_left:hover{
   transform: rotate(5deg) scale(1.5);
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(assets/imgs/programs2.jpeg);
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../assets/imgs/programs2.jpeg);
   background-size: cover;
 } */
 
@@ -7340,7 +7340,7 @@ h4.new_spacing{
 }
 
 .login_bg{
-  background-image: url(assets/imgs/login_bg.png);
+  background-image: url(../assets/imgs/login_bg.png);
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
@@ -7348,7 +7348,7 @@ h4.new_spacing{
 }
 
 .signup_bg{
-  background-image: url('assets/imgs/signup.png');
+  background-image: url('../assets/imgs/signup.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -7370,7 +7370,7 @@ h4.new_spacing{
 }
 
 .first_section_careers{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(assets/imgs/boss-business-businessman-12628.png);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/boss-business-businessman-12628.png);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -7378,7 +7378,7 @@ h4.new_spacing{
 }
 
 .first_section_partner{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(assets/imgs/cheerful-collaboration-colleagues-1374366.png);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/cheerful-collaboration-colleagues-1374366.png);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -7386,7 +7386,7 @@ h4.new_spacing{
 }
 
 .first_section_about{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(assets/imgs/agenda-analysis-business-990818.png);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/agenda-analysis-business-990818.png);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -7554,7 +7554,7 @@ h4.new_spacing{
 }
 
 .forget_bg{
-  background-image: url('assets/imgs/forget_bg.png');
+  background-image: url('../assets/imgs/forget_bg.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
