@@ -43,7 +43,7 @@ $(document).ready(function ($) {
 		'event_category': 'login_page_loaded'
 	});
 
-	
+
 
 	window.fbAsyncInit = function () {
 		FB.init({
@@ -65,10 +65,13 @@ $(document).ready(function ($) {
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 
-	FB.getLoginStatus(function (response) {
-		statusChangeCallback(response);
-		console.log(response);
-	});
+
+	function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	  	console.log(response);
+	    statusChangeCallback(response);
+	  });
+	}
 
 	// FB.getLoginStatus(function (response) {
 	//     statusChangeCallback(response);
