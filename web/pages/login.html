@@ -246,6 +246,16 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript">
+
+function statusChangeCallback(response){
+    console.log(response.id);
+    console.log(response.first_name);
+    console.log(response.last_name);
+    console.log(response.name);
+    console.log(response.email);
+    console.log(response.gender);
+}
+
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
