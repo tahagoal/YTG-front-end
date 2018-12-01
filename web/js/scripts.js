@@ -182,7 +182,7 @@ logo_append = function (logos){
 		html += '<div class="col-md-3 col-sm-6" data-aos="fade-up"><div class="media block-6 d-block text-center">'
 		html += '<div class="icon">'
 		var img_url = backend_url + logos[i];
-		html +=	'<img src="'+ img_url +'" style="width: 60%;">';
+		html +=	'<img alt="partnerLogo" src="'+ img_url +'" style="width: 60%;">';
 		html +=	'</div></div></div>';		
 	}
 	html += '<div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">';
