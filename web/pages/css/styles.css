@@ -8210,6 +8210,10 @@ footer .list-unstyled img:hover{
   /*font-size: 20px;*/
 }
 
+.personne-add:hover{
+  cursor: pointer;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;

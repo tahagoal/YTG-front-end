@@ -66,16 +66,16 @@ $(document).ready(function ($) {
 	}(document, 'script', 'facebook-jssdk'));
 
 
-	function checkLoginState() {
+	checkLoginState = function() {
 	  FB.getLoginStatus(function(response) {
 	  	console.log(response);
 	    statusChangeCallback(response);
 	  });
 	}
 
-	FB.getLoginStatus(function (response) {
-	    statusChangeCallback(response);
-	});
+	// FB.getLoginStatus(function (response) {
+	//     statusChangeCallback(response);
+	// });
 
 	var token = localStorage.getItem('token');
 	if (token != null) {
