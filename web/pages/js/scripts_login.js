@@ -272,7 +272,7 @@ function onSignIn(googleUser) {
 	var image = profile.getImageUrl();
 	var email = profile.getEmail();
 
-	var url = backend_url + 'login';
+	var url = backend_url + 'api/login';
 	var data = {
 		'username': email,
 		'password': id,
@@ -290,7 +290,7 @@ function onSignIn(googleUser) {
 		.fail(function (error) {
 			//Register now if user not exsist
 
-			url = backend_url + 'register'
+			url = backend_url + 'api/register'
 			var data = {
 				'first_name': fname,
 				'last_name': lname,
@@ -335,7 +335,7 @@ $('#login_submit').click(function (e) {
 	e.preventDefault();
 	var username = $('#login_user').val();
 	var password = $('#login_password').val();
-	var url = backend_url + 'login';
+	var url = backend_url + 'api/login';
 	var data = {
 		'username': username,
 		'password': password,
@@ -363,7 +363,7 @@ $('#login_submit').click(function (e) {
 $('.reset_password').click(function (e) {
 	e.preventDefault();
 	var username = $('#reset_email').val();
-	var url = backend_url + 'forgot_password';
+	var url = backend_url + 'api/forgot_password';
 	var data = {
 		'username': username,
 		'type': 'user'
@@ -397,7 +397,7 @@ $('.register_submit').click(function (e) {
 		var mobile = '+00' + $('#register_mobile').val();
 		var email = $('#register_mail').val();
 		var password = $('#register_password').val();
-		var url = backend_url + 'register';
+		var url = backend_url + 'api/register';
 		var data = {
 			'first_name': firstname,
 			'last_name': lastname,

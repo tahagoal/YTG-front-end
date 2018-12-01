@@ -8048,6 +8048,11 @@ footer .list-unstyled img:hover{
   z-index: 0;
 }
 
+#counter p{
+  font-size: 20px;
+  font-weight: bold;
+}
+
 @-webkit-keyframes checked {
   to {
     stroke-dashoffset: 0;
