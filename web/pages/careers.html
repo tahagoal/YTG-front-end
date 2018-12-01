@@ -22,7 +22,7 @@
     <meta name="twitter:image" content="https://neilpatel.com/wp-content/uploads/2017/10/essential-html-tags.jpg" />
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'UA-130196602-1');
@@ -98,6 +98,16 @@
                         Careers
                     </h2>
                 </div>
+
+                <div class="text col-sm-8 offset-2">
+                    <div class="text-inner center align-self-start" data-aos="fade-up">
+                        <!-- <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3> -->
+                        <p style="text-align:center;">We have been active since 2013 focusing on fostering Sustainability &amp; Entrepreneurship among
+                            the youth sector via our educational programs and events, pushing hundreds of entrepreneurs on
+                            the innovation road to create clean solutions to challenges in renewable energy, energy management,
+                            Energy Food Water Nexus, Water sustainability and waste management.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -131,7 +141,7 @@
                             <div class="won-img img_2" style="background-image: url(../assets/imgs/partners_bg.png);"></div>
                             <div class="person-info">
                                 <h2 style="font-weight: bold;" class="mb-3 center">Volunteer</h2>
-                               <!--  <p>GTC, A National movement to turn university campuses into green environmental-friendly campuses
+                                <!--  <p>GTC, A National movement to turn university campuses into green environmental-friendly campuses
                                     as role models societal development ...</p> -->
                                 <ul class="ul_colored news_container">
                                     <li>Sustainability Education</li>
@@ -163,7 +173,7 @@
         </div>
     </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
             <div class="row mt-5" style="padding-bottom: 60px;">
                 <div class="col-md-3">
@@ -181,12 +191,15 @@
                         <!-- <h2 class="ftco-heading-2">Communities</h2> -->
                         <ul class="list-unstyled pages_list">
                             <li class="center">
-                                <a href="aboutus.html">About us </a> <span style="color: #d0cdc5;">-</span>
-                                <a href="news.html">News </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="aboutus.html">About us </a>
+                                <span style="color: #d0cdc5;">-</span>
+                                <a href="news.html">News </a>
+                                <span style="color: #d0cdc5;">-</span>
                                 <a href="program.html">programs</a>
                             </li>
                             <li class="center">
-                                <a href="partners.html">partner </a> <span style="color: #d0cdc5;">-</span>
+                                <a href="partners.html">partner </a>
+                                <span style="color: #d0cdc5;">-</span>
                                 <a href="careers.html">careers</a>
                             </li>
                         </ul>
@@ -261,31 +274,31 @@
     })
 
     jobs_append = function (jobs) {
-        if(jobs.length < 5){
+        if (jobs.length < 5) {
             var loop = jobs.length;
         }
-        else{
+        else {
             var loop = 5;
         }
         for (var i = 0; i < loop; i++) {
 
-            if(jobs[i].segment == '#04adc7'){
-            $('.jobs_container_team').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
-                'style="border: 2px solid ' + jobs[i].segment + '"><div class="col-sm-8"><h2>' +
-                jobs[i].title +
-                '</h2><p>' +
-                jobs[i].description +
-                '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
-                jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
+            if (jobs[i].segment == '#04adc7') {
+                $('.jobs_container_team').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
+                    'style="border: 2px solid ' + jobs[i].segment + '"><div class="col-sm-8"><h2>' +
+                    jobs[i].title +
+                    '</h2><p>' +
+                    jobs[i].description +
+                    '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
+                    jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
             }
-            else{
+            else {
                 $('.jobs_container_volunteer').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
-                'style="border: 2px solid ' + jobs[i].segment + '"><div class="col-sm-8"><h2>' +
-                jobs[i].title +
-                '</h2><p>' +
-                jobs[i].description +
-                '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
-                jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
+                    'style="border: 2px solid ' + jobs[i].segment + '"><div class="col-sm-8"><h2>' +
+                    jobs[i].title +
+                    '</h2><p>' +
+                    jobs[i].description +
+                    '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
+                    jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
 
             }
         }
@@ -296,13 +309,13 @@
     }
 
     get_jobs = function () {
-        var url = backend_url+ 'api/';
+        var url = backend_url + 'api/';
         $.get(url + 'jobs',
             function (data) {
                 jobs = data.jobs;
                 var active_jobs = [];
                 for (var i = jobs.length - 1; i >= 0; i--) {
-                    if(jobs[i].is_active){
+                    if (jobs[i].is_active) {
                         active_jobs.push(jobs[i]);
                     }
                 }
