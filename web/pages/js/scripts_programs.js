@@ -11,15 +11,15 @@ get_apis = function () {
 }
 
 $('#program1').click(function(){
-	window.location.href = 'programdes.html?program_id=' + active_programs[0]._id;
+	window.location.href = 'program.html?program_id=' + active_programs[0]._id;
 })
 
 $('#program2').click(function(){
-	window.location.href = 'programdes.html?program_id=' + active_programs[1]._id;
+	window.location.href = 'program.html?program_id=' + active_programs[1]._id;
 })
 
 $('#program3').click(function(){
-	window.location.href = 'programdes.html?program_id=' + active_programs[2]._id;
+	window.location.href = 'program.html?program_id=' + active_programs[2]._id;
 })
 
 check_ath = function () {
@@ -162,15 +162,15 @@ service_append = function(active_services){
 
 
 $('#service1').click(function(){
-	window.location.href = 'servicedes.html?service_id=' + active_services[0]._id;
+	window.location.href = 'service.html?service_id=' + active_services[0]._id;
 })
 
 $('#service2').click(function(){
-	window.location.href = 'servicedes.html?service_id=' + active_services[1]._id;
+	window.location.href = 'service.html?service_id=' + active_services[1]._id;
 })
 
 $('#service3').click(function(){
-	window.location.href = 'servicedes.html?service_id=' + active_services[2]._id;
+	window.location.href = 'service.html?service_id=' + active_services[2]._id;
 })
 
 get_services = function(){

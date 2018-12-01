@@ -9,7 +9,7 @@ get_apis = function () {
 }
 
 gonew = function (new_id) {
-	window.location.href = 'newdes.html?new_id=' + new_id;
+	window.location.href = 'new.html?new_id=' + new_id;
 }
 
 function formatDate(date) {
@@ -94,7 +94,7 @@ append_slider = function (slider) {
 	}
 	for(var i = 0 ; i < loop ; i++){
 		// var img_url = backend_url + slider.images[i];
-		var img_url = 'assets/imgs/bright-bulb-close-up-1108572.png';
+		var img_url = 'assets/imgs/bright-bulb-close-up-1108572.jpg';
 		html += '<div class="slItem" style="background-image: url('+ img_url +');">';
 		html += '<div class="slText underline_white">'+ slider.comment +'</div>';
 		html += '</div>';
@@ -211,7 +211,7 @@ check_ath = function () {
 // })
 
 $('.about_us_red').click(function() {
-	window.location.href = 'aboutus.html';
+	window.location.href = 'about.html';
 })
 
 $('.logout_button').click(function (e) {
