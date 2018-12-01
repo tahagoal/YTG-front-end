@@ -73,9 +73,9 @@ $(document).ready(function ($) {
 	  });
 	}
 
-	// FB.getLoginStatus(function (response) {
-	//     statusChangeCallback(response);
-	// });
+	FB.getLoginStatus(function (response) {
+	    statusChangeCallback(response);
+	});
 
 	var token = localStorage.getItem('token');
 	if (token != null) {

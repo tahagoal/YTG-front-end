@@ -6055,6 +6055,9 @@
       .ftco-footer a:hover {
         color: #09d364 !important; 
         cursor: default;}
+      .pages_list a:hover{
+        cursor: pointer !important;
+      }
     .ftco-footer .ftco-heading {
       font-size: 24px; }
     .ftco-footer .ftco-heading-2 {
@@ -7565,6 +7568,7 @@ h4.new_spacing{
 footer .list-unstyled img {
   width: 80%;
   transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 footer .list-unstyled img:hover{
@@ -8203,7 +8207,7 @@ footer .list-unstyled img:hover{
 .extra_foot span:hover{
   color: #e74c3c;
   cursor: context-menu;
-  font-size: 20px;
+  /*font-size: 20px;*/
 }
 
 @media (min-width: 1024px){
