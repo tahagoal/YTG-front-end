@@ -260,6 +260,70 @@ $(document).ready(function ($) {
 
 });
 
+function onSignFbIn(facebookUser){
+	var id = response.id;
+	var fname = response.first_name;
+	var lname = response.last_name;
+	var image = response.picture.data.url;
+	var email = response.email;
+
+	var url = backend_url + 'api/login';
+	var data = {
+		'username': email,
+		'password': id,
+		'type': 'user'
+	}
+
+	$.post(url, data, function (result) {
+		console.log("success");
+		localStorage.setItem('token', result.token);
+		localStorage.setItem('user_id', result._id);
+		window.location.replace('home.html');
+	})
+	.done(function () {
+		console.log("second success");
+	})
+	.fail(function (error) {
+		//Register now if user not exsist
+
+		url = backend_url + 'api/register'
+		var data = {
+			'first_name': fname,
+			'last_name': lname,
+			'image': image,
+			'password': id,
+			'email': email,
+			'mobile': '+00123123'
+		}
+		$.post(url, data, function (result) {
+			console.log("success");
+			localStorage.setItem('token', result.token);
+			localStorage.setItem('user_id', result._id);
+			window.location.replace('home.html');
+			swal("Good job!", "User Account created successfully", "success", {
+				button: "Got it!",
+			}).then((value) => {
+				window.location.replace('home.html');
+			});
+		})
+			.done(function () {
+				console.log("second success");
+			})
+			.fail(function (error) {
+				swal(error.responseJSON.message, "", "error", {
+					button: "Try again!",
+				});
+			})
+			.always(function () {
+				console.log("finished");
+			});
+	})
+	.always(function () {
+		console.log("finished");
+	});
+
+}
+
 function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
 	var id = profile.getId();
@@ -321,10 +385,6 @@ function onSignIn(googleUser) {
 		.always(function () {
 			console.log("finished");
 		});
-	// console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	// console.log('Name: ' + profile.getName());
-	// console.log('Image URL: ' + profile.getImageUrl());
-	// console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
 $('#login_submit').click(function (e) {

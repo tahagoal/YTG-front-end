@@ -249,17 +249,13 @@
 
 function statusChangeCallback(response){
     if (response.status === 'connected') {
-        FB.api('/me',{fields: 'id,name,email,image,first_name,last_name'}, function (response) {
-              console.log(response.name);
-              console.log(response.first_name);
-              console.log(response.last_name);
-              console.log(response.email);
-              console.log(response.picture);
+        FB.api('/me',{fields: 'id,name,email,first_name,last_name,picture'}, function (response) {
+             onSignFbIn(response);
         });
     } else {
-        // The person is not logged into your app or we are unable to tell.
-        document.getElementById('status').innerHTML = 'Please log ' +
-          'into this app.';
+       swal(error.responseJSON.message, "", "error", {
+            button: "Try again!",
+        });
     }
 }
 
