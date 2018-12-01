@@ -104,7 +104,7 @@
                         </span> Use google account
                     </a> -->
                     <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    <a class="btn btn-block btn-social btn-facebook" data-aos="fade-up" onclick="checkLoginState();">
+                    <a class="btn btn-block btn-social btn-facebook" data-aos="fade-up">
                         <span class="fa fa-facebook"></span> Use facebook account
                     </a>
                     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
@@ -245,4 +245,11 @@
 <script src="js/scripts_login.js" type="text/javascript"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript">
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
 </html>

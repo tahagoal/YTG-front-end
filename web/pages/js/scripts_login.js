@@ -66,13 +66,6 @@ $(document).ready(function ($) {
 	}(document, 'script', 'facebook-jssdk'));
 
 
-	checkLoginState = function() {
-	  FB.getLoginStatus(function(response) {
-	  	console.log(response);
-	    statusChangeCallback(response);
-	  });
-	}
-
 	// FB.getLoginStatus(function (response) {
 	//     statusChangeCallback(response);
 	// });
