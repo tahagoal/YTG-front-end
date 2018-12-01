@@ -8200,6 +8200,12 @@ footer .list-unstyled img:hover{
   margin-right: 0;
 }
 
+.extra_foot span:hover{
+  color: #e74c3c;
+  cursor: context-menu;
+  font-size: 20px;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
