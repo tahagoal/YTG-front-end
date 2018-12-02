@@ -249,7 +249,7 @@
                 }
             }
 
-            var url = backend_url + 'api/programs/' + program_id + '/questions';
+            var url = backend_url + 'api/events/' + event_id + '/questions';
             var data = {
                 'questions': post_request
             }
@@ -295,7 +295,7 @@
     get_event = function () {
         var url = backend_url;
         event_id = get_param('event_id');
-        $.get(url + 'events/' + event_id + '/questions',
+        $.get(url + 'api/events/' + event_id + '/questions',
             function (data) {
                 questions = data;
                 questions_global = questions;

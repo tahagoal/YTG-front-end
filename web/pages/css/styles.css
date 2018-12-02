@@ -6999,14 +6999,15 @@
         rgba(0, 0, 0, 0.7)
       ), url(../assets/imgs/card1.jpeg); */
     margin-top: 30px;
-    height: 500px;
+    height: 800px;
     /* background-size: cover; */
     border-radius: 20px;
   }
 
   .video_img #video{
-    width: auto;
+    width: 100%;
     height: 100%;
+
   }
 
   #logo_loading{

@@ -296,7 +296,7 @@
     get_job = function () {
         var url = backend_url;
         job_id = get_param('job_id');
-        $.get(url + 'jobs/' + job_id + '/questions',
+        $.get(url + 'api/jobs/' + job_id + '/questions',
             function (data) {
                 questions = data;
                 questions_global = questions;
