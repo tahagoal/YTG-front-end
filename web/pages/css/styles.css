@@ -6828,10 +6828,14 @@
 
 .partners_section img{
     filter: grayscale(100%);
-    transition: all 0.5s ease-in-out
+    transition: all 0.5s ease-in-out;
 }
 
-.partners_section img:hover{
+#partner_logos img{
+  transition: all 0.5s ease-in-out;
+}
+
+.partners_section img:hover, #partner_logos img:hover{
   filter: grayscale(0);
 }
 
@@ -6995,12 +6999,13 @@
         rgba(0, 0, 0, 0.7)
       ), url(../assets/imgs/card1.jpeg); */
     margin-top: 30px;
-    height: 370px;
+    height: 500px;
     /* background-size: cover; */
     border-radius: 20px;
   }
 
   .video_img #video{
+    width: auto;
     height: 100%;
   }
 
@@ -8110,8 +8115,8 @@ footer .list-unstyled img:hover{
 }
 
 #form_created label.error{
+  margin-top: 35px;
   position: absolute;
-  margin-top: 24px;
   font-size: 11px;
   color: red;
 }
