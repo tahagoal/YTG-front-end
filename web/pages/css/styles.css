@@ -7119,7 +7119,7 @@ h4.new_spacing{
 }
 
 .p_left_left{
-  background-image: url('../assets/imgs/logo.png');
+  /*background-image: url('../assets/imgs/logo.png');*/
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
@@ -7190,7 +7190,7 @@ h4.new_spacing{
 }
 
 .p_top_left{
-  background-image: url('../assets/imgs/logo.png');
+  /*background-image: url('../assets/imgs/logo.png');*/
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
@@ -7203,7 +7203,7 @@ h4.new_spacing{
 }
 
 .p_bottom_right{
-  background-image: url('../assets/imgs/logo.png');
+  /*background-image: url('../assets/imgs/logo.png');*/
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
