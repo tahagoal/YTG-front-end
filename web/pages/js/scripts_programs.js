@@ -150,7 +150,7 @@ service_append = function(active_services){
 	    }
 
 	    html += '<div class="person-info"><span class="name-2 mb-3">'+ active_services[i].name +'</span>';
-	    html += '<p>'+ active_services[i].name +'</p>';
+	    html += '<p>'+ active_services[i].description +'</p>';
 	    html += '<span class="result"><a href="#" class="float_program_card center">';
 	    html += '<i class="fa fa-plus my-float-card"></i></a></span></div></div></div>';
 

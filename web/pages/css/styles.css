@@ -6382,6 +6382,14 @@
       -webkit-box-orient: vertical;
       line-height: 1.8;
     }
+
+    .block-10 .person-info p{
+      overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    height: 55%;
+    }
     .block-10 .person-info .name, .block-10 .person-info .name-2 {
       font-size: 20px; }
     .block-10 .person-info .position {
@@ -7123,7 +7131,7 @@ h4.new_spacing{
 }
 
 .programs_row .text h2, .programs_row .text h5{
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   font-weight: bold;
   /* overflow: hidden; */

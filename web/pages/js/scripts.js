@@ -1,5 +1,6 @@
 var backend_url = 'https://ytg.eco/';
 var news, programs;
+var active_progs =[];
 
 get_apis = function () {
 	get_news();
@@ -126,6 +127,18 @@ check_activity = function (old_data) {
 	return new_data;
 }
 
+$('#program1').click(function(){
+	window.location.href = 'program.html?program_id=' + active_progs[0]._id;
+})
+
+$('#program2').click(function(){
+	window.location.href = 'program.html?program_id=' + active_progs[1]._id;
+})
+
+$('#program3').click(function(){
+	window.location.href = 'program.html?program_id=' + active_progs[2]._id;
+})
+
 program_one_append = function (active_progs) {
 	var leng = active_progs.length;
 
@@ -158,7 +171,6 @@ get_programs = function () {
 	$.get(url + 'programs',
 		function (data) {
 			programs = data.programs;
-			var active_progs =[];
 			for(var i= 0; i<programs.length; i++){
 				if(programs[i].pinned && programs[i].is_active )
 					active_progs.push(programs[i]);
