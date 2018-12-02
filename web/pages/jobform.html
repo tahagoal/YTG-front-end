@@ -99,7 +99,7 @@
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
-                    <h2 class="new_spacing" style="color: white;">
+                    <h2 class="new_spacing job_title" style="color: white;">
 
                     </h2>
                 </div>
@@ -214,9 +214,24 @@
         }
     }
 
+    job_append = function(job){
+        $('.job_title').append(job.title);
+    }
+
+    get_jobsingle = function () {
+        var url = backend_url + 'api/';
+        job_id = get_param('job_id');
+        $.get(url + 'jobs/' + job_id,
+            function (data) {
+                job = data;
+                job_append(job);
+            });
+    }
+
     $(document).ready(function ($) {
         get_job();
         check_ath();
+        get_jobsingle();
     })
 
     function getBase64(file) {

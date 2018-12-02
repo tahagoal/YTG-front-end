@@ -93,12 +93,12 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_careers">
+    <section class="ftco-section-2 event_form_cover">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
                 <div class="text col-md-4" style="margin-top: 100px;">
-                    <h2 class="new_spacing" style="color: white;">
+                    <h2 class="new_spacing event_title" style="color: white;">
 
                     </h2>
                 </div>
@@ -213,9 +213,30 @@
         }
     }
 
+    event_append = function(event){
+        $('.event_title').append(event.title);
+        // $('.event_title').css('color', event.segment);
+        // $('.event_descrip').append(event.description);
+        $('.event_form_cover').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + event.images[0] + ')');
+        $('.event_form_cover').css('background-size', 'cover');
+        $('.event_form_cover').css('background-position', 'center');
+        $('.event_form_cover').css('background-repeat', 'no-repeat');
+    }
+
+    get_eventsingle = function () {
+        var url = backend_url + 'api/';
+        event_id = get_param('event_id');
+        $.get(url + 'events/' + event_id,
+            function (data) {
+                event = data;
+                event_append(event);
+            });
+    }
+
     $(document).ready(function ($) {
         get_event();
         check_ath();
+        get_eventsingle();
     })
 
     function getBase64(file) {

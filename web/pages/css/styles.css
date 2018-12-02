@@ -7387,6 +7387,13 @@ h4.new_spacing{
   margin-top:100px;
 }
 
+.event_form_cover, .job_form_cover, .program_form_cover{
+  margin-top: 120px;  
+  padding-bottom: 50px;
+    height: 500px;  
+}
+
+
 .first_section_program, .first_section_partner, .first_section_about , .first_section_careers, .first_section_profile{
   margin-top: 120px;  
   padding-bottom: 50px;

@@ -90,7 +90,7 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_careers">
+    <section class="ftco-section-2 program_form_cover">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
@@ -213,9 +213,30 @@
         }
     }
 
+    program_append = function(program){
+        $('.program_title').append(program.name);
+        // $('.program_title').css('color', program.segment);
+        // $('.program_descrip').append(program.description);
+        $('.program_form_cover').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0] + ')');
+        $('.program_form_cover').css('background-size', 'cover');
+        $('.program_form_cover').css('background-position', 'center');
+        $('.program_form_cover').css('background-repeat', 'no-repeat');
+    }
+
+    get_programsingle = function () {
+        var url = backend_url + 'api/';
+        program_id = get_param('program_id');
+        $.get(url + 'programs/' + program_id,
+            function (data) {
+                program = data;
+                program_append(program);
+            });
+    }
+
     $(document).ready(function ($) {
         get_program();
         check_ath();
+        get_programsingle();
     })
 
     function getBase64(file) {
