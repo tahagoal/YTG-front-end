@@ -7160,6 +7160,7 @@ h4.new_spacing{
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   height: 80%;
+      font-size: 13px;
 }
 
 .programs_row .programs_right .text p{
@@ -7168,6 +7169,7 @@ h4.new_spacing{
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   height: 43%;
+      font-size: 13px;
 }
 
 .programs_row .text p, .programs_row .text h2{
@@ -8140,7 +8142,7 @@ footer .list-unstyled img:hover{
 .event_card{
   height: 400px;
   margin-top: 30px;
-  border-radius: 20px;
+  border-radius: 0px 20px 0px 20px;
   overflow: hidden;
   padding: 0px;
 }
