@@ -282,51 +282,91 @@
         var mail = $('#register_mail').val();
         var userImage = null;
         var file = $('#imgInp')[0].files[0];
-        getBase64(file).then(function (base_data) {
-            console.log(base_data);
-            userImage = base_data;
-        });
-
-        if (password == "") {
-            var data = {
-                'first_name': fname,
-                'last_name': lname,
-                'email': mail,
-                'mobile': mobile,
-                'image': userImage
-            }
-        }
-        else {
-            var data = {
-                'first_name': fname,
-                'last_name': lname,
-                'password': password,
-                'image': userImage,
-                'current_password': current_password,
-                'email': mail,
-                'mobile': mobile
-            }
-        }
         var url = backend_url + 'api/users/' + user_id;
-        $.ajax({
-            url: url,
-            type: 'PUT',
-            data: data, 
-            headers: {"Authorization": localStorage.getItem('token')},
-            success: function (result) {
-                swal("Good job!", "User Account updated successfully", "success", {
-                    button: "Got it!",
-                }).then((value) => {
-//                    window.location.reload();
+        if (file != null){
+            getBase64(file).then(function (base_data) {
+                userImage = base_data;
+                if (password == "") {
+                    var data = {
+                        'first_name': fname,
+                        'last_name': lname,
+                        'email': mail,
+                        'mobile': mobile,
+                        'image': userImage
+                    }
+                }
+                else {
+                    var data = {
+                        'first_name': fname,
+                        'last_name': lname,
+                        'password': password,
+                        'image': userImage,
+                        'current_password': current_password,
+                        'email': mail,
+                        'mobile': mobile
+                    }
+                }
+                $.ajax({
+                    url: url,
+                    type: 'PUT',
+                    data: data,
+                    headers: {"Authorization": localStorage.getItem('token')},
+                    success: function (result) {
+                        swal("Good job!", "User Account updated successfully", "success", {
+                            button: "Got it!",
+                        }).then((value) => {
+                            window.location.reload();
+                        });
+                    },
+                    error: function (error) {
+                        swal(error.responseJSON.message, "", "error", {
+                            button: "Try again!",
+                        });
+                    }
                 });
-            },
-            error: function (error) {
-                swal(error.responseJSON.message, "", "error", {
-                    button: "Try again!",
-                });
+            });
+        }
+        else{
+            if (password == "") {
+                var data = {
+                    'first_name': fname,
+                    'last_name': lname,
+                    'email': mail,
+                    'mobile': mobile,
+                    'image': userImage
+                }
             }
-        });
-    })
+            else {
+                var data = {
+                    'first_name': fname,
+                    'last_name': lname,
+                    'password': password,
+                    'image': userImage,
+                    'current_password': current_password,
+                    'email': mail,
+                    'mobile': mobile
+                }
+            }
+            $.ajax({
+                url: url,
+                type: 'PUT',
+                data: data,
+                headers: {"Authorization": localStorage.getItem('token')},
+                success: function (result) {
+                    swal("Good job!", "User Account updated successfully", "success", {
+                        button: "Got it!",
+                    }).then((value) => {
+                        window.location.reload();
+                    });
+                },
+                error: function (error) {
+                    swal(error.responseJSON.message, "", "error", {
+                        button: "Try again!",
+                    });
+                }
+            });
+        }
+    });
 
     get_user = function () {
         var options = {

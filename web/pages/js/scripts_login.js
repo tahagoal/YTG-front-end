@@ -456,13 +456,14 @@ $('.register_submit').click(function (e) {
 		var email = $('#register_mail').val();
 		var password = $('#register_password').val();
 		var dateOfBirth = $('#register_date').val();
+        var dateArray = dateOfBirth.split("-");
 		var url = backend_url + 'api/register';
 		var data = {
 			'first_name': firstname,
 			'last_name': lastname,
 			'mobile': mobile,
 			'password': password,
-			'date_of_birth': dateOfBirth,
+			'date_of_birth': dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0],
 			'email': email
 		};
 		$.post(url, data, function (result) {
@@ -472,7 +473,7 @@ $('.register_submit').click(function (e) {
 			swal("Good job!", "User Account created successfully", "success", {
 				button: "Got it!",
 			}).then((value) => {
-				// window.location.replace('home.html');
+				window.location.replace('home.html');
 			});
 		})
 			.done(function () {
