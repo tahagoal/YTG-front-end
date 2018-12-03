@@ -319,7 +319,8 @@
     get_user = function () {
         var options = {
             method: 'GET',
-            url: backend_url + 'api/users/' + user_id + '/profile',
+            url: backend_url + 'api/users/' + user_id + '/profile', 
+            headers: {"Authorization": localStorage.getItem('token')},
         };
         $.get(options,
             function (data) {
