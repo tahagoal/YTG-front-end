@@ -226,7 +226,9 @@
     get_programsingle = function () {
         var url = backend_url + 'api/';
         program_id = get_param('program_id');
-        $.get(url + 'programs/' + program_id, {headers: {"Authorization": localStorage.getItem('token')}},
+        $.get(url + 'programs/' + program_id, 
+            {headers: {"Authorization": localStorage.getItem('token')}
+        },
             function (data) {
                 program = data;
                 program_append(program);

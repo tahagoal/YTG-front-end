@@ -60,21 +60,21 @@ program_one_append = function (programs){
 	}
 
 	if(programs.length > 3){
-		var html = '<div class="row">';
+		var html = '<div class="row mt-5 mb-5">';
 		var loop = programs.length;
 		for(var i = 3; i < programs.length ; i ++){
 
-			if (loop % 4 == 3 && i%3 == 0){
+			if ((loop-3) % 4 == 3 && i%3 == 0){
 				html += '<div onclick = goprogram("' +
 				programs[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
-			else if(loop % 4 == 2 && i%3 == 0){
+			else if((loop-3) % 4 == 2 && i%3 == 0){
 				html += '<div onclick = goprogram("' +
 				programs[i]._id + '") class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
-			else if(loop % 4 == 1 && i%3 == 0){
+			else if((loop-3) % 4 == 1 && i%3 == 0){
 				html += '<div onclick = goprogram("' +
-				programs[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				programs[i]._id + '") class="col-sm-4 offset-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else{
 				html += '<div onclick = goprogram("' +
@@ -86,7 +86,7 @@ program_one_append = function (programs){
 		    }
 		    else{
 		    	var img_url = backend_url + programs[i].images[0];
-		    	html += '<div class="won-img" style="background: url(../assets/imgs/logo.png); background-repeat:no-repeat; background-size: cover; background-position: center center;"></div>';
+		    	html += '<div class="won-img" style="background: url(/assets/imgs/logo.png); background-repeat:no-repeat; background-size: cover; background-position: center center;"></div>';
 		    }
 
 		    html += '<div class="person-info"><span class="name-2 mb-3">'+ programs[i].name +'</span>';

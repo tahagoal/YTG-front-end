@@ -106,7 +106,7 @@ append_slider = function (slider) {
 			html += '<div class="slItem active" style="background-image: url('+ img_url +');">';
 		else
 			html += '<div class="slItem" style="background-image: url('+ img_url +');">';
-		html += '<div class="slText underline_white">'+ slider[i].comment +'</div>';
+		html += '<div class="slText">'+ slider[i].comment +'</div>';
 		html += '<a class="slider_btn" href="'+ slider[i].link +'"><button class="btn btn-2 btn-2g" style="float: right;margin-top: 5px;">'+ slider[i].buttonText +'</button></a>';
 		html += '</div>';
 	}
@@ -139,14 +139,27 @@ program_one_append = function (active_progs) {
 	$('#program1 h5')[0].append(active_progs[leng - 3].name);
 	$('#program1 p')[0].append(active_progs[leng - 3].description);
 	var img_url = backend_url + active_progs[leng - 3].images[0];
-	$('#program1 .p_left_left').css('background-image', 'url(' + img_url + ')');
+
+	if( active_progs[leng - 3].images[0] != undefined){
+		$('#program1 .p_left_left').css('background-image', 'url(' + img_url + ')');
+    }
+    else{
+    	$('#program1 .p_left_left').css('background-image', 'url("./assets/imgs/logo.png")');
+    }
+
 	$('#program1 .p_left_right').css('background-color', active_progs[leng - 3].segment);
 
 	if(active_progs.length > 1){
 		$('#program2 h5')[0].append(active_progs[leng - 2].name);
 		$('#program2 p')[0].append(active_progs[leng - 2].description);
 		var img_url = backend_url + active_progs[leng - 2].images[0];
+
+		if( active_progs[leng - 2].images[0] != undefined){
 		$('#program2 .p_top_left').css('background-image', 'url(' + img_url + ')');
+	    }
+	    else{
+	    	$('#program2 .p_top_left').css('background-image', 'url("./assets/imgs/logo.png")');
+	    }
 		$('#program2 .p_top_right').css('background-color', active_progs[leng - 2].segment);
 	}
 
@@ -154,9 +167,18 @@ program_one_append = function (active_progs) {
 		$('#program3 h5')[0].append(active_progs[leng - 1].name);
 		$('#program3 p')[0].append(active_progs[leng - 1].description);
 		var img_url = backend_url + active_progs[leng - 1].images[0];
-		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
+		if( active_progs[leng - 1].images[0] != undefined){
+			$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
+	    }
+	    else{
+	    	$('#program3 .p_bottom_right').css('background-image', 'url("./assets/imgs/logo.png")');
+	    }
 		$('#program3 .p_bottom_left').css('background-color', active_progs[leng - 1].segment);
 	}
+
+	$('.about_us_red').click(function(){
+		window.location.href = 'about.html';
+	})
 
 	$('#program1').click(function(){
 		window.location.href = 'program.html?program_id=' + active_progs[0]._id;

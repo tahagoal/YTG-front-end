@@ -5933,9 +5933,19 @@
       background-color: #fff;
       border-color: #3ef1c6;
       outline: 0;
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(36, 140, 55, 0.25);
-      box-shadow: 0 0 0 0.2rem rgba(36, 140, 55, 0.25);
+      /*-webkit-box-shadow: 0 0 0 0.2rem rgba(36, 140, 55, 0.25);*/
+      /*box-shadow: 0 0 0 0.2rem rgba(36, 140, 55, 0.25);*/
   }
+
+  input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
   
   textarea.form-control {
     height: inherit !important; }
@@ -6278,7 +6288,7 @@
     background-size: cover; }
     @media (max-width: 991.98px) {
       .ftco-section-2 .section-2-blocks-wrapper .img {
-        height: 400px;
+        height: 200px;
         margin-bottom: 70px; } }
   
   @-webkit-keyframes pulse {
@@ -7326,6 +7336,16 @@ h4.new_spacing{
   height: 100%;
 }
 
+.login_navbar, .logout_navbar {
+  display: none;
+}
+
+.right_event_card:hover{
+  opacity: 1;
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.5s;
+}
+
 .p_left_left:hover, .p_bottom_right:hover, .p_top_left:hover, .won-img:hover{
 	opacity: 1;
 	-webkit-animation: flash 1.5s;
@@ -8288,6 +8308,26 @@ footer .list-unstyled img:hover{
 }
 
 @media (max-width: 768px) {
+
+  .ctrlPrev {
+      left: 10px !important;
+  }
+
+  .ctrlNext {
+      right: 10px !important;
+  }
+
+  .ftco-section {
+    padding: 50px 0px 50px 0px;
+}
+
+  .slText{
+    font-size: 25px !important;
+  }
+
+  .video_img {
+    height: 280px;
+  }
 
 /*  .programs_row .text{
     height: 50%;
