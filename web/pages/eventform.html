@@ -143,7 +143,8 @@
                             </li>
                             <li class="center">
                                 <a href="partners.html">Partner</a> <span style="color: #d0cdc5;"> - </span>
-                                <a href="careers.html">Careers</a>
+                                <a href="careers.html">Careers</a><span style="color: #d0cdc5;"> - </span>
+                                <a href="privacypolicy.html">Privacy Policy</a>
                             </li>
                         </ul>
                     </div>
@@ -170,7 +171,7 @@
                             </li>
                         </ul>
                         <div>
-                            <button class="btn btn-sub"id="open-popup">Subscribe</button>
+                            <button class="btn btn-2 btn-2g"id="open-popup">Subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -329,15 +330,27 @@
     get_event = function () {
         var url = backend_url;
         event_id = get_param('event_id');
-        $.get(url + 'api/events/' + event_id + '/questions' , {headers: {"Authorization": localStorage.getItem('token')}},
-            function (data) {
+
+        $.ajax({
+            url: url + 'api/events/' + event_id + '/questions',
+            success: function(data) {
                 questions = data;
                 questions_global = questions;
                 for (var i = 0; i < questions.length; i++) {
                     $('.dynamic_form').append('<div id="' + questions[i]._id + '" class="row mt-4 mb-5"></div>')
                 }
                 append_form(questions);
-            });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+               console.log(textStatus);
+            },
+
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader ("Authorization", localStorage.getItem('token'));
+            },
+            type: 'GET',
+            contentType: 'json',
+        });
     }
 
     append_form = function (questions) {
@@ -378,7 +391,7 @@
                 question_html += ('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     if (j == 0) {
-                        question_html += ('<div class="col-sm-1"></div><select name="' + questions[i]._id + '" class="custom-select">');
+                        question_html += ('<div class="col-sm-1"></div><select required name="' + questions[i]._id + '" class="custom-select">');
                     }
                     else if (j - 1 == questions[i].answers.length) {
                         question_html += ('</select>');
@@ -395,7 +408,7 @@
 
                 question_html += ('<div class="col-sm-1"></div><div class="form-group">');
                 question_html += ('<label for="exampleFormControlFile1">Choose file</label>');
-                question_html += ('<input type="file" name="' + questions[i]._id + '" class="form-control-file" id="exampleFormControlFile1"> </div>');
+                question_html += ('<input required type="file" name="' + questions[i]._id + '" class="form-control-file" id="exampleFormControlFile1"> </div>');
 
                 $('#' + questions[i]._id).append(question_html);
             }

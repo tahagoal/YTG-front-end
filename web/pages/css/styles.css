@@ -8309,6 +8309,14 @@ footer .list-unstyled img:hover{
 
 @media (max-width: 768px) {
 
+  textarea.form-control, input.form-control, .custom-select{
+    width: 100% !important;
+  }
+
+  .dynamic_form .form-group{
+    width: 100% !important;
+  }
+
   .ctrlPrev {
       left: 10px !important;
   }
@@ -8458,8 +8466,16 @@ footer .list-unstyled img:hover{
     width:100%;
   }
 
-  .first_section_login, .first_section_partner, .first_section_about, .first_section_careers, .first_section_profile, .first_section_privacy{
+  .program_form_cover, .first_section_login, .first_section_partner, .first_section_about, .first_section_careers, .first_section_profile, .first_section_privacy{
     margin-top:0px;
+  }
+
+  .dynamic_form .mb-5,.dynamic_form .my-5 {
+    margin-bottom: 1rem !important;
+  }
+
+  .dynamic_form .mt-4,.dynamic_form .my-4 {
+    margin-top: 0.5rem !important;
   }
   
 }
