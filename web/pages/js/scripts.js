@@ -81,6 +81,11 @@ get_sliders = function () {
 	$.get(url + 'upload/slider',
 		function (data) {
 			slider = data.contents;
+
+			slider.sort(function(a, b){ // sort object by age field
+				return a.index-b.index
+			})
+
 			append_slider(slider);
 		});
 }
