@@ -198,7 +198,7 @@
                             </li>
                         </ul>
                         <div>
-                            <button class="btn btn-2 btn-2g"id="open-popup">Subscribe</button>
+                            <button class="btn btn-2 btn-2g" id="open-popup">Subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -222,6 +222,26 @@
 
 
 <script type="text/javascript">
+
+    $(document).ready(function ($) {
+        token = localStorage.getItem('token');
+        user_id = localStorage.getItem('user_id');
+        get_user();
+    })
+
+    get_user = function () {
+    var options = {
+        method: 'GET',
+        url: backend_url + 'api/users/' + user_id + '/profile', 
+        headers: {"Authorization": localStorage.getItem('token')},
+    };
+    $.get(options,
+        function (data) {
+            fetch_data(data);
+
+        });
+    }
+
     open_mail = function(){
         // window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us19.list-manage.com","uuid":"cb651c1984ff21237aea0f68d","lid":"655f98310e","uniqueMethods":true}) })
         window.location.href = 'https://eco.us19.list-manage.com/subscribe?u=cb651c1984ff21237aea0f68d&id=655f98310e';
