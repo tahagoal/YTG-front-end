@@ -226,7 +226,7 @@
     get_programsingle = function () {
         var url = backend_url + 'api/';
         program_id = get_param('program_id');
-        $.get(url + 'programs/' + program_id,
+        $.get(url + 'programs/' + program_id, {headers: {"Authorization": localStorage.getItem('token')}},
             function (data) {
                 program = data;
                 program_append(program);
@@ -302,7 +302,7 @@
                     }
                 }
             
-                $.post(url, data, function (result) {
+                $.post(url, data, {headers: {"Authorization": localStorage.getItem('token')}}, function (result) {
 
                     swal("Good job!", "Thank you for your submission", "success", {
                         button: "Got it!",
@@ -329,7 +329,7 @@
     get_program = function () {
         var url = backend_url;
         program_id = get_param('program_id');
-        $.get(url + 'api/programs/' + program_id + '/questions',
+        $.get(url + 'api/programs/' + program_id + '/questions', {headers: {"Authorization": localStorage.getItem('token')}},
             function (data) {
                 questions = data;
                 questions_global = questions;

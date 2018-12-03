@@ -221,7 +221,7 @@
     get_jobsingle = function () {
         var url = backend_url + 'api/';
         job_id = get_param('job_id');
-        $.get(url + 'jobs/' + job_id,
+        $.get(url + 'jobs/' + job_id , {headers: {"Authorization": localStorage.getItem('token')}},
             function (data) {
                 job = data;
                 job_append(job);
@@ -297,7 +297,7 @@
                     }
                 }
             
-                $.post(url, data, function (result) {
+                $.post(url, data , {headers: {"Authorization": localStorage.getItem('token')}}, function (result) {
 
                     swal("Good job!", "Thank you for your submission", "success", {
                         button: "Got it!",
@@ -324,7 +324,7 @@
     get_job = function () {
         var url = backend_url;
         job_id = get_param('job_id');
-        $.get(url + 'api/jobs/' + job_id + '/questions',
+        $.get(url + 'api/jobs/' + job_id + '/questions' , {headers: {"Authorization": localStorage.getItem('token')}},
             function (data) {
                 questions = data;
                 questions_global = questions;

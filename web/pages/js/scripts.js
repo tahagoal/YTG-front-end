@@ -81,29 +81,28 @@ get_sliders = function () {
 	$.get(url + 'upload/slider',
 		function (data) {
 			slider = data.contents;
-			append_slider(slider[2]);
+			append_slider(slider);
 		});
 }
 
 append_slider = function (slider) {
 	var html = '';
-	if(slider.images.length < 5){
-		var loop = slider.images.length;
-	}
-	else{
-		var loop = 5
-	}
-	for(var i = 0 ; i < loop ; i++){
-		// var img_url = backend_url + slider.images[i];
-		var img_url = 'assets/imgs/bright-bulb-close-up-1108572.jpg';
-		html += '<div class="slItem" style="background-image: url('+ img_url +');">';
-		html += '<div class="slText underline_white">'+ slider.comment +'</div>';
+	// if(slider.images.length < 5){
+	// 	var loop = slider.images.length;
+	// }
+	// else{
+	// 	var loop = 5
+	// }
+	for(var i = 0 ; i < slider.length ; i++){
+		var img_url = backend_url + slider[i].image;
+		// var img_url = 'assets/imgs/bright-bulb-close-up-1108572.jpg';
+		if(i == 0)
+			html += '<div class="slItem active" style="background-image: url('+ img_url +');">';
+		else
+			html += '<div class="slItem" style="background-image: url('+ img_url +');">';
+		html += '<div class="slText underline_white">'+ slider[i].comment +'</div>';
+		html += '<a class="slider_btn" href="'+ slider[i].link +'"><button class="btn btn-2 btn-2g" style="float: right;margin-top: 5px;">'+ slider[i].buttonText +'</button></a>';
 		html += '</div>';
-
-		// var img_url = backend_url + slider.images[1];
-		// html += '<div class="slItem" style="background-image: url("'+ img_url +'");">';
-		// html += '<div class="slText">'+ slider.comment +'</div>';
-		// html += '</div>';
 	}
 	$('#slider').append(html);
 
@@ -126,18 +125,6 @@ check_activity = function (old_data) {
 	}
 	return new_data;
 }
-
-$('#program1').click(function(){
-	window.location.href = 'program.html?program_id=' + active_progs[0]._id;
-})
-
-$('#program2').click(function(){
-	window.location.href = 'program.html?program_id=' + active_progs[1]._id;
-})
-
-$('#program3').click(function(){
-	window.location.href = 'program.html?program_id=' + active_progs[2]._id;
-})
 
 program_one_append = function (active_progs) {
 	var leng = active_progs.length;
@@ -163,6 +150,18 @@ program_one_append = function (active_progs) {
 		$('#program3 .p_bottom_right').css('background-image', 'url(' + img_url + ')');
 		$('#program3 .p_bottom_left').css('background-color', active_progs[leng - 1].segment);
 	}
+
+	$('#program1').click(function(){
+		window.location.href = 'program.html?program_id=' + active_progs[0]._id;
+	})
+
+	$('#program2').click(function(){
+		window.location.href = 'program.html?program_id=' + active_progs[1]._id;
+	})
+
+	$('#program3').click(function(){
+		window.location.href = 'program.html?program_id=' + active_progs[2]._id;
+	})
 }
 
 

@@ -8147,6 +8147,12 @@ footer .list-unstyled img:hover{
   padding: 0px;
 }
 
+.slider_btn{
+  position: absolute !important;
+  left: 40%;
+  top:80%;
+}
+
 /*.news_cards .block-10{
   border-radius: 20px !important;
 }*/

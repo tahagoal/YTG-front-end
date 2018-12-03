@@ -299,7 +299,8 @@
         $.ajax({
             url: url,
             type: 'PUT',
-            data: data,
+            data: data, 
+            headers: {"Authorization": localStorage.getItem('token')},
             success: function (result) {
                 swal("Good job!", "User Account updated successfully", "success", {
                     button: "Got it!",
