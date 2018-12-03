@@ -456,6 +456,9 @@ $('.register_submit').click(function (e) {
 		var email = $('#register_mail').val();
 		var password = $('#register_password').val();
 		var dateOfBirth = $('#register_date').val();
+		var residence_address = $('#register_address').val();
+		var organization = $('#register_grad').val();
+		var graduation_status = $('#register_orgn').val();
         var dateArray = dateOfBirth.split("-");
 		var url = backend_url + 'api/register';
 		var data = {
@@ -464,7 +467,10 @@ $('.register_submit').click(function (e) {
 			'mobile': mobile,
 			'password': password,
 			'date_of_birth': dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0],
-			'email': email
+			'email': email,
+			'residence_address':residence_address,
+			'organization':organization,
+			'graduation_status':graduation_status
 		};
 		$.post(url, data, function (result) {
 			console.log("success");

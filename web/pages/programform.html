@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
-    <meta property="og:description" content=""YTG Descriptions""
+    <meta property="og:description" content="YTG Descriptions"
     />
     <meta property="og:url" content="https://ytg.eco" />
     <meta property="og:site_name" content="YTG Egypt" />
@@ -131,7 +131,6 @@
                 </div>
                 <div class="col-md-5">
                     <div class="ftco-footer-widget mb-4">
-                        <!-- <h2 class="ftco-heading-2">Communities</h2> -->
                         <ul class="list-unstyled pages_list">
                             <li class="center">
                                 <a href="about.html">About us</a>
@@ -304,8 +303,15 @@
                         j++;
                     }
                 }
+
+                var options = {
+                    method: 'POST',
+                    data: data,
+                    url: url, 
+                    headers: {"Authorization": localStorage.getItem('token')},
+                };
             
-                $.post(url, data, {headers: {"Authorization": localStorage.getItem('token')}}, function (result) {
+                $.post(options, function (result) {
 
                     swal("Good job!", "Thank you for your submission", "success", {
                         button: "Got it!",

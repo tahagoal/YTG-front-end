@@ -303,7 +303,14 @@
                     }
                 }
             
-                $.post(url, data, {headers: {"Authorization": localStorage.getItem('token')}}, function (result) {
+                var options = {
+                    method: 'POST',
+                    data: data,
+                    url: url, 
+                    headers: {"Authorization": localStorage.getItem('token')},
+                };
+            
+                $.post(options, function (result) {
 
                     swal("Good job!", "Thank you for your submission", "success", {
                         button: "Got it!",
