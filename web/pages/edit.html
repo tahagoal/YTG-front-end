@@ -72,12 +72,12 @@
                     </li>
 
                     <li class="btn-li-nav login_navbar">
-                        <a href="login.html" class="btn-nav">Login</a>
+                        <a href="login.html" class="btn-nav login">Login</a>
                     </li>
 
                     <div class="dropdown">
                         <li class="btn-li-nav logout_navbar dropbtn">
-                            <a href="" class="btn-nav"></a>
+                            <a href="javascript:void(0)" class="btn-nav"><img id="profile_image" src="assets/imgs/profile.jpeg" /></a>
                         </li>
                         <div class="dropdown-content">
                             <a href="profile.html">My Profile</a>
@@ -240,13 +240,20 @@
         token = localStorage.getItem('token');
         user_id = localStorage.getItem('user_id');
         get_user();
-    })
+    });
+
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
 
     function readURL(input) {
-
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function(e) {
                 $('#profile_p').attr('src', e.target.result);
             }
@@ -263,7 +270,7 @@
         document.getElementById("register_last").value = user.last_name;
         document.getElementById("register_mobile").value = user.mobile.split('+0')[1];
         document.getElementById("register_mail").value = user.email;
-    }
+    };
 
     $('.edit_submit').click(function (e) {
         e.preventDefault();
@@ -273,30 +280,34 @@
         var password = $('#register_password').val();
         var current_password = $('#current_password').val();
         var mail = $('#register_mail').val();
+        var userImage = null;
+        var file = $('#imgInp')[0].files[0];
+        getBase64(file).then(function (base_data) {
+            console.log(base_data);
+            userImage = base_data;
+        });
 
         if (password == "") {
             var data = {
                 'first_name': fname,
                 'last_name': lname,
                 'email': mail,
-                'mobile': mobile
+                'mobile': mobile,
+                'image': userImage
             }
         }
-
         else {
             var data = {
                 'first_name': fname,
                 'last_name': lname,
                 'password': password,
+                'image': userImage,
                 'current_password': current_password,
                 'email': mail,
                 'mobile': mobile
             }
         }
-
-
         var url = backend_url + 'api/users/' + user_id;
-
         $.ajax({
             url: url,
             type: 'PUT',
@@ -306,7 +317,7 @@
                 swal("Good job!", "User Account updated successfully", "success", {
                     button: "Got it!",
                 }).then((value) => {
-                    window.location.reload();
+//                    window.location.reload();
                 });
             },
             error: function (error) {
