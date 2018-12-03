@@ -93,6 +93,7 @@ append_slider = function (slider) {
 	// else{
 	// 	var loop = 5
 	// }
+		html += '<div class="slItems">';
 	for(var i = 0 ; i < slider.length ; i++){
 		var img_url = backend_url + slider[i].image;
 		// var img_url = 'assets/imgs/bright-bulb-close-up-1108572.jpg';
@@ -104,6 +105,7 @@ append_slider = function (slider) {
 		html += '<a class="slider_btn" href="'+ slider[i].link +'"><button class="btn btn-2 btn-2g" style="float: right;margin-top: 5px;">'+ slider[i].buttonText +'</button></a>';
 		html += '</div>';
 	}
+		html += '</div>';
 	$('#slider').append(html);
 
 	$(function () {
