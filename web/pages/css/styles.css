@@ -7295,6 +7295,24 @@ h4.new_spacing{
   opacity: 0;
 }
 
+.fb_iframe_widget {
+  margin-top: 20px !important;
+}
+
+._4z_b{
+  width: 120% !important;
+  border-radius: 20px !important;
+}
+
+._4z_c ._4z_f {
+    font-size: 17px !important;
+}
+
+#facebook table{
+  margin-left: 45% !important;
+      margin-top: 2% !important;
+}
+
 .start_animation2 #XMLID_70_2, .start_animation2 #XMLID_70_1{
   animation: point 0.5s linear;
 }
