@@ -8,8 +8,7 @@
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
-    <meta property="og:description" content=""YTG Descriptions""
-    />
+    <meta property="og:description" content="YTG Descriptions" />
     <meta property="og:url" content="https://ytg.eco" />
     <meta property="og:site_name" content="YTG Egypt" />
     <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png />
@@ -70,12 +69,12 @@
                     </li>
 
                     <li class="btn-li-nav login_navbar">
-                        <a href="login.html" class="btn-nav">Login</a>
+                        <a href="login.html" class="btn-nav login">Login</a>
                     </li>
 
                     <div class="dropdown">
                         <li class="btn-li-nav logout_navbar dropbtn">
-                            <a href="" class="btn-nav"></a>
+                            <a href="javascript:void(0)" class="btn-nav"><img id="profile_image" src="assets/imgs/profile.jpeg" /></a>
                         </li>
                         <div class="dropdown-content">
                             <a href="profile.html">My Profile</a>
@@ -115,7 +114,7 @@
                         </div>
                         <div class="form-group" data-aos="fade-up">
                             *
-                            <input type="number" required id="register_mobile" class="form-control" placeholder="Mobile number"  name="mnumber">
+                            <input type="number" pattern="^0[0-9].*$" required id="register_mobile" class="form-control" placeholder="Mobile number" name="number">
                         </div>
                         <div class="form-group" data-aos="fade-up">
                             *
@@ -123,7 +122,7 @@
                         </div>
                         <div class="form-group" data-aos="fade-up">
                             *
-                            <input type="Password" required id="register_password" class="form-control" placeholder="Your Password"  name="password">
+                            <input type="Password" required id="register_password" minlength="6" class="form-control" placeholder="Your Password"  name="password">
                         </div>
 
                         <div class="form-group" data-aos="fade-up">

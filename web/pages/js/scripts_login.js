@@ -35,9 +35,7 @@ $('.logout_button').click(function (e) {
 
 
 $(document).ready(function ($) {
-
 	"use strict";
-
 
 	gtag('event', 'login', {
 		'event_category': 'login_page_loaded'
@@ -401,7 +399,11 @@ $('#login_submit').click(function (e) {
 		console.log("success");
 		localStorage.setItem('token', result.token);
 		localStorage.setItem('user_id', result._id);
-		window.location.replace('home.html');
+        swal("Hi " + result.first_name, "", "success", {
+            button: "Ok",
+        }).then((value) => {
+        	window.location.replace('home.html');
+    	});
 	})
 		.done(function () {
 			console.log("second success");
@@ -453,22 +455,24 @@ $('.register_submit').click(function (e) {
 		var mobile = '+00' + $('#register_mobile').val();
 		var email = $('#register_mail').val();
 		var password = $('#register_password').val();
+		var dateOfBirth = $('#register_date').val();
 		var url = backend_url + 'api/register';
 		var data = {
 			'first_name': firstname,
 			'last_name': lastname,
 			'mobile': mobile,
 			'password': password,
+			'date_of_birth': dateOfBirth,
 			'email': email
-		}
+		};
 		$.post(url, data, function (result) {
 			console.log("success");
 			localStorage.setItem('token', result.token);
-			window.location.replace('home.html');
+			// window.location.replace('home.html');
 			swal("Good job!", "User Account created successfully", "success", {
 				button: "Got it!",
 			}).then((value) => {
-				window.location.replace('home.html');
+				// window.location.replace('home.html');
 			});
 		})
 			.done(function () {
@@ -483,4 +487,21 @@ $('.register_submit').click(function (e) {
 				console.log("finished");
 			});
 	}
-})
+});
+
+get_user = function () {
+    var user_id = localStorage.getItem('user_id');
+    var options = {
+        method: 'GET',
+        url: backend_url + 'api/users/' + user_id + '/profile',
+        headers: {"Authorization": localStorage.getItem('token')}
+    };
+    $.get(options,
+        function (data) {
+            var userData = data;
+            if(userData.image != null)
+                document.getElementById("profile_image").src = userData.image;
+        });
+};
+
+get_user();

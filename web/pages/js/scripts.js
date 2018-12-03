@@ -260,7 +260,8 @@ $('.logout_button').click(function (e) {
 	// $.post(url, function (result) {
 	localStorage.removeItem('token');
 	localStorage.removeItem('user_id');
-	window.location.href = 'home.html';
+    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    window.location.href = 'home.html';
 	// })
 	// .done(function () {
 	// 	console.log("second success");
@@ -551,4 +552,5 @@ $(window).scroll(function () {
 
 	}
 
-})
+});
+
