@@ -95,46 +95,18 @@
                 <div class="col-sm-3 bg-light user_data_col" style="padding-bottom: 50px;">
                     <img class="center profile_profile" src="assets/imgs/profile.jpeg">
                     <h3 class="cursor_pointer goto_edit">Edit Profile</h3>
-                    <h2 class="center" style="font-weight: bold;">Sarah Ahmed</h2>
-                    <p class="center">Art director</p>
-                    <p class="center">24 years</p>
+                    <h2 class="center user_name" style="font-weight: bold;"></h2>
                 </div>
-                <div class="col-sm-8" style="margin-top: 50px;">
-                    <h2 class="center" style="font-weight: bold;">Program name</h2>
-                    <p class="center">Application status</p>
-                    <div class="md-stepper-horizontal orange">
-                        <div class="md-step active done">
-                            <div class="md-step-circle">
-                                <span>1</span>
-                            </div>
-                            <div class="md-step-title">Recieved</div>
-                            <div class="md-step-bar-left"></div>
-                            <div class="md-step-bar-right"></div>
-                        </div>
-                        <div class="md-step active done">
-                            <div class="md-step-circle">
-                                <span>2</span>
-                            </div>
-                            <div class="md-step-title">Reviewed</div>
-                            <!-- <div class="md-step-optional">Optional</div> -->
-                            <div class="md-step-bar-left"></div>
-                            <div class="md-step-bar-right"></div>
-                        </div>
-                        <div class="md-step editable">
-                            <div class="md-step-circle">
-                                <span>4</span>
-                            </div>
-                            <div class="md-step-title">Accepted</div>
-                            <div class="md-step-bar-left"></div>
-                            <div class="md-step-bar-right"></div>
-                        </div>
+                <div class="col-sm-8" id="submissions" style="margin-top: 50px;">
+                    <div style="display: none; text-align: center" class="no_submissions">
+                        <p>It seems that you have not applied to any of our programs, <a href="programs.html">lets apply!</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-section-2 bg-light">
+    <!-- <section class="ftco-section-2 bg-light">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
@@ -144,7 +116,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
         <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
@@ -238,8 +210,78 @@
     $.get(options,
         function (data) {
             fetch_data(data);
-
         });
+    }
+
+    fetch_data = function(user_data){
+        $('.user_name').text(user_data.first_name);
+
+        if(user_data.programs.length == 0 && user_data.events.length == 0 && user_data.jobs.length == 0){
+            $('.no_submissions').css('display', 'block');
+        }
+        else{
+            var html = '';
+            for(var i = 0; i<user_data.programs.length; i++){
+                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.programs[i].program.name +'</h2>';
+                if(user_data.programs[i].status == 'submitted'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+
+                if(user_data.programs[i].status == 'in-review' || user_data.programs[i].status == 'invited'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+
+                if(user_data.programs[i].status == 'accepted'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+            }
+            $('#submissions').append(html);
+
+            html = '';
+            for(var i = 0; i<user_data.jobs.length; i++){
+                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.jobs[i].program.name +'</h2>';
+                if(user_data.jobs[i].status == 'submitted'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+
+                if(user_data.jobs[i].status == 'in-review' || user_data.jobs[i].status == 'invited'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+
+                if(user_data.jobs[i].status == 'accepted'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+            }
+            $('#submissions').append(html);
+
+
+
+            html = '';
+            for(var i = 0; i<user_data.events.length; i++){
+                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.events[i].event.name +'</h2>';
+                html += '<div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div>';
+            }
+            $('#submissions').append(html);
+
+        }
     }
 
     open_mail = function(){

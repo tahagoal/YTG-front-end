@@ -253,6 +253,18 @@
         $('.bg_img').css('background-size', 'contain');
         $('.bg_img').css('background-repeat', 'no-repeat');
         $('.bg_img').css('background-position', 'center center');
+
+        $('#extra_sections span').each(function( index ) {
+          this.style.removeProperty('font-family')
+        });
+
+        $('#extra_sections div').each(function( index ) {
+          this.style.removeProperty('font-family')
+        });
+
+        $('#extra_sections p').each(function( index ) {
+          this.style.removeProperty('font-family')
+        });
     }
 
     get_param = function (param) {
