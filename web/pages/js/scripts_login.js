@@ -477,7 +477,7 @@ $('.register_submit').click(function (e) {
 			'last_name': lastname,
 			'mobile': mobile,
 			'password': password,
-			'date_of_birth': dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0],
+			'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
 			'email': email,
 			'residence_address':residence_address,
 			'organization':organization,

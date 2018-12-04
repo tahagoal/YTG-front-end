@@ -8349,6 +8349,13 @@ footer .list-unstyled img:hover{
 }
 
 @media (max-width: 768px) {
+  .md-stepper-horizontal .md-step {
+    padding: 20px;
+  }
+
+  .md-stepper-horizontal .md-step .md-step-bar-left {
+    margin-right: 30px;
+  }
 
   .programs_row .programs_right .text p{
     height: 50%;

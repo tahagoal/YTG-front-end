@@ -86,7 +86,13 @@ get_sliders = function () {
 				return a.index-b.index
 			})
 
-			append_slider(slider);
+			var valid_slider = [];
+			for(var i=0; i<slider.length; i++){
+				if(slider[i].image != "")
+					valid_slider.push(slider[i])
+			}
+
+			append_slider(valid_slider);
 		});
 }
 

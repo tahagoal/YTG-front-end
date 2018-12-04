@@ -258,28 +258,67 @@
 
 
     $('.card_career_1').click(function () {
-        $('.card_career_2').removeClass('selected');
-        $('.jobs_container_volunteer').css('display', 'none');
-        if ($('.card_career_1').hasClass('selected')) {
-            $('.card_career_1').removeClass('selected');
-            $('.jobs_container_team').css('display', 'none');
+
+        if(window.innerWidth > 768){
+            $('.card_career_2').removeClass('selected');
+            $('.jobs_container_volunteer').css('display', 'none');
+            if ($('.card_career_1').hasClass('selected')) {
+                $('.card_career_1').removeClass('selected');
+                $('.jobs_container_team').css('display', 'none');
+            }
+            else {
+                $('.card_career_1').addClass('selected');
+                $('.jobs_container_team').css('display', 'block');
+            }
         }
-        else {
-            $('.card_career_1').addClass('selected');
-            $('.jobs_container_team').css('display', 'block');
+        else{
+            
+            var x = $('.jobs_container_team')[0];
+            $('.card_career_2').removeClass('selected');
+            if ($('.card_career_1').hasClass('selected')) {
+                $('.card_career_1').removeClass('selected');
+                $('.jobs_container_team').css('display', 'none');
+                $('.section-2-blocks-wrapper .row .jobs_container_team').css('display', 'none');
+            }
+            else {
+                $('.card_career_1').addClass('selected');
+                $('.card_career_1').after(x);
+                $('.jobs_container_team').css('display', 'none');
+                $('.section-2-blocks-wrapper .row .jobs_container_team').css('display', 'block');
+            }
+
+            
+            $('.card_career_1')
         }
     })
 
     $('.card_career_2').click(function () {
-        $('.jobs_container_team').css('display', 'none');
-        $('.card_career_1').removeClass('selected');
-        if ($('.card_career_2').hasClass('selected')) {
-            $('.card_career_2').removeClass('selected');
-            $('.jobs_container_volunteer').css('display', 'none');
+        if(window.innerWidth > 768){
+            $('.jobs_container_team').css('display', 'none');
+            $('.card_career_1').removeClass('selected');
+            if ($('.card_career_2').hasClass('selected')) {
+                $('.card_career_2').removeClass('selected');
+                $('.jobs_container_volunteer').css('display', 'none');
+            }
+            else {
+                $('.card_career_2').addClass('selected');
+                $('.jobs_container_volunteer').css('display', 'block');
+            }
         }
-        else {
-            $('.card_career_2').addClass('selected');
-            $('.jobs_container_volunteer').css('display', 'block');
+        else{        
+            var y = $('.jobs_container_volunteer')[0];    
+            $('.card_career_1').removeClass('selected');
+            if ($('.card_career_2').hasClass('selected')) {
+                $('.card_career_2').removeClass('selected');
+                $('.section-2-blocks-wrapper .row .jobs_container_volunteer').css('display', 'none');
+                $('.jobs_container_volunteer').css('display', 'none');
+            }
+            else {
+                $('.card_career_2').addClass('selected');
+                $('.card_career_2').after(y);
+                $('.jobs_container_volunteer').css('display', 'none');
+                $('.section-2-blocks-wrapper .row .jobs_container_volunteer').css('display', 'block');
+            }
         }
     })
 
