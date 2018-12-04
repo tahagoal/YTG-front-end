@@ -7457,7 +7457,7 @@ h4.new_spacing{
 }
 
 .first_section_careers{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers___hero.jpg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers_bg.jpg);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -7465,7 +7465,7 @@ h4.new_spacing{
 }
 
 .first_section_partner{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/partners___hero.jpg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/partners_bg.jpg);
   height: 500px;  
   background-size: cover;
   background-position: center center;
