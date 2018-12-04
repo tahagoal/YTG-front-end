@@ -186,7 +186,6 @@
 </body>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/aos.js" type="text/javascript"></script>
-<script src="js/scripts_login.js" type="text/javascript"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
@@ -195,6 +194,7 @@
     var backend_url = 'https://ytg.eco/';
     var job_id;
     var questions_global;
+    var userData;
 
     jQuery.validator.setDefaults({
       debug: true,
@@ -229,10 +229,24 @@
             });
     }
 
+    get_user = function () {
+        var user_id = localStorage.getItem('user_id');
+        var options = {
+            method: 'GET',
+            url: backend_url + 'api/users/' + user_id + '/profile',
+            headers: {"Authorization": localStorage.getItem('token')}
+        };
+        $.get(options,
+            function (data) {
+                userData = data;
+            });
+    };
+
     $(document).ready(function ($) {
         get_job();
         check_ath();
         get_jobsingle();
+        get_user();
     })
 
     function getBase64(file) {
@@ -305,25 +319,67 @@
                     headers: {"Authorization": localStorage.getItem('token')},
                 };
             
-                $.post(options, function (result) {
+                var submit_before = false;
 
-                    swal("Good job!", "Thank you for your submission", "success", {
-                        button: "Got it!",
+                for(var i = 0; i < userData.jobs.length ; i++){
+                    if(userData.jobs[i].job._id == job_id){
+                        submit_before = true;
+                    }
+                }
+
+                if(submit_before){
+                    swal("Submitted before", "Are you sure that you want to override this job data?", "success", {
+                        buttons: {cancel: "Cancel", ok:"Do it!"},
                     }).then((value) => {
-                        window.location.replace('careers.html');
-                    });
-                })
-                    .done(function () {
-                        console.log("second success");
+                      switch (value) {
+                     
+                        case "cancel":
+                          break;
+                     
+                        case "ok":
+                          $.post(options, function (result) {
+                            swal("", "Thank you for your submission", "success", {
+                                    button: "Ok!",
+                                }).then((value) => {
+                                    window.location.replace('profile.html');
+                                });
+                            })
+                            .done(function () {
+                                console.log("second success");
+                            })
+                            .fail(function (error) {
+                                swal(error.responseJSON.message, "", "error", {
+                                    button: "Try again!",
+                                });
+                            })
+                            .always(function () {
+                                console.log("finished");
+                            });
+                          break;
+                      }
                     })
-                    .fail(function (error) {
-                        swal(error.responseJSON.message, "", "error", {
-                            button: "Try again!",
+                }
+
+                else{
+                    $.post(options, function (result) {
+                        swal("", "Thank you for your submission", "success", {
+                                button: "Ok!",
+                            }).then((value) => {
+                                window.location.replace('profile.html');
+                            });
+                        })
+                        .done(function () {
+                            console.log("second success");
+                        })
+                        .fail(function (error) {
+                            swal(error.responseJSON.message, "", "error", {
+                                button: "Try again!",
+                            });
+                        })
+                        .always(function () {
+                            console.log("finished");
                         });
-                    })
-                    .always(function () {
-                        console.log("finished");
-                    });
+                }
             }, 2000);
         }
 

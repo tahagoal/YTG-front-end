@@ -5734,8 +5734,8 @@
         position: relative; } }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
       font-size: 18px;
-      padding-top: 30px;
-      padding-bottom: 30px;
+      padding-top: 15px;
+      padding-bottom: 15px;
       padding-left: 15px;
       padding-right: 15px;
       color: #f0f0f0;
@@ -5830,7 +5830,7 @@
         letter-spacing: .1em; }
       .ftco-navbar-light.scrolled .nav-link {
         padding-top: 0.9rem !important;
-        padding-bottom: 0.9rem !important;
+        padding-bottom: 0.1rem !important;
         color: #000 !important; 
         font-size: 16px !important;}
         .ftco-navbar-light.scrolled .nav-link.active {
@@ -6629,7 +6629,7 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .btn-li-nav{
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .ftco-navbar-light.scrolled .btn-li-nav{
@@ -7190,7 +7190,7 @@ h4.new_spacing{
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  height: 43%;
+  height: 54%;
       font-size: 13px;
 }
 
@@ -7440,14 +7440,14 @@ h4.new_spacing{
 }
 
 .event_form_cover, .job_form_cover, .program_form_cover{
-  margin-top: 120px;  
+  margin-top: 98px;  
   padding-bottom: 50px;
     height: 500px;  
 }
 
 
 .first_section_program, .first_section_partner, .first_section_about , .first_section_careers, .first_section_profile{
-  margin-top: 120px;  
+  margin-top: 98px;  
   padding-bottom: 50px;
 }
 
@@ -8306,9 +8306,13 @@ footer .list-unstyled img:hover{
 }
 
 .extra_foot span:hover{
-  color: #e74c3c;
+  color: #09d364;
   cursor: context-menu;
   /*font-size: 20px;*/
+}
+
+#extra_sections p{
+  font-family: "Quicksand" !important;
 }
 
 .personne-add:hover{
@@ -8345,6 +8349,14 @@ footer .list-unstyled img:hover{
 }
 
 @media (max-width: 768px) {
+
+  .programs_row .programs_right .text p{
+    height: 50%;
+  }
+
+  .float_program{
+    margin-top: -20px;
+  }
 
   textarea.form-control, input.form-control, .custom-select{
     width: 100% !important;

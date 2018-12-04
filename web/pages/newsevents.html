@@ -269,7 +269,7 @@
                 html += '<div class="col-sm-6 offset-2 col-md-4 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
                 news[i]._id + '")>';
             }
-            else if( i%3 == 0 ){
+            else if(loop % 3 == 1 && i%3 == 0 ){
                 html += '<div class="col-sm-6 offset-4 col-md-4 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
                 news[i]._id + '")>';
             }

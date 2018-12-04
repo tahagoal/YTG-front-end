@@ -26,12 +26,7 @@ check_ath = function () {
 	}
 }
 
-$('.logout_button').click(function (e) {
-	e.preventDefault();
-	localStorage.removeItem('token');
-	localStorage.removeItem('user_id');
-	window.location.href = 'home.html';
-})
+
 
 
 $(document).ready(function ($) {
@@ -40,6 +35,15 @@ $(document).ready(function ($) {
 	gtag('event', 'login', {
 		'event_category': 'login_page_loaded'
 	});
+
+	$('.logout_button').click(function (e) {
+		e.preventDefault();
+		localStorage.removeItem('token');
+		localStorage.removeItem('user_id');
+		setTimeout(function(){
+			window.location.href = 'home.html';		
+		},200);
+	})
 
 
 
@@ -409,9 +413,16 @@ $('#login_submit').click(function (e) {
 			console.log("second success");
 		})
 		.fail(function (error) {
-			swal(error.responseJSON.message, "", "error", {
-				button: "Try again!",
-			});
+			if(error.status == 401){
+				swal("Account is not registered", "", "error", {
+					button: "Try again!",
+				});
+			}
+			else if (error.status == 403){
+				swal("Password not correct", "", "error", {
+					button: "Try again!",
+				});
+			}
 		})
 		.always(function () {
 			console.log("finished");
@@ -429,10 +440,10 @@ $('.reset_password').click(function (e) {
 	$.post(url, data, function (result) {
 		console.log("success");
 		localStorage.removeItem('token');
-		swal("Good job!", "Check your e-mail", "success", {
+		swal("", "Check your e-mail", "success", {
 			button: "Got it!",
 		}).then((value) => {
-			window.location.replace('home.html');
+			// window.location.replace('home.html');
 		});
 	})
 		.done(function () {
@@ -474,12 +485,12 @@ $('.register_submit').click(function (e) {
 		};
 		$.post(url, data, function (result) {
 			console.log("success");
-			localStorage.setItem('token', result.token);
-			// window.location.replace('home.html');
-			swal("Good job!", "User Account created successfully", "success", {
+
+			// localStorage.setItem('token', result.token);
+			swal("Account created successfully", "Please check your e-mail", "success", {
 				button: "Got it!",
 			}).then((value) => {
-				window.location.replace('home.html');
+				window.location.replace('login.html');
 			});
 		})
 			.done(function () {

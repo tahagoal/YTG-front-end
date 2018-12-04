@@ -250,35 +250,29 @@ check_ath = function () {
 // 	window.location.href = 'partners.html#formsection';
 // })
 
-$('.about_us_red').click(function() {
-	window.location.href = 'about.html';
-})
-
-$('.logout_button').click(function (e) {
-	e.preventDefault();
-	var url = backend_url + 'logout';
-	// $.post(url, function (result) {
-	localStorage.removeItem('token');
-	localStorage.removeItem('user_id');
-    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-    window.location.href = 'home.html';
-	// })
-	// .done(function () {
-	// 	console.log("second success");
-	// })
-	// .fail(function () {
-	// 	console.log("error");
-	// })
-	// .always(function () {
-	// 	console.log("finished");
-	// });
-})
-
 
 $(document).ready(function ($) {
 	gtag('event', 'home', {
         'event_category': 'home_page_loaded'
     });
+
+
+    $('.logout_button').click(function (e) {
+		e.preventDefault();
+		var url = backend_url + 'logout';
+		localStorage.removeItem('token');
+		localStorage.removeItem('user_id');
+	    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+	    
+	    setTimeout(function(){
+		    window.location.href = 'home.html';
+	    },200);
+
+	})
+
+	$('.about_us_red').click(function() {
+		window.location.href = 'about.html';
+	})
 
 	get_apis();
 

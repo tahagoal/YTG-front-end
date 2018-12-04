@@ -8,7 +8,8 @@
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
-    <meta property="og:description" content="YTG Descriptions" />
+    <meta property="og:description" content=""YTG Descriptions""
+    />
     <meta property="og:url" content="https://ytg.eco" />
     <meta property="og:site_name" content="YTG Egypt" />
     <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png />
@@ -18,13 +19,17 @@
     <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon">
     <meta name="twitter:title" content=""/>
     <meta name="twitter:image" content=https://ytg.eco/assets/imgs/logo.png />
+
+    <meta name="google-signin-client_id" content="364459077088-8kght2lqtpd8niqb1co1duq3nmrpnjt4.apps.googleusercontent.com">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130196602-1"></script>
     <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-    
-            gtag('config', 'UA-130196602-1');
-        </script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130196602-1');
+    </script>
     <script src="js/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -32,7 +37,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/bootstrap-social.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
 </head>
 
 <body id="body">
@@ -91,68 +95,14 @@
     <section class="ftco-section-2 first_section_login">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-7">
-                    <h2 class="new_spacing" style="letter-spacing: 20px; font-weight: bold;">
-                        Create
-                    </h2>
-                    <h4 class="new_spacing" style="letter-spacing: 7px;margin-bottom: 40px;">
-                        a new account
-                    </h4>
-                    <form action="#" class="form_login">
-                        <div class="row" style="margin:0px;margin-bottom: -20px;">
-                            <div class="form-group col-sm-5" data-aos="fade-up">
-                                *
-                                <input type="text" required id="register_first" class="form-control" placeholder="First name" name="fname">
-                            </div>
-                            <div class="col-sm-2">
-
-                            </div>
-                            <div class="form-group col-sm-5" data-aos="fade-up">
-                                *
-                                <input type="text" required id="register_last" class="form-control" placeholder="Family name" name="lname">
-                            </div>
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *
-                            <input type="text" pattern="^0[0-9].*$" required id="register_mobile" class="form-control" placeholder="Mobile number" name="number">
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *
-                            <input type="email" required id="register_mail" class="form-control" placeholder="Your e-mail"  name="mail">
-                        </div>
-                        <div class="form-group" data-aos="fade-up">
-                            *
-                            <input type="Password" required id="register_password" minlength="6" class="form-control" placeholder="Your Password"  name="password">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input style="width:100%;" id="register_date" type="text" onfocus="(this.type='date')" class="form-control" placeholder="Date of birth" name="date">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_address" class="form-control" placeholder="Residence address" name="address">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_grad" class="form-control" placeholder="Graduation status" name="grad">
-                        </div>
-
-                        <div class="form-group" data-aos="fade-up">
-                            <input type="text" id="register_orgn" class="form-control" placeholder="Institute/organization" name="organ">
-                        </div>
-
-                        <input type="submit" value="Register" class="register_submit center btn btn-2 btn-2g" data-aos="fade-up">
-
-                    </form>
-                </div>
-                <div class="col-md-4 col-lg-5 signup_bg" data-aos="fade-left">
-
+                <div class="col-sm-12">
+                    <h1 style="font-weight: bold; margin-bottom: 50px; text-align: center;">Please wait till verification complete</h1>
                 </div>
             </div>
         </div>
     </section>
 
-        <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
             <div class="row mt-5" style="padding-bottom: 60px;">
                 <div class="col-md-3">
@@ -216,21 +166,33 @@
             </div>
         </div></footer>
 </body>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/aos.js" type="text/javascript"></script>
 <script src="js/scripts_login.js" type="text/javascript"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript">
-    jQuery.validator.setDefaults({
-      debug: true,
-      success: "valid"
-    });
+
+function statusChangeCallback(response){
+    if (response.status === 'connected') {
+        FB.api('/me',{fields: 'id,name,email,first_name,last_name,picture'}, function (response) {
+             onSignFbIn(response);
+        });
+    } else {
+       swal(error.responseJSON.message, "", "error", {
+            button: "Try again!",
+        });
+    }
+}
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
 </script>
-
-
 
 
 <script type="text/javascript">

@@ -31,6 +31,7 @@
     </script>
 
     <script src="js/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="css/aos.css">
@@ -135,7 +136,7 @@
 
     <section class="ftco-section-2" style="padding-top: 50px;">
         <div class="container-fluid">
-            <input type="submit" value="Register Now" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
+            <input type="submit" value="Apply now" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
         </div>
     </section>
 
@@ -212,9 +213,25 @@
     var backend_url = 'https://ytg.eco/';
 
     var event_id;
+    var token;
+
+    check_ath = function () {
+        token = localStorage.getItem('token');
+
+        if (token != null) {
+            $('.login_navbar').css('display', 'none');
+            $('.logout_navbar').css('display', 'block');
+        }
+
+        else {
+            $('.login_navbar').css('display', 'block');
+            $('.logout_navbar').css('display', 'none');
+        }
+    }
 
     $(document).ready(function ($) {
         get_event();
+        check_ath();
     })
 
     get_event = function () {
@@ -287,7 +304,9 @@
         $('.bg_img').css('background-size', 'contain');
         $('.bg_img').css('background-repeat', 'no-repeat');
         $('.bg_img').css('background-position', 'center center');
-
+        $('#extra_sections span').each(function( index ) {
+          this.style.removeProperty('font-family')
+        });
     }
 
     get_param = function (param) {
@@ -302,7 +321,16 @@
     }
 
     $('.go_form').click(function () {
-        window.location.replace('eventform.html?event_id=' + event_id);
+        if (token != null){
+            window.location.replace('eventform.html?event_id=' + event_id);
+        }
+        else{
+            swal("Please login first", "", "", {
+            button: "Ok",
+            }).then((value) => {    
+                window.location.replace('login.html');
+            });
+        }
     })
 
 </script>

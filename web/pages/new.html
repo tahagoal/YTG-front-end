@@ -88,7 +88,7 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_careers">
+    <section class="ftco-section-2 program_form_cover">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
@@ -256,6 +256,11 @@
         $('.hero_sec p').css('color', newsingle.segment);
         $('.colored_sec').css('background', newsingle.segment);
 
+        $('.program_form_cover').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + newsingle.images[0] + ')');
+        $('.program_form_cover').css('background-size', 'cover');
+        $('.program_form_cover').css('background-position', 'center');
+        $('.program_form_cover').css('background-repeat', 'no-repeat');
+
          // $('.new_location').append(new_single.location);
         if(new_single.dueDate != null){
             var dueDate = parseISOString(new_single.dueDate);
@@ -285,6 +290,10 @@
         $('.bg_img').css('background-size', 'contain');
         $('.bg_img').css('background-repeat', 'no-repeat');
         $('.bg_img').css('background-position', 'center center');
+
+        $('#extra_sections span').each(function( index ) {
+          this.style.removeProperty('font-family')
+        });
     }
 
     get_param = function (param) {
