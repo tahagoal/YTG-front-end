@@ -262,19 +262,17 @@ $(document).ready(function ($) {
         'event_category': 'home_page_loaded'
     });
 
-
     $('.logout_button').click(function (e) {
 		e.preventDefault();
 		var url = backend_url + 'logout';
+		localStorage.clear();
 		localStorage.removeItem('token');
 		localStorage.removeItem('user_id');
-	    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-	    
+	    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); })
 	    setTimeout(function(){
 		    window.location.href = 'home.html';
-	    },200);
-
-	})
+	    }, 500);
+	});
 
 	$('.about_us_red').click(function() {
 		window.location.href = 'about.html';
