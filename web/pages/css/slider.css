@@ -27,6 +27,7 @@
     left: 0;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50% 50%;
     opacity: 0;
     visibility: hidden;
     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
@@ -44,7 +45,7 @@
     -moz-transform: translate3d(-50%, -50%, 0);
     -o-transform: translate3d(-50%, -50%, 0);
     -ms-transform: translate3d(-50%, -50%, 0);
-    color: #fff;
+    color: #09d364;
     font-size: 40px;
     font-weight: bold;
 }
@@ -52,7 +53,7 @@
 .slider [class*="ctrl"] {
     position: absolute;
     top: 50%;
-    color: #fff;
+    color: #09d364;
     font-size: 85px;
     font-weight: bold;
     margin-top: -42.5px;
@@ -144,7 +145,7 @@
     width: 13px;
     height: 13px;
     float: left;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #09d364;
     border-radius: 50%;
     margin-left: 5px;
     cursor: pointer;
@@ -152,7 +153,7 @@
 }
 
 .slDotsSingle.active {
-    background: #FFFFFF;
+    background: #09d364;
 }
 
 .slDotsSingle:hover {

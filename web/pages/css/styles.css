@@ -5731,17 +5731,19 @@
       .ftco-navbar-light {
         background: white !important;
         top: 0;
-        position: relative; } }
+        position: relative; 
+        border-bottom: 1px solid #09d364;
+        } }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
       font-size: 18px;
       padding-top: 15px;
       padding-bottom: 15px;
       padding-left: 15px;
       padding-right: 15px;
-      color: #f0f0f0;
+      color: #8c8c8c;
       opacity: 1 !important; }
       .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
-        color: #fff; }
+        color: #565656; }
       @media (max-width: 991.98px) {
         .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
           padding-top: 10px;
@@ -8206,7 +8208,7 @@ footer .list-unstyled img:hover{
 
 .slider_btn{
   position: absolute !important;
-  left: 40%;
+  left: 43%;
   top:80%;
 }
 
@@ -8319,6 +8321,15 @@ footer .list-unstyled img:hover{
   cursor: pointer;
 }
 
+#partner_logos .icon_logo {
+    line-height: 150px;
+}
+
+input#exampleFormControlFile1 {
+    border: 1px solid #ced4da !important;
+    border-radius: 0.25rem !important;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
@@ -8349,6 +8360,22 @@ footer .list-unstyled img:hover{
 }
 
 @media (max-width: 768px) {
+
+  .slider [class*="ctrl"] {
+    margin-top: -120px;
+  }
+
+  .slider_btn {
+    position: absolute !important;
+    padding: 10px;
+    left: 33%;
+    top: 75%;
+  }
+
+  .ftco-cover .btn {
+      width: 70% !important;
+      padding: 10px;
+  } 
   .md-stepper-horizontal .md-step {
     padding: 20px;
   }

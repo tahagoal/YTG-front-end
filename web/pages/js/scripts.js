@@ -224,10 +224,10 @@ get_logo = function(){
 
 logo_append = function (logos){
 	var html = '';
-	for(var i = 0 ; i < logos.length; i++){
+	for(var i = 0 ; i < logos.contents.length; i++){
 		html += '<div class="col-md-3 col-sm-6" data-aos="fade-up"><div class="media block-6 d-block text-center">'
-		html += '<div class="icon">'
-		var img_url = backend_url + logos[i];
+		html += '<div class="icon icon_logo">'
+		var img_url = backend_url + logos.contents[i].image;
 		html +=	'<img alt="partnerLogo" src="'+ img_url +'" style="width: 60%;">';
 		html +=	'</div></div></div>';		
 	}
