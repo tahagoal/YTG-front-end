@@ -462,8 +462,6 @@ $('.register_submit').click(function (e) {
 		};
 		$.post(url, data, function (result) {
 			console.log("success");
-
-			// localStorage.setItem('token', result.token);
 			swal("Account created successfully", "Please check your e-mail", "success", {
 				button: "Got it!",
 			}).then((value) => {

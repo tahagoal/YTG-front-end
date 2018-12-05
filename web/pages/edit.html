@@ -159,7 +159,6 @@
 
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
@@ -264,12 +263,27 @@
     $("#imgInp").change(function() {
         readURL(this);
     });
+    function formatDate(date) {
+        var day = date.getDate();
+        var month = date.getMonth();
+        var year = date.getFullYear();
+        return month + '/' + day + '/' + year;
+    }
+
+    function parseISOString(s) {
+        var b = s.split(/\D+/);
+        return formatDate (new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6])));
+    }
 
     fetch_data = function (user) {
         document.getElementById("register_first").value = user.first_name;
         document.getElementById("register_last").value = user.last_name;
         document.getElementById("register_mobile").value = user.mobile.split('+00')[1];
         document.getElementById("register_mail").value = user.email;
+        document.getElementById("register_grad").value = user.graduation_status;
+        document.getElementById("register_orgn").value = user.organization;
+        document.getElementById("register_address").value = user.residence_address;
+        document.getElementById("register_date").value = parseISOString(user.date_of_birth);
     };
 
     $('.edit_submit').click(function (e) {
@@ -280,6 +294,11 @@
         var password = $('#register_password').val();
         var current_password = $('#current_password').val();
         var mail = $('#register_mail').val();
+        var graduation_status = $('#register_grad').val();
+        var residence_address = $('#register_address').val();
+        var organization = $('#register_orgn').val();
+        var date_of_birth = $('#register_date').val();
+        var dateArray = date_of_birth.split("-");
         var userImage = null;
         var file = $('#imgInp')[0].files[0];
         var url = backend_url + 'api/users/' + user_id;
@@ -292,7 +311,11 @@
                         'last_name': lname,
                         'email': mail,
                         'mobile': mobile,
-                        'image': userImage
+                        'image': userImage,
+                        'graduation_status': graduation_status,
+                        'residence_address': residence_address,
+                        'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+                        'organization': organization
                     }
                 }
                 else {
@@ -303,7 +326,11 @@
                         'image': userImage,
                         'current_password': current_password,
                         'email': mail,
-                        'mobile': mobile
+                        'mobile': mobile,
+                        'graduation_status': graduation_status,
+                        'residence_address': residence_address,
+                        'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+                        'organization': organization
                     }
                 }
                 $.ajax({
@@ -382,6 +409,12 @@
                     document.getElementById("profile_p").src = userData.image;
                 }
                 fetch_data(data);
+            }).fail( function(error){
+                swal(error.responseJSON.message, "", "error", {
+                    button: "Ok",
+                }).then((value) => {
+                    window.location.replace('home.html');
+                });
             });
     }
 </script>

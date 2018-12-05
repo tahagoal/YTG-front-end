@@ -13,6 +13,7 @@ $(document).ready(function ($) {
             function (data) {
                 var userData = data;
                 if (userData.image != null) {
+                    localStorage.setItem('user_image', userData.image);
                     document.getElementById("profile_image").src = userData.image;
                     document.getElementById("profile_p").src = userData.image;
                 }
