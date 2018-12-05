@@ -27,7 +27,7 @@
     left: 0;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-position: 50% 30%;
     opacity: 0;
     visibility: hidden;
     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
