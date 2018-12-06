@@ -119,14 +119,17 @@ append_slider = function (slider) {
 		html += '</div>';
 	$('#slider').append(html);
 
-	$(function () {
-        $('#slider').rbtSlider({
-            height: '100vh',
-            'dots': true,
-            'arrows': true,
-            'auto': 4
-        });
-    });
+	if(slider.length > 1)
+	{
+		$(function () {
+	        $('#slider').rbtSlider({
+	            height: '100vh',
+	            'dots': true,
+	            'arrows': true,
+	            'auto': 4
+	        });
+	    });
+	}
 }
 
 check_activity = function (old_data) {
