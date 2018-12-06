@@ -8374,6 +8374,10 @@ input#exampleFormControlFile1 {
 
 @media (max-width: 768px) {
 
+  .ftco-section-2 .section-2-blocks-wrapper .img {
+      margin-bottom: 20px;
+  }
+
   .slider [class*="ctrl"] {
     margin-top: -120px;
   }
@@ -8390,12 +8394,20 @@ input#exampleFormControlFile1 {
       padding: 10px;
   } 
   .md-stepper-horizontal .md-step {
-    padding: 20px;
+   padding: 5px;
   }
 
   .md-stepper-horizontal .md-step .md-step-bar-left {
-    margin-right: 30px;
+    margin-right: 25px;
   }
+
+  .md-stepper-horizontal .md-step .md-step-bar-left, .md-stepper-horizontal .md-step .md-step-bar-right {
+    top: 32px;
+  }
+
+  .md-stepper-horizontal .md-step .md-step-bar-right {
+    margin-left: 28px;
+}
 
   .programs_row .programs_right .text p{
     height: 50%;
