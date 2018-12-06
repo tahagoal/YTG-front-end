@@ -7513,7 +7513,7 @@ h4.new_spacing{
 
 .goto_edit{
   position: absolute;
-  top: 27%;
+  top: 130px;
   left: 25%;
   opacity: 0;
   transition: all 0.5s ease-in-out;

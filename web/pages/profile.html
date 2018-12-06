@@ -242,7 +242,7 @@
                     html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">In-Review</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
                 }
 
-                if(user_data.programs[i].status == 'rejected'){
+                if(user_data.programs[i].status == 'app-rejected' || user_data.programs[i].status == 'iv-rejected'){
                     html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
                     html += '<div class="md-step active done"><div class="md-step-circle">';
                     html += '<span>1</span></div>';
@@ -275,7 +275,7 @@
                     html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
                 }
 
-                if(user_data.jobs[i].status == 'rejected'){
+                if(user_data.jobs[i].status == 'app-rejected' || user_data.jobs[i].status == 'iv-rejected'){
                     html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
                     html += '<div class="md-step active done"><div class="md-step-circle">';
                     html += '<span>1</span></div>';
