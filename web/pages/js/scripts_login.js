@@ -272,7 +272,8 @@ function onSignFbIn(facebookUser){
 			'image': image,
 			'password': id,
 			'email': email,
-			'mobile': '+00123123'
+			'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
+			'auth_type': 'facebook'
 		}
 		$.post(url, data, function (result) {
 			console.log("success");
@@ -336,7 +337,8 @@ function onSignIn(googleUser) {
 				'image': image,
 				'password': id,
 				'email': email,
-				'mobile': '+00123123'
+				'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
+				'auth_type': 'google'
 			}
 			$.post(url, data, function (result) {
 				console.log("success");
@@ -458,7 +460,8 @@ $('.register_submit').click(function (e) {
 			'email': email,
 			'residence_address':residence_address,
 			'organization':organization,
-			'graduation_status':graduation_status
+			'graduation_status':graduation_status,
+			'auth_type': 'local'
 		};
 		$.post(url, data, function (result) {
 			console.log("success");
