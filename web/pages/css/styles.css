@@ -8130,7 +8130,7 @@ footer .list-unstyled img:hover{
   stroke-dashoffset: 50;
 }
 .checkbox__flag {
-  display: none;
+  opacity: 0;
 }
 .checkbox__trigger {
   display: flex;
