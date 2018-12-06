@@ -274,21 +274,37 @@
         // e.preventDefault();
         if ($("#form_created").valid()) {
             var query_string = $('form :input').serialize();
-            var query_object = JSON.parse('{"' + query_string.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
-                function (key, value) {
-                    return key === "" ? value : decodeURIComponent(value)
-                })
+            var params = query_string.split('&'),
+            query_object = {};
+
+            for(var i = 0; i < params.length; i++){
+                var temp = params[i].split('='),
+                    key = temp[0],
+                    val = temp[1];
+
+                query_object[key] = query_object[key] || [];
+                query_object[key].push(val);
+            }
 
             var post_request = [];
             var user_id = localStorage.getItem('user_id');
 
             for (var i = 0; i < questions_global.length; i++) {
                 if (questions_global[i].type != 'File Upload') {
+                    var answer = ''
+                    if(query_object[questions_global[i]._id].length > 1){
+                        for(var j=0; j< query_object[questions_global[i]._id].length; j++){
+                            answer = answer + query_object[questions_global[i]._id][j] + ',';
+                        }
+                    }
+                    else{
+                        answer = query_object[questions_global[i]._id];
+                    }
                     var object = {
                         'question': questions_global[i].question,
-                        'answer': query_object[questions_global[i]._id],
+                        'answer': answer,
                         'user': user_id,
-                        'type':questions_global[i].type
+                        'type':questions_global[i].type        
                     }
                     post_request.push(object);
                 }

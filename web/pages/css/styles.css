@@ -8234,8 +8234,13 @@ footer .list-unstyled img:hover{
 
 .slider_btn{
   position: absolute !important;
-  left: 40%;
+  left: 50%;
   top:80%;
+}
+
+.slider_btn .btn.btn-2.btn-2g{
+  position: relative !important;
+  left: -50%;
 }
 
 /*.news_cards .block-10{
@@ -8403,8 +8408,7 @@ input#exampleFormControlFile1 {
   .slider_btn {
     position: absolute !important;
     padding: 10px;
-    left: 33%;
-    top: 75%;
+    width: 65%;
   }
 
   .ftco-cover .btn {
