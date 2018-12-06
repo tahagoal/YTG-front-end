@@ -324,6 +324,9 @@
         else if(monthNames[monthIndex] == 'December'){
              month = '12';
         }
+
+        if(day.toString().length == 1)
+            day = '0'+day.toString();
         return  year + '-' + month + '-' + day;
     }
 
@@ -340,7 +343,8 @@
         document.getElementById("register_grad").value = user.graduation_status;
         document.getElementById("register_orgn").value = user.organization;
         document.getElementById("register_address").value = user.residence_address;
-        document.getElementById("register_date").value = parseISOString(user.date_of_birth);
+        if(user.date_of_birth != '' && user.date_of_birth != null)
+            document.getElementById("register_date").value = parseISOString(user.date_of_birth);
     };
 
     $('.edit_submit').click(function (e) {
