@@ -7889,7 +7889,7 @@ footer .list-unstyled img:hover{
 }
 
 .md-stepper-horizontal .md-step.closed .md-step-circle{
-  background-color: red;
+  background-color: rgb(255, 90, 97);
 }
 
 .md-stepper-horizontal .md-step.closed .md-step-circle:before {
