@@ -341,9 +341,18 @@
         if(user.mobile != '' && user.mobile != null)
             document.getElementById("register_mobile").value = user.mobile.split('+00')[1];
         document.getElementById("register_mail").value = user.email;
-        document.getElementById("register_grad").value = user.graduation_status;
-        document.getElementById("register_orgn").value = user.organization;
-        document.getElementById("register_address").value = user.residence_address;
+        if(user.graduation_status == undefined)
+            user.graduation_status = '';
+        else
+            document.getElementById("register_grad").value = user.graduation_status;
+        if(user.organization == undefined)
+            user.organization = '';
+        else
+            document.getElementById("register_orgn").value = user.organization;
+        if(user.residence_address == undefined)
+            user.residence_address = '';
+        else
+            document.getElementById("register_address").value = user.residence_address;
         if(user.date_of_birth != '' && user.date_of_birth != null)
             document.getElementById("register_date").value = parseISOString(user.date_of_birth);
     };
