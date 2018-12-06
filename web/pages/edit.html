@@ -338,7 +338,8 @@
     fetch_data = function (user) {
         document.getElementById("register_first").value = user.first_name;
         document.getElementById("register_last").value = user.last_name;
-        document.getElementById("register_mobile").value = user.mobile.split('+00')[1];
+        if(user.mobile != '' && user.mobile != null)
+            document.getElementById("register_mobile").value = user.mobile.split('+00')[1];
         document.getElementById("register_mail").value = user.email;
         document.getElementById("register_grad").value = user.graduation_status;
         document.getElementById("register_orgn").value = user.organization;
