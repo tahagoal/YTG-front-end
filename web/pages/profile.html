@@ -260,7 +260,7 @@
 
             html = '';
             for(var i = 0; i<user_data.jobs.length; i++){
-                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.jobs[i].program.name +'</h2>';
+                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.jobs[i].job.title +'</h2>';
                 if(user_data.jobs[i].status == 'submitted'){
                     html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
                     html += '<div class="md-step active done"><div class="md-step-circle">';
@@ -288,7 +288,8 @@
 
             html = '';
             for(var i = 0; i<user_data.events.length; i++){
-                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.events[i].event.name +'</h2>';
+                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.events[i].event.title +'</h2>';
+                html += '<div class="md-stepper-horizontal orange">';
                 html += '<div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div>';
             }
             $('#submissions').append(html);
