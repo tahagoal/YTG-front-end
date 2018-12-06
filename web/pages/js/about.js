@@ -25,10 +25,10 @@
             var img_url2 = backend_url + members[i].image2;
             html += '<img class="img_2_about" src="' + img_url2 +'">';
             html += '<img class="img_1_about" src="' + img_url +'">';
-            html += '<h4 align="center" style="font-weight: bold; color:#09d364;margin-top: 10px;">' + members[i].name + '&nbsp';
+            html += '<h5 align="center" style="font-weight: bold; color:#09d364;margin-top: 10px;">' + members[i].name + '&nbsp';
             if(members[i].pinned)
                 html += '<a href="'+ members[i].linkedinUrl +'"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>';
-            html += '</h4><h4 align="center" style="margin-top: 5px;">'+ members[i].title +'</h4></div></div>';
+            html += '</h5><h6 align="center" style="margin-top: 5px;">'+ members[i].title +'</h6></div></div>';
         }
 
         html += '<div class="col-lg-20" style="padding-right: 0px; padding-left: 0px;">';

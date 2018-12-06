@@ -5790,7 +5790,7 @@
     .ftco-navbar-light .navbar-nav > .nav-item.cta.cta-colored span {
       border-color: #09d364; }
     .ftco-navbar-light .navbar-nav > .nav-item.active > a {
-      color: rgba(255, 255, 255, 0.5); }
+      color: #565656; }
     .ftco-navbar-light .navbar-toggler {
       border: none;
       color: rgba(0,0,0, 0.5) !important;
@@ -7439,7 +7439,7 @@ h4.new_spacing{
 }
 
 .signup_bg{
-  background-image: url('../assets/imgs/signup.jpg');
+  background-image: url('../assets/imgs/signup.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -7468,7 +7468,7 @@ h4.new_spacing{
 }
 
 .first_section_careers{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers_bg.jpg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/careers_bg.png);
   height: 500px;  
   background-size: cover;
   background-position: center center;
@@ -7484,7 +7484,7 @@ h4.new_spacing{
 }
 
 .first_section_about{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/about___hero.jpg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/about___hero.png);
   height: 500px;  
   background-size: cover;
   background-position: center center;
