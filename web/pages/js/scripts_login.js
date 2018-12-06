@@ -272,7 +272,7 @@ function onSignFbIn(facebookUser){
 			'image': image,
 			'password': id,
 			'email': email,
-			'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
+			// 'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
 			'auth_type': 'facebook'
 		}
 		$.post(url, data, function (result) {
@@ -337,7 +337,7 @@ function onSignIn(googleUser) {
 				'image': image,
 				'password': id,
 				'email': email,
-				'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
+				// 'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
 				'auth_type': 'google'
 			}
 			$.post(url, data, function (result) {
