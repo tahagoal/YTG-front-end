@@ -227,7 +227,7 @@
         else{
             var html = '';
             for(var i = 0; i<user_data.programs.length; i++){
-                html += '<h2 class="center" style="font-weight: bold;">'+ user_data.programs[i].program.name +'</h2>';
+                html += '<h4 class="center" style="font-weight: bold;">'+ user_data.programs[i].program.name +'</h4>';
                 if(user_data.programs[i].status == 'submitted'){
                     html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
                     html += '<div class="md-step active done"><div class="md-step-circle">';
@@ -239,7 +239,14 @@
                     html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
                     html += '<div class="md-step active done"><div class="md-step-circle">';
                     html += '<span>1</span></div>';
-                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">In-Review</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step editable"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Accepted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
+                }
+
+                if(user_data.programs[i].status == 'rejected'){
+                    html += '<p class="center">Application status</p><div class="md-stepper-horizontal orange">';
+                    html += '<div class="md-step active done"><div class="md-step-circle">';
+                    html += '<span>1</span></div>';
+                    html += '<div class="md-step-title">Submitted</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step active done"><div class="md-step-circle"><span>2</span></div><div class="md-step-title">Reviewed</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div><div class="md-step close"><div class="md-step-circle"><span>4</span></div><div class="md-step-title">Rejected</div><div class="md-step-bar-left"></div><div class="md-step-bar-right"></div></div></div>';
                 }
 
                 if(user_data.programs[i].status == 'accepted'){

@@ -7822,6 +7822,8 @@ footer .list-unstyled img:hover{
 	width:100%;
 	margin:0 auto;
 	background-color:#FFFFFF;
+  border-bottom: 1px solid;
+    margin-bottom: 30px;
 }
 .md-stepper-horizontal .md-step {
 	display:table-cell;
@@ -7851,16 +7853,16 @@ footer .list-unstyled img:hover{
 	display:none;
 }
 .md-stepper-horizontal .md-step .md-step-circle {
-  width: 80px;
-  height: 80px;
-	margin:0 auto;
-	background-color:#999999;
-	border-radius: 50%;
-	text-align: center;
-  line-height: 75px;
-  font-size: 50px;
-	font-weight: 600;
-	color:#FFFFFF;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  background-color: #999999;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #FFFFFF;
 }
 .md-stepper-horizontal.green .md-step.active .md-step-circle {
 	background-color:#00AE4D;
@@ -7876,6 +7878,17 @@ footer .list-unstyled img:hover{
 	font-weight:100;
 	content: "\f00c";
 }
+
+.md-stepper-horizontal .md-step.close .md-step-circle{
+  background-color: red;
+}
+
+.md-stepper-horizontal .md-step.close .md-step-circle:before {
+  font-family:'FontAwesome';
+  font-weight:100;
+  content: "\f00d";
+}
+
 .md-stepper-horizontal .md-step.done .md-step-circle *,
 .md-stepper-horizontal .md-step.editable .md-step-circle * {
 	display:none;
@@ -7918,7 +7931,7 @@ footer .list-unstyled img:hover{
 .md-stepper-horizontal .md-step .md-step-bar-left,
 .md-stepper-horizontal .md-step .md-step-bar-right {
   position: absolute;
-  top: 63px;
+  top: 54px;  
   height: 1px;
   border-top: 5px solid #09d364;
 }
