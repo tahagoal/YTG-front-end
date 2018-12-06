@@ -644,7 +644,7 @@ We are a young group of environmental activists who seek to empower the young po
         $.get(url + 'logos',
             function (data) {
                 logos = data;
-                logo_append(logos);
+                logo_append(logos.contents);
             });
     }
 
@@ -657,7 +657,7 @@ We are a young group of environmental activists who seek to empower the young po
             else{
                 html += '<div class="col-sm-6"><div class="icon" align="left">';
             }
-            var img_url = backend_url + logos[i];
+            var img_url = backend_url + logos[i].image;
             html += '<img src="' + img_url + '" style="width: 70%;">';
             html += '</div></div>';
         }
