@@ -7888,14 +7888,18 @@ footer .list-unstyled img:hover{
 	content: "\f00c";
 }
 
-.md-stepper-horizontal .md-step.close .md-step-circle{
+.md-stepper-horizontal .md-step.closed .md-step-circle{
   background-color: red;
 }
 
-.md-stepper-horizontal .md-step.close .md-step-circle:before {
+.md-stepper-horizontal .md-step.closed .md-step-circle:before {
   font-family:'FontAwesome';
   font-weight:100;
   content: "\f00d";
+}
+
+.md-step.closed span{
+  display: none;
 }
 
 .md-stepper-horizontal .md-step.done .md-step-circle *,
