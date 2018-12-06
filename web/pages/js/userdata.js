@@ -12,7 +12,8 @@ $(document).ready(function ($) {
         $.get(options,
             function (data) {
                 var userData = data;
-                if (userData.image != null) {
+                if (userData.image != null && userData.image != '') {
+                    localStorage.setItem('user_image', userData.image);
                     document.getElementById("profile_image").src = userData.image;
                     document.getElementById("profile_p").src = userData.image;
                 }
