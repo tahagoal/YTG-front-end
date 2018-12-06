@@ -264,9 +264,66 @@
         readURL(this);
     });
     function formatDate(date) {
+        var monthNames = [
+            "January", "February", "March",
+            "April", "May", "June", "July",
+            "August", "September", "October",
+            "November", "December"
+        ];
+
         var day = date.getDate();
-        var month = date.getMonth();
+        var monthIndex = date.getMonth();
         var year = date.getFullYear();
+
+        var month;
+
+        if(monthNames[monthIndex] == 'January'){
+             month = '01';
+        }
+
+        else if(monthNames[monthIndex] == 'February'){
+             month = '02';
+        }
+
+        else if(monthNames[monthIndex] == 'March'){
+             month = '03';
+        }
+
+        else if(monthNames[monthIndex] == 'April'){
+             month = '04';
+        }
+
+        else if(monthNames[monthIndex] == 'May'){
+             month = '05';
+        }
+
+        else if(monthNames[monthIndex] == 'June'){
+             month = '06';
+        }
+
+        else if(monthNames[monthIndex] == 'July'){
+             month = '07';
+        }
+
+        else if(monthNames[monthIndex] == 'August'){
+             month = '08';
+        }
+
+        else if(monthNames[monthIndex] == 'September'){
+             month = '09';
+        }
+
+        else if(monthNames[monthIndex] == 'October'){
+             month = '10';
+        }
+
+        else if(monthNames[monthIndex] == 'November'){
+             month = '11';
+        }
+
+        else if(monthNames[monthIndex] == 'December'){
+             month = '12';
+        }
         return  year + '-' + month + '-' + day;
     }
 
