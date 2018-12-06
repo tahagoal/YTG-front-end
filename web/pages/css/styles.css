@@ -6872,7 +6872,7 @@ input[type=date]::-moz-clear { display: none; }
 }
 
 .partners_section .row{
-    margin-top: 40px;
+    /*margin-top: 40px;*/
 }
 
 .news_title{
@@ -8217,7 +8217,7 @@ footer .list-unstyled img:hover{
 }
 
 #partner_logos{
-  margin-top: 120px;
+  /*margin-top: 120px;*/
 }
 
 .pages_list{
