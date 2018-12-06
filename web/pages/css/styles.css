@@ -5956,6 +5956,14 @@ input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
 }
+
+input[type=text]::-ms-clear { display: none; }
+
+input[type=date]::-moz-clear { display: none; }
+
+.form_edit #register_date{
+    opacity: 0.5;
+}
   
   textarea.form-control {
     height: inherit !important; }

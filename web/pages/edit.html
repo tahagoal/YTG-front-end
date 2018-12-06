@@ -363,9 +363,14 @@
         var userImage = null;
         var file = $('#imgInp')[0].files[0];
         var url = backend_url + 'api/users/' + user_id;
+        if(date_of_birth != '' && date_of_birth != null)
+            var date_user = dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0];
+        else
+            var date_user = date_of_birth;
         if (file != null){
             getBase64(file).then(function (base_data) {
                 userImage = base_data;
+
                 if (password == "") {
                     var data = {
                         'first_name': fname,
@@ -375,7 +380,7 @@
                         'image': userImage,
                         'graduation_status': graduation_status,
                         'residence_address': residence_address,
-                        'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+                        'date_of_birth': date_user,
                         'organization': organization
                     }
                 }
@@ -390,7 +395,7 @@
                         'mobile': mobile,
                         'graduation_status': graduation_status,
                         'residence_address': residence_address,
-                        'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+                        'date_of_birth': date_user,
                         'organization': organization
                     }
                 }
@@ -424,7 +429,7 @@
                     'image': userImage,
                     'graduation_status': graduation_status,
                     'residence_address': residence_address,
-                    'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+                    'date_of_birth':date_user,
                     'organization': organization
                 }
             }
@@ -439,7 +444,7 @@
                     'mobile': mobile,
                     'graduation_status': graduation_status,
                     'residence_address': residence_address,
-                    'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+                    'date_of_birth':date_user,
                     'organization': organization
                 }
             }
