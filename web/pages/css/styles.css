@@ -7807,6 +7807,8 @@ footer .list-unstyled img:hover{
   border-radius: 20px !important;
   box-shadow: none !important;
   background-color: #e0e0e0;*/      
+  height: 40px;
+  width: 100%;
   border-radius: 10px !important;
 }
 
@@ -7820,13 +7822,13 @@ footer .list-unstyled img:hover{
 }
 
 .abcRioButtonContents{
-  /*font-size: 18px !important;
-  line-height: 46px !important;*/
+  font-size: 16px !important;
+  line-height: 40px !important;
 }
 
 .abcRioButtonSvg{
-  /*height: 25px;
-  width: 25px;*/
+  height: 25px;
+  width: 25px;
 }
 
 .md-stepper-horizontal {
