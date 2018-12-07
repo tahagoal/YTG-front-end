@@ -106,8 +106,9 @@
                     <!-- <a class="btn btn-block btn-social btn-facebook" data-aos="fade-up">
                         <span class="fa fa-facebook"></span> Use facebook account
                     </a> -->
-                    <fb:login-button data-max-rows="1" size="large" scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button>
+                    <div onclick="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <!-- <fb:login-button data-max-rows="1" size="large" scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button> -->
                     <form class="form_login">
                         <div class="form-group" data-aos="fade-up">
                             <input type="text" id="login_user" class="form-control" placeholder="Your e-mail">
