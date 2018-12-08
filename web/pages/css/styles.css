@@ -8434,6 +8434,15 @@ input#exampleFormControlFile1 {
 }
 
 @media (max-width: 768px) {
+
+  .g-signin2 {
+    width: 98%;
+  }
+
+  .fb_iframe_widget{
+    left: 0px
+  }
+
   .first_section_about, .first_section_careers {
     background-position: 60% 50%;
   }
