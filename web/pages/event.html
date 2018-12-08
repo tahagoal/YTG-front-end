@@ -94,7 +94,7 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_careers">
+    <section class="ftco-section-2 first_section_program">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
@@ -267,10 +267,10 @@
 
     event_append = function (event) {
         $('.event_title').append(event.title);
-        $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + event.images[0] + ')');
-        $('.first_section_careers').css('background-size', 'cover');
-        $('.first_section_careers').css('background-position', 'center');
-        $('.first_section_careers').css('background-repeat', 'no-repeat');
+        $('.first_section_program').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + event.images[0] + ')');
+        $('.first_section_program').css('background-size', 'cover');
+        $('.first_section_program').css('background-position', 'center');
+        $('.first_section_program').css('background-repeat', 'no-repeat');
         $('.event_location').append(event.location);
         if(event.dueDate != null){
             var dueDate = parseISOString(event.dueDate);

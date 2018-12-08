@@ -1894,7 +1894,7 @@
   
   .custom-select {
     display: inline-block;
-    width: 70%;
+    width: 100%;
     height: calc(2.25rem + 2px);
     padding: 0.375rem 1.75rem 0.375rem 0.75rem;
     line-height: 1.5;
@@ -7261,7 +7261,7 @@ h4.new_spacing{
 
 .image_section{
   height: 300px;
-  background: linear-gradient( rgb(14, 212, 103, 0.8), rgb(14, 212, 103, 0.8) ), url(../assets/imgs/photo_sec.jpeg);
+  background: url(../assets/imgs/Home_sus.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -7807,8 +7807,8 @@ footer .list-unstyled img:hover{
   border-radius: 20px !important;
   box-shadow: none !important;
   background-color: #e0e0e0;*/      
-  height: 40px;
-  width: 100%;
+  height: 40px !important;
+  width: 100% !important;  
   border-radius: 10px !important;
 }
 
@@ -8008,6 +8008,14 @@ footer .list-unstyled img:hover{
   display: block;
       border-radius: 12px;
     overflow: hidden;
+}
+
+#form_created{
+  width: 45%;
+}
+
+.card_career_1, .card_career_2{
+  height: 100%;
 }
 
 .card_career_1 .won-img, .card_career_2 .won-img{
@@ -8214,11 +8222,15 @@ footer .list-unstyled img:hover{
     float: none !important;
 }
 
-#form_created label.error{
+/*#form_created label.error{
   margin-top: 35px;
   position: absolute;
   font-size: 11px;
   color: red;
+}*/
+
+label.valid {
+    display: none !important;
 }
 
 #partner_logos{
@@ -8371,6 +8383,27 @@ input#exampleFormControlFile1 {
     border-radius: 0.25rem !important;
 }
 
+#pageloader
+{
+  background: rgba( 255, 255, 255, 0.8 );
+  display: none;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  top: 0px;
+  left: 0px;
+}
+
+#pageloader img
+{
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  position: absolute;
+  top: 50%;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
@@ -8401,6 +8434,18 @@ input#exampleFormControlFile1 {
 }
 
 @media (max-width: 768px) {
+  .first_section_about, .first_section_careers {
+    background-position: 60% 50%;
+  }
+
+  #form_created{
+    width: 80%;
+  }
+
+  .dont_have a {
+     margin-left: 0px; 
+     margin-right: 0px; 
+    }
 
   .ftco-section-2 .section-2-blocks-wrapper .img {
       margin-bottom: 20px;
@@ -8449,7 +8494,7 @@ input#exampleFormControlFile1 {
   }
 
   .dynamic_form .form-group{
-    width: 100% !important;
+    /*width: 100% !important;*/
   }
 
   .ctrlPrev {
@@ -8516,7 +8561,7 @@ input#exampleFormControlFile1 {
     padding-left: 0px !important;
   }
   .line_between {
-    width: 10px;
+    width: 5px;
   }
 
   .new_spacing {

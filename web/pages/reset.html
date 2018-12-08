@@ -195,6 +195,8 @@
         window.location.href = 'https://eco.us19.list-manage.com/subscribe?u=cb651c1984ff21237aea0f68d&id=655f98310e';
     }
 
+    var confirmation = false;
+
     $('#open-popup').click(function(){
         open_mail();
     })
@@ -211,6 +213,14 @@
     }
 
     $(document).ready(function ($) {
+        $('#password, #confirmpassword').on('keyup', function () {
+          if ($('#password').val() == $('#confirmpassword').val()) {
+            confirmation = true;
+          } else 
+            confirmation = false;
+        });
+
+
         $('#reset_submit').click(function(e){
             e.preventDefault();
             var password = $('#password').val();
@@ -223,7 +233,9 @@
                 'confirmPassword': confirmpassword,
                 'token': token
             }
-        $.post(url, data, function (result) {
+
+        if(confirmation){
+            $.post(url, data, function (result) {
                 console.log("success");
                 swal("Reset password successfully", "", {
                     button: "Ok",
@@ -242,6 +254,14 @@
             .always(function () {
                 console.log("finished");
             });
+        }
+
+        else{
+            swal("", "Password fields not matching, please try again.", "error", {
+                button: "Try again!",
+            });
+        }
+
         })
     })
         

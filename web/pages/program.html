@@ -90,7 +90,7 @@
         </div>
     </nav>
 
-    <section class="ftco-section-2 first_section_careers">
+    <section class="ftco-section-2 program_form_cover">
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="col-md-1"></div>
@@ -227,10 +227,10 @@
         $('.program_title').append(program.name);
         // $('.program_title').css('color', program.segment);
         // $('.program_descrip').append(program.description);
-        $('.first_section_careers').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0] + ')');
-        $('.first_section_careers').css('background-size', 'cover');
-        $('.first_section_careers').css('background-position', 'center');
-        $('.first_section_careers').css('background-repeat', 'no-repeat');
+        $('.program_form_cover').css('background', 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + backend_url + program.images[0] + ')');
+        $('.program_form_cover').css('background-size', 'cover');
+        $('.program_form_cover').css('background-position', 'center');
+        $('.program_form_cover').css('background-repeat', 'no-repeat');
 
         $('.hero_sec').append('<p>'+ program.tags +'</p>');
         $('.colored_sec').css('background', program.segment);

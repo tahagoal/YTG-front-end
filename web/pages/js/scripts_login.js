@@ -279,11 +279,10 @@ function onSignFbIn(facebookUser){
 			console.log("success");
 			localStorage.setItem('token', result.token);
 			localStorage.setItem('user_id', result._id);
-			window.location.replace('home.html');
-			swal("Good job!", "User Account created successfully", "success", {
+			swal("Thank you!", "Please complete your data", "success", {
 				button: "Got it!",
 			}).then((value) => {
-				window.location.replace('home.html');
+				window.location.replace('edit.html');
 			});
 		})
 			.done(function () {
@@ -345,11 +344,10 @@ function onSignIn(googleUser) {
 				console.log("success");
 				localStorage.setItem('token', result.token);
 				localStorage.setItem('user_id', result._id);
-				window.location.replace('home.html');
-				swal("Good job!", "User Account created successfully", "success", {
+				swal("Thank you!", "Please complete your data", "success", {
 					button: "Got it!",
 				}).then((value) => {
-					window.location.replace('home.html');
+					window.location.replace('edit.html');
 				});
 			})
 				.done(function () {
