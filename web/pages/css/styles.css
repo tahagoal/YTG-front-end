@@ -8435,6 +8435,10 @@ input#exampleFormControlFile1 {
 
 @media (max-width: 768px) {
 
+  .card_career_1, .card_career_2 {
+    height: auto;
+  }
+
   .g-signin2 {
     width: 98%;
   }
