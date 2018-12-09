@@ -24,16 +24,6 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130196602-1"></script>
     <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '470191943386802',
-                cookie: true,
-                xfbml: true,
-                version: 'v3.2'
-            });
-            FB.AppEvents.logPageView();
-        };
-        
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -259,6 +249,18 @@
 <script type="text/javascript">
 
     $(document).ready(function ($) {
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '470191943386802',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.2'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
@@ -266,6 +268,11 @@
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+
+        // FB.getLoginStatus(function (response) {
+        //     statusChangeCallback(response);
+        // });
     })
 
 function statusChangeCallback(response){
