@@ -229,9 +229,9 @@ logo_append = function (logos){
 	var html = '';
 	for(var i = 0 ; i < logos.contents.length; i++){
 		html += '<div class="col-md-3 col-sm-6" data-aos="fade-up"><div class="media block-6 d-block text-center">'
-		html += '<div class="icon icon_logo">'
+		html += '<div class="icon icon_logo"><a href="'+logos.contents[i].link+'" target="_blank">'
 		var img_url = backend_url + logos.contents[i].image;
-		html +=	'<img alt="partnerLogo" src="'+ img_url +'" style="width: 60%;">';
+		html +=	'<img alt="partnerLogo" src="'+ img_url +'" style="width: 60%;"></a>';
 		html +=	'</div></div></div>';		
 	}
 	html += '<div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">';
