@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTG</title>
+    <title>YTG | News&Events</title>
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
@@ -266,16 +266,22 @@
 
         var html = '';
         for (var i = 0; i < loop; i++) {
-            if (loop % 3 == 2 && i%3 == 0){
-                html += '<div class="col-sm-6 offset-2 col-md-4 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
+            if ((loop == 3 && i == 0) || ( loop == 7 && i == 4)){
+                html += '<div class="col-sm-6 offset-2 col-md-3 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
                 news[i]._id + '")>';
             }
-            else if(loop % 3 == 1 && i%3 == 0 ){
-                html += '<div class="col-sm-6 offset-4 col-md-4 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
+            else if((loop == 2 && i == 0) || ( loop == 6 && i == 4)){
+                html += '<div class="col-sm-6 offset-3 col-md-3 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
                 news[i]._id + '")>';
             }
+
+            else if((loop == 1 && i== 0) || (loop == 5 && i==4)){
+                html += '<div class="col-sm-6 offset-4 col-md-3 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
+                news[i]._id + '")>';
+            }
+
             else {
-                html += '<div class="col-sm-6 col-md-4 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
+                html += '<div class="col-sm-6 col-md-3 card_section aos-init aos-animate cursor_pointer" data-aos="fade-up" onclick = gonews("' +
                 news[i]._id + '")>';
             }
             var img_url = backend_url + news[i].images[0];
@@ -284,6 +290,8 @@
             html += '<p>'+ news[i].description+ '</p>';
             html += '<span class="result"><a href="#" class="float_program_card center"><i class="fa fa-plus my-float-card"></i></a></span></div></div></div>';
         }
+
+        html += '</div>';
 
         $('.news_cards').append(html);
 

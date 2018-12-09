@@ -64,15 +64,15 @@ program_one_append = function (programs){
 		var loop = programs.length;
 		for(var i = 3; i < programs.length ; i ++){
 
-			if ((loop-3) % 4 == 3 && i%3 == 0){
+			if (((loop-3) == 3 || (loop-7) == 3) && i%3 == 0){
 				html += '<div onclick = goprogram("' +
 				programs[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
-			else if((loop-3) % 4 == 2 && i%3 == 0){
+			else if(((loop-3) == 2 || (loop-7) == 2) && i%3 == 0){
 				html += '<div onclick = goprogram("' +
 				programs[i]._id + '") class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
-			else if((loop-3) % 4 == 1 && i%3 == 0){
+			else if(((loop-3) == 1 || (loop-7) == 1) && i%3 == 0){
 				html += '<div onclick = goprogram("' +
 				programs[i]._id + '") class="col-sm-4 offset-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
@@ -92,9 +92,11 @@ program_one_append = function (programs){
 		    html += '<div class="person-info"><span class="name-2 mb-3">'+ programs[i].name +'</span>';
 		    html += '<p>'+ programs[i].name +'</p>';
 		    html += '<span class="result"><a href="#" class="float_program_card center">';
-		    html += '<i class="fa fa-plus my-float-card"></i></a></span></div></div></div></div>';
+		    html += '<i class="fa fa-plus my-float-card"></i></a></span></div></div></div>';
 
 		}
+
+		html+= '</div>';
 
 	$('.programs_section').append(html);
 	}
@@ -155,6 +157,8 @@ service_append = function(active_services){
 	    html += '<i class="fa fa-plus my-float-card"></i></a></span></div></div></div>';
 
 	}
+
+	html += '</div>';
 
 	$('#service_container .row').append(html);
 

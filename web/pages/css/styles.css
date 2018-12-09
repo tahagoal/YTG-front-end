@@ -8404,6 +8404,11 @@ input#exampleFormControlFile1 {
   top: 50%;
 }
 
+.nav-item{
+  height: 50px;
+  box-sizing: border-box;
+}
+
 @media (min-width: 1024px){
 .col-lg-20 {
     -webkit-box-flex: 0;
