@@ -7324,6 +7324,11 @@ h4.new_spacing{
     overflow: hidden;
   }
 
+.fb_iframe_widget:hover{
+  -webkit-box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+    box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+}
+
 ._4z_b{
   width: 120% !important;
   border-radius: 20px !important;
