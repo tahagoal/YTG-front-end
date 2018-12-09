@@ -7438,7 +7438,7 @@ h4.new_spacing{
 }
 
 .login_bg{
-  background-image: url(../assets/imgs/login_bg.jpg);
+  background-image: url(../assets/imgs/login_bg.png);
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
@@ -7483,7 +7483,7 @@ h4.new_spacing{
 }
 
 .first_section_partner{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/partners_bg.jpg);
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/imgs/partners_bg.png);
   height: 500px;  
   background-size: cover;
   background-position: center center;
