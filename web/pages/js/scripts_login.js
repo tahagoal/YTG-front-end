@@ -315,7 +315,7 @@ function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
 	var id = profile.getId();
 	var fname = profile.getGivenName();
-	var lname = profile.getGivenName();
+	var lname = profile.getFamilyName();
 	var image = profile.getImageUrl();
 	var email = profile.getEmail();
 
