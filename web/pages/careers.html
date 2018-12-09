@@ -322,13 +322,7 @@ We consider our working environment one of the best for both types of people who
     })
 
     jobs_append = function (jobs) {
-        if (jobs.length < 5) {
-            var loop = jobs.length;
-        }
-        else {
-            var loop = 5;
-        }
-        for (var i = 0; i < loop; i++) {
+        for (var i = 0; i < jobs.length; i++) {
 
             if (jobs[i].segment == '#04adc7') {
                 $('.jobs_container_team').append('<div class="row" data-aos="fade-up"><div class="col-sm-1"></div><div class="col-sm-10 row job_row" ' +
