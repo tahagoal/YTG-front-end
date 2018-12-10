@@ -263,6 +263,7 @@
 
         $('head').append( '<meta property="og:description" content="'+ newsingle.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + newsingle.images[0] +' />' );
+        $('head').append( '<meta name="twitter:image" content='+ backend_url + newsingle.images[0] +' />' );
 
          // $('.new_location').append(new_single.location);
         if(new_single.dueDate != null){

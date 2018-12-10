@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon">
     <meta name="twitter:title" content=""/>
-    <meta name="twitter:image" content=https://ytg.eco/assets/imgs/logo.png />
+    <!-- <meta name="twitter:image" content=https://ytg.eco/assets/imgs/logo.png /> -->
     <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -238,6 +238,7 @@
 
         $('head').append( '<meta property="og:description" content="'+ program.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + program.images[0] +' />' );
+        $('head').append( '<meta name="twitter:image" content='+ backend_url + program.images[0] +' />' );
 
         // var tags = program.tags.split(',');
 

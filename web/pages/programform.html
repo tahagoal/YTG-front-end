@@ -229,6 +229,8 @@
 
         $('head').append( '<meta property="og:description" content="'+ program.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + program.images[0] +' />' );
+        $('head').append( '<meta name="twitter:image" content='+ backend_url + program.images[0] +' />' );
+        
     }
 
     get_user = function () {

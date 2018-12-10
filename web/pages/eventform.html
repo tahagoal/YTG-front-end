@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon">
     <meta name="twitter:title" content=""/>
-    <meta name="twitter:image" content=https://ytg.eco/assets/imgs/logo.png />
+    <!-- <meta name="twitter:image" content=https://ytg.eco/assets/imgs/logo.png /> -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130196602-1"></script>
@@ -230,6 +230,7 @@
 
         $('head').append( '<meta property="og:description" content="'+ event.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + event.images[0] +' />' );
+        $('head').append( '<meta name="twitter:image" content='+ backend_url + event.images[0] +' />' );
     }
 
     get_eventsingle = function () {
