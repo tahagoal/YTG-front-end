@@ -457,14 +457,20 @@ $('.register_submit').click(function (e) {
 		var residence_address = $('#register_address').val();
 		var organization = $('#register_grad').val();
 		var graduation_status = $('#register_orgn').val();
-        var dateArray = dateOfBirth.split("-");
+
+		var finalDate = '';
+
+		if(dateOfBirth != null && dateOfBirth != ''){
+			var dateArray = dateOfBirth.split("-");
+			finalDate = dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0];
+		}
 		var url = backend_url + 'api/register';
 		var data = {
 			'first_name': firstname,
 			'last_name': lastname,
 			'mobile': mobile,
 			'password': password,
-			'date_of_birth': dateArray[1] + "/" + dateArray[2] + "/" + dateArray[0],
+			'date_of_birth': finalDate,
 			'email': email,
 			'residence_address':residence_address,
 			'organization':organization,

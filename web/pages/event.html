@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTG | Event</title>
+    <title>ytg - Event</title>
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
-    <meta property="og:description" content=""YTG Descriptions""
-    />
+    <!-- <meta property="og:description" content="YTG Descriptions"/> -->
     <meta property="og:url" content="https://ytg.eco" />
     <meta property="og:site_name" content="YTG Egypt" />
-    <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png />
+    <!-- <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png /> -->
     <meta name="twitter:card" content="summary" />
     
     <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
@@ -272,6 +271,8 @@
         $('.first_section_program').css('background-position', 'center');
         $('.first_section_program').css('background-repeat', 'no-repeat');
         $('.event_location').append(event.location);
+        $('head').append( '<meta property="og:description" content="'+ event.description +'"/>' );
+        $('head').append( '<meta property="og:image" content='+ backend_url + event.images[0] +' />' );
         if(event.dueDate != null){
             var dueDate = parseISOString(event.dueDate);
             $('.event_date').append(dueDate);

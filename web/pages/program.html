@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTG | Profile</title>
+    <title>ytg - Program</title>
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
-    <meta property="og:description" content=""YTG Descriptions""
-    />
+    <!-- <meta property="og:description" content="YTG Descriptions"/> -->
     <meta property="og:url" content="https://ytg.eco" />
     <meta property="og:site_name" content="YTG Egypt" />
-    <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png />
+    <!-- <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png /> -->
     <meta name="twitter:card" content="summary" />
     
     <link rel="shortcut icon" href="assets/imgs/favicon.ico" type="image/x-icon">
@@ -236,6 +235,9 @@
         $('.colored_sec').css('background', program.segment);
 
         $('.hero_sec p').css('color', program.segment);
+
+        $('head').append( '<meta property="og:description" content="'+ program.description +'"/>' );
+        $('head').append( '<meta property="og:image" content='+ backend_url + program.images[0] +' />' );
 
         // var tags = program.tags.split(',');
 

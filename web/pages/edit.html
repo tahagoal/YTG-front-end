@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTG | Edit Profile</title>
+    <title>ytg - Edit Profile</title>
     <link rel="canonical" href="https://ytg.eco" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
-    <meta property="og:description" content=""YTG Descriptions""
+    <meta property="og:description" content="YTG Descriptions"
     />
     <meta property="og:url" content="https://ytg.eco" />
     <meta property="og:site_name" content="YTG Egypt" />
@@ -388,20 +388,7 @@
             getBase64(file).then(function (base_data) {
                 userImage = base_data;
 
-                if (password == "") {
-                    var data = {
-                        'first_name': fname,
-                        'last_name': lname,
-                        'email': mail,
-                        'mobile': mobile,
-                        'image': userImage,
-                        'graduation_status': graduation_status,
-                        'residence_address': residence_address,
-                        'date_of_birth': date_user,
-                        'organization': organization
-                    }
-                }
-                else {
+                if (password != "" || current_password != '') {
                     var data = {
                         'first_name': fname,
                         'last_name': lname,
@@ -415,6 +402,22 @@
                         'date_of_birth': date_user,
                         'organization': organization
                     }
+                    
+                }
+                else {
+
+                    var data = {
+                        'first_name': fname,
+                        'last_name': lname,
+                        'email': mail,
+                        'mobile': mobile,
+                        'image': userImage,
+                        'graduation_status': graduation_status,
+                        'residence_address': residence_address,
+                        'date_of_birth': date_user,
+                        'organization': organization
+                    }
+
                 }
                 $.ajax({
                     url: url,
@@ -429,21 +432,30 @@
                         });
                     },
                     error: function (error) {
-                        swal(error.responseJSON.message, "", "error", {
-                            button: "Try again!",
-                        });
+                        if(error.responseJSON.message == 'Password Doesnt Match.....'){
+                            swal('Please enter the correct password', "", "error", {
+                                button: "Ok!",
+                            });
+                        }
+                        else{
+                            swal(error.responseJSON.message, "", "error", {
+                                button: "Try again!",
+                            });
+                        }
                     }
                 });
             });
         }
         else{
-            if (password == "") {
+            if (password != "" || current_password != "") {
                 var data = {
                     'first_name': fname,
                     'last_name': lname,
+                    'password': password,
+                    'image': userImage,
+                    'currentPassword': current_password,
                     'email': mail,
                     'mobile': mobile,
-                    'image': userImage,
                     'graduation_status': graduation_status,
                     'residence_address': residence_address,
                     'date_of_birth':date_user,
@@ -454,11 +466,9 @@
                 var data = {
                     'first_name': fname,
                     'last_name': lname,
-                    'password': password,
-                    'image': userImage,
-                    'currentPassword': current_password,
                     'email': mail,
                     'mobile': mobile,
+                    'image': userImage,
                     'graduation_status': graduation_status,
                     'residence_address': residence_address,
                     'date_of_birth':date_user,
@@ -478,9 +488,16 @@
                     });
                 },
                 error: function (error) {
-                    swal(error.responseJSON.message, "", "error", {
-                        button: "Try again!",
-                    });
+                    if(error.responseJSON.message == 'Password Doesnt Match.....'){
+                            swal('Please enter the correct password', "", "error", {
+                                button: "Ok!",
+                            });
+                        }
+                        else{
+                            swal(error.responseJSON.message, "", "error", {
+                                button: "Try again!",
+                            });
+                        }
                 }
             });
         }
