@@ -9,8 +9,8 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
     <!-- <meta property="og:description" content="YTG Descriptions"/> -->
-    <meta property="og:url" content="https://ytg.eco" />
-    <meta property="og:site_name" content="YTG Egypt" />
+    <!-- <meta property="og:url" content="https://ytg.eco" /> -->
+    <meta property="og:site_name" content="ytg Egypt" />
     <!-- <meta property="og:image" content=https://ytg.eco/assets/imgs/logo.png /> -->
     <meta name="twitter:card" content="summary" />
     
@@ -236,6 +236,7 @@
 
         $('.hero_sec p').css('color', program.segment);
 
+        $('head').append( '<meta property="og:url" content="https://ytg.eco/program.html?program_id='+ program_id +'"/>' );
         $('head').append( '<meta property="og:description" content="'+ program.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + program.images[0] +' />' );
         $('head').append( '<meta name="twitter:image" content='+ backend_url + program.images[0] +' />' );
