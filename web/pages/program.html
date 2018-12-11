@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ytg - Program</title>
-    <link rel="canonical" href="https://ytg.eco" />
+    <!-- <link rel="canonical" href="https://ytg.eco" /> -->
     <meta property="og:type" content="article" />
     <meta property="og:title" content=""/>
     <!-- <meta property="og:description" content="YTG Descriptions"/> -->
@@ -236,6 +236,8 @@
 
         $('.hero_sec p').css('color', program.segment);
 
+
+        $('head').append( '<link rel="canonical" href="https://ytg.eco/program.html?program_id='+ program_id +'" />' );
         $('head').append( '<meta property="og:url" content="https://ytg.eco/program.html?program_id='+ program_id +'"/>' );
         $('head').append( '<meta property="og:description" content="'+ program.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + program.images[0] +' />' );
