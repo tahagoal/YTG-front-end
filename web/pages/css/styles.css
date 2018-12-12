@@ -8499,6 +8499,7 @@ input#exampleFormControlFile1 {
   .ftco-cover .btn {
       width: 70% !important;
       padding: 10px;
+      bottom: 10px;
   } 
   .md-stepper-horizontal .md-step {
    padding: 5px;
