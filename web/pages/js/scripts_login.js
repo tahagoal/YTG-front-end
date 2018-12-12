@@ -311,7 +311,7 @@ function onSignFbIn(facebookUser){
 }
 
 function onSignIn(googleUser) {
-	$('.g-signin2').click(function(){
+	// $('.g-signin2').click(function(){
 	var profile = googleUser.getBasicProfile();
 	var id = profile.getId();
 	var fname = profile.getGivenName();
@@ -372,7 +372,7 @@ function onSignIn(googleUser) {
 		.always(function () {
 			console.log("finished");
 		});
-	})
+	// })
 
 }
 

@@ -7164,7 +7164,7 @@ h4.new_spacing{
 }
 
 .p_left_right{
-  background-color: #8d3499;
+  /*background-color: #8d3499;*/
   height: 100%;
 }
 
@@ -7250,12 +7250,12 @@ h4.new_spacing{
 }
 
 .p_top_right{
-  background-color: #3db2c4;
+  /*background-color: #3db2c4;*/
   height: 100%;
 }
 
 .p_bottom_left{
-  background-color: #feaf1a;
+  /*background-color: #feaf1a;*/
   height: 100%;
 }
 
@@ -8447,6 +8447,15 @@ input#exampleFormControlFile1 {
 }
 
 @media (max-width: 768px) {
+
+.first_section_program, .first_section_partner{
+  margin-top: 0px;  
+}
+
+
+  .first_section_partner {
+    background-position: 85% 50%;
+  }
 
   .card_career_1, .card_career_2 {
     height: auto;
