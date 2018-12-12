@@ -311,7 +311,6 @@ function onSignFbIn(facebookUser){
 }
 
 var profile,id,fname,lname,image,email;
-var googl_success = false;
 
 function onSignIn(googleUser) {
 	// $('.g-signin2').click(function(){
@@ -321,67 +320,76 @@ function onSignIn(googleUser) {
 	lname = profile.getFamilyName();
 	image = profile.getImageUrl();
 	email = profile.getEmail();
-	googl_success = true;
+	if(localStorage.getItem('google_sign') == null){
+		google_sign();
+	}
+
 }
 
 $('.g-signin2').click(function(){
-	if(googl_success){
+	google_sign();
+})
 
-		var url = backend_url + 'api/login';
-		var data = {
-			'username': email,
-			'password': id,
-			'type': 'user'
-		}
-		$.post(url, data, function (result) {
-			console.log("success");
-			localStorage.setItem('token', result.token);
-			localStorage.setItem('user_id', result._id);
-			window.location.replace('home.html');
+google_sign = function(){
+
+	var url = backend_url + 'api/login';
+	var data = {
+		'username': email,
+		'password': id,
+		'type': 'user'
+	}
+	$.post(url, data, function (result) {
+		console.log("success");
+		localStorage.setItem('token', result.token);
+		localStorage.setItem('user_id', result._id);
+		localStorage.setItem('google_sign', true);
+		window.location.replace('home.html');
+	})
+		.done(function () {
+			console.log("second success");
 		})
-			.done(function () {
-				console.log("second success");
-			})
-			.fail(function (error) {
-				//Register now if user not exsist
+		.fail(function (error) {
+			//Register now if user not exsist
 
-				url = backend_url + 'api/register'
-				var data = {
-					'first_name': fname,
-					'last_name': lname,
-					'image': image,
-					'password': id,
-					'email': email,
-					// 'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
-					'auth_type': 'google'
-				}
-				$.post(url, data, function (result) {
-					console.log("success");
-					localStorage.setItem('token', result.token);
-					localStorage.setItem('user_id', result._id);
-					swal("Thank you!", "Please complete your data", "success", {
-						button: "Got it!",
-					}).then((value) => {
-						window.location.replace('edit.html');
+			url = backend_url + 'api/register'
+			var data = {
+				'first_name': fname,
+				'last_name': lname,
+				'image': image,
+				'password': id,
+				'email': email,
+				// 'mobile': '+00' + Math.floor(Math.random()*90000) + 10000 ,
+				'auth_type': 'google'
+			}
+			$.post(url, data, function (result) {
+				console.log("success");
+				localStorage.setItem('token', result.token);
+				localStorage.setItem('user_id', result._id);
+				localStorage.setItem('google_sign', true);
+
+				swal("Thank you!", "Please complete your data", "success", {
+					button: "Got it!",
+				}).then((value) => {
+					window.location.replace('edit.html');
+				});
+			})
+				.done(function () {
+					console.log("second success");
+				})
+				.fail(function (error) {
+					swal(error.responseJSON.message, "", "error", {
+						button: "Try again!",
 					});
 				})
-					.done(function () {
-						console.log("second success");
-					})
-					.fail(function (error) {
-						swal(error.responseJSON.message, "", "error", {
-							button: "Try again!",
-						});
-					})
-					.always(function () {
-						console.log("finished");
-					});
-			})
-			.always(function () {
-				console.log("finished");
-			});
-		}
-	})
+				.always(function () {
+					console.log("finished");
+				});
+		})
+		.always(function () {
+			console.log("finished");
+		});
+}
+
 
 $('#login_submit').click(function (e) {
 	e.preventDefault();
