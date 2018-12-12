@@ -7191,7 +7191,7 @@ h4.new_spacing{
   display: -webkit-box;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
-  height: 80%;
+      height: 70%;
       font-size: 13px;
 }
 
