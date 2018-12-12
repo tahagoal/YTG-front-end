@@ -8393,7 +8393,7 @@ input#exampleFormControlFile1 {
 
 #pageloader
 {
-  background: rgba( 255, 255, 255, 0.8 );
+  background: rgba( 255, 255, 255, 0.95 );
   display: none;
   height: 100%;
   position: fixed;
@@ -8406,8 +8406,8 @@ input#exampleFormControlFile1 {
 #pageloader img
 {
   left: 50%;
-  margin-left: -32px;
-  margin-top: -32px;
+  margin-left: -100px;
+  margin-top: -100px;
   position: absolute;
   top: 50%;
 }
@@ -8447,6 +8447,10 @@ input#exampleFormControlFile1 {
 }
 
 @media (max-width: 768px) {
+
+  .event_cards h3{
+    font-size: 20px;
+  }
 
 .first_section_program, .first_section_partner{
   margin-top: 0px;  
