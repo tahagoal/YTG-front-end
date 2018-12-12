@@ -121,7 +121,7 @@ We consider our working environment one of the best for both types of people who
         <div class="container-fluid">
             <div class="section-2-blocks-wrapper row no-gutters">
                 <div class="row" style="margin: 35px 0px; width: 100%;">
-                    <div class="col-sm-4 card_career_1" data-aos="fade-right">
+                    <div class="col-md-4 col-sm-5 card_career_1" data-aos="fade-right">
                         <div class="block-10">
                             <div class="won-img img_1" style="background-image: url(assets/imgs/t1.png);"></div>
                             <div class="won-img img_2" style="background-image: url(assets/imgs/t2.png);"></div>
@@ -140,7 +140,7 @@ We consider our working environment one of the best for both types of people who
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 card_career_2" data-aos="fade-left">
+                    <div class="col-md-4 col-sm-5 card_career_2" data-aos="fade-left">
                         <div class="block-10">
                             <div class="won-img img_1" style="background-image: url(assets/imgs/volunteer1.png);"></div>
                             <div class="won-img img_2" style="background-image: url(assets/imgs/volunteer2.png);"></div>
@@ -259,7 +259,7 @@ We consider our working environment one of the best for both types of people who
 
     $('.card_career_1').click(function () {
 
-        if(window.innerWidth > 768){
+        if(window.innerWidth > 768 || (window.innerWidth > window.innerHeight)){
             $('.card_career_2').removeClass('selected');
             $('.jobs_container_volunteer').css('display', 'none');
             if ($('.card_career_1').hasClass('selected')) {
@@ -293,7 +293,7 @@ We consider our working environment one of the best for both types of people who
     })
 
     $('.card_career_2').click(function () {
-        if(window.innerWidth > 768){
+        if(window.innerWidth > 768 || (window.innerWidth > window.innerHeight)){
             $('.jobs_container_team').css('display', 'none');
             $('.card_career_1').removeClass('selected');
             if ($('.card_career_2').hasClass('selected')) {
@@ -331,7 +331,7 @@ We consider our working environment one of the best for both types of people who
                     jobs[i].title +
                     '</h2><p>' +
                     jobs[i].description +
-                    '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
+                    '</p></div><div class="col-sm-1"></div><div class="col-md-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
                     jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
             }
             else {
@@ -340,7 +340,7 @@ We consider our working environment one of the best for both types of people who
                     jobs[i].title +
                     '</h2><p>' +
                     jobs[i].description +
-                    '</p></div><div class="col-sm-1"></div><div class="col-sm-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
+                    '</p></div><div class="col-sm-1"></div><div class="col-md-3 job_button"><button class="btn btn-nav" onclick = gojob("' +
                     jobs[i]._id + '") style="background: ' + jobs[i].segment + ' !important;">View job</button></div></div></div>');
 
             }

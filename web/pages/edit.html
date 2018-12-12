@@ -226,6 +226,10 @@
                 <h4 style="text-align: center; color:white; font-size:14px;padding: 10px 0px 5px 0px;">created with <span>♥</span> at TALK, LLC</h4>
             </div>
         </div></footer>
+
+<div id="pageloader">
+   <img src="assets/imgs/loader.gif" alt="processing..." />
+</div>
 </body>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/aos.js" type="text/javascript"></script>
@@ -425,12 +429,14 @@
                         });
                 }
                 else{
+                    $("#pageloader").fadeIn();
                     $.ajax({
                         url: url,
                         type: 'PUT',
                         data: data,
                         headers: {"Authorization": localStorage.getItem('token')},
                         success: function (result) {
+                            $("#pageloader").fadeOut();
                             swal("Good job!", "User Account updated successfully", "success", {
                                 button: "Got it!",
                             }).then((value) => {
@@ -488,12 +494,14 @@
                     });
             }
             else{
+                $("#pageloader").fadeIn();
                 $.ajax({
                     url: url,
                     type: 'PUT',
                     data: data,
                     headers: {"Authorization": localStorage.getItem('token')},
                     success: function (result) {
+                        $("#pageloader").fadeOut();
                         swal("Good job!", "User Account updated successfully", "success", {
                             button: "Got it!",
                         }).then((value) => {

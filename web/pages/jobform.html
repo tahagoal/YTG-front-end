@@ -276,6 +276,17 @@
        $('.submit_form').click(function (e) {
         // e.preventDefault();
         if ($("#form_created").valid()) {
+
+            for (var i = 0; i < questions_global.length; i++) {
+                if (questions_global[i].type == 'File Upload') {
+                    if($('#form_created input[name=' + questions_global[i]._id + ']')[0].files[0].size > 2097152){
+                        swal("Each file should be max: 2MB", "", "error", {
+                                button: "Try again!",
+                            });
+                        return;
+                    }
+                }
+            }
             var query_string = $('form :input').serialize();
             var params = query_string.split('&'),
             query_object = {};

@@ -8448,6 +8448,10 @@ input#exampleFormControlFile1 {
 
 @media (max-width: 768px) {
 
+  #partner_logos img {
+    float: left;
+  }
+
   .event_cards h3{
     font-size: 20px;
   }
@@ -8704,5 +8708,51 @@ input#exampleFormControlFile1 {
   .personne , .personne-add{
     /* width: 93%; */
     /* height: 270px; */
+  }
+}
+
+@media only screen and (max-width: 780px) and (orientation: landscape) {
+
+  .person-info {
+    max-height: 385px;
+    height: 370px;
+  }
+  .card_career_1, .card_career_2 {
+    margin-left: 10px !important;
+  }
+  .nav-item {
+    height: 30px;
+  }
+
+  .programs_row {
+    height: 1200px !important;
+  }
+
+  #partner_logos img {
+    float: left;
+  }
+
+    .personne.larg img {
+    object-fit: contain !important;
+  }
+
+  .offset-4{
+    margin-left: 30% !important;
+  }
+
+  .offset-3{
+    margin-left: 25% !important;
+  }
+
+  .offset-2{
+    margin-left: 18% !important;
+  }
+
+  .offset-1{
+    margin-left: 10% !important;
+  }
+
+  .left_event_card p {
+    height: 65% !important;
   }
 }

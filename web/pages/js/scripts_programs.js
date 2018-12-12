@@ -66,19 +66,19 @@ program_one_append = function (programs){
 
 			if (((loop-3) == 3 || (loop-7) == 3) && i%3 == 0){
 				html += '<div onclick = goprogram("' +
-				programs[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				programs[i]._id + '") class="col-sm-6 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else if(((loop-3) == 2 || (loop-7) == 2) && i%3 == 0){
 				html += '<div onclick = goprogram("' +
-				programs[i]._id + '") class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				programs[i]._id + '") class="col-sm-6 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else if(((loop-3) == 1 || (loop-7) == 1) && i%3 == 0){
 				html += '<div onclick = goprogram("' +
-				programs[i]._id + '") class="col-sm-4 offset-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				programs[i]._id + '") class="col-sm-6 offset-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			else{
 				html += '<div onclick = goprogram("' +
-				programs[i]._id + '") class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
+				programs[i]._id + '") class="col-sm-6 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer" style="background-color:'+ programs[i].segment +'">';
 			}
 			if( programs[i].images[0] != undefined){
 				var img_url = backend_url + programs[i].images[0];
@@ -128,19 +128,19 @@ service_append = function(active_services){
 
 		if (loop % 4 == 3 && i%3 == 0){
 			html += '<div onclick = goservice("' +
-			active_services[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			active_services[i]._id + '") class="col-sm-6 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		else if(loop % 4 == 2 && i%3 == 0){
 			html += '<div onclick = goservice("' +
-			active_services[i]._id + '") class="col-sm-4 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			active_services[i]._id + '") class="col-sm-6 offset-3 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		else if(loop % 4 == 1 && i%3 == 0){
 			html += '<div onclick = goservice("' +
-			active_services[i]._id + '") class="col-sm-4 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			active_services[i]._id + '") class="col-sm-6 offset-2 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		else{
 			html += '<div onclick = goservice("' +
-			active_services[i]._id + '") class="col-sm-4 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
+			active_services[i]._id + '") class="col-sm-6 col-md-3 card_section" data-aos="fade-up"><div class="block-10 cursor_pointer">';
 		}
 		if( active_services[i].images[0] != undefined){
 			var img_url = backend_url + active_services[i].images[0];
