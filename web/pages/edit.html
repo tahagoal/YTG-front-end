@@ -419,31 +419,38 @@
                     }
 
                 }
-                $.ajax({
-                    url: url,
-                    type: 'PUT',
-                    data: data,
-                    headers: {"Authorization": localStorage.getItem('token')},
-                    success: function (result) {
-                        swal("Good job!", "User Account updated successfully", "success", {
-                            button: "Got it!",
-                        }).then((value) => {
-                            window.location.reload();
+                if (password != "" && current_password == '') {
+                    swal("Please enter your current password", "", "error", {
+                            button: "Try again!",
                         });
-                    },
-                    error: function (error) {
-                        if(error.responseJSON.message == 'Password Doesnt Match.....'){
-                            swal('Please enter the correct password', "", "error", {
-                                button: "Ok!",
+                }
+                else{
+                    $.ajax({
+                        url: url,
+                        type: 'PUT',
+                        data: data,
+                        headers: {"Authorization": localStorage.getItem('token')},
+                        success: function (result) {
+                            swal("Good job!", "User Account updated successfully", "success", {
+                                button: "Got it!",
+                            }).then((value) => {
+                                window.location.reload();
                             });
+                        },
+                        error: function (error) {
+                            if(error.responseJSON.message == 'Password Doesnt Match.....'){
+                                swal('Please enter the correct password', "", "error", {
+                                    button: "Ok!",
+                                });
+                            }
+                            else{
+                                swal(error.responseJSON.message, "", "error", {
+                                    button: "Try again!",
+                                });
+                            }
                         }
-                        else{
-                            swal(error.responseJSON.message, "", "error", {
-                                button: "Try again!",
-                            });
-                        }
-                    }
-                });
+                    });
+                }
             });
         }
         else{
@@ -475,31 +482,38 @@
                     'organization': organization
                 }
             }
-            $.ajax({
-                url: url,
-                type: 'PUT',
-                data: data,
-                headers: {"Authorization": localStorage.getItem('token')},
-                success: function (result) {
-                    swal("Good job!", "User Account updated successfully", "success", {
-                        button: "Got it!",
-                    }).then((value) => {
-                        window.location.reload();
+            if (password != "" && current_password == '') {
+                swal("Please enter your current password", "", "error", {
+                        button: "Try again!",
                     });
-                },
-                error: function (error) {
-                    if(error.responseJSON.message == 'Password Doesnt Match.....'){
-                            swal('Please enter the correct password', "", "error", {
-                                button: "Ok!",
-                            });
-                        }
-                        else{
-                            swal(error.responseJSON.message, "", "error", {
-                                button: "Try again!",
-                            });
-                        }
-                }
-            });
+            }
+            else{
+                $.ajax({
+                    url: url,
+                    type: 'PUT',
+                    data: data,
+                    headers: {"Authorization": localStorage.getItem('token')},
+                    success: function (result) {
+                        swal("Good job!", "User Account updated successfully", "success", {
+                            button: "Got it!",
+                        }).then((value) => {
+                            window.location.reload();
+                        });
+                    },
+                    error: function (error) {
+                        if(error.responseJSON.message == 'Password Doesnt Match.....'){
+                                swal('Please enter the correct password', "", "error", {
+                                    button: "Ok!",
+                                });
+                            }
+                            else{
+                                swal(error.responseJSON.message, "", "error", {
+                                    button: "Try again!",
+                                });
+                            }
+                    }
+                });
+            }
         }
     });
 
