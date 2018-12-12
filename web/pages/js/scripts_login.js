@@ -310,14 +310,20 @@ function onSignFbIn(facebookUser){
 
 }
 
+var profile,id,fname,lname,image,email;
+
 function onSignIn(googleUser) {
 	// $('.g-signin2').click(function(){
-	var profile = googleUser.getBasicProfile();
-	var id = profile.getId();
-	var fname = profile.getGivenName();
-	var lname = profile.getFamilyName();
-	var image = profile.getImageUrl();
-	var email = profile.getEmail();
+	profile = googleUser.getBasicProfile();
+	id = profile.getId();
+	fname = profile.getGivenName();
+	lname = profile.getFamilyName();
+	image = profile.getImageUrl();
+	email = profile.getEmail();
+
+}
+
+$('.g-signin2').click(function(){
 
 	var url = backend_url + 'api/login';
 	var data = {
@@ -372,9 +378,7 @@ function onSignIn(googleUser) {
 		.always(function () {
 			console.log("finished");
 		});
-	// })
-
-}
+	})
 
 $('#login_submit').click(function (e) {
 	e.preventDefault();
