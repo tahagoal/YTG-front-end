@@ -268,7 +268,7 @@ $(document).ready(function ($) {
     $('.logout_button').click(function (e) {
 		e.preventDefault();
 		var url = backend_url + 'logout';
-		localStorage.clear();
+		// localStorage.clear();
 		localStorage.removeItem('token');
 		localStorage.removeItem('user_id');
 	    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); })
