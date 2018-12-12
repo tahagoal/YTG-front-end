@@ -8288,6 +8288,9 @@ label.valid {
   height: 70%;
 }
 
+#extra_sections{
+  margin-bottom: 40px;
+}
 
 #extra_sections p, #extra_sections h2, #extra_sections h1, #extra_sections h3, #extra_sections h4, #extra_sections h5, #extra_sections h6{
   font-family: 'Quicksand', sans-serif !important;
