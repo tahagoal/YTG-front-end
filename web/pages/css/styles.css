@@ -8712,6 +8712,16 @@ input#exampleFormControlFile1 {
 }
 
 @media only screen and (max-width: 780px) and (orientation: landscape) {
+  .goto_edit {
+    top: 80px;
+    left: 15%;
+    font-size: 18px;
+  }
+  
+  .user_data_col img {
+    width: 100px;
+    height: 100px;
+  }
 
   .person-info {
     max-height: 385px;
