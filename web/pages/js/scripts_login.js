@@ -339,6 +339,7 @@ google_sign = function(){
 		'password': id,
 		'type': 'user'
 	}
+	localStorage.setItem('google_sign', true);
 	$.post(url, data, function (result) {
 		console.log("success");
 		localStorage.setItem('token', result.token);
@@ -366,7 +367,6 @@ google_sign = function(){
 				console.log("success");
 				localStorage.setItem('token', result.token);
 				localStorage.setItem('user_id', result._id);
-				localStorage.setItem('google_sign', true);
 
 				swal("Thank you!", "Please complete your data", "success", {
 					button: "Got it!",
