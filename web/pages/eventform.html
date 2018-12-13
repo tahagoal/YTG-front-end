@@ -281,9 +281,22 @@
 
     var file_inp = [];
 
+    document.getElementsByClassName("submit_form")[0].onclick = validatecheckbox;
+    function validatecheckbox(){
+        for (var i = 0; i < questions_global.length; i++) {
+            if($('#'+questions_global[i]._id + ' :checkbox').length > 0){
+                if($('#'+questions_global[i]._id + ' :checkbox:checked').length > 0){
+                    $('#'+questions_global[i]._id +' :checkbox')[0].setCustomValidity("")
+                }else{
+                $('#'+questions_global[i]._id +' :checkbox')[0].setCustomValidity("Check at least one of these options")
+                }
+            }
+        }
+    }
+
    $('.submit_form').click(function (e) {
-        // e.preventDefault();
-        if ($("#form_created").valid()) {
+        e.preventDefault();
+        // if ($("#form_created").valid()) {
             for (var i = 0; i < questions_global.length; i++) {
                 if (questions_global[i].type == 'File Upload') {
                     if($('#form_created input[name=' + questions_global[i]._id + ']')[0].files[0].size > 2097152){
@@ -435,7 +448,7 @@
                         });
                 }
             }, 2000);
-        }
+        // }
 
     })
 
@@ -471,7 +484,7 @@
                 $('#' + questions[i]._id).append('<h3>' + questions[i].question + '</h3>');
                 for (var j = 0; j < questions[i].answers.length; j++) {
                     $('#' + questions[i]._id).append('<div></div><div class="form-group col-sm-6">' +
-                        '<input type="checkbox" required class="form-check-input checkbox__flag" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="q' + questions[i]._id + j + '">' +
+                        '<input type="checkbox" class="form-check-input checkbox__flag" value="' + questions[i].answers[j] + '" name="' + questions[i]._id + '" id ="q' + questions[i]._id + j + '">' +
                         '<label for="q' + questions[i]._id + j + '" class="form-check-label checkbox__trigger"><svg class="checkbox" viewBox="0 0 24 24"><rect class="checkbox__rect" x="3" y="3" rx="3" ry="3" width="20" height="20"></rect><polyline class="checkbox__line" points="9 11 12 14 23 3"></polyline></svg><span class="checkbox__caption">' + questions[i].answers[j] + '</span></label>');
                 }
             }
