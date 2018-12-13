@@ -315,17 +315,16 @@ var profile,id,fname,lname,image,email;
 function onSignIn(googleUser) {
 	// $('.g-signin2').click(function(){
 	
-		setTimeout(function(){
-			var auth2 = gapi.auth2.getAuthInstance();
-		    auth2.signOut().then(function () {
-	    		profile = googleUser.getBasicProfile();
-				id = profile.getId();
-				fname = profile.getGivenName();
-				lname = profile.getFamilyName();
-				image = profile.getImageUrl();
-				email = profile.getEmail();
-				google_sign();
-		    })
+		var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+    		profile = googleUser.getBasicProfile();
+			id = profile.getId();
+			fname = profile.getGivenName();
+			lname = profile.getFamilyName();
+			image = profile.getImageUrl();
+			email = profile.getEmail();
+			google_sign();
+	    })
 }
 
 // $('.g-signin2').click(function(){
