@@ -332,7 +332,7 @@ function onSignIn(googleUser) {
 
 // $('.g-signin2').click(function(){
 	// if(localStorage.getItem('google_sign') != null)
-		google_sign();
+		// google_sign();
 // })
 
 google_sign = function(){
