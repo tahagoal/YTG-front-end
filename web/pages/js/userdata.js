@@ -23,11 +23,13 @@ $(document).ready(function ($) {
                 var userData = data;
                 if (userData.image != null && userData.image != '') {
                     localStorage.setItem('user_image', userData.image);
-                    document.getElementById("profile_image").src = userData.image;
-                    document.getElementById("profile_p").src = userData.image;
+                    // document.getElementById("profile_image").src = userData.image;
+                    // document.getElementById("profile_p").src = userData.image;
                 }
             });
     };
+    document.getElementById("profile_image").src = localStorage.getItem('user_image');
+    document.getElementById("profile_p").src = localStorage.getItem('user_image');
     get_user();
 });
 

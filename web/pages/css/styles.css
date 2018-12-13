@@ -8712,6 +8712,39 @@ input#exampleFormControlFile1 {
 }
 
 @media only screen and (max-width: 780px) and (orientation: landscape) {
+  .dropdown-content a {
+    padding: 4px 16px;
+  }
+  .dropdown-content{
+    left: 50px;
+    top: -25px;
+  }
+
+  .my-float-program {
+    font-size: 20px !important;
+    margin-top: 10px;
+    margin-left: 11px;
+  }
+  .float_program {
+    width: 40px;
+    height: 40px;
+  }
+  .programs_row .programs_right .text p {
+    height: 45% !important;
+  }
+  .block-10 .person-info p {
+    height: 50% !important;
+  }
+
+  .forget_bg {
+    display: block !important;
+  }
+  .nav-item:hover {
+    border-bottom: none !important;
+}
+  .fb_iframe_widget {
+    top: -8px !important;
+  }
   .goto_edit {
     top: 80px;
     left: 15%;
@@ -8727,9 +8760,13 @@ input#exampleFormControlFile1 {
     max-height: 385px;
     height: 370px;
   }
-  .card_career_1, .card_career_2 {
+  .card_career_1{
     margin-left: 10px !important;
   }
+  .card_career_2{
+    margin-left: 10% !important;
+  } 
+
   .nav-item {
     height: 30px;
   }
