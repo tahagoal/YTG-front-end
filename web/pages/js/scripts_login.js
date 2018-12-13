@@ -60,14 +60,6 @@ $(document).ready(function ($) {
 	if (token != null) {
 		middle_auth();
 	}
-	else{
-		setTimeout(function(){
-			var auth2 = gapi.auth2.getAuthInstance();
-		    auth2.signOut().then(function () {
-		    })
-		,100})
-		
-	}
 
 	check_ath();
 
@@ -328,7 +320,14 @@ function onSignIn(googleUser) {
 	lname = profile.getFamilyName();
 	image = profile.getImageUrl();
 	email = profile.getEmail();
-	google_sign();
+	if(localStorage.getItem('token') == null){
+		setTimeout(function(){
+			var auth2 = gapi.auth2.getAuthInstance();
+		    auth2.signOut().then(function () {
+		    })
+		google_sign();
+		,100})
+	}
 
 }
 
