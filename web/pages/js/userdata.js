@@ -26,6 +26,9 @@ $(document).ready(function ($) {
                     // document.getElementById("profile_image").src = userData.image;
                     // document.getElementById("profile_p").src = userData.image;
                 }
+                else{
+                    localStorage.setItem('user_image', 'assets/imgs/profile.jpeg');
+                }
             });
     };
     document.getElementById("profile_image").src = localStorage.getItem('user_image');

@@ -406,7 +406,12 @@ $('#login_submit').click(function (e) {
 		console.log("success");
 		localStorage.setItem('token', result.token);
 		localStorage.setItem('user_id', result._id);
-		localStorage.setItem('user_image', result.image);
+		if(result.image != null && result.image != ''){
+			localStorage.setItem('user_image', result.image);
+		}
+		else{
+			localStorage.setItem('user_image', 'assets/imgs/profile.jpeg');
+		}
         swal("Hi " + result.first_name, "", "success", {
             button: "Ok",
         }).then((value) => {

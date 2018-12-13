@@ -430,6 +430,11 @@
                             button: "Try again!",
                         });
                 }
+                else if(current_password != '' && password == ''){
+                    swal("Please enter a new password", "", "error", {
+                            button: "Try again!",
+                        });
+                }
                 else{
                     $("#pageloader").fadeIn();
                     $.ajax({
@@ -438,7 +443,12 @@
                         data: data,
                         headers: {"Authorization": localStorage.getItem('token')},
                         success: function (result) {
-                            localStorage.setItem('user_image', result.image);
+                            if(result.image != null && result.image != ''){
+                                localStorage.setItem('user_image', result.image);
+                            }
+                            else{
+                                localStorage.setItem('user_image', 'assets/imgs/profile.jpeg');
+                            }
                             $("#pageloader").fadeOut();
                             swal("Good job!", "User Account updated successfully", "success", {
                                 button: "Got it!",
@@ -493,6 +503,11 @@
             }
             if (password != "" && current_password == '') {
                 swal("Please enter your current password", "", "error", {
+                        button: "Try again!",
+                    });
+            }
+            else if(current_password != '' && password == ''){
+                swal("Please enter a new password", "", "error", {
                         button: "Try again!",
                     });
             }
