@@ -40,16 +40,10 @@ $(document).ready(function ($) {
 		e.preventDefault();
 		localStorage.removeItem('token');
 		localStorage.removeItem('user_id');
-		 gapi.auth.authorize(
-		    { 
-		        'client_id': 'UA-130196602-1', 
-		        'scope': 'profile', 
-		        'immediate': false,
-		        cookie_policy: 'single_host_origin',
-		        response_type: 'token id_token'
-		    },
-		    function (authResult) {   gapi.auth.signOut();}
-		);
+		var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log("on sign out");
+        });
 		setTimeout(function(){
 			window.location.href = 'home.html';		
 		},200);
