@@ -345,6 +345,12 @@ google_sign = function(){
 		localStorage.setItem('token', result.token);
 		localStorage.setItem('user_id', result._id);
 		localStorage.setItem('google_sign', true);
+		if (userData.image != null && userData.image != '') {
+			localStorage.setItem('user_image', image);
+        }
+        else{
+            localStorage.setItem('user_image', 'assets/imgs/profile.jpeg');
+        }
 		window.location.replace('home.html');
 	})
 		.done(function () {
@@ -367,6 +373,12 @@ google_sign = function(){
 				console.log("success");
 				localStorage.setItem('token', result.token);
 				localStorage.setItem('user_id', result._id);
+				if (userData.image != null && userData.image != '') {
+					localStorage.setItem('user_image', image);
+                }
+                else{
+                    localStorage.setItem('user_image', 'assets/imgs/profile.jpeg');
+                }
 
 				swal("Thank you!", "Please complete your data", "success", {
 					button: "Got it!",
