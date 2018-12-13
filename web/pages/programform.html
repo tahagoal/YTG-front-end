@@ -309,7 +309,7 @@
             setTimeout(function(){
                 window.scrollBy(0, -120);
             },20)
-        // if ($("#form_created").valid()) {
+        if ($('#form_created')[0].checkValidity()) {
             for (var i = 0; i < questions_global.length; i++) {
                 if (questions_global[i].type == 'File Upload') {
                     if($('#form_created input[name=' + questions_global[i]._id + ']')[0].files[0].size > 2097152){
@@ -458,7 +458,7 @@
                         });
                 }
             }, 1000);
-        // }
+        }
 
     })
 
