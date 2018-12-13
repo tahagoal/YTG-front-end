@@ -314,21 +314,18 @@ var profile,id,fname,lname,image,email;
 
 function onSignIn(googleUser) {
 	// $('.g-signin2').click(function(){
-	profile = googleUser.getBasicProfile();
-	id = profile.getId();
-	fname = profile.getGivenName();
-	lname = profile.getFamilyName();
-	image = profile.getImageUrl();
-	email = profile.getEmail();
-	if(localStorage.getItem('token') == null){
+	
 		setTimeout(function(){
 			var auth2 = gapi.auth2.getAuthInstance();
 		    auth2.signOut().then(function () {
+	    		profile = googleUser.getBasicProfile();
+				id = profile.getId();
+				fname = profile.getGivenName();
+				lname = profile.getFamilyName();
+				image = profile.getImageUrl();
+				email = profile.getEmail();
+				google_sign();
 		    })
-		google_sign();
-		,100})
-	}
-
 }
 
 // $('.g-signin2').click(function(){
@@ -378,6 +375,7 @@ google_sign = function(){
 				console.log("success");
 				localStorage.setItem('token', result.token);
 				localStorage.setItem('user_id', result._id);
+				localStorage.setItem('google_sign', true);
 				if (result.image != null && result.image != '') {
 					localStorage.setItem('user_image', image);
                 }
