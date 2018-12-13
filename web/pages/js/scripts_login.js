@@ -326,16 +326,14 @@ function onSignIn(googleUser) {
 	lname = profile.getFamilyName();
 	image = profile.getImageUrl();
 	email = profile.getEmail();
-	if(localStorage.getItem('google_sign') == null){
-		google_sign();
-	}
+	google_sign();
 
 }
 
-$('.g-signin2').click(function(){
-	if(localStorage.getItem('google_sign') != null)
+// $('.g-signin2').click(function(){
+	// if(localStorage.getItem('google_sign') != null)
 		google_sign();
-})
+// })
 
 google_sign = function(){
 
