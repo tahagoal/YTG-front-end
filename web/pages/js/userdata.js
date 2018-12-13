@@ -33,6 +33,7 @@ $(document).ready(function ($) {
     };
     document.getElementById("profile_image").src = localStorage.getItem('user_image');
     document.getElementById("profile_p").src = localStorage.getItem('user_image');
-    get_user();
+    if(localStorage.getItem('token'))
+        get_user();
 });
 
