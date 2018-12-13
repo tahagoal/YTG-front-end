@@ -60,6 +60,12 @@ $(document).ready(function ($) {
 	if (token != null) {
 		middle_auth();
 	}
+	else{
+		var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	      // console.log('User signed out.');
+	    });
+	}
 
 	check_ath();
 
