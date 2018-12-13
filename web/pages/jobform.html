@@ -288,7 +288,8 @@
     }
 
        $('.submit_form').click(function (e) {
-        e.preventDefault();
+         if($('#form_created')[0].checkValidity())
+            e.preventDefault();
         // if ($("#form_created").valid()) {
 
             for (var i = 0; i < questions_global.length; i++) {
