@@ -8716,11 +8716,23 @@ input#exampleFormControlFile1 {
 }
 
 @media only screen and (max-width: 820px) and (min-width: 781px) and (orientation: landscape){
+  #partner_logos img {
+    width: 140% !important;
+  }
+  .block-10 .person-info p{
+    font-size: 12px;
+    height: 50%;
+  }
+  .block-10 .person-info .name-2 {
+    font-size: 14px;
+  }
   .programs_row .text h2, .programs_row .text h5 {
     font-size: 12px !important;
   }
 
-  .event_form_cover, .job_form_cover, .program_form_cover{
+  .event_form_cover, .job_form_cover, .program_form_cover, 
+  .first_section_program, .first_section_partner,.first_section_careers,
+  .first_section_about {
     margin-top: 0px !important;
   }
 
@@ -8752,6 +8764,20 @@ input#exampleFormControlFile1 {
 
   .nav-item {
     height: 30px;
+  }
+
+  .news_container li{
+    font-size: 13px !important;
+  }
+
+  .personne.larg img {
+    object-fit: contain !important;
+  }
+
+  .personne-add {
+    width: 50%;
+    height: 260px;
+    margin: 0 auto;
   }
 }
 
