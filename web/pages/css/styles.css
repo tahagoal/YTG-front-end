@@ -8448,6 +8448,10 @@ input#exampleFormControlFile1 {
 
 @media (max-width: 768px) {
 
+  h1{
+      font-size: 22px !important;
+  }
+
   #partner_logos img {
     float: left;
   }
