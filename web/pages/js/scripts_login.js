@@ -352,7 +352,7 @@ google_sign = function(){
 		localStorage.setItem('token', result.token);
 		localStorage.setItem('user_id', result._id);
 		localStorage.setItem('google_sign', true);
-		if (userData.image != null && userData.image != '') {
+		if (result.image != null && result.image != '') {
 			localStorage.setItem('user_image', image);
         }
         else{
@@ -380,7 +380,7 @@ google_sign = function(){
 				console.log("success");
 				localStorage.setItem('token', result.token);
 				localStorage.setItem('user_id', result._id);
-				if (userData.image != null && userData.image != '') {
+				if (result.image != null && result.image != '') {
 					localStorage.setItem('user_image', image);
                 }
                 else{
