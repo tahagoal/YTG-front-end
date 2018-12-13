@@ -280,6 +280,9 @@
             var dueDate = parseISOString(event.dueDate);
             $('.event_date').append(dueDate);
         }
+        else{
+            $('.event_date').css('display','none');
+        }
         
         // var tags = event.tags.split(',');
 

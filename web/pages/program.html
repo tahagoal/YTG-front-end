@@ -116,7 +116,7 @@
 
     <section class="ftco-section-2" style="padding-top: 50px;">
         <div class="container-fluid">
-            <input type="submit" value="Apply now" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
+            <input type="submit" value="" class="go_form center btn btn-2 btn-2g" data-aos="fade-up">
         </div>
     </section>
 
@@ -242,6 +242,14 @@
         $('head').append( '<meta property="og:description" content="'+ program.description +'"/>' );
         $('head').append( '<meta property="og:image" content='+ backend_url + program.images[0] +' />' );
         $('head').append( '<meta name="twitter:image" content='+ backend_url + program.images[0] +' />' );
+
+        if(program.segment == '#fea601' || program.segment == '#ff5a61'){
+            $('.go_form').val('Show Interest')
+        }
+
+        else{
+            $('.go_form').val('Apply Now');
+        }
 
         // var tags = program.tags.split(',');
 

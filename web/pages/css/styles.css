@@ -8715,6 +8715,46 @@ input#exampleFormControlFile1 {
   }
 }
 
+@media only screen and (max-width: 820px) and (min-width: 781px) and (orientation: landscape){
+  .programs_row .text h2, .programs_row .text h5 {
+    font-size: 12px !important;
+  }
+
+  .event_form_cover, .job_form_cover, .program_form_cover{
+    margin-top: 0px !important;
+  }
+
+  h1{
+    font-size: 22px !important;
+  }
+
+   .dropdown-content a {
+    padding: 4px 16px;
+  }
+  .dropdown-content{
+    left: 50px;
+    top: -25px;
+  }
+
+  .my-float-program {
+    font-size: 20px !important;
+    margin-top: 10px;
+    margin-left: 11px;
+  }
+  .float_program {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-item:hover {
+    border-bottom: none !important;
+  }
+
+  .nav-item {
+    height: 30px;
+  }
+}
+
 @media only screen and (max-width: 780px) and (orientation: landscape) {
   .dropdown-content a {
     padding: 4px 16px;
