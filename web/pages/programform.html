@@ -320,7 +320,7 @@
                     }
                 }
             }
-            var query_string = $('form :input').serialize();
+            var query_string = $('form :input').serialize().replace(/%20/g, " ");
             var params = query_string.split('&'),
             query_object = {};
 
