@@ -8448,6 +8448,10 @@ input#exampleFormControlFile1 {
 
 @media (max-width: 768px) {
 
+  .MsoTableGrid{
+    width: 70vw !important;
+  }
+
   h1{
       font-size: 22px !important;
   }
